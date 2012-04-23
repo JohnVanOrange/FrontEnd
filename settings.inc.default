@@ -1,3 +1,4 @@
 <?php
 define('ROOT_DIR','/home/image/public_html');
+define('WEB_ROOT','http://johnvanorange.com/')
 ?>
