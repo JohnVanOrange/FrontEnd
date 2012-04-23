@@ -1,0 +1,7 @@
+DirectoryIndex random.php
+
+RewriteEngine On
+Options +FollowSymlinks
+
+RewriteRule ^display/(.*)$ display.php?image=$1 [L]
+RewriteRule ^random$ random.php [L]
