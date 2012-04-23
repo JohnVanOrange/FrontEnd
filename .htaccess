@@ -5,3 +5,7 @@ Options +FollowSymlinks
 
 RewriteRule ^display/(.*)$ display.php?image=$1 [L]
 RewriteRule ^random$ random.php [L]
+RewriteRule ^error/(.*)$ error.php?number=$1 [L]
+
+ErrorDocument 403 /error/403
+ErrorDocument 404 /error/404
