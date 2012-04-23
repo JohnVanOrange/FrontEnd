@@ -1,1 +1,4 @@
 This is the codebase for the image viewing site at http://johnvanorange.com
+
+After cloning this repo, all the images must go into a "media" directory in the root.
+Also, a /smarty/templates_c directory needs to be created and needs to be writable by apache.
