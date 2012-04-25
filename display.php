@@ -18,5 +18,7 @@ $result = $result[0];
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
 $tpl->assign('web_root',WEB_ROOT);
 $tpl->assign('type',$result['type']);
+$tpl->assign('width',$result['width']);
+$tpl->assign('height',$result['height']);
 
 $tpl->display($template);

@@ -8,7 +8,7 @@
 
 <body>
 <a href='../random'>
- <img id='main_image' src='{$image}' />
+ <img id='main_image' src='{$image}' height='{$height}' width='{$width}' />
 </a>
 <p>Click picture for more{if $type != 'gif'}, or <a href='http://brazzify.me/?s={$image}'>Brazzify</a>{/if}</p>
 
