@@ -1,6 +1,6 @@
 <?php
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/common.php');
+require_once(ROOT_DIR.'/common/db.php');
 
 $dir = ROOT_DIR.'/media/';
 $files = glob($dir.'*.*');

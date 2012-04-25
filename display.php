@@ -1,6 +1,7 @@
 <?php
 require_once('settings.inc');
-require_once('common/common.php');
+require_once('common/smarty.php');
+require_once('common/db.php');
 
 $template = 'display.tpl';
 

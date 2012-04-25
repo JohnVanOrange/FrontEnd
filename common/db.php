@@ -1,19 +1,4 @@
 <?php
-
-class DB extends PDO {
-
- public function __construct($dsn, $user, $pass, $options=array()) {
-  parent::__construct($dsn, $user, $pass, $options);
-  $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
- }
-
- public function __destruct() {
- }
-
- public function fetch($query, $values=NULL) {
-  $s = $this->prepare($query);
-  $s->execute($values);
-  return $s->fetchAll();
- }
-}
+require_once(ROOT_DIR.'/common/db.class.php');
+$db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 ?>
