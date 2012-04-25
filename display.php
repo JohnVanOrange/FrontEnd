@@ -4,7 +4,18 @@ require_once('common/common.php');
 
 $template = 'display.tpl';
 
-$tpl->assign('image',WEB_ROOT.'media/'.$_GET[image]);
+//should do some error handling when the images are set to display = 0
+$sql = "SELECT * FROM images WHERE filename = :filename LIMIT 1;";
+$val = array(
+ ':filename' => $_GET[image]
+);
+$result = $result = $db->fetch($sql, $val);
+$result = $result[0];
+
+//TODO: check to make sure there is a result
+
+$tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
 $tpl->assign('web_root',WEB_ROOT);
+$tpl->assign('type',$result['type']);
 
 $tpl->display($template);
