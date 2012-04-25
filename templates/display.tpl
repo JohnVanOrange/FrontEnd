@@ -10,7 +10,7 @@
 <a href='../random'>
  <img id='main_image' src='{$image}' />
 </a>
-<p>Click picture for more, or <a href='http://brazzify.me/?s={$image}'>Brazzify</a></p>
+<p>Click picture for more{if $type != 'gif'}, or <a href='http://brazzify.me/?s={$image}'>Brazzify</a>{/if}</p>
 
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
