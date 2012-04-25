@@ -1,3 +1,9 @@
+#Protect inc files from being read
+<FilesMatch "\.(inc)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
 DirectoryIndex random.php
 
 RewriteEngine On

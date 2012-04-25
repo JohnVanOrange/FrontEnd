@@ -1,4 +1,8 @@
 <?php
 define('ROOT_DIR','/home/image/public_html');
 define('WEB_ROOT','http://johnvanorange.com/');
+define('DB_HOST','localhost');
+define('DB_NAME','');
+define('DB_USER','');
+define('DB_PASS','')
 ?>

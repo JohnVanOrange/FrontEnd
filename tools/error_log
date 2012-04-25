@@ -1,0 +1,6 @@
+[25-Apr-2012 14:59:04] PHP Warning:  require_once(ROOT_DIRcommon/common.php): failed to open stream: No such file or directory in /home/jvano/public_html/tools/insert_images_to_db.php on line 2
+[25-Apr-2012 14:59:04] PHP Fatal error:  require_once(): Failed opening required 'ROOT_DIRcommon/common.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/jvano/public_html/tools/insert_images_to_db.php on line 2
+[25-Apr-2012 15:03:04] PHP Warning:  require_once(/home/jvano/public_htmlcommon/common.php): failed to open stream: No such file or directory in /home/jvano/public_html/tools/insert_images_to_db.php on line 3
+[25-Apr-2012 15:03:04] PHP Fatal error:  require_once(): Failed opening required '/home/jvano/public_htmlcommon/common.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/jvano/public_html/tools/insert_images_to_db.php on line 3
+[25-Apr-2012 15:03:23] PHP Warning:  require_once(common/var.inc): failed to open stream: No such file or directory in /home/jvano/public_html/common/common.php on line 2
+[25-Apr-2012 15:03:23] PHP Fatal error:  require_once(): Failed opening required 'common/var.inc' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/jvano/public_html/common/common.php on line 2
