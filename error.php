@@ -1,6 +1,6 @@
 <?php
 require_once('settings.inc');
-require_once('common/common.php');
+require_once('common/smarty.php');
 
 $template = 'error.tpl';
 
