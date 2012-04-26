@@ -16,6 +16,7 @@ $result = $result[0];
 //TODO: check to make sure there is a result
 
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
+$tpl->assign('image_name', $result['filename']);
 $tpl->assign('web_root',WEB_ROOT);
 $tpl->assign('type',$result['type']);
 $tpl->assign('width',$result['width']);
@@ -27,5 +28,8 @@ if ($_COOKIE['theme']) {
 else {
  $tpl->assign('theme','light');
 }
+
+$tpl->assign('brazzify',FALSE);
+if (isset($_GET['brazzify'])) $tpl->assign('brazzify',TRUE);
 
 $tpl->display($template);

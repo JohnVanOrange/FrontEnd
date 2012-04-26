@@ -12,9 +12,9 @@
 <body class='{$theme}'>
 <div id='set_theme'></div>
 <a href='../random'>
- <img id='main_image' src='{$image}' height='{$height}' width='{$width}' />
+ <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' height='{$height}' width='{$width}' />
 </a>
-<p>Click picture for more{if $type != 'gif'}, or <a href='http://brazzify.me/?s={$image}'>Brazzify</a>{/if}</p>
+<p>Click picture for more{if $type != 'gif' AND !$brazzify}, or <a href='{$web_root}brazzify/{$image_name}'>Brazzify</a>{/if}</p>
 
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">

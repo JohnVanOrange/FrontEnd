@@ -10,6 +10,7 @@ RewriteEngine On
 Options +FollowSymlinks
 
 RewriteRule ^display/(.*)$ display.php?image=$1 [L]
+RewriteRule ^brazzify/(.*)$ display.php?image=$1&brazzify [L]
 RewriteRule ^random$ random.php [L]
 RewriteRule ^error/(.*)$ error.php?number=$1 [L]
 
