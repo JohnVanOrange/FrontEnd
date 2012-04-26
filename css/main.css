@@ -24,7 +24,18 @@ body.dark #set_theme {
  background: url('/img/sun.png') top left no-repeat;
 }
 
+div.addthis_toolbox {
+ margin: 0 auto;
+ width: 350px;
+}
+
 #set_theme {
  width: 28px;
  height: 28px;
+}
+
+#bugs {
+ font-size: 75%;
+ float: right;
+ margin-right: 10px;
 }

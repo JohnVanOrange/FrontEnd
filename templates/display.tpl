@@ -28,5 +28,6 @@
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f95e38340e66b80"></script>
 <!-- AddThis Button END -->
+<p id='bugs'><a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a></p>
 </body>
 </html>
