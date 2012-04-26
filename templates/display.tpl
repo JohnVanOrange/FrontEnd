@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Images for All</title>
+<title>John VanOrange</title>
 <link rel='shortcut icon' type='image/png' href='{$web_root}img/Nyan-Cat-Original_032x032_32.png' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/main.css' />
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src='{$web_root}js/jquery.cookie.js'></script>
+<script src='{$web_root}js/main.js'></script>
 </head>
 
-<body>
+<body class='{$theme}'>
+<div id='set_theme'></div>
 <a href='../random'>
  <img id='main_image' src='{$image}' height='{$height}' width='{$width}' />
 </a>

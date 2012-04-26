@@ -5,3 +5,26 @@ html {
  margin:0 auto;
  text-align: center;
 }
+
+body.light {
+ color: black;
+ background-color: white;
+}
+
+body.light #set_theme {
+ background: url('/img/moon.png') top left no-repeat;
+}
+
+body.dark {
+ color: white;
+ background-color: black;
+}
+
+body.dark #set_theme {
+ background: url('/img/sun.png') top left no-repeat;
+}
+
+#set_theme {
+ width: 28px;
+ height: 28px;
+}

@@ -21,4 +21,11 @@ $tpl->assign('type',$result['type']);
 $tpl->assign('width',$result['width']);
 $tpl->assign('height',$result['height']);
 
+if ($_COOKIE['theme']) {
+ $tpl->assign('theme',$_COOKIE['theme']);
+}
+else {
+ $tpl->assign('theme','light');
+}
+
 $tpl->display($template);
