@@ -6,15 +6,18 @@
 <link rel='stylesheet' type='text/css' href='{$web_root}css/main.css' />
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script src='{$web_root}js/jquery.cookie.js'></script>
+<script src='{$web_root}js/jquery.history.js'></script>
 <script src='{$web_root}js/main.js'></script>
 </head>
 
 <body class='{$theme}'>
 <div id='set_theme'></div>
 <a href='../random'>
- <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' height='{$height}' width='{$width}' />
+ <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' name='{$image_name}' height='{$height}' width='{$width}' />
 </a>
-<p>Click picture for more{if $type != 'gif' AND !$brazzify}, or <a href='{$web_root}brazzify/{$image_name}'>Brazzify</a>{/if}</p>
+<p>Click picture for more
+{if $type != 'gif' AND !$brazzify}<span id='brazzers_text'>, or <a href='{$web_root}brazzify/{$image_name}' id='brazzify'>Brazzify</a></span>{/if}
+</p>
 
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
