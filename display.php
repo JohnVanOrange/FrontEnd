@@ -1,7 +1,7 @@
 <?php
 require_once('settings.inc');
 require_once('common/smarty.php');
-require_once('api/api.class.php');
+require_once('common/api.class.php');
 
 $api = new API;
 
