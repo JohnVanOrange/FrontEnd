@@ -1,17 +1,13 @@
 <?php
 require_once('settings.inc');
 require_once('common/smarty.php');
-require_once('common/db.php');
+require_once('api/api.class.php');
+
+$api = new API;
 
 $template = 'display.tpl';
 
-//should do some error handling when the images are set to display = 0
-$sql = "SELECT * FROM images WHERE filename = :filename LIMIT 1;";
-$val = array(
- ':filename' => $_GET[image]
-);
-$result = $result = $db->fetch($sql, $val);
-$result = $result[0];
+$result = $api->getImage(array('image'=>$_GET['image']));
 
 //TODO: check to make sure there is a result
 
