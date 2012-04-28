@@ -1,13 +1,12 @@
 <?php
-require_once('../settings.inc');
-require_once('../common/smarty.php');
-require_once('../common/api.class.php');
+require_once('common/smarty.php');
+require_once('common/api.class.php');
 
 $api = new API;
 
 $template = 'display.tpl';
 
-$result = $api->getImage(array('image'=>$_GET['image']));
+$result = $api->getImage(array('image'=>$image));
 
 //TODO: check to make sure there is a result
 
@@ -26,6 +25,6 @@ else {
 }
 
 $tpl->assign('brazzify',FALSE);
-if (isset($_GET['brazzify'])) $tpl->assign('brazzify',TRUE);
+if (isset($brazzify)) $tpl->assign('brazzify',TRUE);
 
 $tpl->display($template);

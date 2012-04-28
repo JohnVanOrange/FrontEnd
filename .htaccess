@@ -8,15 +8,14 @@
  AddOutputFilterByType DEFLATE text/html text/css application/javascript
 </IfModule>
 
-DirectoryIndex pages/random.php
+DirectoryIndex router.php
 
 RewriteEngine On
 Options +FollowSymlinks
 
-RewriteRule ^display/(.*)$ pages/display.php?image=$1 [L]
-RewriteRule ^brazzify/(.*)$ pages/display.php?image=$1&brazzify [L]
-RewriteRule ^random$ pages/random.php [L]
-RewriteRule ^error/(.*)$ pages/error.php?number=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . router.php
 
 ErrorDocument 403 /error/403
 ErrorDocument 404 /error/404
