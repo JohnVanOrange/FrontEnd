@@ -1,6 +1,6 @@
 <?php
-require_once('settings.inc');
-require_once('common/api.class.php');
+require_once('../settings.inc');
+require_once('../common/api.class.php');
 
 $api = new API;
 
