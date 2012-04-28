@@ -19,9 +19,9 @@ class API {
  }
 
  public function randomImage($options=array()) {
-  $sql = 'SELECT * FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
+  $sql = 'SELECT filename FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
-  return $result[0];
+  return $result[0]['filename'];
  }
 
  public function getImage($options=array()) {
