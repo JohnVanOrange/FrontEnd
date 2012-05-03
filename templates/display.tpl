@@ -25,7 +25,6 @@
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f95e38340e66b80"></script>
 <!-- AddThis Button END -->
 <p id='bugs'><a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a></p>
-<iframe src="https://embed.spotify.com/?uri=spotify:user:cbulock:playlist:5ZgcOYbvY8t6ZhExJCt6n6" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script src='{$web_root}js/jquery.cookie.js'></script>
 <script src='{$web_root}js/jquery.history.js'></script>
