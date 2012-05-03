@@ -29,6 +29,10 @@ div.addthis_toolbox {
  width: 354px;
 }
 
+iframe {
+ float: left;
+}
+
 #set_theme {
  width: 28px;
  height: 28px;
