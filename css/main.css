@@ -39,3 +39,9 @@ div.addthis_toolbox {
  float: right;
  margin-right: 10px;
 }
+
+#brazz_credit {
+ font-size: 75%;
+ float: left;
+ margin-left: 10px;
+}
