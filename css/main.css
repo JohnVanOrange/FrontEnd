@@ -11,13 +11,29 @@ body.light {
  background-color: white;
 }
 
+a {
+ text-decoration: none;
+}
+
+a:hover {
+ text-decoration: underline;
+}
+
 body.light #set_theme {
  background: url('/img/moon.png') top left no-repeat;
+}
+
+body.light a, body.light a:visited, body.light a:visited:hover, body.light a:hover {
+ color: #191970;
 }
 
 body.dark {
  color: white;
  background-color: black;
+}
+
+body.dark a, body.dark a:visited, body.dark a:visited:hover, body.dark a:hover {
+ color: #ff9900;
 }
 
 body.dark #set_theme {
