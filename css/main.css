@@ -50,7 +50,7 @@ div.addthis_toolbox {
  height: 28px;
 }
 
-#bugs, #scorn {
+#bugs {
  font-size: 75%;
  float: right;
  margin-right: 10px;
@@ -60,4 +60,11 @@ div.addthis_toolbox {
  font-size: 75%;
  float: left;
  margin-left: 10px;
+}
+
+#scorn {
+ font-size: 75%;
+ position: absolute;
+ top: 8px;
+ right: 18px;
 }
