@@ -40,12 +40,17 @@ body.dark #set_theme {
  background: url('/img/sun.png') top left no-repeat;
 }
 
+p {
+ margin: 5px;
+}
+
 div.addthis_toolbox {
  margin: 0 auto;
  width: 354px;
 }
 
 #set_theme {
+ float: left;
  width: 28px;
  height: 28px;
 }
@@ -68,3 +73,14 @@ div.addthis_toolbox {
  top: 8px;
  right: 18px;
 }
+
+#tos {
+ text-align: left;
+ font-size: 90%;
+}
+
+#tos p{
+ margin: 1em;
+}
+
+

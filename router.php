@@ -9,14 +9,11 @@ switch($request[0]) {
  case 'random':
   include(ROOT_DIR.'/pages/random.php');
  break;
- 
- case 'display':
-  $image = $request[1];
-  include(ROOT_DIR.'/pages/display.php');
- break;
-
+  
  case 'brazzify':
   $brazzify = TRUE;
+ 
+ case 'display':
   $image = $request[1];
   include(ROOT_DIR.'/pages/display.php');
  break;
@@ -29,6 +26,10 @@ switch($request[0]) {
  case 'error':
   $number = $request[1];
   include(ROOT_DIR.'/pages/error.php');
+ break;
+
+ case 'tos':
+  include(ROOT_DIR.'/pages/tos.php');
  break;
 
  default:
