@@ -30,4 +30,5 @@ else {
 $tpl->assign('brazzify',FALSE);
 if (isset($brazzify)) $tpl->assign('brazzify',TRUE);
 
+header("Content-type: text/html; charset=UTF-8");
 $tpl->display($template);

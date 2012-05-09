@@ -16,4 +16,5 @@ else {
  $tpl->assign('theme','light');
 }
 
+header("Content-type: text/html; charset=UTF-8");
 $tpl->display($template);
