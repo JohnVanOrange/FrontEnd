@@ -6,9 +6,12 @@ $api = new API;
 
 $template = 'display.tpl';
 
-$result = $api->getImage(array('image'=>$image));
-
-//TODO: check to make sure there is a result
+try {
+ $result = $api->getImage(array('image'=>$image));
+}
+catch (exception $e) {
+ page_exception_handler($e);
+}
 
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
 $tpl->assign('image_name', $result['filename']);

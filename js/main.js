@@ -27,3 +27,20 @@ function normal() {
  $('#main_image').attr('src','http://'+document.domain+'/media/'+$('#main_image').attr('name'));
  $('#brazzers_text').show();
 }
+
+api = {
+ client : function (method, opt) {
+  url = '/api/' + method;
+  response = $.parseJSON($.ajax({
+   type: 'post',
+   async: false,
+   url: url,
+   data: opt,
+   dataType: 'json'
+  }).responseText);
+ return response;
+ },
+ call : function(method, opt) {
+  return this.client(method, opt);
+ }
+};

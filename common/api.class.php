@@ -15,6 +15,7 @@ class API {
  }
 
  public function reportImage($options=array()) {
+  $sql = 'INSERT INTO reports';
   return NULL;
  }
 
@@ -25,13 +26,21 @@ class API {
  }
 
  public function getImage($options=array()) {
-  //need to add error handling when the images are set to display = 0
   $sql = 'SELECT * from images WHERE filename = :filename LIMIT 1;';
   $val = array(
    ':filename' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
-  return $result[0];
+  if (!$result) throw new Exception('Image not found', 404);
+  $result = $result[0];
+  if (!$result['display']) {
+   unset($result['filename']);
+   unset($result['hash']);
+   unset($result['height']);
+   unset($result['width']);
+   unset($result['type']);
+  }
+  return $result;
  }
 
 }
