@@ -33,13 +33,7 @@ class API {
   $result = $this->db->fetch($sql,$val);
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
-  if (!$result['display']) {
-   unset($result['filename']);
-   unset($result['hash']);
-   unset($result['height']);
-   unset($result['width']);
-   unset($result['type']);
-  }
+  if (!$result['display']) throw new Exception('Image removed', 403); 
   return $result;
  }
 
