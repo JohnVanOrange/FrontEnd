@@ -20,15 +20,10 @@ $tpl->assign('type',$result['type']);
 $tpl->assign('width',$result['width']);
 $tpl->assign('height',$result['height']);
 
-if ($_COOKIE['theme']) {
- $tpl->assign('theme',$_COOKIE['theme']);
-}
-else {
- $tpl->assign('theme','light');
-}
-
 $tpl->assign('brazzify',FALSE);
 if (isset($brazzify)) $tpl->assign('brazzify',TRUE);
+
+require_once('common.php');
 
 header("Content-type: text/html; charset=UTF-8");
 $tpl->display($template);
