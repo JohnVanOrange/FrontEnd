@@ -18,7 +18,7 @@
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
 <script src='{$web_root}js/jquery.cookie.js'></script>
 <script src='{$web_root}js/jquery.history.js'></script>
-<script src='{$web_root}js/main.js'></script>
+<script src='{$web_root}js/main.js?20120514'></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
