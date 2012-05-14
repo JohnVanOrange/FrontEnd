@@ -3,11 +3,27 @@ $(document).ready(function() {
  History.Adapter.bind(window,'statechange',function(){
   var State = History.getState();
  });
+ $('#report').click(function(event) {
+  event.preventDefault();
+  $('#report_dialog').dialog({
+   title: 'Report Image',
+   buttons: {
+    'Report': function() {
+     api.call('reportImage',{
+      'id': $('#main_image').attr('image_id'),
+      'type': $('#report_dialog input[type=radio]:checked').val()
+     });
+     $(this).dialog('close');
+    }
+   },
+  });
+ });
+ 
  $('#set_theme').click(function() {
   $('body').toggleClass('light dark');
   $.cookie('theme',$('body').attr('class'),{expires: 365, path: '/'});
  });
- $('#brazzify').click(function() {
+ $('#brazzify').click(function(event) {
   event.preventDefault();
   state = {brazzify: true};
   History.pushState({state:1},'Brazzified','/brazzify/'+$('#main_image').attr('name'));

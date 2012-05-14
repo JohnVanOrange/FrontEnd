@@ -8,8 +8,14 @@
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f95e38340e66b80"></script>
 <!-- AddThis Button END -->
 <p id='brazz_credit'>Brazzification provided by <a href='http://brazzify.me'>brazzify.me</a></p>
-<p id='bugs'><a href='/tos'>Legal</a> | <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a></p>
+<p id='bugs'>
+{if $image_id}
+<a href='' id='report'>Report Image</a> |
+{/if}
+<a href='/tos'>Legal</a> | <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
+</p>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
 <script src='{$web_root}js/jquery.cookie.js'></script>
 <script src='{$web_root}js/jquery.history.js'></script>
 <script src='{$web_root}js/main.js'></script>

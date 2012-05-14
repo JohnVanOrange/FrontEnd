@@ -83,4 +83,7 @@ div.addthis_toolbox {
  margin: 1em;
 }
 
-
+#report_dialog {
+ display: none;
+ text-align: left;
+}
