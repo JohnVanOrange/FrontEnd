@@ -2,7 +2,7 @@
 
 <p><b>1. User's Acknowledgment and Acceptance of Terms</b></p>
 
-<p>John VanOrange (&quot;Us&quot; or &quot;We&quot;) provides the John VanOrange site and various related services (collectively, the &quot;site&quot;) to you, the user, subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the &quot;Terms of Use&quot;), as well as any other written agreement between us and you. In addition, when using particular services or materials on this site, users shall be subject to any posted rules applicable to such services or materials that may contain terms and conditions in addition to those in these Terms of Use. All such guidelines or rules are hereby incorporated by reference into these Terms of Use.</p>
+<p>{$site_name} (&quot;Us&quot; or &quot;We&quot;) provides the {$site_name} site and various related services (collectively, the &quot;site&quot;) to you, the user, subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the &quot;Terms of Use&quot;), as well as any other written agreement between us and you. In addition, when using particular services or materials on this site, users shall be subject to any posted rules applicable to such services or materials that may contain terms and conditions in addition to those in these Terms of Use. All such guidelines or rules are hereby incorporated by reference into these Terms of Use.</p>
 
 <p>BY USING THIS SITE, YOU AGREE TO BE BOUND BY THESE TERMS OF USE. IF YOU DO NOT WISH TO BE BOUND BY THE THESE TERMS OF USE, PLEASE EXIT THE SITE NOW. YOUR REMEDY FOR DISSATISFACTION WITH THIS SITE, OR ANY PRODUCTS, SERVICES, CONTENT, OR OTHER INFORMATION AVAILABLE ON OR THROUGH THIS SITE, IS TO STOP USING THE SITE AND/OR THOSE PARTICULAR PRODUCTS OR SERVICES. YOUR AGREEMENT WITH US REGARDING COMPLIANCE WITH THESE TERMS OF USE BECOMES EFFECTIVE IMMEDIATELY UPON COMMENCEMENT OF YOUR USE OF THIS SITE.</p>
 
@@ -48,15 +48,15 @@
 
 <p><b>6. Intellectual Property Information</b></p>
 
-<p>Copyright (c) 05/01/2012 John VanOrange All Rights Reserved.</p>
+<p>Copyright (c) 05/01/2012 {$site_name} All Rights Reserved.</p>
 
 <p>For purposes of these Terms of Use, &quot;content&quot; is defined as any information, data, communications, software, photos, video, graphics, music, sounds, and other material and services that can be viewed by users on our site. This includes message boards, chat, and other original content.</p>
 
-<p>By accepting these Terms of Use, you acknowledge and agree that all content presented to you on this site is protected by copyrights, trademarks, service marks, patents or other proprietary rights and laws, and is the sole property of John VanOrange and/or its Affiliates. You are only permitted to use the content as expressly authorized by us or the specific content provider. Except for a single copy made for personal use only, you may not copy, reproduce, modify, republish, upload, post, transmit, or distribute any documents or information from this site in any form or by any means without prior written permission from us or the specific content provider, and you are solely responsible for obtaining permission before reusing any copyrighted material that is available on this site. Any unauthorized use of the materials appearing on this site may violate copyright, trademark and other applicable laws and could result in criminal or civil penalties.</p>
+<p>By accepting these Terms of Use, you acknowledge and agree that all content presented to you on this site is protected by copyrights, trademarks, service marks, patents or other proprietary rights and laws, and is the sole property of {$site_name} and/or its Affiliates. You are only permitted to use the content as expressly authorized by us or the specific content provider. Except for a single copy made for personal use only, you may not copy, reproduce, modify, republish, upload, post, transmit, or distribute any documents or information from this site in any form or by any means without prior written permission from us or the specific content provider, and you are solely responsible for obtaining permission before reusing any copyrighted material that is available on this site. Any unauthorized use of the materials appearing on this site may violate copyright, trademark and other applicable laws and could result in criminal or civil penalties.</p>
 
 <p>Neither we or our Affiliates warrant or represent that your use of materials displayed on, or obtained through, this site will not infringe the rights of third parties. See &quot;User's Materials&quot; below for a description of the procedures to be followed in the event that any party believes that content posted on this site infringes on any patent, trademark, trade secret, copyright, right of publicity, or other proprietary right of any party.</p>
 
-<p>The following are registered trademarks, trademarks or service marks of John VanOrange or its Affiliates: John VanOrange. All custom graphics, icons, logos and service names are registered trademarks, trademarks or service marks of John VanOrange or its Affiliates. All other trademarks or service marks are property of their respective owners. Nothing in these Terms of Use grants you any right to use any trademark, service mark, logo, and/or the name of John VanOrange or its Affiliates.</p>
+<p>The following are registered trademarks, trademarks or service marks of {$site_name} or its Affiliates: {$site_name}. All custom graphics, icons, logos and service names are registered trademarks, trademarks or service marks of {$site_name} or its Affiliates. All other trademarks or service marks are property of their respective owners. Nothing in these Terms of Use grants you any right to use any trademark, service mark, logo, and/or the name of {$site_name} or its Affiliates.</p>
 
 <p><b>7. Unauthorized Use of Materials</b></p>
 
@@ -98,7 +98,7 @@
 
 <p>Through your use of the site, you may have the opportunities to engage in commercial transactions with other users and vendors. You acknowledge that all transactions relating to any merchandise or services offered by any party, including, but not limited to the purchase terms, payment terms, warranties, guarantees, maintenance and delivery terms relating to such transactions, are agreed to solely between the seller or purchaser of such merchandize and services and you. WE MAKE NO WARRANTY REGARDING ANY TRANSACTIONS EXECUTED THROUGH, OR IN CONNECTION WITH THIS SITE, AND YOU UNDERSTAND AND AGREE THAT SUCH TRANSACTIONS ARE CONDUCTED ENTIRELY AT YOUR OWN RISK. ANY WARRANTY THAT IS PROVIDED IN CONNECTION WITH ANY PRODUCTS, SERVICES, MATERIALS, OR INFORMATION AVAILABLE ON OR THROUGH THIS SITE FROM A THIRD PARTY IS PROVIDED SOLELY BY SUCH THIRD PARTY, AND NOT BY US OR ANY OTHER OF OUR AFFILIATES.</p>
 
-<p>Content available through this site often represents the opinions and judgments of an information provider, site user, or other person or entity not connected with us. We do not endorse, nor are we responsible for the accuracy or reliability of, any opinion, advice, or statement made by anyone other than an authorized John VanOrange spokesperson speaking in his/her official capacity. Please refer to the specific editorial policies posted on various sections of this site for further information, which policies are incorporated by reference into these Terms of Use.</p>
+<p>Content available through this site often represents the opinions and judgments of an information provider, site user, or other person or entity not connected with us. We do not endorse, nor are we responsible for the accuracy or reliability of, any opinion, advice, or statement made by anyone other than an authorized {$site_name} spokesperson speaking in his/her official capacity. Please refer to the specific editorial policies posted on various sections of this site for further information, which policies are incorporated by reference into these Terms of Use.</p>
 
 <p>You understand and agree that temporary interruptions of the services available through this site may occur as normal events. You further understand and agree that we have no control over third party networks you may access in the course of the use of this site, and therefore, delays and disruption of other network transmissions are completely beyond our control.</p>
 
@@ -152,7 +152,7 @@
 
 <p><b>17. Notices</b></p>
 
-<p>All notices to a party shall be in writing and shall be made either via email or conventional mail. Notices to us must be sent to the attention of Customer Service at admin@johnvanorange.com, if by email, or at John VanOrange 7725 Bramblewood Dr. Apt 2-B if by conventional mail. Notices to you may be sent to the address supplied by you as part of your Registration Data. In addition, we may broadcast notices or messages through the site to inform you of changes to the site or other matters of importance, and such broadcasts shall constitute notice to you at the time of sending.</p>
+<p>All notices to a party shall be in writing and shall be made either via email or conventional mail. Notices to us must be sent to the attention of Customer Service at admin@johnvanorange.com, if by email, or at {$site_name} 7725 Bramblewood Dr. Apt 2-B if by conventional mail. Notices to you may be sent to the address supplied by you as part of your Registration Data. In addition, we may broadcast notices or messages through the site to inform you of changes to the site or other matters of importance, and such broadcasts shall constitute notice to you at the time of sending.</p>
 
 <p><b>18. Entire Agreement</b></p>
 
@@ -174,4 +174,4 @@
 
 <p><b>20. Contact Information</b></p>
 
-<p>Except as explicitly noted on this site, the services available through this site are offered by John VanOrange located at 7725 Bramblewood Dr. Apt 2-B. Our telephone number is 517-879-4090. If you notice that any user is violating these Terms of Use, please contact us at admin@johnvanorange.com.</p>
+<p>Except as explicitly noted on this site, the services available through this site are offered by {$site_name} located at 7725 Bramblewood Dr. Apt 2-B. Our telephone number is 517-879-4090. If you notice that any user is violating these Terms of Use, please contact us at admin@johnvanorange.com.</p>
