@@ -15,8 +15,20 @@ class API {
  }
 
  public function reportImage($options=array()) {
-  $sql = 'INSERT INTO reports';
-  return NULL;
+  //Add report
+  $sql = 'INSERT INTO reports(image_id, report_type, reason) VALUES(:image_id, :report_type, :reason)';
+  $val = array(
+   ':image_id' => $options['id'],
+   ':report_type' => $options['type'],
+   ':reason' => $options['reason']
+  );
+  $this->db->fetch($sql,$val);
+  //Hide image
+  $sql = 'UPDATE images SET display=0 WHERE id = :image_id';
+  $val = array (
+   ':image_id' => $options['id']
+  );
+  return $this->db->fetch($sql,$val);
  }
 
  public function randomImage($options=array()) {
