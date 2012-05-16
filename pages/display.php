@@ -16,7 +16,6 @@ catch (exception $e) {
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
 $tpl->assign('image_name', $result['filename']);
 $tpl->assign('image_id',$result['id']);
-$tpl->assign('web_root',WEB_ROOT);
 $tpl->assign('type',$result['type']);
 $tpl->assign('width',$result['width']);
 $tpl->assign('height',$result['height']);
@@ -28,3 +27,4 @@ require_once('common.php');
 
 header("Content-type: text/html; charset=UTF-8");
 $tpl->display($template);
+?>

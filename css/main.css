@@ -27,6 +27,13 @@ body.light a, body.light a:visited, body.light a:visited:hover, body.light a:hov
  color: #191970;
 }
 
+.light .well {
+ background-color:#f5f5f5;
+}
+
+.light .table-striped tbody tr:nth-child(odd) td,.light .table-striped tbody tr:nth-child(odd) th{background-color:#f9f9f9;}
+.light .table tbody tr:hover td,.light .table tbody tr:hover th{background-color:#f5f5f5;}
+
 body.dark {
  color: white;
  background-color: black;
@@ -39,6 +46,13 @@ body.dark a, body.dark a:visited, body.dark a:visited:hover, body.dark a:hover {
 body.dark #set_theme {
  background: url('/img/sun.png') top left no-repeat;
 }
+
+.dark .well {
+ background-color:#999;
+}
+
+.dark .table-striped tbody tr:nth-child(odd) td,.dark .table-striped tbody tr:nth-child(odd) th{background-color:#5d5d5d;}
+.dark .table tbody tr:hover td,.dark .table tbody tr:hover th{background-color:#5b5b5b;}
 
 p {
  margin: 5px;
@@ -85,5 +99,9 @@ div.addthis_toolbox {
 
 #report_dialog {
  display: none;
+ text-align: left;
+}
+
+.well {
  text-align: left;
 }

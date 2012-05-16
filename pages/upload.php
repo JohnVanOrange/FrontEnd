@@ -1,8 +1,7 @@
 <?php
 require_once('common/smarty.php');
-require_once('common/api.class.php');
 
-$template = 'tos.tpl';
+$template = 'upload.tpl';
 
 require_once('common.php');
 

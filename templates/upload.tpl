@@ -14,12 +14,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>jQuery File Upload Demo</title>
+<title>{$site_name} - Image Upload</title>
+<link rel='shortcut icon' type='image/png' href='{$web_root}img/Nyan-Cat-Original_032x032_32.png' />
+<link rel='stylesheet' type='text/css' href='{$web_root}css/main.css' />
 <meta name="viewport" content="width=device-width">
 <!-- Bootstrap CSS Toolkit styles -->
-<link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap.min.css">
-<!-- Generic page styles -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{$web_root}css/bootstrap.min.css">
 <!-- Bootstrap styles for responsive website layout, supporting different screen sizes -->
 <link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-responsive.min.css">
 <!-- Bootstrap CSS fixes for IE6 -->
@@ -27,11 +27,12 @@
 <!-- Bootstrap Image Gallery styles -->
 <link rel="stylesheet" href="http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-<link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+<link rel='stylesheet' type='text/css' href='{$web_root}css/jquery.fileupload-ui.css' />
 <!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
-<body>
+<body class='{$theme}'>
+<div id='set_theme'></div>
 <div class="container">
     <div class="page-header">
      <h1>Image Uploads</h1>
@@ -111,6 +112,7 @@
 </div>
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
+{literal}
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-upload fade">
         <td class="preview"><span class="fade"></span></td>
@@ -139,9 +141,11 @@
         {% } %}</td>
     </tr>
 {% } %}
+{/literal}
 </script>
 <!-- The template to display files available for download -->
 <script id="template-download" type="text/x-tmpl">
+{literal}
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
         {% if (file.error) { %}
@@ -161,10 +165,11 @@
         {% } %}
     </tr>
 {% } %}
+{/literal}
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="js/vendor/jquery.ui.widget.js"></script>
+<script src="{$web_root}js/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
 <script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
@@ -175,18 +180,21 @@
 <script src="http://blueimp.github.com/cdn/js/bootstrap.min.js"></script>
 <script src="http://blueimp.github.com/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js"></script>
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="js/jquery.iframe-transport.js"></script>
+<script src="{$web_root}js/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->
-<script src="js/jquery.fileupload.js"></script>
+<script src="{$web_root}js/jquery.fileupload.js"></script>
 <!-- The File Upload file processing plugin -->
-<script src="js/jquery.fileupload-fp.js"></script>
+<script src="{$web_root}js/jquery.fileupload-fp.js"></script>
 <!-- The File Upload user interface plugin -->
-<script src="js/jquery.fileupload-ui.js"></script>
+<script src="{$web_root}js/jquery.fileupload-ui.js"></script>
 <!-- The localization script -->
-<script src="js/locale.js"></script>
+<script src="{$web_root}js/locale.js"></script>
 <!-- The main application script -->
-<script src="js/main.js"></script>
+<script src="{$web_root}js/upload.js"></script>
 <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
 <!--[if gte IE 8]><script src="js/cors/jquery.xdr-transport.js"></script><![endif]-->
+<script src='{$web_root}js/jquery.cookie.js'></script>
+<script src='{$web_root}js/jquery.history.js'></script>
+<script src='{$web_root}js/main.js'></script>
 </body> 
 </html>

@@ -24,6 +24,10 @@ switch($request[0]) {
   include(ROOT_DIR.'/pages/api.php');
  break;
 
+ case 'upload':
+  include(ROOT_DIR.'/pages/upload.php');
+ break;
+
  case 'error':
   $number = $request[1];
   include(ROOT_DIR.'/pages/error.php');
