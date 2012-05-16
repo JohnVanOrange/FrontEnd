@@ -12,7 +12,7 @@
 {if $image_id}
 <a href='' id='report'>Report Image</a> |
 {/if}
-<a href='/tos'>Legal</a> | <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
+<a href='/upload'>Upload Image</a> | <a href='/tos'>Legal</a> | <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
 </p>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
