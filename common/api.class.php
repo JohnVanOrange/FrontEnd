@@ -1,5 +1,4 @@
 <?php
-//require_once('../settings.inc');
 require(ROOT_DIR.'/common/db.class.php');
 
 class API {
@@ -10,8 +9,27 @@ class API {
   $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
  }
 
- public function addImage($options=array()) {
-  return NULL;
+ public function addImagefromUpload($options=array()) {
+  $info = getimagesize($options['path']);
+  $filetypepart = explode('/',$info['mime']);
+  $type = end($filetypepart);
+  $filename = md5(mt_rand().$options['path']).'.'.$type;
+  $width = $info[0];
+  $height = $info[1];
+  $hash = md5_file($options['path']);
+  rename($options['path'],ROOT_DIR.'/media/'.$filename);
+
+  $sql = "INSERT INTO images(filename, hash, type, width, height) VALUES(:filename, :hash, :type, :width, :height)";
+  $val = array(
+   ':filename' => $filename,
+   ':hash' => $hash,
+   ':type' => $type,
+   ':width' => $width,
+   ':height' => $height,
+  );
+  $s = $this->db->prepare($sql);
+  $s->execute($val);
+  return $filename;
  }
 
  public function reportImage($options=array()) {
