@@ -36,6 +36,10 @@ switch($request[0]) {
  case 'tos':
   include(ROOT_DIR.'/pages/tos.php');
  break;
+ 
+ case 'bot':
+  include(ROOT_DIR.'/pages/bot.php');
+ break;
 
  default:
   include(ROOT_DIR.'/pages/random.php');

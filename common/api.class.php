@@ -9,16 +9,22 @@ class API {
   $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
  }
 
- public function addImagefromUpload($options=array()) {
+ private function addImage($options=array()) {
   $info = getimagesize($options['path']);
+  if (!$info) {
+   unlink($options['path']);
+   throw new Exception('Not a valid image');
+  }
   $filetypepart = explode('/',$info['mime']);
   $type = end($filetypepart);
-  $filename = md5(mt_rand().$options['path']).'.'.$type;
   $width = $info[0];
   $height = $info[1];
   $hash = md5_file($options['path']);
-  rename($options['path'],ROOT_DIR.'/media/'.$filename);
-
+  $fullfilename = $options['path'].'.'.$type;
+  rename($options['path'],$fullfilename);
+  $filenamepart = explode('/',$fullfilename);
+  $filename = end($filenamepart);
+  //need to add duplicate checking eventually
   $sql = "INSERT INTO images(filename, hash, type, width, height) VALUES(:filename, :hash, :type, :width, :height)";
   $val = array(
    ':filename' => $filename,
@@ -31,6 +37,35 @@ class API {
   $s->execute($val);
   return $filename;
  }
+ 
+ public function addImagefromUpload($options=array()) {
+  $filename = md5(mt_rand().$options['path']);
+  $newpath = ROOT_DIR.'/media/'.$filename;
+  rename($options['path'],$newpath);
+  return $this->addImage(array('path'=>$newpath));
+ }
+
+ public function addImagefromURL($options=array()) {
+  $image = $this->remoteFetch(array('url'=>$options['url']));
+  $filename = md5(mt_rand().$options['url']);
+  $newpath = ROOT_DIR.'/media/'.$filename;
+  file_put_contents($newpath,$image);
+  return $this->addImage(array('path'=>$newpath));
+ }
+
+  private function remoteFetch($options=array()) {
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_URL, $options['url']);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+   curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+'.WEB_ROOT.'bot)');
+   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+   curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+   $response = curl_exec($ch);
+   curl_close($ch);
+   return $response;
+  }
 
  public function reportImage($options=array()) {
   //Add report
