@@ -1,4 +1,6 @@
 $(document).ready(function() {
+ $.noty.defaultOptions.layout = 'topRight';
+ $.noty.defaultOptions.type = 'information'; 
  var History = window.History;
  History.Adapter.bind(window,'statechange',function(){
   var State = History.getState();
@@ -13,12 +15,12 @@ $(document).ready(function() {
       'id': $('#main_image').attr('image_id'),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
+     noty({text: 'Image Reported', type:'success'});//this eventually needs to be in a callback for the api call
      $(this).dialog('close');
     }
    },
   });
  });
- 
  $('#set_theme').click(function() {
   $('body').toggleClass('light dark');
   $.cookie('theme',$('body').attr('class'),{expires: 365, path: '/'});
