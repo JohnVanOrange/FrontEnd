@@ -405,8 +405,8 @@ class UploadHandler
             );
         }
         header('Vary: Accept');
-        $filename = $this->api->addImagefromUpload(array('path'=>$this->options['upload_dir'].$info[0]->name));
-        $info[0]->url = WEB_ROOT.'media/'.$filename;
+        $imagedata = $this->api->addImagefromUpload(array('path'=>$this->options['upload_dir'].$info[0]->name));
+        $info[0]->url = $imagedata['page'];
         $json = json_encode($info);
         $redirect = isset($_REQUEST['redirect']) ?
             stripslashes($_REQUEST['redirect']) : null;

@@ -35,7 +35,11 @@ class API {
   );
   $s = $this->db->prepare($sql);
   $s->execute($val);
-  return $filename;
+  return array(
+   'page' => WEB_ROOT.'display/'.$filename,
+   'image' => WEB_ROOT.'media/'.$filename,
+   'message' => 'Image added.'
+  );
  }
  
  public function addImagefromUpload($options=array()) {
@@ -81,7 +85,10 @@ class API {
   $val = array (
    ':image_id' => $options['id']
   );
-  return $this->db->fetch($sql,$val);
+  $this->db->fetch($sql,$val);
+  return array(
+   'message' => 'Image Reported.'
+  );
  }
 
  public function randomImage($options=array()) {
