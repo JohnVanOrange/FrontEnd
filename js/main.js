@@ -30,11 +30,9 @@ $(document).ready(function() {
      window.location.href='/upload';
     },
     'Add from URL': function() {
-     call('reportImage',{
-      'id': $('#main_image').attr('image_id'),
-      'type': $('#report_dialog input[type=radio]:checked').val()
+     call('addImagefromURL',{
+      'url': $('#url').val()
      });
-     noty({text: 'Image Reported', type:'success'});//this eventually needs to be in a callback for the api call
      $(this).dialog('close');
     }
    },
