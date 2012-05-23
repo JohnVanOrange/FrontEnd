@@ -4,5 +4,8 @@
 <a href='../random'>
  <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' name='{$image_name}' height='{$height}' width='{$width}' rel='image_src' image_id='{$image_id}' />
 </a>
+<link rel='image_src' href='{if $brazzify}http://brazzify.me/?s={/if}{$image}'>
+<meta property='og:image' content='{if $brazzify}http://brazzify.me/?s={/if}{$image}'>
+<meta property='og:title' content='{$site_name} - {$image_name}'>
 {include file='report_dialog.tpl'}
 {include file='footer.tpl'}
