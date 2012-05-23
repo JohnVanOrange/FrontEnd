@@ -24,9 +24,12 @@ class API {
   rename($options['path'],$fullfilename);
   $filenamepart = explode('/',$fullfilename);
   $filename = end($filenamepart);
+  $namepart = explode('.',$filename);
+  $name = $namepart[0];
   //need to add duplicate checking eventually
-  $sql = "INSERT INTO images(filename, hash, type, width, height) VALUES(:filename, :hash, :type, :width, :height)";
+  $sql = "INSERT INTO images(name, filename, hash, type, width, height) VALUES(:name, :filename, :hash, :type, :width, :height)";
   $val = array(
+   ':name' => $name,
    ':filename' => $filename,
    ':hash' => $hash,
    ':type' => $type,
