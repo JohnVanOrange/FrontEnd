@@ -24,9 +24,12 @@ class API {
   rename($options['path'],$fullfilename);
   $filenamepart = explode('/',$fullfilename);
   $filename = end($filenamepart);
+  $namepart = explode('.',$filename);
+  $name = $namepart[0];
   //need to add duplicate checking eventually
-  $sql = "INSERT INTO images(filename, hash, type, width, height) VALUES(:filename, :hash, :type, :width, :height)";
+  $sql = "INSERT INTO images(name, filename, hash, type, width, height) VALUES(:name, :filename, :hash, :type, :width, :height)";
   $val = array(
+   ':name' => $name,
    ':filename' => $filename,
    ':hash' => $hash,
    ':type' => $type,
@@ -93,15 +96,21 @@ class API {
  }
 
  public function randomImage($options=array()) {
-  $sql = 'SELECT filename FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
+  $sql = 'SELECT name FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
-  return $result[0]['filename'];
+  return $result[0]['name'];
  }
 
  public function getImage($options=array()) {
-  $sql = 'SELECT * from images WHERE filename = :filename LIMIT 1;';
+  if (!$options['image']) throw new Exception('No image given.');
+  if (strpos($options['image'],'.') === FALSE) {
+   $sql = 'SELECT * from images WHERE name = :name LIMIT 1;';
+  }
+  else {
+   $sql = 'SELECT * from images WHERE filename = :name LIMIT 1;';
+  }
   $val = array(
-   ':filename' => $options['image']
+   ':name' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
   if (!$result) throw new Exception('Image not found', 404);
