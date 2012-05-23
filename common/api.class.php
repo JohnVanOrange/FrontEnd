@@ -27,7 +27,7 @@ class API {
   $namepart = explode('.',$filename);
   $name = $namepart[0];
   //need to add duplicate checking eventually
-  $sql = "INSERT INTO images(name, filename, hash, type, width, height) VALUES(:name, :filename, :hash, :type, :width, :height)";
+  $sql = "INSERT INTO images(name, filename, hash, type, width, height, c_link) VALUES(:name, :filename, :hash, :type, :width, :height, :c_link)";
   $val = array(
    ':name' => $name,
    ':filename' => $filename,
@@ -35,6 +35,7 @@ class API {
    ':type' => $type,
    ':width' => $width,
    ':height' => $height,
+   ':c_link' => $options['c_link']
   );
   $s = $this->db->prepare($sql);
   $s->execute($val);
@@ -58,10 +59,10 @@ class API {
   $filename = md5(mt_rand().$options['url']);
   $newpath = ROOT_DIR.'/media/'.$filename;
   file_put_contents($newpath,$image);
-  return $this->addImage(array('path'=>$newpath));
+  return $this->addImage(array('path'=>$newpath,'c_link'=>$options['c_link']));
  }
 
-  private function remoteFetch($options=array()) {
+  protected function remoteFetch($options=array()) {
    $ch = curl_init();
    curl_setopt($ch, CURLOPT_URL, $options['url']);
    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

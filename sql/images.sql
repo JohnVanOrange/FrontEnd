@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `type` varchar(4) collate utf8_unicode_ci default NULL,
   `width` smallint(5) unsigned default NULL,
   `height` smallint(5) unsigned default NULL,
+  `c_link` varchar(256) collate utf8_unicode_ci NOT NULL,
   `display` tinyint(1) NOT NULL default '1',
   `reported` tinyint(1) NOT NULL default '0',
   `approved` tinyint(1) NOT NULL default '0',
