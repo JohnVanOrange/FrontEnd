@@ -2,6 +2,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `images` (
   `id` int(10) unsigned NOT NULL auto_increment,
+  `name` varchar(256) collate utf8_unicode_ci NOT NULL,
   `filename` varchar(256) collate utf8_unicode_ci NOT NULL,
   `hash` varchar(32) collate utf8_unicode_ci default NULL,
   `type` varchar(4) collate utf8_unicode_ci default NULL,
