@@ -40,8 +40,8 @@ class API {
   $s = $this->db->prepare($sql);
   $s->execute($val);
   return array(
-   'page' => WEB_ROOT.'display/'.$filename,
-   'image' => WEB_ROOT.'media/'.$filename,
+   'page' => WEB_ROOT.'display/'.$name,
+   'image' => WEB_ROOT.'media/'.$name,
    'message' => 'Image added.'
   );
  }
