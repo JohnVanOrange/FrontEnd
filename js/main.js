@@ -11,7 +11,26 @@ $(document).ready(function() {
    title: 'Report Image',
    buttons: {
     'Report': function() {
-     api.call('reportImage',{
+     call('reportImage',{
+      'id': $('#main_image').attr('image_id'),
+      'type': $('#report_dialog input[type=radio]:checked').val()
+     });
+     $(this).dialog('close');
+    }
+   },
+  });
+ });
+ $('#upload').click(function(event) {
+  event.preventDefault();
+  $('#addimage_dialog').dialog({
+   title: 'Add Images',
+   width: 500,
+   buttons: {
+    'Select from Computer' : function() {
+     window.location.href='/upload';
+    },
+    'Add from URL': function() {
+     call('reportImage',{
       'id': $('#main_image').attr('image_id'),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
@@ -21,6 +40,8 @@ $(document).ready(function() {
    },
   });
  });
+
+
  $('#set_theme').click(function() {
   $('body').toggleClass('light dark');
   $.cookie('theme',$('body').attr('class'),{expires: 365, path: '/'});
@@ -46,6 +67,17 @@ function normal() {
  $('#brazzers_text').show();
 }
 
+function call(method, opt) {
+ try {
+  result = api.call(method, opt);
+  if (result.message) noty({text:result.message});
+  return result;
+ }
+ catch(e) {
+  exception_handler(e);
+ }
+}
+
 api = {
  client : function (method, opt) {
   url = '/api/' + method;
@@ -56,9 +88,20 @@ api = {
    data: opt,
    dataType: 'json'
   }).responseText);
+ if (response.error) {
+  throw {name:response.error, message:response.message};
+ }
  return response;
  },
  call : function(method, opt) {
   return this.client(method, opt);
  }
 };
+
+function exception_handler(e) {
+ noty({text:e.message,type:'error'});
+ switch(e.name) {
+  case 1000: //Missing URL
+  break;
+ }
+}

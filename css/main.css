@@ -97,9 +97,13 @@ div.addthis_toolbox {
  margin: 1em;
 }
 
-#report_dialog {
+#report_dialog, #addimage_dialog {
  display: none;
  text-align: left;
+}
+
+#addimage_dialog input {
+ width: 450px;
 }
 
 .well {

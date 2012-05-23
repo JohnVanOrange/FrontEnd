@@ -50,6 +50,7 @@ class API {
  }
 
  public function addImagefromURL($options=array()) {
+  if (!$options['url']) throw new Exception('Missing URL',1000);
   $image = $this->remoteFetch(array('url'=>$options['url']));
   $filename = md5(mt_rand().$options['url']);
   $newpath = ROOT_DIR.'/media/'.$filename;

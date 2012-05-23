@@ -1,3 +1,4 @@
+{include file='addimage_dialog.tpl'}
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -12,7 +13,7 @@
 {if $image_id}
 <a href='' id='report'>Report Image</a> |
 {/if}
-<a href='/upload'>Upload Image</a> | <a href='/tos'>Legal</a> | <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
+<a href='' id='upload'>Add Images</a> | <a href='/tos'>Legal</a> | <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
 </p>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
