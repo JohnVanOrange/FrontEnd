@@ -14,4 +14,4 @@
 
 <body class='{$theme}'>
 <div id='set_theme'></div>
-<div id='scorn'><a href='http://scornondemand.com'>Demand Scorn</a></div>
+{if $show_scorn}<div id='scorn'><a href='http://scornondemand.com'>Demand Scorn</a></div>{/if}

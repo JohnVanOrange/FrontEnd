@@ -7,4 +7,5 @@ define('DB_NAME','');
 define('DB_USER','');
 define('DB_PASS','');
 define('GOOGLE_ANALYTICS','');
+define('SHOW_SCORN',0);
 ?>
