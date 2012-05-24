@@ -9,7 +9,7 @@ class RemoteFiles extends API {
 }
 
 $api = new RemoteFiles();
-$posts = json_decode($api->get(array('url'=>'http://www.reddit.com/r/funny.json')));
+$posts = json_decode($api->get(array('url'=>'http://www.reddit.com/r/funny.json?limit=100')));
 
 foreach($posts->data->children as $post) {
  if (strpos($post->data->domain,'imgur') !== FALSE) {
@@ -18,13 +18,19 @@ foreach($posts->data->children as $post) {
    $data = explode('/',$post->data->url);
    $data = end($data);
    $data = explode('.',$data);
-   $data = $data[0];  
+   $data = $data[0];
+   echo $data . ' '; 
    $imagedata = json_decode($api->get(array('url'=>'http://api.imgur.com/2/image/'.$data.'.json')));
-   $result = $api->addImagefromURL(array(
-    'url'=>$imagedata->image->links->original,
-    'c_link'=>'http://www.reddit.com'.$post->data->permalink
-   ));
-   echo $result['message'].' '.$result['page']."\n";
+   if ($imagedata->error) {
+    echo 'Imgur error: '.$imagedata->error->message."\n";
+   }
+   else {
+    $result = $api->addImagefromURL(array(
+     'url'=>$imagedata->image->links->original,
+     'c_link'=>'http://www.reddit.com'.$post->data->permalink
+    ));
+    echo $result['message'].' '.$result['page']."\n";
+   }
   }
   else {
    echo "Score was less than 5\n";
