@@ -26,24 +26,35 @@ class API {
   $filename = end($filenamepart);
   $namepart = explode('.',$filename);
   $name = $namepart[0];
-  //need to add duplicate checking eventually
-  $sql = "INSERT INTO images(name, filename, hash, type, width, height, c_link) VALUES(:name, :filename, :hash, :type, :width, :height, :c_link)";
-  $val = array(
-   ':name' => $name,
-   ':filename' => $filename,
-   ':hash' => $hash,
-   ':type' => $type,
-   ':width' => $width,
-   ':height' => $height,
-   ':c_link' => $options['c_link']
-  );
-  $s = $this->db->prepare($sql);
-  $s->execute($val);
-  return array(
-   'page' => WEB_ROOT.'display/'.$name,
-   'image' => WEB_ROOT.'media/'.$name,
-   'message' => 'Image added.'
-  );
+  $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";//checking for dups
+  $result = $this->db->fetch($dupsql);
+  if ($result) {
+   unlink($fullfilename);
+   return array(
+    'page' => WEB_ROOT.'display/'.$result[0]['name'],
+    'image' => WEB_ROOT.'media/'.$result[0]['filename'],
+    'message' => 'Duplicate image.'
+   );
+  }
+  else {
+   $sql = "INSERT INTO images(name, filename, hash, type, width, height, c_link) VALUES(:name, :filename, :hash, :type, :width, :height, :c_link)";
+   $val = array(
+    ':name' => $name,
+    ':filename' => $filename,
+    ':hash' => $hash,
+    ':type' => $type,
+    ':width' => $width,
+    ':height' => $height,
+    ':c_link' => $options['c_link']
+   );
+   $s = $this->db->prepare($sql);
+   $s->execute($val);//need to verify this was successful
+   return array(
+    'page' => WEB_ROOT.'display/'.$name,
+    'image' => WEB_ROOT.'media/'.$filename,
+    'message' => 'Image added.'
+   );
+  }
  }
  
  public function addImagefromUpload($options=array()) {
