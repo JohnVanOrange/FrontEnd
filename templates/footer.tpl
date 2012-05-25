@@ -1,4 +1,5 @@
 {include file='addimage_dialog.tpl'}
+{if $show_social}
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -8,6 +9,7 @@
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f95e38340e66b80"></script>
 <!-- AddThis Button END -->
+{/if}
 <p id='brazz_credit'>Brazzification provided by <a href='http://brazzify.me'>brazzify.me</a></p>
 <p id='bugs'>
 {if $image_id}
