@@ -16,6 +16,7 @@ class Reddit extends API {
     echo $id.' '.$image['message'].' '.$image['page']."\n";
    }
    catch(exception $e) {
+    if ($e->getCode() === 999) throw new Exception('Aborting, Imgur API Limits Exceeded.');
     echo $e->getMessage()."\n";
    }
   }
@@ -45,8 +46,15 @@ class Reddit extends API {
  }
 
  private function getImageData($data) {
+  $sql = 'SELECT id from imgur_history WHERE id = "'.$data.'"';
+  if ($this->db->fetch($sql)) throw new Exception('Previously retrieved image ('.$data.')');
   $imagedata = json_decode($this->remoteFetch(array('url'=>'http://api.imgur.com/2/image/'.$data.'.json')),TRUE);
-  if ($imagedata['error']) throw new Exception('Imgur error: '.$imagedata['error']['message']);
+  if ($imagedata['error']) {
+   if ($imagedata['error']['message'] == 'API limits exceeded') throw new Exception('Imgur API limits exceeded',999);
+   throw new Exception('Imgur error: '.$imagedata['error']['message']);
+  }
+  $sql = 'INSERT INTO imgur_history(id) VALUES("'.$data.'")';
+  $this->db->fetch($sql);
   return $imagedata;
  }
 
