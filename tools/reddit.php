@@ -8,5 +8,5 @@ $sr = file_get_contents('subreddits');
 $srlist = explode("\n",$sr);
 
 foreach ($srlist as $sr) {
- $r->process($sr);
+ if ($sr) $r->process($sr);
 }
