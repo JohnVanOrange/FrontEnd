@@ -10,6 +10,7 @@ class API {
  }
 
  private function addImage($options=array()) {
+  if (!isset($options['c_link'])) $options['c_link'] = NULL;
   $info = getimagesize($options['path']);
   if (!$info) {
    unlink($options['path']);
