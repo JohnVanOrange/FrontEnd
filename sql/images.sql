@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(256) collate utf8_unicode_ci NOT NULL,
   `filename` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `uid` varchar(6) collate utf8_unicode_ci NOT NULL,
   `hash` varchar(32) collate utf8_unicode_ci default NULL,
   `type` varchar(4) collate utf8_unicode_ci default NULL,
   `width` smallint(5) unsigned default NULL,

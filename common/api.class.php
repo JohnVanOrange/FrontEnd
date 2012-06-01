@@ -28,6 +28,7 @@ class API {
   $namepart = explode('.',$filename);
   $name = $namepart[0];
   $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";//checking for dups
+  $uid = $this->getUID();
   $result = $this->db->fetch($dupsql);
   if ($result) {
    unlink($fullfilename);
@@ -38,10 +39,11 @@ class API {
    );
   }
   else {
-   $sql = "INSERT INTO images(name, filename, hash, type, width, height, c_link) VALUES(:name, :filename, :hash, :type, :width, :height, :c_link)";
+   $sql = "INSERT INTO images(name, filename, uid, hash, type, width, height, c_link) VALUES(:name, :filename, :uid, :hash, :type, :width, :height, :c_link)";
    $val = array(
     ':name' => $name,
     ':filename' => $filename,
+    ':uid' => $uid,
     ':hash' => $hash,
     ':type' => $type,
     ':width' => $width,
@@ -130,6 +132,25 @@ class API {
   $result = $result[0];
   if (!$result['display']) throw new Exception('Image removed', 403); 
   return $result;
+ }
+
+ public function getUID($options = array()) {
+  if (!isset($options['length'])) $options['length'] = 6;
+  do {
+   $uid = $this->generateUID($options['length']);
+   $sql = 'SELECT uid FROM images WHERE uid = "'.$uid.'" LIMIT 1';
+   $not_unique = $this->db->fetch($sql);
+  } while (count($not_unique));
+  return $uid;
+ }
+
+ private function generateUID($length) {
+  $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  $uid = '';
+  for($i=0;$i<$length;$i++) {
+   $uid .= $chars[rand(0,strlen($chars)-1)];
+  }
+  return $uid;
  }
 
 }
