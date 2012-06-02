@@ -10,10 +10,12 @@ switch($request[0]) {
  case 'random':
   include(ROOT_DIR.'/pages/random.php');
  break;
-  
+ 
+ case 'b':
  case 'brazzify':
   $brazzify = TRUE;
  
+ case 'v':
  case 'display':
   $image = $request[1];
   include(ROOT_DIR.'/pages/display.php');

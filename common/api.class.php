@@ -33,7 +33,7 @@ class API {
   if ($result) {
    unlink($fullfilename);
    return array(
-    'page' => WEB_ROOT.'display/'.$result[0]['name'],
+    'page' => WEB_ROOT.'v/'.$result[0]['uid'],
     'image' => WEB_ROOT.'media/'.$result[0]['filename'],
     'message' => 'Duplicate image.'
    );
@@ -53,7 +53,7 @@ class API {
    $s = $this->db->prepare($sql);
    $s->execute($val);//need to verify this was successful
    return array(
-    'page' => WEB_ROOT.'display/'.$name,
+    'page' => WEB_ROOT.'v/'.$uid,
     'image' => WEB_ROOT.'media/'.$filename,
     'message' => 'Image added.'
    );
@@ -111,18 +111,23 @@ class API {
  }
 
  public function randomImage($options=array()) {
-  $sql = 'SELECT name FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
+  $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
-  return $result[0]['name'];
+  return $result[0]['uid'];
  }
 
  public function getImage($options=array()) {
   if (!$options['image']) throw new Exception('No image given.');
-  if (strpos($options['image'],'.') === FALSE) {
-   $sql = 'SELECT * from images WHERE name = :name LIMIT 1;';
-  }
-  else {
-   $sql = 'SELECT * from images WHERE filename = :name LIMIT 1;';
+  switch (strlen($options['image'])) {
+   case 6:
+    $sql = 'SELECT * from images WHERE uid = :name LIMIT 1;';
+   break;
+   case 32:
+    $sql = 'SELECT * from images WHERE name = :name LIMIT 1;';
+   break;
+   default:
+    $sql = 'SELECT * from images WHERE filename = :name LIMIT 1;';
+   break;
   }
   $val = array(
    ':name' => $options['image']
