@@ -1,4 +1,5 @@
 $(document).ready(function() {
+ $('body').imagefit();
  $.noty.defaultOptions.layout = 'topRight';
  $.noty.defaultOptions.type = 'information'; 
  var History = window.History;
@@ -12,7 +13,7 @@ $(document).ready(function() {
    buttons: {
     'Report': function() {
      call('reportImage',{
-      'id': $('#main_image').attr('image_id'),
+      'id': $('#image_id').val(),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
      $(this).dialog('close');
@@ -47,7 +48,7 @@ $(document).ready(function() {
  $('#brazzify').click(function(event) {
   event.preventDefault();
   state = {brazzify: true};
-  History.pushState({state:1},'Brazzified','/brazzify/'+$('#main_image').attr('name'));
+  History.pushState({state:1},'Brazzified','/b/'+$('#uid').val());
  });
  $(window).bind("statechange", function() {
   state = History.getState();

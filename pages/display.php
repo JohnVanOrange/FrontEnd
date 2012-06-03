@@ -16,6 +16,7 @@ catch (exception $e) {
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
 $tpl->assign('image_name', $result['filename']);
 $tpl->assign('image_id',$result['id']);
+$tpl->assign('uid',$result['uid']);
 $tpl->assign('type',$result['type']);
 $tpl->assign('width',$result['width']);
 $tpl->assign('height',$result['height']);
