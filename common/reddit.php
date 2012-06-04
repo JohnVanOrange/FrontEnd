@@ -71,7 +71,7 @@ class Reddit extends API {
   if (!$imagedata) throw new Exception('Error retrieving Imgur data',200);
   if ($imagedata['error']) {
    if ($imagedata['error']['message'] == 'API limits exceeded') throw new Exception('Imgur API limits exceeded',999);
-   throw new Exception('Imgur error: '.$imagedata['error']['message'],200);
+   throw new Exception('Imgur error: '.$imagedata['error']['message'].' '.$data,200);
   }
   $sql = 'INSERT INTO imgur_history(id) VALUES("'.$data.'")';
   $this->db->fetch($sql);
