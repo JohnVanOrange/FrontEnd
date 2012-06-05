@@ -1,1 +1,8 @@
 Options -Indexes
+<ifModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A604800
+ExpiresByType image/gif A604800
+ExpiresByType image/png A604800
+ExpiresByType image/jpeg A604800
+</ifModule>
