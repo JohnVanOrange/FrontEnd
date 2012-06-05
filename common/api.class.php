@@ -27,7 +27,7 @@ class API {
   $filename = end($filenamepart);
   $namepart = explode('.',$filename);
   $name = $namepart[0];
-  $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";//checking for dups
+  $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";
   $uid = $this->getUID();
   $result = $this->db->fetch($dupsql);
   if ($result) {
@@ -76,19 +76,19 @@ class API {
   return $this->addImage(array('path'=>$newpath,'c_link'=>$options['c_link']));
  }
 
-  protected function remoteFetch($options=array()) {
-   $ch = curl_init();
-   curl_setopt($ch, CURLOPT_URL, $options['url']);
-   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-   curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+'.WEB_ROOT.'bot)');
-   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
-   curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-   $response = curl_exec($ch);
-   curl_close($ch);
-   return $response;
-  }
+ protected function remoteFetch($options=array()) {
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $options['url']);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+'.WEB_ROOT.'bot)');
+  curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+  $response = curl_exec($ch);
+  curl_close($ch);
+  return $response;
+ }
 
  public function reportImage($options=array()) {
   //Add report
@@ -136,6 +136,7 @@ class API {
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
   if (!$result['display']) throw new Exception('Image removed', 403); 
+  //do a $this->getTags() here
   return $result;
  }
 
