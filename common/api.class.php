@@ -114,6 +114,7 @@ class API {
   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
   return $result[0]['uid'];
+  //this should return image URL's as well
  }
 
  public function getImage($options=array()) {
