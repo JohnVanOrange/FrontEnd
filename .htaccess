@@ -19,16 +19,3 @@ RewriteRule . router.php
 
 ErrorDocument 403 /error/403
 ErrorDocument 404 /error/404
-
-#Caching controls
-<ifModule mod_expires.c>
-ExpiresActive On
-ExpiresDefault A300
-ExpiresByType image/x-icon A2592000
-ExpiresByType application/x-javascript A86400
-ExpiresByType text/css A86400
-ExpiresByType image/gif A604800
-ExpiresByType image/png A604800
-ExpiresByType image/jpeg A604800
-ExpiresByType text/html A300
-</ifModule>
