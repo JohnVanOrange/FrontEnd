@@ -20,6 +20,7 @@ $tpl->assign('uid',$result['uid']);
 $tpl->assign('type',$result['type']);
 $tpl->assign('width',$result['width']);
 $tpl->assign('height',$result['height']);
+$tpl->assign('rand',md5(uniqid(rand(), true)));
 
 if ($result['c_link']) $tpl->assign('c_link', $result['c_link']);
 
