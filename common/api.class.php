@@ -174,8 +174,16 @@ class API {
    );
    $this->db->fetch($sql,$val);
   }
+  switch (count($tags)) {
+   case 1:
+    $message = 'Tag added';
+   break;
+   default:
+    $message = 'Tags added';
+   break;
+  }
   return array(
-   'message' => 'Tag(s) added'
+   'message' => $message
   );
  }
  
