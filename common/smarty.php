@@ -1,4 +1,14 @@
 <?php
+switch ($_COOKIE['mobile']) {
+ case 'y':
+  $temptype = 'mobile';
+ break;
+ case 'n':
+ default:
+  $temptype = 'default';
+ break;
+}
+
 define('SMARTY_DIR',ROOT_DIR.'/smarty/libs/');
 define('TEMPLATE_DIR',ROOT_DIR.'/templates/'.$temptype);
 

@@ -113,3 +113,8 @@ div.addthis_toolbox {
 #tags {
  font-size: 80%;
 }
+
+#full_site {
+ float: right;
+ font-size: 70%
+}

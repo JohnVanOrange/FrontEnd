@@ -2,21 +2,25 @@
 require_once('settings.inc');
 require_once('common/exceptions.php');
 
-$temptype = 'default';
-
 $full_request = $_SERVER['REQUEST_URI'];
 $request = explode('/',trim($full_request,'/'));
 
 switch($request[0]) {
 
+ case 'm':
+  setcookie('mobile', 'y',time()+60*60*24*365,'/');
  case 'random':
+  include(ROOT_DIR.'/pages/random.php');
+ break;
+
+ case 'f':
+  setcookie('mobile', 'n',time()+60*60*24*365,'/');
   include(ROOT_DIR.'/pages/random.php');
  break;
  
  case 'b':
  case 'brazzify':
   $brazzify = TRUE;
- 
  case 'v':
  case 'display':
   $image = $request[1];
