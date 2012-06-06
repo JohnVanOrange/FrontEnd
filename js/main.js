@@ -39,7 +39,22 @@ $(document).ready(function() {
    },
   });
  });
-
+ $('#add_tag').click(function(event) {
+  event.preventDefault();
+  $('#tag_dialog').dialog({
+   title: 'Add Tags',
+   width: 350,
+   buttons: {
+    'Add': function() {
+     call('addTag',{
+      'name': $('#tag_name').val(),
+	  'image_id' : $('#image_id').val()
+     });
+     $(this).dialog('close');
+    }
+   },
+  });
+ });
 
  $('#set_theme').click(function() {
   $('body').toggleClass('light dark');
