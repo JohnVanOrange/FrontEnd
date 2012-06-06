@@ -1,6 +1,6 @@
 <?php
 define('SMARTY_DIR',ROOT_DIR.'/smarty/libs/');
-define('TEMPLATE_DIR',ROOT_DIR.'/templates');
+define('TEMPLATE_DIR',ROOT_DIR.'/templates/'.$temptype);
 
 require_once(SMARTY_DIR.'Smarty.class.php');
 $tpl = new Smarty;
