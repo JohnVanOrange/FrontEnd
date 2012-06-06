@@ -97,7 +97,7 @@ div.addthis_toolbox {
  margin: 1em;
 }
 
-#report_dialog, #addimage_dialog {
+#report_dialog, #addimage_dialog, #tag_dialog {
  display: none;
  text-align: left;
 }
@@ -108,4 +108,8 @@ div.addthis_toolbox {
 
 .well {
  text-align: left;
+}
+
+#tags {
+ font-size: 80%;
 }

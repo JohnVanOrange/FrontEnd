@@ -27,7 +27,7 @@ class API {
   $filename = end($filenamepart);
   $namepart = explode('.',$filename);
   $name = $namepart[0];
-  $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";//checking for dups
+  $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";
   $uid = $this->getUID();
   $result = $this->db->fetch($dupsql);
   if ($result) {
@@ -76,19 +76,19 @@ class API {
   return $this->addImage(array('path'=>$newpath,'c_link'=>$options['c_link']));
  }
 
-  protected function remoteFetch($options=array()) {
-   $ch = curl_init();
-   curl_setopt($ch, CURLOPT_URL, $options['url']);
-   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-   curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+'.WEB_ROOT.'bot)');
-   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
-   curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-   $response = curl_exec($ch);
-   curl_close($ch);
-   return $response;
-  }
+ protected function remoteFetch($options=array()) {
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $options['url']);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+'.WEB_ROOT.'bot)');
+  curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+  $response = curl_exec($ch);
+  curl_close($ch);
+  return $response;
+ }
 
  public function reportImage($options=array()) {
   //Add report
@@ -137,7 +137,56 @@ class API {
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
   if (!$result['display']) throw new Exception('Image removed', 403); 
+  $result['tags'] = $this->getTags(array('image_id'=>$result['id']));
   return $result;
+ }
+ 
+ public function getTags($options=array()) {
+  $sql = 'SELECT name FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE image_id = :image_id;';
+  $val = array(
+   ':image_id' => $options['image_id']
+  );
+  $results = $this->db->fetch($sql,$val);
+  $tags = array();
+  foreach ($results as $r) {
+   $tags[] = $r['name'];
+  }
+  return $tags;
+ }
+ 
+ public function addTag($options=array()) {
+  $tags = explode(',',$options['name']);
+  foreach ($tags as $tag) {
+   $tag = trim($tag);
+   $sql = 'SELECT id from tag_list WHERE name = :name;';
+   $val = array(
+    ':name' => $tag
+   );
+   $result = $this->db->fetch($sql,$val);
+   $tag_id = $result[0]['id'];
+   if(!$tag_id) {
+    $tag_id = $this->addTagtoList($tag);
+   }
+   $sql = 'INSERT INTO tags (image_id, tag_id) VALUES(:image_id, :tag_id);';
+   $val = array(
+    ':image_id' => $options['image_id'],
+    ':tag_id' => $tag_id
+   );
+   $this->db->fetch($sql,$val);
+  }
+  return array(
+   'message' => 'Tag(s) added'
+  );
+ }
+ 
+ private function addTagtoList($name) {
+  $sql = 'INSERT INTO tag_list (name) VALUES(:name);';
+  $val = array(
+   ':name' => $name
+  );
+  $s = $this->db->prepare($sql);
+  $s->execute($val);
+  return $this->db->lastInsertId();
  }
 
  public function getUID($options = array()) {
