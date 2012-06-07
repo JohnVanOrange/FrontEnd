@@ -48,7 +48,7 @@ $(document).ready(function() {
     'Add': function() {
      call('addTag',{
       'name': $('#tag_name').val(),
-	  'image_id' : $('#image_id').val()
+	    'image' : $('#uid').val()
      });
      $(this).dialog('close');
     }

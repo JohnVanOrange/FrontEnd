@@ -167,9 +167,10 @@ class API {
    if(!$tag_id) {
     $tag_id = $this->addTagtoList($tag);
    }
+   $image = $this->getImage(array('image'=>$options['image']));
    $sql = 'INSERT INTO tags (image_id, tag_id) VALUES(:image_id, :tag_id);';
    $val = array(
-    ':image_id' => $options['image_id'],
+    ':image_id' => $image['id'],
     ':tag_id' => $tag_id
    );
    $this->db->fetch($sql,$val);
