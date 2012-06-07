@@ -177,15 +177,14 @@ class API {
   }
   switch (count($tags)) {
    case 1:
-    $message = 'Tag added';
+    $return['message'] = 'Tag added';
    break;
    default:
-    $message = 'Tags added';
+    $return['message'] = 'Tags added';
    break;
   }
-  return array(
-   'message' => $message
-  );
+  $return['tags'] = $this->getTags(array('image_id'=>$image['id']));
+  return $return;
  }
  
  private function addTagtoList($name) {
