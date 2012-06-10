@@ -1,25 +1,34 @@
 <?
 require_once('../settings.inc');
+require_once(ROOT_DIR.'/common/base.class.php');
 require_once(ROOT_DIR.'/common/api.class.php');
 
-class Reddit extends API {
+class Reddit extends Base {
 
  protected $log;
+ protected $logfile;
+ protected $api;
+ 
+ public function __construct() {
+  parent::__construct();
+  $this->api = new API;
+  $this->logfile = ROOT_DIR.'/tools/reddit.log';
+ }
 
  public function process($subreddit) {
-  $this->log("Beginning Subreddit ".$subreddit);
+  $this->log("Beginning Subreddit ".$subreddit,$this->logfile);
   $posts = $this->getSubreddit($subreddit);
   foreach ($posts['data']['children'] as $post) {
    try {
     $this->checkScore($post);
     $data = $this->imgurProcess($post);
     $image = $this->addImage($data,$post);
-    $this->log($image['message'].' '.$image['page']);
+    $this->log($image['message'].' '.$image['page'],$this->logfile);
    }
    catch(exception $e) {
     switch ($e->getCode()) {
      case '200':
-      $this->log($e->getMessage());
+      $this->log($e->getMessage(),$this->logfile);
      break;
      default:
       throw new Exception($e);
@@ -79,28 +88,11 @@ class Reddit extends API {
  }
 
  private function addImage($imagedata, $post) {
-  return $this->addImagefromURL(array(
+  return $this->api->addImagefromURL(array(
    'url'=>$imagedata['image']['links']['original'],
    'c_link'=>'http://www.reddit.com'.$post['data']['permalink']
   ));
  }
-
- protected function log($text) {
-  if (!isset($this->log)) {
-   $logfile = ROOT_DIR.'/tools/reddit.log';
-   $this->log = fopen($logfile,'a');
-  }
-  $timestamp = date('c');
-  $log = $timestamp."\t".$text."\n";
-  echo $text."\n";
-  return fwrite($this->log,$log);
- }
-
- public function __destruct() {
-  if (isset($this->log)) {
-   fclose($this->log);
-  }
- }
-
+ 
 }
 ?>
