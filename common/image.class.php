@@ -1,7 +1,7 @@
 <?php
 require_once(ROOT_DIR.'/common/base.class.php');
 
-class API extends Base {
+class Image extends Base {
 
  protected $db;
 

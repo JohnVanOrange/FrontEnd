@@ -1,7 +1,7 @@
 <?php
 require_once('../settings.inc');
 require_once(ROOT_DIR.'/common/base.class.php');
-require_once(ROOT_DIR.'/common/images.class.php');
+require_once(ROOT_DIR.'/common/image.class.php');
 
 class Reddit extends Base {
 
@@ -11,7 +11,7 @@ class Reddit extends Base {
  
  public function __construct() {
   parent::__construct();
-  $this->images = new Images;
+  $this->image = new Image;
   $this->logfile = ROOT_DIR.'/tools/reddit.log';
  }
 
@@ -88,7 +88,7 @@ class Reddit extends Base {
  }
 
  private function addImage($imagedata, $post) {
-  return $this->images->addImagefromURL(array(
+  return $this->image->addImagefromURL(array(
    'url'=>$imagedata['image']['links']['original'],
    'c_link'=>'http://www.reddit.com'.$post['data']['permalink']
   ));

@@ -20,7 +20,7 @@ class UploadHandler
     protected $image;
 
     function __construct($options=null) {
-        $this->api = new API;
+        $this->image = new Image;
         $this->options = array(
             'script_url' => $this->getFullUrl().'/',
             'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']).'/files/',
