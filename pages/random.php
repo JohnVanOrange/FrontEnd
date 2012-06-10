@@ -1,7 +1,7 @@
 <?php
-require_once('common/api.class.php');
+require_once('common/image.class.php');
 
-$api = new API;
+$image = new Image;
 
-header('Location: '.WEB_ROOT.'v/'.$api->randomImage());
+header('Location: '.WEB_ROOT.'v/'.$image->randomImage());
 ?>

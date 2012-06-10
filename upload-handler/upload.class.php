@@ -11,13 +11,13 @@
  */
 
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/api.class.php');
+require_once(ROOT_DIR.'/common/image.class.php');
 
 
 class UploadHandler
 {
     protected $options;
-    protected $api;
+    protected $image;
 
     function __construct($options=null) {
         $this->api = new API;
@@ -405,7 +405,7 @@ class UploadHandler
             );
         }
         header('Vary: Accept');
-        $imagedata = $this->api->addImagefromUpload(array('path'=>$this->options['upload_dir'].$info[0]->name));
+        $imagedata = $this->image->addImagefromUpload(array('path'=>$this->options['upload_dir'].$info[0]->name));
         $info[0]->url = $imagedata['page'];
         $json = json_encode($info);
         $redirect = isset($_REQUEST['redirect']) ?

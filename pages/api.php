@@ -1,12 +1,12 @@
 <?php
-require_once('common/api.class.php');
+require_once('common/image.class.php');
 
-$api = new API;
+$image = new Image;
 
 header ('Content-type: application/json; charset=UTF-8');
 
 try {
- $result = $api->{$method}($_POST);
+ $result = $image->{$method}($_POST);
 }
 catch (exception $e) {
  js_exception_handler($e);

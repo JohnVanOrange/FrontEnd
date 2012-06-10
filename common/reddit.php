@@ -1,17 +1,17 @@
-<?
+<?php
 require_once('../settings.inc');
 require_once(ROOT_DIR.'/common/base.class.php');
-require_once(ROOT_DIR.'/common/api.class.php');
+require_once(ROOT_DIR.'/common/images.class.php');
 
 class Reddit extends Base {
 
  protected $log;
  protected $logfile;
- protected $api;
+ protected $images;
  
  public function __construct() {
   parent::__construct();
-  $this->api = new API;
+  $this->images = new Images;
   $this->logfile = ROOT_DIR.'/tools/reddit.log';
  }
 
@@ -88,7 +88,7 @@ class Reddit extends Base {
  }
 
  private function addImage($imagedata, $post) {
-  return $this->api->addImagefromURL(array(
+  return $this->images->addImagefromURL(array(
    'url'=>$imagedata['image']['links']['original'],
    'c_link'=>'http://www.reddit.com'.$post['data']['permalink']
   ));

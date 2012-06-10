@@ -23,7 +23,7 @@ switch($request[0]) {
   $brazzify = TRUE;
  case 'v':
  case 'display':
-  $image = $request[1];
+  $image_name = $request[1];
   include(ROOT_DIR.'/pages/display.php');
  break;
 
