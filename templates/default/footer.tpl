@@ -25,7 +25,7 @@
 <script src='{$web_root}js/jquery.cookie.js'></script>
 <script src='{$web_root}js/jquery.history.js'></script>
 <script src='{$web_root}js/jquery.noty.js'></script>
-<script src='{$web_root}js/main.js?20120607a'></script>
+<script src='{$web_root}js/main.js?20120611'></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

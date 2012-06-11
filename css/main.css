@@ -118,3 +118,8 @@ div.addthis_toolbox {
  float: right;
  font-size: 70%
 }
+
+body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .noty_text a:visited:hover{
+ color: white;
+ text-decoration: underline;
+}

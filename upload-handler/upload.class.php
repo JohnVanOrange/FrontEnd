@@ -406,7 +406,7 @@ class UploadHandler
         }
         header('Vary: Accept');
         $imagedata = $this->image->addImagefromUpload(array('path'=>$this->options['upload_dir'].$info[0]->name));
-        $info[0]->url = $imagedata['page'];
+        $info[0]->url = $imagedata['url'];
         $json = json_encode($info);
         $redirect = isset($_REQUEST['redirect']) ?
             stripslashes($_REQUEST['redirect']) : null;

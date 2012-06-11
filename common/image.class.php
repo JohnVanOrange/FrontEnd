@@ -33,7 +33,7 @@ class Image extends Base {
   if ($result) {
    unlink($fullfilename);
    return array(
-    'page' => WEB_ROOT.'v/'.$result[0]['uid'],
+    'url' => WEB_ROOT.'v/'.$result[0]['uid'],
     'image' => WEB_ROOT.'media/'.$result[0]['filename'],
     'message' => 'Duplicate image.'
    );
@@ -53,7 +53,7 @@ class Image extends Base {
    $s = $this->db->prepare($sql);
    $s->execute($val);//need to verify this was successful
    return array(
-    'page' => WEB_ROOT.'v/'.$uid,
+    'url' => WEB_ROOT.'v/'.$uid,
     'image' => WEB_ROOT.'media/'.$filename,
     'message' => 'Image added.'
    );

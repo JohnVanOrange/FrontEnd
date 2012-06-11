@@ -1,7 +1,8 @@
 $(document).ready(function() {
  $('body').imagefit();
  $.noty.defaultOptions.layout = 'topRight';
- $.noty.defaultOptions.type = 'information'; 
+ $.noty.defaultOptions.type = 'information';
+ $.noty.defaultOptions.timeout = 10000;
  var History = window.History;
  History.Adapter.bind(window,'statechange',function(){
   var State = History.getState();
@@ -89,7 +90,11 @@ function normal() {
 function call(method, opt) {
  try {
   result = api.call(method, opt);
-  if (result.message) noty({text:result.message});
+  if (result.message) {
+   message = result.message;
+   if (result.url) message = '<a href="'+result.url+'">'+message+'</a>';
+   noty({text:message});
+  }
   return result;
  }
  catch(e) {
