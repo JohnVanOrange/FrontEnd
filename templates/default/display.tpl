@@ -15,6 +15,9 @@ Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
 {if $c_link}
 <p><a href='{$c_link}' id='c_link'>External Comments</a></p>
 {/if}
+{if $disqus_shortname}
+{include file='disqus.tpl'}
+{/if}
 {include file='report_dialog.tpl'}
 {include file='tag_dialog.tpl'}
 {include file='footer.tpl'}

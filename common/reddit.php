@@ -23,7 +23,7 @@ class Reddit extends Base {
     $this->checkScore($post);
     $data = $this->imgurProcess($post);
     $image = $this->addImage($data,$post);
-    $this->log($image['message'].' '.$image['page'],$this->logfile);
+    $this->log($image['message'].' '.$image['url'],$this->logfile);
    }
    catch(exception $e) {
     switch ($e->getCode()) {

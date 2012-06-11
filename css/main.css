@@ -123,3 +123,9 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
  color: white;
  text-decoration: underline;
 }
+
+#disqus_thread {
+ font-size:70%;
+ width: 50%;
+ margin:0 auto;
+}

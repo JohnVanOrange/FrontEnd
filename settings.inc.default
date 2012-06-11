@@ -7,6 +7,7 @@ define('DB_NAME','');
 define('DB_USER','');
 define('DB_PASS','');
 define('GOOGLE_ANALYTICS','');
+define('DISQUS_SHORTNAME','');
 define('SHOW_SCORN',0);
 define('SHOW_SOCIAL',1);
 ?>
