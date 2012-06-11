@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS `report_types` (
 
 CREATE TABLE IF NOT EXISTS `sessions` (
   `user_id` int(8) unsigned NOT NULL,
-  `sid` varchar(16) collate utf8_unicode_ci NOT NULL
+  `sid` varchar(16) collate utf8_unicode_ci NOT NULL,
+  KEY `sid` (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `tags` (
