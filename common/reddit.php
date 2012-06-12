@@ -55,7 +55,7 @@ class Reddit extends Base {
  }
 
  private function isImgur($post) {
-  if (strpos($post['data']['domain'],'imgur') === FALSE) throw new Exception('Not an imgur image',200);
+  if (strpos($post['data']['domain'],'imgur') === FALSE) throw new Exception('Not an imgur image. URL: '.$post['data']['url'],200);
   return TRUE;
  }
 
