@@ -27,6 +27,7 @@ class Reddit extends Base {
    }
    catch(exception $e) {
     switch ($e->getCode()) {
+	 case '1100':
      case '200':
       $this->log($e->getMessage(),$this->logfile);
      break;

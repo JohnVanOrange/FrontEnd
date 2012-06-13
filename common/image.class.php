@@ -14,7 +14,7 @@ class Image extends Base {
   $info = getimagesize($options['path']);
   if (!$info) {
    unlink($options['path']);
-   throw new Exception('Not a valid image');
+   throw new Exception('Not a valid image',1100);
   }
   $filetypepart = explode('/',$info['mime']);
   $type = end($filetypepart);
