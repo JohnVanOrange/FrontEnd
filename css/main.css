@@ -69,20 +69,21 @@ div.addthis_toolbox {
  height: 28px;
 }
 
-#bugs {
+#scorn, #brazz_credit, #bugs, #head_text {
  font-size: 75%;
+}
+
+#bugs {
  float: right;
  margin-right: 10px;
 }
 
 #brazz_credit {
- font-size: 75%;
  float: left;
  margin-left: 10px;
 }
 
 #scorn {
- font-size: 75%;
  position: absolute;
  top: 8px;
  right: 18px;
