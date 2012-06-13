@@ -21,8 +21,8 @@ class Reddit extends Base {
   foreach ($posts['data']['children'] as $post) {
    try {
     $this->checkScore($post);
-    $data = $this->imgurProcess($post);
-    $image = $this->addImage($data,$post);
+	$url = $this->findURL($post);
+    $image = $this->addImage($url,$post);
     $this->log($image['message'].' '.$image['url'],$this->logfile);
    }
    catch(exception $e) {
@@ -37,9 +37,29 @@ class Reddit extends Base {
    }
   }
  }
-
+ private function findURL($post) {
+  if ($this->isImgur($post) !== FALSE) return $this->imgurProcess($post);
+  if ($this->isDirectImage($post) !== FALSE) return $this->directImageProcess($post);
+  throw new Exception('Not a known image type. URL: '.$post['data']['url'],200);
+ }
+ 
+ private function isDirectImage($post) {
+  $parts = explode('.',$post['data']['url']);
+  $last = end($parts);
+  $valid = array(
+   'jpg',
+   'jpeg',
+   'png',
+   'gif'
+  );
+  return array_search(strtolower($last),$valid);
+ }
+ 
+ private function directImageProcess($post) {
+  return $post['data']['url'];
+ }
+ 
  private function imgurProcess($post) {
-  $this->isImgur($post);
   $this->isImgurAlbum($post);
   $id = $this->getImgurID($post);
   return $this->getImageData($id);
@@ -55,8 +75,7 @@ class Reddit extends Base {
  }
 
  private function isImgur($post) {
-  if (strpos($post['data']['domain'],'imgur') === FALSE) throw new Exception('Not an imgur image. URL: '.$post['data']['url'],200);
-  return TRUE;
+  return strpos($post['data']['domain'],'imgur');
  }
 
  private function checkScore($post, $minScore=5) {
@@ -84,12 +103,12 @@ class Reddit extends Base {
   }
   $sql = 'INSERT INTO imgur_history(id) VALUES("'.$data.'")';
   $this->db->fetch($sql);
-  return $imagedata;
+  return $imagedata['image']['links']['original'];
  }
 
- private function addImage($imagedata, $post) {
+ private function addImage($url, $post) {
   return $this->image->addImagefromURL(array(
-   'url'=>$imagedata['image']['links']['original'],
+   'url'=>$url,
    'c_link'=>'http://www.reddit.com'.$post['data']['permalink']
   ));
  }
