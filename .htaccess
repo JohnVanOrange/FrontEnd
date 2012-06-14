@@ -13,6 +13,9 @@ DirectoryIndex router.php
 RewriteEngine On
 Options +FollowSymlinks
 
+RewriteCond %{HTTP_USER_AGENT} ^curl
+RewriteRule .* - [F]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . router.php
