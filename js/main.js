@@ -42,20 +42,30 @@ $(document).ready(function() {
  });
  $('#add_tag').click(function(event) {
   event.preventDefault();
+  addtag = function() {
+   result = call('addTag',{
+    'name': $('#tag_name').val(),
+    'image' : $('#uid').val()
+   });
+   tagtext = '';
+   for(text in result.tags) {
+    tagtext = tagtext+result.tags[text]+' ';
+   }
+   $('#tagtext').html(tagtext);   
+  };
+  $('#tag_dialog input').bind('keydown', function(event) {
+   if(event.keyCode===13){
+    event.preventDefault();
+    addtag();
+    $('#tag_dialog').dialog('close');
+   }
+  });
   $('#tag_dialog').dialog({
    title: 'Add Tags',
    width: 350,
    buttons: {
     'Add': function() {
-     result = call('addTag',{
-      'name': $('#tag_name').val(),
-	    'image' : $('#uid').val()
-     });
-     tagtext = '';
-     for(text in result.tags) {
-     tagtext = tagtext+result.tags[text]+' ';
-     }
-     $('#tagtext').html(tagtext); 
+     addtag();
      $(this).dialog('close');
     }
    },
