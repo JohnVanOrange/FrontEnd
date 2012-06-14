@@ -6,7 +6,7 @@ $image = new Image;
 header ('Content-type: application/json; charset=UTF-8');
 
 try {
- $result = $image->{$method}($_POST);
+ $result = $image->{$method}($_REQUEST);
 }
 catch (exception $e) {
  js_exception_handler($e);

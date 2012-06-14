@@ -53,7 +53,7 @@ $(document).ready(function() {
    }
    $('#tagtext').html(tagtext);   
   };
-  $('#tag_dialog input').bind('keydown', function(event) {
+  $('#tag_name').bind('keydown', function(event) {
    if(event.keyCode===13){
     event.preventDefault();
     addtag();
@@ -71,7 +71,6 @@ $(document).ready(function() {
    },
   });
  });
-
  $('#set_theme').click(function() {
   $('body').toggleClass('light dark');
   $.cookie('theme',$('body').attr('class'),{expires: 365, path: '/'});
@@ -85,6 +84,11 @@ $(document).ready(function() {
   state = History.getState();
   if (state.data.state == 1) {brazzify();} else {normal();}
  });
+ $('#tag_name').autocomplete({
+  source: '/api/tagSuggest',
+  minLength: 2
+ });
+
 });
 
 function brazzify() {

@@ -183,6 +183,18 @@ class Image extends Base {
   return $this->db->lastInsertId();
  }
 
+ public function tagSuggest($options=array()) {
+  $sql = "SELECT name FROM tag_list WHERE name LIKE :name LIMIT 10;";
+  $val = array(
+   ':name' => '%'.$options['term'].'%'
+  );
+  $results = $this->db->fetch($sql,$val);
+  foreach ($results as $r) {
+   $return[] = $r['name'];
+  }
+  return $return;
+ }
+
  public function getUID($options = array()) {
   if (!isset($options['length'])) $options['length'] = 6;
   do {
