@@ -4,6 +4,11 @@
  Deny from all
 </FilesMatch>
 
+#Block bad bots
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} ^(curl) [NC,OR]
+RewriteRule . - [F,L]
+
 <IfModule mod_deflate.c>
  AddOutputFilterByType DEFLATE text/html text/css application/javascript
 </IfModule>
