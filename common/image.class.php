@@ -135,7 +135,7 @@ class Image extends Base {
   $results = $this->db->fetch($sql,$val);
   $tags = array();
   foreach ($results as $r) {
-   $tags[] = $r['name'];
+   $tags[] = stripslashes($r['name']);
   }
   return $tags;
  }
@@ -143,7 +143,7 @@ class Image extends Base {
  public function addTag($options=array()) {
   $tags = explode(',',$options['name']);
   foreach ($tags as $tag) {
-   $tag = trim($tag);
+   $tag = htmlspecialchars(trim($tag));
    $sql = 'SELECT id from tag_list WHERE name = :name;';
    $val = array(
     ':name' => $tag
