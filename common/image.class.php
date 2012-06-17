@@ -1,15 +1,17 @@
 <?php
 require_once(ROOT_DIR.'/common/base.class.php');
+require_once(ROOT_DIR.'/common/tag.class.php');
 
 class Image extends Base {
 
- protected $db;
+ private $tag;
 
  public function __construct($options=array()) {
   parent::__construct();
+  $this->tag = new Tag;
  }
 
- private function addImage($options=array()) {
+ private function add($options=array()) {
   if (!isset($options['c_link'])) $options['c_link'] = NULL;
   $info = getimagesize($options['path']);
   if (!$info) {
@@ -60,23 +62,23 @@ class Image extends Base {
   }
  }
  
- public function addImagefromUpload($options=array()) {
+ public function addFromUpload($options=array()) {
   $filename = md5(mt_rand().$options['path']);
   $newpath = ROOT_DIR.'/media/'.$filename;
   rename($options['path'],$newpath);
-  return $this->addImage(array('path'=>$newpath));
+  return $this->add(array('path'=>$newpath));
  }
 
- public function addImagefromURL($options=array()) {
+ public function addFromURL($options=array()) {
   if (!$options['url']) throw new Exception('Missing URL',1000);
   $image = $this->remoteFetch(array('url'=>$options['url']));
   $filename = md5(mt_rand().$options['url']);
   $newpath = ROOT_DIR.'/media/'.$filename;
   file_put_contents($newpath,$image);
-  return $this->addImage(array('path'=>$newpath,'c_link'=>$options['c_link']));
+  return $this->add(array('path'=>$newpath,'c_link'=>$options['c_link']));
  }
 
- public function reportImage($options=array()) {
+ public function report($options=array()) {
   //Add report
   $sql = 'INSERT INTO reports(image_id, report_type, reason) VALUES(:image_id, :report_type, :reason)';
   $val = array(
@@ -96,14 +98,14 @@ class Image extends Base {
   );
  }
 
- public function randomImage($options=array()) {
+ public function random($options=array()) {
   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
   return $result[0]['uid'];
   //this should return image URL's as well
  }
 
- public function getImage($options=array()) {
+ public function get($options=array()) {
   if (!$options['image']) throw new Exception('No image given.');
   switch (strlen($options['image'])) {
    case 6:
@@ -123,76 +125,8 @@ class Image extends Base {
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
   if (!$result['display']) throw new Exception('Image removed', 403); 
-  $result['tags'] = $this->getTags(array('image_id'=>$result['id']));
+  $result['tags'] = $this->tag->get(array('image_id'=>$result['id']));
   return $result;
- }
- 
- public function getTags($options=array()) {
-  $sql = 'SELECT name FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE image_id = :image_id;';
-  $val = array(
-   ':image_id' => $options['image_id']
-  );
-  $results = $this->db->fetch($sql,$val);
-  $tags = array();
-  foreach ($results as $r) {
-   $tags[] = stripslashes($r['name']);
-  }
-  return $tags;
- }
- 
- public function addTag($options=array()) {
-  $tags = explode(',',$options['name']);
-  foreach ($tags as $tag) {
-   $tag = htmlspecialchars(trim($tag));
-   $sql = 'SELECT id from tag_list WHERE name = :name;';
-   $val = array(
-    ':name' => $tag
-   );
-   $result = $this->db->fetch($sql,$val);
-   $tag_id = $result[0]['id'];
-   if(!$tag_id) {
-    $tag_id = $this->addTagtoList($tag);
-   }
-   $image = $this->getImage(array('image'=>$options['image']));
-   $sql = 'INSERT INTO tags (image_id, tag_id) VALUES(:image_id, :tag_id);';
-   $val = array(
-    ':image_id' => $image['id'],
-    ':tag_id' => $tag_id
-   );
-   $this->db->fetch($sql,$val);
-  }
-  switch (count($tags)) {
-   case 1:
-    $return['message'] = 'Tag added';
-   break;
-   default:
-    $return['message'] = 'Tags added';
-   break;
-  }
-  $return['tags'] = $this->getTags(array('image_id'=>$image['id']));
-  return $return;
- }
- 
- private function addTagtoList($name) {
-  $sql = 'INSERT INTO tag_list (name) VALUES(:name);';
-  $val = array(
-   ':name' => $name
-  );
-  $s = $this->db->prepare($sql);
-  $s->execute($val);
-  return $this->db->lastInsertId();
- }
-
- public function tagSuggest($options=array()) {
-  $sql = "SELECT name FROM tag_list WHERE name LIKE :name LIMIT 10;";
-  $val = array(
-   ':name' => '%'.$options['term'].'%'
-  );
-  $results = $this->db->fetch($sql,$val);
-  foreach ($results as $r) {
-   $return[] = $r['name'];
-  }
-  return $return;
  }
 
  public function getUID($options = array()) {

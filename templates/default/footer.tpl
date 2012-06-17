@@ -25,7 +25,7 @@
 <script defer src='{$web_root}js/jquery.cookie.js'></script>
 <script defer src='{$web_root}js/jquery.history.js'></script>
 <script defer src='{$web_root}js/jquery.noty.js'></script>
-<script defer src='{$web_root}js/main.js?20120614a'></script>
+<script defer src='{$web_root}js/main.js?20120617'></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

@@ -13,7 +13,7 @@ $(document).ready(function() {
    title: 'Report Image',
    buttons: {
     'Report': function() {
-     call('reportImage',{
+     call('image/report',{
       'id': $('#image_id').val(),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
@@ -32,7 +32,7 @@ $(document).ready(function() {
      window.location.href='/upload';
     },
     'Add from URL': function() {
-     call('addImagefromURL',{
+     call('image/addFromURL',{
       'url': $('#url').val()
      });
      $(this).dialog('close');
@@ -43,7 +43,7 @@ $(document).ready(function() {
  $('#add_tag').click(function(event) {
   event.preventDefault();
   addtag = function() {
-   result = call('addTag',{
+   result = call('tag/add',{
     'name': $('#tag_name').val(),
     'image' : $('#uid').val()
    });
@@ -83,9 +83,10 @@ $(document).ready(function() {
  $(window).bind("statechange", function() {
   state = History.getState();
   if (state.data.state == 1) {brazzify();} else {normal();}
+  if (state.data.state == 1) {brazzify();} else {normal();}
  });
  $('#tag_name').autocomplete({
-  source: '/api/tagSuggest',
+  source: '/api/tag/suggest',
   minLength: 2
  });
 

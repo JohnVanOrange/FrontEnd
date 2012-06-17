@@ -7,7 +7,7 @@ $image = new Image;
 $template = 'display.tpl';
 
 try {
- $result = $image->getImage(array('image'=>$image_name));
+ $result = $image->get(array('image'=>$image_name));
 }
 catch (exception $e) {
  page_exception_handler($e);

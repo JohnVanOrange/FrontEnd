@@ -29,7 +29,8 @@ switch($request[0]) {
  break;
 
  case 'api':
-  $method = $request[1];
+  $class = $request[1];
+  $method = $request[2];
   include(ROOT_DIR.'/pages/api.php');
  break;
 
