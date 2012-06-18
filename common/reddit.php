@@ -108,7 +108,7 @@ class Reddit extends Base {
  }
 
  private function addImage($url, $post) {
-  return $this->image->addImagefromURL(array(
+  return $this->image->addFromURL(array(
    'url'=>$url,
    'c_link'=>'http://www.reddit.com'.$post['data']['permalink']
   ));
