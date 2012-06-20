@@ -5,7 +5,7 @@ require_once('simple_html_dom.php');
 
 $db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 $tag = new Tag;
-$sql = 'SELECT name FROM tag_list';
+$sql = 'SELECT name FROM tag_list WHERE basename = ""';
 $results = $db->fetch($sql);
 foreach ($results as $result) {
  $slug = $tag->text2slug($result['name']);
