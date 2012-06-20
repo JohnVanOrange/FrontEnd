@@ -43,5 +43,16 @@ class Base {
   return fwrite($this->log[$file],$log);
  }
 
+ public function text2slug($text) {
+  $output = htmlentities($text, ENT_COMPAT, "UTF-8", false); 
+  $output = preg_replace('/&([a-z]{1,2})(?:acute|lig|grave|ring|tilde|uml|cedil|caron);/i','\1',$output);
+  $output = html_entity_decode($output,ENT_COMPAT, "UTF-8"); 
+  $output = preg_replace('/[^a-z0-9-]+/i', '-', $output);
+  $output = preg_replace('/-+/', '-', $output);
+  $output = trim($output, '-');
+  $output = strtolower($output);
+  return $output;
+ }
+
 }
 ?>
