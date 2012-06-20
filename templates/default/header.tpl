@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>{$site_name}{if $uid} - {$uid}{/if}</title>
-<link rel='shortcut icon' type='image/png' href='{$web_root}img/Nyan-Cat-Original_032x032_32.png' />
+<link rel='shortcut icon' type='image/png' href='{$web_root}img/{$favicon}' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/main.css?20120612' />
 <link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/jquery.noty.css' />
