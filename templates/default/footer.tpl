@@ -10,7 +10,7 @@
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f95e38340e66b80"></script>
 <!-- AddThis Button END -->
 {/if}
-<p id='brazz_credit'>Brazzification provided by <a href='http://brazzify.me'>brazzify.me</a></p>
+{if $show_brazz}<p id='brazz_credit'>Brazzification provided by <a href='http://brazzify.me'>brazzify.me</a></p>{/if}
 <p id='bugs'>
 {if $image_id}
 <a href='' id='report'>Report Image</a> |

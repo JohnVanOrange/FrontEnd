@@ -1,5 +1,5 @@
 {include file='header.tpl'}
-<p id='head_text'>Click picture for more. {if $type != 'gif' AND !$brazzify}<span id='brazzers_text'><a href='{$web_root}brazzify/{$image_name}' id='brazzify'> Brazzify image</a></span>{/if}
+<p id='head_text'>Click picture for more. {if $type != 'gif' AND !$brazzify AND $show_brazz}<span id='brazzers_text'><a href='{$web_root}brazzify/{$image_name}' id='brazzify'> Brazzify image</a></span>{/if}
  Search image on: <a href='http://www.google.com/searchbyimage?image_url={$image}'>Google</a> | <a href='http://tineye.com/search?url={$image}'>Tineye</a>
 </p>
 <a href='../random?{$rand}' rel='nofollow'>

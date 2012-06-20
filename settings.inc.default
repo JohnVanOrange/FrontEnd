@@ -10,5 +10,6 @@ define('GOOGLE_ANALYTICS','');
 define('DISQUS_SHORTNAME','');
 define('SHOW_SCORN',0);
 define('SHOW_SOCIAL',1);
+define('SHOW_BRAZZ',1);
 define('FAVICON','Nyan-Cat-Original_032x032_32.png');
 ?>
