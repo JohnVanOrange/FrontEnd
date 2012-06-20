@@ -9,7 +9,8 @@ $sql = 'SELECT name FROM tag_list';
 $results = $db->fetch($sql);
 foreach ($results as $result) {
  $slug = $tag->text2slug($result['name']);
- $sql = 'UPDATE tag_list SET basename="'.$slug.'" WHERE name="'.$result['name'].'"';
+ $sql = 'UPDATE tag_list SET basename="'.$slug.'" WHERE name="'.addslashes($result['name']).'"';
+ echo $sql."\n";
  $results = $db->fetch($sql);
  echo 'Slug updated: '.$slug."\n";
 }
