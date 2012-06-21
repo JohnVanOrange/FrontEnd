@@ -11,9 +11,10 @@ class Tag extends Base {
   $tags = explode(',',$options['name']);
   foreach ($tags as $tag) {
    $tag = htmlspecialchars(trim($tag));
-   $sql = 'SELECT id from tag_list WHERE name = :name;';
+   $slug = $this->text2slug($tag);
+   $sql = 'SELECT id from tag_list WHERE basename = :name;';
    $val = array(
-    ':name' => $tag
+    ':name' => $slug
    );
    $result = $this->db->fetch($sql,$val);
    $tag_id = $result[0]['id'];
@@ -65,7 +66,7 @@ class Tag extends Base {
   );
   $results = $this->db->fetch($sql,$val);
   foreach ($results as $r) {
-   $return[] = $r['name'];
+   $return[] = stripslashes($r['name']);
   }
   return $return;
  }
