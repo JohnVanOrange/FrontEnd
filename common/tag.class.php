@@ -71,9 +71,17 @@ class Tag extends Base {
  }
  
  private function addtoList($name) {
-  $sql = 'INSERT INTO tag_list (name) VALUES(:name);';
+  $basename = $this->text2slug($name);
+  $sql = 'SELECT id FROM tag_list WHERE basename = :basename';
   $val = array(
-   ':name' => $name
+   ':basename' => $basename
+  );
+  $result = $this->db->fetch($sql,$val);
+  if ($result) return $result[0]['id'];  
+  $sql = 'INSERT INTO tag_list (name,basename) VALUES(:name,:basename);';
+  $val = array(
+   ':name' => $name,
+   ':basename' => $basename
   );
   $s = $this->db->prepare($sql);
   $s->execute($val);

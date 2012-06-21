@@ -53,7 +53,9 @@ CREATE TABLE IF NOT EXISTS `tags` (
 CREATE TABLE IF NOT EXISTS `tag_list` (
   `id` int(8) unsigned NOT NULL auto_increment,
   `name` varchar(64) collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`id`)
+  `basename` varchar(64) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `basename` (`basename`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `users` (
