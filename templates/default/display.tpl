@@ -9,7 +9,7 @@
 </a>
 <p id='tags'>
 Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
-{$tag} 
+<a href='{$tag.url}'>{$tag.name}</a> 
 {/foreach}{else}<em>none currently </em>{/if}
 </span>
 <a href='' id='add_tag'>Add</a></p>

@@ -48,8 +48,8 @@ $(document).ready(function() {
     'image' : $('#uid').val()
    });
    tagtext = '';
-   for(text in result.tags) {
-    tagtext = tagtext+result.tags[text]+' ';
+   for(i in result.tags) {
+    tagtext = tagtext+'<a href="'+result.tags[i].url+'">'+result.tags[i].name+'</a> ';
    }
    $('#tagtext').html(tagtext);   
   };

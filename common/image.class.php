@@ -99,7 +99,19 @@ class Image extends Base {
  }
 
  public function random($options=array()) {
-  $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
+  if ($options['tag']) {
+   $sql = 'SELECT id FROM tag_list WHERE basename = :basename';
+   $val = array(
+    ':basename' => $options['tag']
+   );
+   $result = $this->db->fetch($sql,$val);
+   $sql = 'SELECT image_id FROM tags WHERE tag_id ='.$result[0]['id'].' ORDER BY RAND() LIMIT 1';
+   $result = $this->db->fetch($sql);
+   $sql = 'SELECT uid FROM images WHERE id ='.$result[0]['image_id'];
+  }
+  else {
+   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
+  }
   $result = $this->db->fetch($sql);
   return $result[0]['uid'];
   //this should return image URL's as well

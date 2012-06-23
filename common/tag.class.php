@@ -47,16 +47,16 @@ class Tag extends Base {
  }
  
  public function get($options=array()) {
-  $sql = 'SELECT name FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE image_id = :image_id;';
+  $sql = 'SELECT name, basename FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE image_id = :image_id;';
   $val = array(
    ':image_id' => $options['image_id']
   );
   $results = $this->db->fetch($sql,$val);
-  $tags = array();
-  foreach ($results as $r) {
-   $tags[] = stripslashes($r['name']);
+  foreach ($results as $i => $r) {
+   $url = parse_url(WEB_ROOT);
+   $results[$i]['url'] = $url['scheme'].'://'.$r['basename'].'.'.$url['host'];
   }
-  return $tags;
+  return $results;
  }
  
  public function suggest($options=array()) {
