@@ -42,14 +42,22 @@ class Tag extends Base {
     $return['message'] = 'Tags added';
    break;
   }
-  $return['tags'] = $this->get(array('image_id'=>$image['id']));
+  $return['tags'] = $this->get(array('value'=>$image['id']));
   return $return;
  }
  
  public function get($options=array()) {
-  $sql = 'SELECT name, basename FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE image_id = :image_id;';
+  switch ($options['search_by']) {
+   case 'image_id':
+   case 'basename':
+   break;
+   default:
+    $options['search_by'] = 'image_id';
+   break;
+  }
+  $sql = 'SELECT name, basename FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE '.$options['search_by'].' = :value;';
   $val = array(
-   ':image_id' => $options['image_id']
+   ':value' => $options['value']
   );
   $results = $this->db->fetch($sql,$val);
   foreach ($results as $i => $r) {
@@ -58,7 +66,7 @@ class Tag extends Base {
   }
   return $results;
  }
- 
+
  public function suggest($options=array()) {
   $sql = "SELECT name FROM tag_list WHERE name LIKE :name LIMIT 10;";
   $val = array(

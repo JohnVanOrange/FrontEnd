@@ -14,4 +14,4 @@
 
 <body class='{$theme}'>
 <div id='set_theme'></div>
-{if $show_scorn}<div id='scorn'><a href='http://scornondemand.com'>Demand Scorn</a></div>{/if}
+<div id='search'><form action=''><input id='tagsearch' placeholder='View by tag' /><input type='submit' value='Go'></form></div>

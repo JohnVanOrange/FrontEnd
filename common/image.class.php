@@ -113,6 +113,7 @@ class Image extends Base {
    $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   }
   $result = $this->db->fetch($sql);
+  if (!$result) throw new Exception('No image results', 404);
   return $result[0]['uid'];
   //this should return image URL's as well
  }
@@ -137,7 +138,7 @@ class Image extends Base {
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
   if (!$result['display']) throw new Exception('Image removed', 403); 
-  $result['tags'] = $this->tag->get(array('image_id'=>$result['id']));
+  $result['tags'] = $this->tag->get(array('value'=>$result['id']));
   return $result;
  }
 

@@ -13,6 +13,15 @@ catch (exception $e) {
  page_exception_handler($e);
 }
 
+$url = parse_url(WEB_ROOT);
+$tag_basename = rtrim(str_replace($url['host'], '', $_SERVER['HTTP_HOST']),'.');
+if ($tag_basename) {
+ require_once('common/tag.class.php');
+ $tag = new Tag;
+ $page_tag = $tag->get(array('value'=>$tag_basename,'search_by'=>'basename'));
+ $tpl->assign('tag_name',$page_tag[0]['name']);
+}
+
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
 $tpl->assign('image_name', $result['filename']);
 $tpl->assign('image_id',$result['id']);

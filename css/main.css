@@ -69,7 +69,7 @@ div.addthis_toolbox {
  height: 28px;
 }
 
-#scorn, #brazz_credit, #bugs, #head_text {
+#brazz_credit, #bugs, #head_text {
  font-size: 75%;
 }
 
@@ -83,7 +83,7 @@ div.addthis_toolbox {
  margin-left: 10px;
 }
 
-#scorn {
+#search {
  position: absolute;
  top: 8px;
  right: 18px;

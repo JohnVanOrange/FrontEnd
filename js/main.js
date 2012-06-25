@@ -7,6 +7,11 @@ $(document).ready(function() {
  History.Adapter.bind(window,'statechange',function(){
   var State = History.getState();
  });
+ $('#search form').submit(function(event){
+  event.preventDefault();
+  taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'basename'});
+  window.location.href = taginfo[0].url; 
+ });
  $('#report').click(function(event) {
   event.preventDefault();
   $('#report_dialog').dialog({
@@ -86,6 +91,10 @@ $(document).ready(function() {
   if (state.data.state == 1) {brazzify();} else {normal();}
  });
  $('#tag_name').autocomplete({
+  source: '/api/tag/suggest',
+  minLength: 2
+ });
+ $('#tagsearch').autocomplete({
   source: '/api/tag/suggest',
   minLength: 2
  });

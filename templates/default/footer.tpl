@@ -18,6 +18,7 @@
 <a href='' id='upload'>Add Images</a> | <a href='/tos'>Legal</a> | 
 <a href='/m/'>Mobile</a> | 
 <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
+{if $show_scorn} | <a href='http://scornondemand.com'>Demand Scorn</a>{/if}
 </p>
 <script defer src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
