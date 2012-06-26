@@ -1,17 +1,49 @@
 $(document).ready(function() {
+ /*Force images to fit to page width*/
  $('body').imagefit();
+
+ /*Options for Notifications*/
  $.noty.defaultOptions.layout = 'topRight';
  $.noty.defaultOptions.type = 'information';
  $.noty.defaultOptions.timeout = 10000;
+
+ /*Initialize history.js*/
  var History = window.History;
  History.Adapter.bind(window,'statechange',function(){
   var State = History.getState();
  });
+
+ /*Keyboard controls*/
+ $('body').keydown(function(event) {
+  console.log(event.keyCode);
+  switch (event.keyCode) {
+   case 32://Space
+    //event.preventDefault();
+    $('#main_image').click(); 
+   break;
+   case 37://left arrow
+    history.back();
+   break;
+   case 39://right arrow
+    history.forward();
+   break;
+   case 66://b
+    $('#brazzify').click();
+   break;
+  }
+ });
+ $('input').keydown(function(event) {
+  event.stopPropagation();//make sure input boxes don't propagate keypresses to the body
+ });
+
+ /*Search by tag box*/
  $('#search form').submit(function(event){
   event.preventDefault();
   taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'name'});
   window.location.href = taginfo[0].url; 
  });
+
+ /*Report Image dialog*/
  $('#report').click(function(event) {
   event.preventDefault();
   $('#report_dialog').dialog({
@@ -27,6 +59,8 @@ $(document).ready(function() {
    },
   });
  });
+
+ /*Upload Image dialog*/
  $('#upload').click(function(event) {
   event.preventDefault();
   $('#addimage_dialog').dialog({
@@ -45,6 +79,8 @@ $(document).ready(function() {
    },
   });
  });
+
+ /*Add Tag dialog*/
  $('#add_tag').click(function(event) {
   event.preventDefault();
   addtag = function() {
@@ -76,10 +112,14 @@ $(document).ready(function() {
    },
   });
  });
+
+ /*Theme changer*/
  $('#set_theme').click(function() {
   $('body').toggleClass('light dark');
   $.cookie('theme',$('body').attr('class'),{expires: 365, path: '/'});
  });
+
+ /*Brazzify page changing using history.js*/
  $('#brazzify').click(function(event) {
   event.preventDefault();
   state = {brazzify: true};
@@ -90,6 +130,8 @@ $(document).ready(function() {
   if (state.data.state == 1) {brazzify();} else {normal();}
   if (state.data.state == 1) {brazzify();} else {normal();}
  });
+
+ /*Autocompletes*/
  $('#tag_name').autocomplete({
   source: '/api/tag/suggest',
   minLength: 2
