@@ -9,7 +9,7 @@ $(document).ready(function() {
  });
  $('#search form').submit(function(event){
   event.preventDefault();
-  taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'basename'});
+  taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'name'});
   window.location.href = taginfo[0].url; 
  });
  $('#report').click(function(event) {

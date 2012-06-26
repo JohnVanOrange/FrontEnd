@@ -48,14 +48,17 @@ class Tag extends Base {
  
  public function get($options=array()) {
   switch ($options['search_by']) {
-   case 'image_id':
+   case 'name':
+   $options['search_by'] = 'basename';
+   $options['value'] = $this->text2slug($options['value']);
    case 'basename':
+   case 'image_id':
    break;
    default:
     $options['search_by'] = 'image_id';
    break;
   }
-  $sql = 'SELECT name, basename FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE '.$options['search_by'].' = :value;';
+  $sql = 'SELECT name, basename FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE '.$options['search_by'].' = :value';
   $val = array(
    ':value' => $options['value']
   );
