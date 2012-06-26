@@ -31,7 +31,7 @@ $(document).ready(function() {
     $('#brazzify').click();
    break;
    case 124:
-    window.location.href='http://johnvanorange.com/v/joJpMJ'; 
+    window.location.href='http://johnvanorange.com/b/joJpMJ'; 
    break;
   }
  });
