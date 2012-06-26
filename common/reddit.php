@@ -21,7 +21,7 @@ class Reddit extends Base {
   foreach ($posts['data']['children'] as $post) {
    try {
     $this->checkScore($post);
-	$url = $this->findURL($post);
+  	$url = $this->findURL($post);
     $image = $this->addImage($url,$post);
     $this->log($image['message'].' '.$image['url'],$this->logfile);
    }
@@ -41,7 +41,19 @@ class Reddit extends Base {
  private function findURL($post) {
   if ($this->isImgur($post) !== FALSE) return $this->imgurProcess($post);
   if ($this->isDirectImage($post) !== FALSE) return $this->directImageProcess($post);
+  if ($this->isQuickMeme($post) !== FALSE) return $this->quickMemeProcess($post);
   throw new Exception('Not a known image type. URL: '.$post['data']['url'],200);
+ }
+
+ private function isQuickMeme($post) {
+  if (strpos($post['data']['domain'],'quickmeme') !== FALSE) return TRUE;
+  return strpos($post['data']['domain'],'qkme');
+ }
+
+ private function quickMemeProcess($post) {
+  $parts = explode('/',rtrim($post['data']['url'],'/'));
+  $last = end($parts);
+  return 'http://i.qkme.me/'.$last.'.jpg';
  }
  
  private function isDirectImage($post) {
