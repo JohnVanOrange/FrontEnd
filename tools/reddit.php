@@ -1,6 +1,6 @@
 <?
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/reddit.php');
+require_once(ROOT_DIR.'/common/reddit.class.php');
 
 $r = new Reddit;
 
