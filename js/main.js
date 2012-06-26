@@ -15,10 +15,10 @@ $(document).ready(function() {
 
  /*Keyboard controls*/
  $('body').keydown(function(event) {
-  console.log(event.keyCode);
+  //console.log(event.keyCode);
   switch (event.keyCode) {
    case 32://Space
-    //event.preventDefault();
+    event.preventDefault();
     $('#main_image').click(); 
    break;
    case 37://left arrow
@@ -29,6 +29,9 @@ $(document).ready(function() {
    break;
    case 66://b
     $('#brazzify').click();
+   break;
+   case 124:
+    window.location.href='http://johnvanorange.com/v/joJpMJ'; 
    break;
   }
  });
