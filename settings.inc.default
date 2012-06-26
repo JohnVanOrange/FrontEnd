@@ -12,4 +12,6 @@ define('SHOW_SCORN',0);
 define('SHOW_SOCIAL',1);
 define('SHOW_BRAZZ',1);
 define('FAVICON','Nyan-Cat-Original_032x032_32.png');
+define('403_IMAGE','403.jpg');
+define('404_IMAGE','404.jpg');
 ?>
