@@ -9,9 +9,9 @@ $(document).ready(function() {
 
  /*Initialize history.js*/
  var History = window.History;
- History.Adapter.bind(window,'statechange',function(){
+ /*History.Adapter.bind(window,'statechange',function(){
   var State = History.getState();
- });
+ });*/
 
  /*Keyboard controls*/
  $('body').keydown(function(event) {
@@ -22,10 +22,10 @@ $(document).ready(function() {
     $('#main_image').click(); 
    break;
    case 37://left arrow
-    history.back();
+    window.history.back();
    break;
    case 39://right arrow
-    history.forward();
+    window.history.forward();
    break;
    case 66://b
     $('#brazzify').click();
@@ -42,7 +42,7 @@ $(document).ready(function() {
  /*Search by tag box*/
  $('#search form').submit(function(event){
   event.preventDefault();
-  taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'name'});
+  var taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'name'});
   window.location.href = taginfo[0].url; 
  });
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
      });
      $(this).dialog('close');
     }
-   },
+   }
   });
  });
 
@@ -79,19 +79,19 @@ $(document).ready(function() {
      });
      $(this).dialog('close');
     }
-   },
+   }
   });
  });
 
  /*Add Tag dialog*/
  $('#add_tag').click(function(event) {
   event.preventDefault();
-  addtag = function() {
-   result = call('tag/add',{
+  var addtag = function() {
+   var result = call('tag/add',{
     'name': $('#tag_name').val(),
     'image' : $('#uid').val()
    });
-   tagtext = '';
+   var tagtext = '';
    for(i in result.tags) {
     tagtext = tagtext+'<a href="'+result.tags[i].url+'">'+result.tags[i].name+'</a> ';
    }
@@ -112,7 +112,7 @@ $(document).ready(function() {
      addtag();
      $(this).dialog('close');
     }
-   },
+   }
   });
  });
 
@@ -125,11 +125,11 @@ $(document).ready(function() {
  /*Brazzify page changing using history.js*/
  $('#brazzify').click(function(event) {
   event.preventDefault();
-  state = {brazzify: true};
+  //var state = {brazzify: true};
   History.pushState({state:1},'Brazzified','/b/'+$('#uid').val());
  });
  $(window).bind("statechange", function() {
-  state = History.getState();
+  var state = History.getState();
   if (state.data.state == 1) {brazzify();} else {normal();}
   if (state.data.state == 1) {brazzify();} else {normal();}
  });
@@ -158,9 +158,9 @@ function normal() {
 
 function call(method, opt) {
  try {
-  result = api.call(method, opt);
+  var result = api.call(method, opt);
   if (result.message) {
-   message = result.message;
+   var message = result.message;
    if (result.url) message = '<a href="'+result.url+'">'+message+'</a>';
    noty({text:message});
   }
@@ -171,10 +171,10 @@ function call(method, opt) {
  }
 }
 
-api = {
+var api = {
  client : function (method, opt) {
-  url = '/api/' + method;
-  response = $.parseJSON($.ajax({
+  var url = '/api/' + method;
+  var response = $.parseJSON($.ajax({
    type: 'post',
    async: false,
    url: url,
