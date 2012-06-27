@@ -9,9 +9,6 @@ $(document).ready(function() {
 
  /*Initialize history.js*/
  var History = window.History;
- /*History.Adapter.bind(window,'statechange',function(){
-  var State = History.getState();
- });*/
 
  /*Keyboard controls*/
  $('body').keydown(function(event) {
@@ -86,6 +83,10 @@ $(document).ready(function() {
  /*Add Tag dialog*/
  $('#add_tag').click(function(event) {
   event.preventDefault();
+  var tag_name_ac = $('#tag_name').autocomplete({
+   source: '/api/tag/suggest',
+   minLength: 2
+  });
   var addtag = function() {
    var result = call('tag/add',{
     'name': $('#tag_name').val(),
@@ -112,6 +113,10 @@ $(document).ready(function() {
      addtag();
      $(this).dialog('close');
     }
+   },
+   close: function() {
+    $('#tag_name').unbind('keydown')
+    tag_name_ac.autocomplete('destroy');
    }
   });
  });
@@ -125,7 +130,6 @@ $(document).ready(function() {
  /*Brazzify page changing using history.js*/
  $('#brazzify').click(function(event) {
   event.preventDefault();
-  //var state = {brazzify: true};
   History.pushState({state:1},'Brazzified','/b/'+$('#uid').val());
  });
  $(window).bind("statechange", function() {
@@ -134,11 +138,7 @@ $(document).ready(function() {
   if (state.data.state == 1) {brazzify();} else {normal();}
  });
 
- /*Autocompletes*/
- $('#tag_name').autocomplete({
-  source: '/api/tag/suggest',
-  minLength: 2
- });
+ /*Tag Search Autocomplete*/
  $('#tagsearch').autocomplete({
   source: '/api/tag/suggest',
   minLength: 2
