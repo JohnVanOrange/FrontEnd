@@ -1,14 +1,17 @@
 <?php
 require_once(ROOT_DIR.'/common/base.class.php');
 require_once(ROOT_DIR.'/common/tag.class.php');
+require_once(ROOT_DIR.'/common/user.class.php');
 
 class Image extends Base {
 
  private $tag;
+ private $user;
 
  public function __construct($options=array()) {
   parent::__construct();
   $this->tag = new Tag;
+  $this->user = new User;
  }
 
  private function add($options=array()) {

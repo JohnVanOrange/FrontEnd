@@ -5,6 +5,7 @@ class DB extends PDO {
  public function __construct($dsn, $user, $pass, $options=array()) {
   parent::__construct($dsn, $user, $pass, $options);
   $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+  $this->setAttribute(PDO::ATTR_PERSISTENT,TRUE);
  }
 
  public function __destruct() {

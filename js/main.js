@@ -181,7 +181,7 @@ var api = {
    data: opt,
    dataType: 'json'
   }).responseText);
- if (response.error) {
+ if (response.hasOwnProperty('error') ) {
   throw {name:response.error, message:response.message};
  }
  return response;

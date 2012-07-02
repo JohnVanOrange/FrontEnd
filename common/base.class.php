@@ -1,5 +1,6 @@
 <?php
 require_once(ROOT_DIR.'/common/db.class.php');
+require_once(ROOT_DIR.'/common/auth.class.php');
 
 class Base {
 
