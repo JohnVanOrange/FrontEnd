@@ -17,6 +17,12 @@ class User extends Base {
  private function passhash($pass, $salt) {
   return md5($salt.$pass);
  }
+ 
+ protected function isAdmin($options=array()) {
+  $user = $this->current();
+  if ($user['type']>= 2) return TRUE;
+  return FALSE;
+ }
 
  public function get($options=array()) {
   switch ($options['search_by']) {

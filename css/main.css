@@ -69,7 +69,7 @@ div.addthis_toolbox {
  height: 28px;
 }
 
-#brazz_credit, #bugs, #head_text {
+#brazz_credit, #bugs, #head_text, #search {
  font-size: 75%;
 }
 
@@ -98,7 +98,7 @@ div.addthis_toolbox {
  margin: 1em;
 }
 
-#report_dialog, #addimage_dialog, #tag_dialog {
+#report_dialog, #addimage_dialog, #tag_dialog, #login_dialog, #account_dialog {
  display: none;
  text-align: left;
 }

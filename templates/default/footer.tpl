@@ -1,4 +1,6 @@
 {include file='addimage_dialog.tpl'}
+{include file='login_dialog.tpl'}
+{include file='account_dialog.tpl'}
 {if $show_social}
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
@@ -27,7 +29,7 @@
 <script defer src='{$web_root}js/jquery.cookie.js'></script>
 <script defer src='{$web_root}js/jquery.history.js'></script>
 <script defer src='{$web_root}js/jquery.noty.js'></script>
-<script defer src='{$web_root}js/main.js?20120626c'></script>
+<script defer src='{$web_root}js/main.js?20120705'></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

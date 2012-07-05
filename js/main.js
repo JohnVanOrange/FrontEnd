@@ -35,6 +35,89 @@ $(document).ready(function() {
  $('input').keydown(function(event) {
   event.stopPropagation();//make sure input boxes don't propagate keypresses to the body
  });
+ 
+ 
+ /*Create Account dialog*/
+ $('#create_acct').click(function(event) {
+  event.preventDefault();
+  create = function() {
+   if ($('#create_password').val() != $('#create_password2').val()) {
+    var e = {message: "Passwords don't match"};
+    exception_handler(e);
+   }
+   else {
+    response = call('user/add',{
+     'username': $('#create_username').val(),
+     'password': $('#create_password').val(),
+     'email': $('#create_email').val()
+    });
+    if (!response.error) {
+     call('user/login',{
+      'username': $('#create_username').val(),
+      'password': $('#create_password').val()
+     });
+     $('#account_dialog').dialog('close');
+     window.location.reload();
+    }
+   }
+  };
+  $('#create_email').bind('keydown', function(event) {
+   if(event.keyCode===13){
+    event.preventDefault();
+    create();
+   }
+  });
+  $('#account_dialog').dialog({
+   title: 'Create Account',
+   width: 430,
+   buttons: {
+    'Create': function() {
+     create();
+    }
+   }
+  });
+ });
+ 
+ /*Login dialog*/
+ $('#login').click(function(event) {
+  event.preventDefault();
+  login = function() {
+   response = call('user/login',{
+    'username': $('#username').val(),
+    'password': $('#password').val()
+   });
+   if (response.sid) {
+    $('#login_dialog').dialog('close');
+    window.location.reload();
+   }
+  };
+  $('#password').bind('keydown', function(event) {
+   if(event.keyCode===13){
+    event.preventDefault();
+    login();
+   }
+  });
+  $('#username').bind('keydown', function(event) {
+   if(event.keyCode===13){
+    event.preventDefault();
+    login();
+   }
+  });
+  $('#login_dialog').dialog({
+   title: 'Login',
+   buttons: {
+    'Login': function() {
+     login();
+    }
+   }
+  });
+ });
+ 
+ /*Logout*/
+ $('#logout').click(function(event) {
+  response = call('user/logout');
+  if (!response.error) window.location.reload();
+ });
 
  /*Search by tag box*/
  $('#search form').submit(function(event){
