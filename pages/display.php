@@ -1,5 +1,5 @@
 <?php
-require_once('common/smarty.php');
+require_once('smarty.php');
 require_once('classes/image.class.php');
 
 $image = new Image;

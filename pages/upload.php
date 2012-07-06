@@ -1,5 +1,5 @@
 <?php
-require_once('common/smarty.php');
+require_once('smarty.php');
 
 $template = 'upload.tpl';
 

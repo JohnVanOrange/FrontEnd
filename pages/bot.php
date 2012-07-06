@@ -1,5 +1,5 @@
 <?php
-require('common/smarty.php');
+require('smarty.php');
 
 $template = 'bot.tpl';
 
