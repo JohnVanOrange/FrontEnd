@@ -14,6 +14,22 @@ class Image extends Base {
   $this->user = new User;
  }
 
+ public function save($options=array()) {
+  $current = $this->user->current($options);
+  $ip = $_SERVER['REMOTE_ADDR'];
+  if (!$current) throw new Exception('Must be logged in to save images');
+  $sql = 'INSERT INTO resources(ip, image, user_id, type) VALUES(:ip, :image, :user_id, "save")';
+  $val = array(
+   ':ip' => $ip,
+   ':image' => $options['image'],
+   ':user_id' => $current['id']
+  );
+  $this->db->fetch($sql,$val);
+  return array(
+   'message' => 'Image saved.'
+  );
+ }
+
  private function add($options=array()) {
   if (!isset($options['c_link'])) $options['c_link'] = NULL;
   $info = getimagesize($options['path']);
@@ -123,6 +139,7 @@ class Image extends Base {
 
  public function get($options=array()) {
   if (!$options['image']) throw new Exception('No image given.');
+  #Get image data
   switch (strlen($options['image'])) {
    case 6:
     $sql = 'SELECT * from images WHERE uid = :name LIMIT 1;';
@@ -138,10 +155,23 @@ class Image extends Base {
    ':name' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
+  #See if there was a result
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
-  if (!$result['display']) throw new Exception('Image removed', 403); 
+  #Verify image isn't supposed to be hidden
+  if (!$result['display']) throw new Exception('Image removed', 403);
+  #Get tags
   $result['tags'] = $this->tag->get(array('value'=>$result['id']));
+  #Get resources
+  $user = $this->user->current($options);
+  if ($user) {
+   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$user['id'].'")';
+   $resources = $this->db->fetch($sql);
+   foreach ($resources as $r) {
+    $data[$r['type']] = $r;
+   }
+   $result['data'] = $data;
+  }
   return $result;
  }
 

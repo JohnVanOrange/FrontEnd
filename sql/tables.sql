@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `resources` (
   `ip` varchar(15) collate utf8_unicode_ci default NULL,
-  `image_id` int(10) unsigned NOT NULL,
+  `image` varchar(6) collate utf8_unicode_ci NOT NULL,
   `user_id` int(8) unsigned default NULL,
   `value` int(8) default NULL,
   `type` varchar(8) collate utf8_unicode_ci NOT NULL
