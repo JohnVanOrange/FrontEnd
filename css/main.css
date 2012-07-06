@@ -89,6 +89,11 @@ div.addthis_toolbox {
  right: 18px;
 }
 
+#search img {
+ vertical-align: top;
+ margin-bottom: 4px;
+}
+
 #tos {
  text-align: left;
  font-size: 90%;

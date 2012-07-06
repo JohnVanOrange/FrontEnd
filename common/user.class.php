@@ -27,18 +27,21 @@ class User extends Base {
  public function get($options=array()) {
   switch ($options['search_by']) {
    case 'username':
-    $sql = 'SELECT id,username,type FROM users WHERE username = :value';
+    $sql = 'SELECT id,username,type,email FROM users WHERE username = :value';
    break;
    case 'id':
    default:
-    $sql = 'SELECT id,username,type FROM users WHERE id = :value';
+    $sql = 'SELECT id,username,type,email FROM users WHERE id = :value';
    break;
   }
   $val = array(
    ':value' => $options['value']
   );
   $user = $this->db->fetch($sql,$val);
-  return $user[0];
+  $user = $user[0];
+  if ($user['email']) $user['email_hash'] = md5($user['email']);
+  unset($user['email']);
+  return $user;
  }
 
  public function current($options=array()) {
