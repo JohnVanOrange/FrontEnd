@@ -1,6 +1,7 @@
 <?php
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/db.php');
+require_once(ROOT_DIR.'/classes/db.class.php');
+$db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 
 $dir = ROOT_DIR.'/media/';
 $files = glob($dir.'*.*');
