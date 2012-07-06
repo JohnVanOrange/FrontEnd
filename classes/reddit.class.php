@@ -1,7 +1,7 @@
 <?php
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/base.class.php');
-require_once(ROOT_DIR.'/common/image.class.php');
+require_once(ROOT_DIR.'/classes/base.class.php');
+require_once(ROOT_DIR.'/classes/image.class.php');
 
 class Reddit extends Base {
 

@@ -1,5 +1,5 @@
 <?php
-require_once(ROOT_DIR.'/common/db.class.php');
+require_once(ROOT_DIR.'/classes/db.class.php');
 
 class Base {
 

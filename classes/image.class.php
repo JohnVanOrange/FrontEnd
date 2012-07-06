@@ -1,7 +1,7 @@
 <?php
-require_once(ROOT_DIR.'/common/base.class.php');
-require_once(ROOT_DIR.'/common/tag.class.php');
-require_once(ROOT_DIR.'/common/user.class.php');
+require_once(ROOT_DIR.'/classes/base.class.php');
+require_once(ROOT_DIR.'/classes/tag.class.php');
+require_once(ROOT_DIR.'/classes/user.class.php');
 
 class Image extends Base {
 

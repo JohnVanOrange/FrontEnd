@@ -1,6 +1,6 @@
 <?php
 require_once('common/smarty.php');
-require_once('common/api.class.php');
+require_once('classes/api.class.php');
 
 $template = 'tos.tpl';
 

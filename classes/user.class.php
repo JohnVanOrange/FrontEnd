@@ -1,5 +1,5 @@
 <?php
-require_once(ROOT_DIR.'/common/base.class.php');
+require_once(ROOT_DIR.'/classes/base.class.php');
 
 class User extends Base {
 

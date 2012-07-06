@@ -14,7 +14,7 @@ try {
   case 'user':
   case 'tag':
    $class_name = $valid_classes[$class];
-   require_once('common/'.$class.'.class.php');
+   require_once('classes/'.$class.'.class.php');
   break;
   default:
    throw new Exception('Invalid class/URL');
