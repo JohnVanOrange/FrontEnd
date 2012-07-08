@@ -1,4 +1,50 @@
-$(document).ready(function() {
+var api = {
+ client : function (method, opt) {
+  var url = '/api/' + method;
+  var response = $.parseJSON($.ajax({
+   type: 'post',
+   async: false,
+   url: url,
+   data: opt,
+   dataType: 'json'
+  }).responseText);
+  if (response.hasOwnProperty('error')) {
+   throw {name: response.error, message: response.message};
+  }
+  return response;
+ },
+ call : function (method, opt) {
+  return this.client(method, opt);
+ }
+};
+
+function exception_handler(e) {
+ noty({text: e.message, type: 'error'});
+ switch (e.name) {
+ case 1000: //Missing URL
+  break;
+ }
+}
+
+function call(method, opt) {
+ "use strict";
+ try {
+  var result = api.call(method, opt);
+  if (result.message) {
+   var message = result.message;
+   if (result.url) {
+    message = '<a href="' + result.url + '">' + message + '</a>';
+   }
+   noty({text: message});
+  }
+  return result;
+ } catch (e) {
+  exception_handler(e);
+ }
+ return null;
+}
+
+$(document).ready(function () {
  /*Force images to fit to page width*/
  $('body').imagefit();
 
@@ -11,48 +57,46 @@ $(document).ready(function() {
  var History = window.History;
 
  /*Keyboard controls*/
- $('body').keydown(function(event) {
+ $('body').keydown(function (event) {
   //console.log(event.keyCode);
   switch (event.keyCode) {
-   case 32://Space
-    event.preventDefault();
-    $('#main_image').click(); 
+  case 32://Space
+   event.preventDefault();
+   $('#main_image').click();
    break;
-   case 37://left arrow
-    window.history.back();
+  case 37://left arrow
+   window.history.back();
    break;
-   case 39://right arrow
-    window.history.forward();
+  case 39://right arrow
+   window.history.forward();
    break;
-   case 66://b
-    $('#brazzify').click();
+  case 66://b
+   $('#brazzify').click();
    break;
-   case 124:
-    window.location.href='http://johnvanorange.com/b/joJpMJ'; 
+  case 124:
+   window.location.href = 'http://johnvanorange.com/b/joJpMJ';
    break;
   }
  });
- $('input').keydown(function(event) {
+ $('input').keydown(function (event) {
   event.stopPropagation();//make sure input boxes don't propagate keypresses to the body
  });
- 
- 
+
  /*Create Account dialog*/
- $('#create_acct').click(function(event) {
+ $('#create_acct').click(function (event) {
   event.preventDefault();
-  create = function() {
-   if ($('#create_password').val() != $('#create_password2').val()) {
+  var create = function () {
+   if ($('#create_password').val() !== $('#create_password2').val()) {
     var e = {message: "Passwords don't match"};
     exception_handler(e);
-   }
-   else {
-    response = call('user/add',{
+   } else {
+    var response = call('user/add', {
      'username': $('#create_username').val(),
      'password': $('#create_password').val(),
      'email': $('#create_email').val()
     });
     if (!response.error) {
-     call('user/login',{
+     call('user/login', {
       'username': $('#create_username').val(),
       'password': $('#create_password').val()
      });
@@ -61,8 +105,8 @@ $(document).ready(function() {
     }
    }
   };
-  $('#create_email').bind('keydown', function(event) {
-   if(event.keyCode===13){
+  $('#create_email').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
     event.preventDefault();
     create();
    }
@@ -71,18 +115,18 @@ $(document).ready(function() {
    title: 'Create Account',
    width: 430,
    buttons: {
-    'Create': function() {
+    'Create': function () {
      create();
     }
    }
   });
  });
- 
+
  /*Login dialog*/
- $('#login').click(function(event) {
+ $('#login').click(function (event) {
   event.preventDefault();
-  login = function() {
-   response = call('user/login',{
+  var login = function () {
+   var response = call('user/login', {
     'username': $('#username').val(),
     'password': $('#password').val()
    });
@@ -91,14 +135,14 @@ $(document).ready(function() {
     window.location.reload();
    }
   };
-  $('#password').bind('keydown', function(event) {
-   if(event.keyCode===13){
+  $('#password').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
     event.preventDefault();
     login();
    }
   });
-  $('#username').bind('keydown', function(event) {
-   if(event.keyCode===13){
+  $('#username').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
     event.preventDefault();
     login();
    }
@@ -106,34 +150,34 @@ $(document).ready(function() {
   $('#login_dialog').dialog({
    title: 'Login',
    buttons: {
-    'Login': function() {
+    'Login': function () {
      login();
     }
    }
   });
  });
- 
+
  /*Logout*/
- $('#logout').click(function(event) {
-  response = call('user/logout');
+ $('#logout').click(function (event) {
+  var response = call('user/logout');
   if (!response.error) window.location.reload();
  });
 
  /*Search by tag box*/
- $('#search form').submit(function(event){
+ $('#search form').submit(function (event) {
   event.preventDefault();
-  var taginfo = call('tag/get',{'value':$('#tagsearch').val(),'search_by':'name'});
-  window.location.href = taginfo[0].url; 
+  var taginfo = call('tag/get', {'value': $('#tagsearch').val(), 'search_by': 'name'});
+  window.location.href = taginfo[0].url;
  });
 
  /*Report Image dialog*/
- $('#report').click(function(event) {
+ $('#report').click(function (event) {
   event.preventDefault();
   $('#report_dialog').dialog({
    title: 'Report Image',
    buttons: {
-    'Report': function() {
-     call('image/report',{
+    'Report': function () {
+     call('image/report', {
       'id': $('#image_id').val(),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
@@ -144,17 +188,17 @@ $(document).ready(function() {
  });
 
  /*Upload Image dialog*/
- $('#upload').click(function(event) {
+ $('#upload').click(function (event) {
   event.preventDefault();
   $('#addimage_dialog').dialog({
    title: 'Add Images',
    width: 500,
    buttons: {
-    'Select from Computer' : function() {
-     window.location.href='/upload';
+    'Select from Computer' : function () {
+     window.location.href = '/upload';
     },
-    'Add from URL': function() {
-     call('image/addFromURL',{
+    'Add from URL': function () {
+     call('image/addFromURL', {
       'url': $('#url').val()
      });
      $(this).dialog('close');
@@ -164,25 +208,25 @@ $(document).ready(function() {
  });
 
  /*Add Tag dialog*/
- $('#add_tag').click(function(event) {
+ $('#add_tag').click(function (event) {
   event.preventDefault();
   var tag_name_ac = $('#tag_name').autocomplete({
    source: '/api/tag/suggest',
    minLength: 2
   });
-  var addtag = function() {
-   var result = call('tag/add',{
+  var addtag = function () {
+   var result = call('tag/add', {
     'name': $('#tag_name').val(),
     'image' : $('#uid').val()
    });
-   var tagtext = '';
-   for(i in result.tags) {
-    tagtext = tagtext+'<a href="'+result.tags[i].url+'">'+result.tags[i].name+'</a> ';
+   var tagtext = '', i;
+   for (i in result.tags) {
+    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a> ';
    }
-   $('#tagtext').html(tagtext);   
+   $('#tagtext').html(tagtext);
   };
-  $('#tag_name').bind('keydown', function(event) {
-   if(event.keyCode===13){
+  $('#tag_name').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
     event.preventDefault();
     addtag();
     $('#tag_dialog').dialog('close');
@@ -192,33 +236,33 @@ $(document).ready(function() {
    title: 'Add Tags',
    width: 350,
    buttons: {
-    'Add': function() {
+    'Add': function () {
      addtag();
      $(this).dialog('close');
     }
    },
-   close: function() {
-    $('#tag_name').unbind('keydown')
+   close: function () {
+    $('#tag_name').unbind('keydown');
     tag_name_ac.autocomplete('destroy');
    }
   });
  });
 
  /*Theme changer*/
- $('#set_theme').click(function() {
+ $('#set_theme').click(function () {
   $('body').toggleClass('light dark');
-  $.cookie('theme',$('body').attr('class'),{expires: 365, path: '/'});
+  $.cookie('theme', $('body').attr('class'), {expires: 365, path: '/'});
  });
 
  /*Brazzify page changing using history.js*/
- $('#brazzify').click(function(event) {
+ $('#brazzify').click(function (event) {
   event.preventDefault();
-  History.pushState({state:1},'Brazzified','/b/'+$('#uid').val());
+  History.pushState({state: 1}, 'Brazzified', '/b/' + $('#uid').val());
  });
- $(window).bind("statechange", function() {
+ $(window).bind("statechange", function () {
   var state = History.getState();
-  if (state.data.state == 1) {brazzify();} else {normal();}
-  if (state.data.state == 1) {brazzify();} else {normal();}
+  if (state.data.state === 1) {brazzify(); } else {normal(); }
+  if (state.data.state === 1) {brazzify(); } else {normal(); }
  });
 
  /*Tag Search Autocomplete*/
@@ -230,54 +274,11 @@ $(document).ready(function() {
 });
 
 function brazzify() {
- $('#main_image').attr('src','http://brazzify.me/?s=http://'+document.domain+'/media/'+$('#main_image').attr('name'));
+ $('#main_image').attr('src', 'http://brazzify.me/?s=http://' + document.domain + '/media/' + $('#main_image').attr('name'));
  $('#brazzers_text').hide();
 }
 
 function normal() {
- $('#main_image').attr('src','http://'+document.domain+'/media/'+$('#main_image').attr('name'));
+ $('#main_image').attr('src', 'http://' + document.domain + '/media/' + $('#main_image').attr('name'));
  $('#brazzers_text').show();
-}
-
-function call(method, opt) {
- try {
-  var result = api.call(method, opt);
-  if (result.message) {
-   var message = result.message;
-   if (result.url) message = '<a href="'+result.url+'">'+message+'</a>';
-   noty({text:message});
-  }
-  return result;
- }
- catch(e) {
-  exception_handler(e);
- }
-}
-
-var api = {
- client : function (method, opt) {
-  var url = '/api/' + method;
-  var response = $.parseJSON($.ajax({
-   type: 'post',
-   async: false,
-   url: url,
-   data: opt,
-   dataType: 'json'
-  }).responseText);
- if (response.hasOwnProperty('error') ) {
-  throw {name:response.error, message:response.message};
- }
- return response;
- },
- call : function(method, opt) {
-  return this.client(method, opt);
- }
-};
-
-function exception_handler(e) {
- noty({text:e.message,type:'error'});
- switch(e.name) {
-  case 1000: //Missing URL
-  break;
- }
 }
