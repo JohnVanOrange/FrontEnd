@@ -8,12 +8,12 @@
  <input type='hidden' name='image_id' id='image_id' value='{$image_id}'>
  <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' name='{$image_name}' height='{$height}' width='{$width}' alt='Main Image' />
 </a>
-<div id='tags'>
+<p id='tags'>
 Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
 <a href='{$tag.url}'>{$tag.name}</a> 
 {/foreach}{else}<em>none currently </em>{/if}
 </span>
-<a href='' id='add_tag'>Add</a></div>
+<a href='' id='add_tag'>Add</a></p>
 {if $c_link}
 <p><a href='{$c_link}' id='c_link'>External Comments</a></p>
 {/if}
@@ -23,5 +23,6 @@ Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
 <div id='empty'>
  {if $user}<div id='star' class='{if !$data.save}not_{/if}saved'></div>{/if}
 </div>
+{include file='report_dialog.tpl'}
 {include file='tag_dialog.tpl'}
 {include file='footer.tpl'}
