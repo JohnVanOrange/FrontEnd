@@ -8,6 +8,10 @@ class Base {
  public function __construct($options=array()) {
   $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
  }
+ 
+ public function __call($name, $args) {
+  throw new Exception('Invalid method '.$name);
+ }
 
  protected function remoteFetch($options=array()) {
   $ch = curl_init();
