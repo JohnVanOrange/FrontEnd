@@ -48,6 +48,21 @@ $(document).ready(function () {
  /*Force images to fit to page width*/
  $('body').imagefit();
 
+ /*Star positioning/visual hacks*/
+ $('#main_image').hover(function() {
+   //onhover
+   $('#star').fadeIn('fast');
+   $('#star').position({
+    my: 'left top',
+    at: 'left top',
+    of: $('#main_image'),
+    offset: '3, 3'
+   });
+  },function() {
+   //offhover
+   if (!$('#star').is(':hover')) $('#star').fadeOut('fast');
+  });
+
  /*Options for Notifications*/
  $.noty.defaultOptions.layout = 'topRight';
  $.noty.defaultOptions.type = 'information';
@@ -72,6 +87,9 @@ $(document).ready(function () {
    break;
   case 66://b
    $('#brazzify').click();
+   break;
+  case 83://s
+   $('#star').click();
    break;
   case 124:
    window.location.href = 'http://johnvanorange.com/b/joJpMJ';
@@ -252,6 +270,16 @@ $(document).ready(function () {
  $('#set_theme').click(function () {
   $('body').toggleClass('light dark');
   $.cookie('theme', $('body').attr('class'), {expires: 365, path: '/'});
+ });
+ 
+ /*Save image*/
+ $('#star').click(function () {
+  $('#star').toggleClass('saved not_saved');
+  if ($('#star').hasClass('saved')) {
+   call('image/save',{image:$('#uid').val()});
+  } else {
+   call('image/unsave',{image:$('#uid').val()});
+  }
  });
 
  /*Brazzify page changing using history.js*/

@@ -19,6 +19,14 @@ a:hover {
  text-decoration: underline;
 }
 
+#star.saved {
+ background: url('/img/star.png') top left no-repeat;
+}
+
+#star.not_saved {
+ background: url('/img/unstar.png') top left no-repeat;
+}
+
 body.light #set_theme {
  background: url('/img/moon.png') top left no-repeat;
 }
@@ -67,6 +75,17 @@ div.addthis_toolbox {
  float: left;
  width: 28px;
  height: 28px;
+}
+
+#star {
+ display: none;
+ width: 24px;
+ height: 24px;
+}
+
+#empty {
+ width: 0;
+ height: 0;
 }
 
 #brazz_credit, #bugs, #head_text, #search {

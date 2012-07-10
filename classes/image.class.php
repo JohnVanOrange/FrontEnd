@@ -13,7 +13,7 @@ class Image extends Base {
   $this->tag = new Tag;
   $this->user = new User;
  }
-
+ 
  public function save($options=array()) {
   $current = $this->user->current($options);
   $ip = $_SERVER['REMOTE_ADDR'];
@@ -27,6 +27,20 @@ class Image extends Base {
   $this->db->fetch($sql,$val);
   return array(
    'message' => 'Image saved.'
+  );
+ }
+ 
+ public function unsave($options=array()) {
+  $current = $this->user->current($options);
+  if (!$current) throw new Exception('Must be logged in to unsave images');
+  $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "save")';
+  $val = array(
+   ':image' => $options['image'],
+   ':user_id' => $current['id']
+  );
+  $this->db->fetch($sql,$val);
+  return array(
+   'message' => 'Image unsaved.'
   );
  }
 
