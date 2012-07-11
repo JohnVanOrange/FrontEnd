@@ -26,10 +26,9 @@
 <script defer src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
 <script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js'></script>
 <script defer src='{$web_root}js/jquery.imagefit.js'></script>
-<script defer src='{$web_root}js/jquery.cookie.js'></script>
 <script defer src='{$web_root}js/jquery.history.js'></script>
 <script defer src='{$web_root}js/jquery.noty.js'></script>
-<script defer src='{$web_root}js/main.js?20120710'></script>
+<script defer src='{$web_root}js/main.js?20120711'></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

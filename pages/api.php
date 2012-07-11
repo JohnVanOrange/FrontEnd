@@ -5,7 +5,8 @@ header ('Content-type: application/json; charset=UTF-8');
 $valid_classes = array(
  'image' => 'Image',
  'user' => 'User',
- 'tag' => 'Tag'
+ 'tag' => 'Tag',
+ 'theme' => 'Theme'
 );
 
 try {
@@ -13,6 +14,7 @@ try {
   case 'image':
   case 'user':
   case 'tag':
+  case 'theme':
    $class_name = $valid_classes[$class];
    require_once('classes/'.$class.'.class.php');
   break;

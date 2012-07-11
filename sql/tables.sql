@@ -65,9 +65,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `salt` varchar(16) collate utf8_unicode_ci NOT NULL,
   `email` varchar(255) collate utf8_unicode_ci NOT NULL,
   `type` int(10) unsigned NOT NULL default '1',
+  `theme` varchar(8) collate utf8_unicode_ci NOT NULL default 'dark',
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`,`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  UNIQUE KEY `username` (`username`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `resources` (
   `ip` varchar(15) collate utf8_unicode_ci default NULL,

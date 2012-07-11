@@ -269,7 +269,7 @@ $(document).ready(function () {
  /*Theme changer*/
  $('#set_theme').click(function () {
   $('body').toggleClass('light dark');
-  $.cookie('theme', $('body').attr('class'), {expires: 365, path: '/'});
+  call('theme/set',{theme:$('body').attr('class')});
  });
  
  /*Save image*/

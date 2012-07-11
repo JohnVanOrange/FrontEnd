@@ -23,15 +23,21 @@ class User extends Base {
   if ($user['type']>= 2) return TRUE;
   return FALSE;
  }
+ 
+ protected function isLoggedIn($options=array()) {
+  $user = $this->current();
+  if ($user) return TRUE;
+  return FALSE;
+ }
 
  public function get($options=array()) {
   switch ($options['search_by']) {
    case 'username':
-    $sql = 'SELECT id,username,type,email FROM users WHERE username = :value';
+    $sql = 'SELECT id,username,type,email,theme FROM users WHERE username = :value';
    break;
    case 'id':
    default:
-    $sql = 'SELECT id,username,type,email FROM users WHERE id = :value';
+    $sql = 'SELECT id,username,type,email,theme FROM users WHERE id = :value';
    break;
   }
   $val = array(
