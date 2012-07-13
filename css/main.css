@@ -146,8 +146,9 @@ div.addthis_toolbox {
 }
 
 #img_container {
- width: 100%;
+ width: 90%;
  height: 100%;
+ margin:0 auto;
 }
 
 body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .noty_text a:visited:hover{
