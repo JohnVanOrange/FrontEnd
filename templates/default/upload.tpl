@@ -190,7 +190,6 @@
 <script src="{$web_root}js/upload.js"></script>
 <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
 <!--[if gte IE 8]><script src="js/cors/jquery.xdr-transport.js"></script><![endif]-->
-<script src='{$web_root}js/jquery.cookie.js'></script>
 <script src='{$web_root}js/jquery.history.js'></script>
 <script src='{$web_root}js/main.js'></script>
 </body> 

@@ -29,7 +29,14 @@ class Image extends Base {
    'message' => 'Image saved.'
   );
  }
- 
+
+ public function saved($options=array()) {
+  $current = $this->user->current($options);
+  if (!$current) throw new Exception('Must be logged in to view saved images');
+  $sql = 'SELECT image FROM resources WHERE user_id = '.$current['id'].' AND type = "save"';
+  return $this->db->fetch($sql);
+ }
+
  public function unsave($options=array()) {
   $current = $this->user->current($options);
   if (!$current) throw new Exception('Must be logged in to unsave images');
@@ -197,6 +204,19 @@ class Image extends Base {
    $not_unique = $this->db->fetch($sql);
   } while (count($not_unique));
   return $uid;
+ }
+ 
+ public function scale($options=array()) {
+  if (!$options['width']) $options['width'] = '240';
+  if (!$options['height']) $options['height'] = '160';
+  $imagedata = $this->get(array('image'=>$options['image']));
+  $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
+
+  foreach ($image as $frame) {
+   $frame->thumbnailImage($options['width'],$options['height'],TRUE);
+  }
+  header('Content-type: '.$image->getImageMimeType());
+  echo $image->getImagesBlob(); 
  }
 
 }

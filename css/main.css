@@ -150,6 +150,13 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
  text-decoration: underline;
 }
 
+#carousel {
+ display: hidden;
+ width:600px;
+ height:500px;
+ margin:0 auto;
+}
+
 #disqus_thread {
  font-size:70%;
  width: 50%;

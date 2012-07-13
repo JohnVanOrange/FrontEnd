@@ -299,6 +299,16 @@ $(document).ready(function () {
   minLength: 2
  });
 
+ /*Image Carousel*/
+ $("#carousel").CloudCarousel(
+  {
+   xPos: 300,
+   yPos: 250,
+   buttonLeft: $("#left-but"),
+   buttonRight: $("#right-but")
+  }
+ );
+
 });
 
 function brazzify() {

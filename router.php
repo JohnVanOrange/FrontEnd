@@ -34,6 +34,10 @@ switch($request[0]) {
   include(ROOT_DIR.'/pages/api.php');
  break;
 
+ case 's':
+  include(ROOT_DIR.'/pages/saved.php');
+ break;
+
  case 'upload':
   include(ROOT_DIR.'/pages/upload.php');
  break;
