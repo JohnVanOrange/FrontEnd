@@ -58,7 +58,7 @@ class Tag extends Base {
     $options['search_by'] = 'image_id';
    break;
   }
-  $sql = 'SELECT name, basename FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id WHERE '.$options['search_by'].' = :value';
+  $sql = 'SELECT l.name, basename, uid FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id INNER JOIN images i ON i.id = t.image_id WHERE '.$options['search_by'].' = :value';
   $val = array(
    ':value' => $options['value']
   );
@@ -66,6 +66,15 @@ class Tag extends Base {
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
    $results[$i]['url'] = $url['scheme'].'://'.$r['basename'].'.'.$url['host'];
+  }
+  return $results;
+ }
+ 
+ public function all($options=array()) {
+  $images = $this->get(array('value'=>$options['tag'],'search_by'=>'basename'));
+  $results = array();
+  foreach($images as $image) {
+   $results[] = array('image'=>$image['uid']);
   }
   return $results;
  }

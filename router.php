@@ -38,6 +38,11 @@ switch($request[0]) {
   include(ROOT_DIR.'/pages/saved.php');
  break;
 
+ case 't':
+  $tag_name = $request[1];
+  include(ROOT_DIR.'/pages/tag.php');
+ break;
+
  case 'upload':
   include(ROOT_DIR.'/pages/upload.php');
  break;
