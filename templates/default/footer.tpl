@@ -29,7 +29,9 @@
 <script defer src='{$web_root}js/jquery.history.js'></script>
 <script defer src='{$web_root}js/jquery.noty.js'></script>
 <script defer src='{$web_root}js/cloud-carousel.1.0.5.min.js'></script>
-<script defer src='{$web_root}js/main.js?20120711'></script>
+<script defer src='{$web_root}js/jquery.mousewheel.js'></script>
+<script defer src='{$web_root}js/main.js?20120713'></script>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

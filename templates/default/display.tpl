@@ -3,11 +3,13 @@
  Search image on: <a href='http://www.google.com/searchbyimage?image_url={$image}'>Google</a> | <a href='http://tineye.com/search?url={$image}'>Tineye</a>
 </p>
 {if $tag_name}<p id='tag_filter'>Images filtered by tag {$tag_name}. <a href='{$web_root}'>View all images</a></p>{/if}
+<div id='img_container'>
 <a id='rand_link' href='../random?{$rand}' rel='nofollow'>
  <input type='hidden' name='uid' id='uid' value='{$uid}'>
  <input type='hidden' name='image_id' id='image_id' value='{$image_id}'>
  <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' name='{$image_name}' height='{$height}' width='{$width}' alt='Main Image' />
 </a>
+</div>
 <p id='tags'>
 Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
 <a href='{$tag.url}'>{$tag.name}</a> 
@@ -21,7 +23,7 @@ Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
 {include file='disqus.tpl'}
 {/if}
 <div id='empty'>
- {if $user}<div id='star' class='{if !$data.save}not_{/if}saved'></div>{/if}
+ {if $user}<div id='star' class='{if !$data.save}not_{/if}saved' title='Save Image'></div>{/if}
 </div>
 {include file='report_dialog.tpl'}
 {include file='tag_dialog.tpl'}

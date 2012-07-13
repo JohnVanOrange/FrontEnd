@@ -46,7 +46,7 @@ function call(method, opt) {
 
 $(document).ready(function () {
  /*Force images to fit to page width*/
- $('body').imagefit();
+ $('#img_container').imagefit();
 
  /*Star positioning/visual hacks*/
  $('#main_image').hover(function() {
@@ -303,11 +303,11 @@ $(document).ready(function () {
  $("#carousel").CloudCarousel(
   {
    xPos: 300,
-   yPos: 250,
-   buttonLeft: $("#left-but"),
-   buttonRight: $("#right-but")
+   yPos: 80,
+   mouseWheel: true
   }
  );
+ 
 
 });
 
