@@ -30,11 +30,11 @@ catch (exception $e) {
 }
 
 //If default header is set, make sure results are in JSON
-if (in_array('Content-type: application/json; charset=UTF-8',headers_list())) {
+//if (in_array('Content-type: application/json; charset=UTF-8',headers_list())) {
  if (!is_array($result)) $result = array('response'=>$result);
  echo json_encode($result);
-}
-else {
- echo $result;
-}
+//}
+//else {
+// echo $result;
+//}
 ?>
