@@ -29,7 +29,12 @@ catch (exception $e) {
  js_exception_handler($e);
 }
 
-if (!is_array($result)) $result = array('response'=>$result);
-
-echo json_encode($result);
+//If default header is set, make sure results are in JSON
+if (in_array('Content-type: application/json; charset=UTF-8',headers_list())) {
+ if (!is_array($result)) $result = array('response'=>$result);
+ echo json_encode($result);
+}
+else {
+ echo $result;
+}
 ?>

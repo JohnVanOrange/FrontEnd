@@ -77,6 +77,7 @@ class Image extends Base {
    return array(
     'url' => WEB_ROOT.'v/'.$result[0]['uid'],
     'image' => WEB_ROOT.'media/'.$result[0]['filename'],
+    'thumb' => WEB_ROOT.'media/thumbs/'.$result[0]['filename'],
     'message' => 'Duplicate image.'
    );
   }
@@ -94,9 +95,12 @@ class Image extends Base {
    );
    $s = $this->db->prepare($sql);
    $s->execute($val);//need to verify this was successful
+   $thumb = $this->scale(array('image'=>$uid));
+   file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
    return array(
     'url' => WEB_ROOT.'v/'.$uid,
     'image' => WEB_ROOT.'media/'.$filename,
+    'thumb' => WEB_ROOT.'media/thumbs/'.$filename,
     'message' => 'Image added.'
    );
   }
@@ -216,7 +220,7 @@ class Image extends Base {
    $frame->thumbnailImage($options['width'],$options['height'],TRUE);
   }
   header('Content-type: '.$image->getImageMimeType());
-  echo $image->getImagesBlob(); 
+  return $image->getImagesBlob(); 
  }
 
 }

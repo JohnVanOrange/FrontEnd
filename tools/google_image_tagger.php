@@ -1,6 +1,6 @@
 <?php
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/image.class.php');
+require_once(ROOT_DIR.'/classes/image.class.php');
 require_once('simple_html_dom.php');
 
 class remote extends Base {
