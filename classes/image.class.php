@@ -34,7 +34,11 @@ class Image extends Base {
   $current = $this->user->current($options);
   if (!$current) throw new Exception('Must be logged in to view saved images');
   $sql = 'SELECT image FROM resources WHERE user_id = '.$current['id'].' AND type = "save"';
-  return $this->db->fetch($sql);
+  $results = $this->db->fetch($sql);
+  foreach ($results as $result) {
+   $return[] = $this->get(array('image'=>$result['image']));
+  }
+  return $return;
  }
 
  public function unsave($options=array()) {
