@@ -4,6 +4,7 @@ require_once(ROOT_DIR.'/classes/db.class.php');
 class Base {
 
  protected $db;
+ private $logs=array();
 
  public function __construct($options=array()) {
   $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
@@ -43,8 +44,13 @@ class Base {
   }
   $timestamp = date('c');
   $log = $timestamp."\t".$text."\n";
-  echo $text."\n";
+  //echo $text."\n";
+  $this->logs[] = $text;
   return fwrite($this->log[$file],$log);
+ }
+
+ protected function getLogs() {
+  return $this->logs;
  }
 
  public function text2slug($text) {

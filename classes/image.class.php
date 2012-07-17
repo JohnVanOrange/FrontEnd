@@ -219,7 +219,7 @@ class Image extends Base {
   foreach ($image as $frame) {
    $frame->thumbnailImage($options['width'],$options['height'],TRUE);
   }
-  header('Content-type: '.$image->getImageMimeType());
+  //header('Content-type: '.$image->getImageMimeType());
   return $image->getImagesBlob(); 
  }
 

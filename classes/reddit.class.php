@@ -1,5 +1,5 @@
 <?php
-require_once('../settings.inc');
+//require_once('../settings.inc');
 require_once(ROOT_DIR.'/classes/base.class.php');
 require_once(ROOT_DIR.'/classes/image.class.php');
 
@@ -15,10 +15,11 @@ class Reddit extends Base {
   $this->logfile = ROOT_DIR.'/tools/reddit.log';
  }
 
- public function process($subreddit) {
-  $this->log("Beginning Subreddit ".$subreddit,$this->logfile);
-  $posts = $this->getSubreddit($subreddit);
+ public function process($options=array()) {
+  $this->log("Beginning Subreddit ".$options['subreddit'],$this->logfile);
+  $posts = $this->getSubreddit($options['subreddit']);
   foreach ($posts['data']['children'] as $post) {
+   set_time_limit(60);
    try {
     $this->checkScore($post);
   	$url = $this->findURL($post);
@@ -37,7 +38,9 @@ class Reddit extends Base {
     }
    }
   }
+  return $this->getLogs();
  }
+
  private function findURL($post) {
   if ($this->isImgur($post) !== FALSE) return $this->imgurProcess($post);
   if ($this->isDirectImage($post) !== FALSE) return $this->directImageProcess($post);
