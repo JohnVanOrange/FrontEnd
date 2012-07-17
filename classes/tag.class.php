@@ -65,7 +65,7 @@ class Tag extends Base {
   $results = $this->db->fetch($sql,$val);
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
-   //$results[$i]['url'] = $url['scheme'].'://'.$r['basename'].'.'.$url['host'];
+   $results[$i]['random_url'] = $url['scheme'].'://'.$r['basename'].'.'.$url['host'];
    $results[$i]['url'] = '/t/'.$r['basename'];
   }
   return $results;
