@@ -7,6 +7,7 @@ $image = new Image;
 $sql = 'SELECT filename,uid FROM images WHERE display=1';
 $results = $db->fetch($sql);
 foreach ($results as $result) {
+ set_time_limit(60);
  echo 'Preparing image '.$result['filename']."\n";
  try {
   $thumb = @$image->scale(array('image'=>$result['uid']));
