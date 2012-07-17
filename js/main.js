@@ -32,6 +32,9 @@ function call(method, opt) {
   var result = api.call(method, opt);
   if (result.message) {
    var message = result.message;
+   if (result.thumb) {
+    message = message + '<br><img src="' + result.thumb + '">';
+   }
    if (result.url) {
     message = '<a href="' + result.url + '">' + message + '</a>';
    }
