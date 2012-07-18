@@ -1,3 +1,4 @@
 error_log
 settings.inc
 .project
+.DS_Store
