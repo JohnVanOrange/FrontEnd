@@ -1,24 +1,14 @@
 <?php
 require_once('smarty.php');
-require_once('classes/image.class.php');
-
-$image = new Image;
 
 $template = 'display.tpl';
 
-try {
- $result = $image->get(array('image'=>$image_name));
-}
-catch (exception $e) {
- page_exception_handler($e);
-}
+$result = call('image/get',array('image'=>$image_name));
 
 $url = parse_url(WEB_ROOT);
 $tag_basename = rtrim(str_replace($url['host'], '', $_SERVER['HTTP_HOST']),'.');
 if ($tag_basename) {
- require_once('classes/tag.class.php');
- $tag = new Tag;
- $page_tag = $tag->get(array('value'=>$tag_basename,'search_by'=>'basename'));
+ $page_tag = call('tag/get',array('value'=>$tag_basename,'search_by'=>'basename'));
  $tpl->assign('tag_name',$page_tag[0]['name']);
 }
 
