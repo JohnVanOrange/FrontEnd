@@ -1,9 +1,10 @@
 <?php
 require('smarty.php');
 
-$template = 'saved.tpl';
+$template = 'exception.tpl';
 
-$tpl->assign('images',call('image/saved'));
+$tpl->assign('code',$e->getCode());
+$tpl->assign('message',$e->getMessage());
 
 require_once('common.php');
 
