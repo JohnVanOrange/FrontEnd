@@ -1,10 +1,10 @@
 <?php
 
 function page_exception_handler($e) {
- $message = "An error occured for site ". SITE_NAME . "./n";
- $message .= "Error:/n";
- $message .= $e->getMessage()."/n";
- $message .= "Code:/n";
+ $message = "An error occured for site ". SITE_NAME . ".\n\n";
+ $message .= "Error:\n";
+ $message .= $e->getMessage()."\n\n";
+ $message .= "Code:\n";
  $message .= $e->getCode();
  mail(
   ADMIN_EMAIL,
