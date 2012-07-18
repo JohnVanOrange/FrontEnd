@@ -163,6 +163,10 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
  margin:0 auto;
 }
 
+#carousel img, body .noty_text img {
+ border-radius: 8px;
+}
+
 #disqus_thread {
  font-size:70%;
  width: 50%;
