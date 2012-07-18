@@ -1,11 +1,13 @@
 <?php
 
 function page_exception_handler($e) {
- $message = "An error occured for site ". SITE_NAME . ".\n\n";
+ $message = 'An error occured for site '. SITE_NAME . ".\n\n";
  $message .= "Error:\n";
  $message .= $e->getMessage()."\n\n";
  $message .= "Code:\n";
- $message .= $e->getCode();
+ $message .= $e->getCode()."\n\n";
+ $message .= "IP:\n";
+ $message .= $_SERVER['REMOTE_ADDR'];
  mail(
   ADMIN_EMAIL,
   'Error Occured for '. SITE_NAME,
