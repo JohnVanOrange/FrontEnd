@@ -81,7 +81,9 @@ class User extends Base {
   if ($pwhash != $userdata['password']) throw new Exception('Invalid password');
   #succesfully login
   $sid = $this->getSecureID();
-  setcookie('sid', $sid, time()+60*60*24*365, '/');
+  $domain = explode('//',WEB_ROOT);
+  $domain = '.'.rtrim($domain[1],'/');
+  setcookie('sid', $sid, time()+60*60*24*365, '/',$domain);
   $sql = 'INSERT INTO sessions(user_id, sid) VALUES("'.$userdata['id'].'","'.$sid.'");';
   $this->db->fetch($sql);
   return array(
