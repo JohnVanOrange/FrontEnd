@@ -102,6 +102,13 @@ $(document).ready(function () {
  $('input').keydown(function (event) {
   event.stopPropagation();//make sure input boxes don't propagate keypresses to the body
  });
+$.extend($.ui.dialog.prototype.options, { 
+ open: function() {
+  $(this).parent().find('.ui-dialog-buttonpane button').keydown(function (event) {
+   event.stopPropagation();//allow spaces to submit form
+  });
+ } 
+});
 
  /*Create Account dialog*/
  $('#create_acct').click(function (event) {
