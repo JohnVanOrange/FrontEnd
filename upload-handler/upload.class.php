@@ -11,7 +11,7 @@
  */
 
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/common/image.class.php');
+require_once(ROOT_DIR.'/class/image.class.php');
 
 
 class UploadHandler
