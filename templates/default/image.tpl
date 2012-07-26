@@ -1,0 +1,1 @@
+<img class='main_image' src='{$image}' alt='Main Image' />

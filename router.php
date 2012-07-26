@@ -28,6 +28,11 @@ switch($request[0]) {
   include(ROOT_DIR.'/pages/display.php');
  break;
 
+ case 'i':
+  $image_name = $request[1];
+  include(ROOT_DIR.'/pages/image.php');
+ break;
+
  case 'api':
   $class = $request[1];
   $method = $request[2];
