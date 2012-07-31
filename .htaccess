@@ -15,7 +15,7 @@ DirectoryIndex router.php
 RewriteEngine On
 Options +FollowSymlinks
 
-SetEnvIfNoCase User-Agent (curl|LOLDICK)  block_bot
+SetEnvIfNoCase User-Agent (curl)  block_bot
  <limit GET POST PUT>
   Order Allow,Deny
   Allow from all

@@ -28,6 +28,10 @@ function page_exception_handler($e) {
 }
 
 function js_exception_handler($e) {
+ if ($e->getCode() == 403 || $e->getCode() == 404) {
+  header("HTTP/1.0 ".$e->getCode());
+  $_SERVER['REDIRECT_STATUS'] = $e->getCode();
+ }
  echo json_encode(array(
   'error' => $e->getCode(),
   'message' => $e->getMessage()
