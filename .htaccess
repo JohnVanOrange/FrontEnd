@@ -15,8 +15,12 @@ DirectoryIndex router.php
 RewriteEngine On
 Options +FollowSymlinks
 
-RewriteCond %{HTTP_USER_AGENT} ^curl
-RewriteRule .* - [F]
+SetEnvIfNoCase User-Agent (curl|LOLDICK)  block_bot
+ <limit GET POST PUT>
+  Order Allow,Deny
+  Allow from all
+  Deny from env=block_bot
+ </limit>
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
