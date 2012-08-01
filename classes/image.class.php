@@ -36,7 +36,14 @@ class Image extends Base {
   $sql = 'SELECT image FROM resources WHERE user_id = '.$current['id'].' AND type = "save"';
   $results = $this->db->fetch($sql);
   foreach ($results as $result) {
-   $return[] = $this->get(array('image'=>$result['image']));
+   try {
+    $return[] = $this->get(array('image'=>$result['image']));
+   }
+   catch(Exception $e) {
+    if ($e->getCode() != 403) {
+     throw new Exception($e);
+    }
+   }
   }
   return $return;
  }
