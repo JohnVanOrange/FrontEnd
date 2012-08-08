@@ -1,8 +1,7 @@
 <div id='report_dialog'>
 <form>
-<input type='radio' name='report_type' value='1'> NSFW <br>
-<input type='radio' name='report_type' value='2'> Copyright Violation <br>
-<input type='radio' name='report_type' value='3'> Lame <br>
-<input type='radio' name='report_type' value='4'> Illegal Content
+ {foreach from=$report_types item=report}
+  <input type='radio' name='report_type' value='{$report.id}'>{$report.value}<br>
+ {/foreach}
 </form>
 </div>

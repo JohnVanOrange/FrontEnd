@@ -34,8 +34,15 @@ CREATE TABLE IF NOT EXISTS `reports` (
 CREATE TABLE IF NOT EXISTS `report_types` (
   `id` int(3) unsigned NOT NULL auto_increment,
   `value` varchar(32) collate utf8_unicode_ci NOT NULL,
+  `public` tinyint(4) NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+INSERT INTO `report_types` (`id`, `value`, `public`) VALUES
+(1, 'NSFW', 1),
+(2, 'Copyright Violation', 1),
+(3, 'Lame', 1),
+(4, 'Illegal Content', 1);
 
 CREATE TABLE IF NOT EXISTS `sessions` (
   `user_id` int(8) unsigned NOT NULL,

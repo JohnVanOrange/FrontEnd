@@ -8,6 +8,7 @@ $valid_classes = array(
  'user' => 'User',
  'tag' => 'Tag',
  'theme' => 'Theme',
+ 'report' => 'Report',
  'reddit' => 'Reddit'
 );
 
@@ -17,6 +18,7 @@ try {
   case 'user':
   case 'tag':
   case 'theme':
+  case 'report':
   case 'reddit':
    $class_name = $valid_classes[$class];
    require_once('classes/'.$class.'.class.php');

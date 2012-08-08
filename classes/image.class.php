@@ -174,7 +174,7 @@ class Image extends Base {
  }
 
  public function get($options=array()) {
-  if (!$options['image']) throw new Exception('No image given.');
+  if (!$options['image']) throw new Exception('No image given.', 404);
   #Get image data
   switch (strlen($options['image'])) {
    case 6:

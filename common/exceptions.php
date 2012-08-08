@@ -49,6 +49,7 @@ function call($method, $options=array()) {
   'user' => 'User',
   'tag' => 'Tag',
   'theme' => 'Theme',
+  'report' => 'Report',
   'reddit' => 'Reddit'
  );
  try {
@@ -57,6 +58,7 @@ function call($method, $options=array()) {
    case 'user':
    case 'tag':
    case 'theme':
+   case 'report':
    case 'reddit':
     $class_name = $valid_classes[$class];
     require_once('classes/'.$class.'.class.php');
