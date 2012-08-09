@@ -169,8 +169,9 @@ class Image extends Base {
   }
   $result = $this->db->fetch($sql);
   if (!$result) throw new Exception('No image results', 404);
-  return $result[0]['uid'];
-  //this should return image URL's as well
+  $image = $this->get(array('image'=>$result[0]['uid']));
+  $image['response'] = $image['uid']; //backwards compatibility
+  return $image;
  }
 
  public function get($options=array()) {
@@ -209,6 +210,7 @@ class Image extends Base {
    $result['data'] = $data;
   }
   return $result;
+ //this should return image URL's as well
  }
 
  public function getUID($options = array()) {
