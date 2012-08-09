@@ -15,6 +15,7 @@
 {/if}
 {if $show_brazz}<p id='brazz_credit'>Brazzification provided by <a href='http://brazzify.me'>brazzify.me</a></p>{/if}
 <p id='bugs'>
+{if $app_link}<a href='{$app_link}'>Download the Android App</a> | {/if}
 {if $image_id}
 <a href='' id='report'>Report Image</a> |
 {/if}
