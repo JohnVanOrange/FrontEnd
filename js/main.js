@@ -312,7 +312,7 @@ $.extend($.ui.dialog.prototype.options, {
  
  /*Auto refresh*/
  if ($('#refresh_time').val() > 0) page_refresh.set($('#refresh_time').val());
- $('#refresh').click(function () {
+ $('#refresh').change(function () {
   if ($('#refresh').attr('checked')) {
    refresh = call('refresh/set');
    page_refresh.set(refresh.refresh);
