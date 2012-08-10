@@ -104,6 +104,7 @@ div.addthis_toolbox {
 }
 
 #search {
+ text-align: right;
  position: absolute;
  top: 8px;
  right: 18px;

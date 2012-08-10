@@ -18,6 +18,18 @@ var api = {
  }
 };
 
+var page_refresh = {
+ timer : null,
+ set : function(secs) {
+  this.timer = setTimeout(function() {
+   $('#main_image').click();
+  }, secs * 1000);
+ },
+ remove : function() {
+  clearTimeout(this.timer);
+ }
+}
+ 
 function exception_handler(e) {
  noty({text: e.message, type: 'error'});
  switch (e.name) {
@@ -76,7 +88,7 @@ $(document).ready(function () {
 
  /*Keyboard controls*/
  $('body').keydown(function (event) {
-  //console.log(event.keyCode);
+  console.log(event.keyCode);
   switch (event.keyCode) {
   case 32://Space
    event.preventDefault();
@@ -91,8 +103,14 @@ $(document).ready(function () {
   case 66://b
    $('#brazzify').click();
    break;
+  case 82: //r
+   $('#refresh').click();
+   break;
   case 83://s
    $('#star').click();
+   break;
+  case 84://t
+   $('#set_theme').click();
    break;
   case 124:
    window.location.href = 'http://johnvanorange.com/b/joJpMJ';
@@ -289,6 +307,18 @@ $.extend($.ui.dialog.prototype.options, {
    call('image/save',{image:$('#uid').val()});
   } else {
    call('image/unsave',{image:$('#uid').val()});
+  }
+ });
+ 
+ /*Auto refresh*/
+ if ($('#refresh_time').val() > 0) page_refresh.set($('#refresh_time').val());
+ $('#refresh').click(function () {
+  if ($('#refresh').attr('checked')) {
+   refresh = call('refresh/set');
+   page_refresh.set(refresh.refresh);
+  } else {
+   call('refresh/remove');
+   page_refresh.remove();
   }
  });
 

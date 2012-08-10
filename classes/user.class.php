@@ -33,11 +33,11 @@ class User extends Base {
  public function get($options=array()) {
   switch ($options['search_by']) {
    case 'username':
-    $sql = 'SELECT id,username,type,email,theme FROM users WHERE username = :value';
+    $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE username = :value';
    break;
    case 'id':
    default:
-    $sql = 'SELECT id,username,type,email,theme FROM users WHERE id = :value';
+    $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE id = :value';
    break;
   }
   $val = array(
