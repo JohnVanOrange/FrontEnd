@@ -15,7 +15,7 @@ class Refresh extends Base {
   if (!isset($options['value'])) $options['value'] = 10;
   $options['value'] = intval($options['value']);
   if ($options['value'] < 0) $options['value'] = 0;
-  $user = $this->user->current();
+  $user = $this->user->current($options);
   if (!$user) throw new Exception('Must be logged in to set refresh time');
   $sql = 'UPDATE users SET refresh = :refresh WHERE id = :user';
   $val = array(
@@ -36,7 +36,7 @@ class Refresh extends Base {
  }
  
  public function get($options=array()) {
-  $user = $this->user->current();
+  $user = $this->user->current($options);
   if (!$user) throw new Exception('Must be logged in to get refresh time');
   return $user['refresh'];
  }

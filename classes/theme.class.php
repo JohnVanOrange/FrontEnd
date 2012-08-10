@@ -20,7 +20,7 @@ class Theme extends Base {
     throw new Exception('Not a valid theme');
    break;
   }
-  $user = $this->user->current();
+  $user = $this->user->current($options);
   if ($user) {
    $sql = 'UPDATE users SET theme = :theme WHERE id = :user';
    $val = array(
@@ -38,7 +38,7 @@ class Theme extends Base {
  }
  
  public function get($options=array()) {
-  $user = $this->user->current();
+  $user = $this->user->current($options);
   if ($user) {
    return $user['theme'];
   }
