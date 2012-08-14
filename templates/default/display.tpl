@@ -1,5 +1,5 @@
 {include file='header.tpl'}
-<p id='head_text'>Click picture for more. {if $type != 'gif' AND !$brazzify AND $show_brazz}<span id='brazzers_text'><a href='{$web_root}brazzify/{$image_name}' id='brazzify'> Brazzify image</a></span>{/if}
+<p id='head_text'>Click picture for more.
  Search image on: <a href='http://www.google.com/searchbyimage?image_url={$image}'>Google</a> | <a href='http://tineye.com/search?url={$image}'>Tineye</a>
 </p>
 {if $tag_name}<p id='tag_filter'>Images filtered by tag {$tag_name}. <a href='{$web_root}'>View all images</a></p>{/if}
@@ -11,11 +11,13 @@
 </a>
 </div>
 <p id='tags'>
-Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
-<a href='{$tag.url}'>{$tag.name}</a> 
+ Tags: <span id='tagtext'>{if $tags}{foreach from=$tags item=tag}
+ <a href='{$tag.url}'>{$tag.name}</a> 
 {/foreach}{else}<em>none currently </em>{/if}
-</span>
-<a href='' id='add_tag'>Add</a></p>
+ </span>
+ <button id='add_tag'>Add</button>
+ {if $type != 'gif' AND !$brazzify AND $show_brazz}<span id='brazzers_text'> <a href='{$web_root}brazzify/{$image_name}' id='brazzify'><img src='/img/brazzify_24.png' /></a></span>{/if}
+</p>
 {if $c_link}
 <p><a href='{$c_link}' id='c_link'>External Comments</a></p>
 {/if}
