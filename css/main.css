@@ -158,7 +158,7 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
 }
 
 #carousel {
- display: none;
+ display: hidden;
  width:600px;
  height:300px;
  margin:0 auto;
@@ -174,6 +174,8 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
  margin:0 auto;
 }
 
-#brazzers_text img {
- vertical-align: middle;
+#brazzers_text {
+ display: none;
+ width: 122px;
+ height: 24px;
 }
