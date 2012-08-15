@@ -63,9 +63,16 @@ $(document).ready(function () {
  /*Force images to fit to page width*/
  $('#img_container').imagefit();
 
- /*Star positioning/visual hacks*/
+ /*Star and brazzify positioning/visual hacks*/
  $('#main_image').hover(function() {
    //onhover
+   if (!$('#main_image').hasClass('brazzified')) $('#brazzers_text').fadeIn('fast');
+   $('#brazzers_text').position({
+    my: 'right bottom',
+    at: 'right bottom',
+    of: $('#main_image'),
+    offset: '-3, -3'
+   });
    $('#star').fadeIn('fast');
    $('#star').position({
     my: 'left top',
@@ -73,10 +80,13 @@ $(document).ready(function () {
     of: $('#main_image'),
     offset: '3, 3'
    });
+
   },function() {
    //offhover
    if (!$('#star').is(':hover')) $('#star').fadeOut('fast');
+   if (!$('#brazzers_text').is(':hover')) $('#brazzers_text').fadeOut('fast');
   });
+ 
 
  /*Options for Notifications*/
  $.noty.defaultOptions.layout = 'topRight';
@@ -354,9 +364,10 @@ $.extend($.ui.dialog.prototype.options, {
 function brazzify() {
  $('#main_image').attr('src', 'http://brazzify.me/?s=http://' + document.domain + '/media/' + $('#main_image').attr('name'));
  $('#brazzers_text').hide();
+ $('#main_image').addClass('brazzified');
 }
 
 function normal() {
  $('#main_image').attr('src', 'http://' + document.domain + '/media/' + $('#main_image').attr('name'));
- $('#brazzers_text').show();
+ $('#main_image').removeClass('brazzified');
 }

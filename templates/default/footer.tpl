@@ -31,7 +31,7 @@
 <script defer src='{$web_root}js/jquery.noty.js'></script>
 <script defer src='{$web_root}js/cloud-carousel.1.0.5.min.js'></script>
 <script defer src='{$web_root}js/jquery.mousewheel.js'></script>
-<script defer src='{$web_root}js/main.js?20120810a'></script>
+<script defer src='{$web_root}js/main.js?20120815'></script>
 
 <script type="text/javascript">
 
