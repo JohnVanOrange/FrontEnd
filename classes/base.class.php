@@ -52,6 +52,16 @@ class Base {
  protected function getLogs() {
   return $this->logs;
  }
+ 
+ protected function setCookie($name, $value, $expire=NULL, $path='/') {
+  if (!headers_sent()) {
+   if ($expire = NULL) $expire = time()+60*60*24*365;
+   $domain = explode('//',WEB_ROOT);
+   $domain = '.'.rtrim($domain[1],'/');
+   return setcookie($name, $value, $expire, $path, $domain);
+  }
+  return FALSE;
+ }
 
  public function text2slug($text) {
   $output = htmlentities($text, ENT_COMPAT, "UTF-8", false); 

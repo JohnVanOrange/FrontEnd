@@ -81,9 +81,7 @@ class User extends Base {
   if ($pwhash != $userdata['password']) throw new Exception('Invalid password');
   #succesfully login
   $sid = $this->getSecureID();
-  $domain = explode('//',WEB_ROOT);
-  $domain = '.'.rtrim($domain[1],'/');
-  setcookie('sid', $sid, time()+60*60*24*365, '/',$domain);
+  $this->setCookie('sid', $sid);
   $sql = 'INSERT INTO sessions(user_id, sid) VALUES("'.$userdata['id'].'","'.$sid.'");';
   $this->db->fetch($sql);
   return array(
@@ -101,7 +99,7 @@ class User extends Base {
    ':sid' => $sid
   );
   $this->db->fetch($sql,$val);
-  setcookie('sid', '', 1, '/');
+  $this->setCookie('sid','', 1);
   return array(
    'message' => 'Logged out.'
   );

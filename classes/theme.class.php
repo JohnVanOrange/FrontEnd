@@ -30,7 +30,7 @@ class Theme extends Base {
    $this->db->fetch($sql,$val);
   }
   else {
-   setcookie('theme', $options['theme'], time()+60*60*24*365, '/');
+   $this->setCookie('theme',$options['theme']);
   }
   return array(
    'message' => 'Theme updated.'
