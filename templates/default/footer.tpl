@@ -15,12 +15,12 @@
 {/if}
 {if $show_brazz}<p id='brazz_credit'>Brazzification provided by <a href='http://brazzify.me'>brazzify.me</a></p>{/if}
 <p id='bugs'>
-{if $app_link}<a href='{$app_link}'>Download the Android App</a> | {/if}
+{if $app_link}<a href='{$app_link}' id='android_link'>Download the Android App</a> | {/if}
 {if $image_id}
 <a href='' id='report'>Report Image</a> |
 {/if}
 <a href='' id='upload'>Add Images</a> | <a href='/tos'>Legal</a> | 
-<a href='/m/'>Mobile</a> | 
+<!--<a href='/m/'>Mobile</a> | -->
 <a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs?</a>
 {if $show_scorn} | <a href='http://scornondemand.com'>Demand Scorn</a>{/if}
 </p>

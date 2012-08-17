@@ -175,17 +175,12 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
 }
 
 #brazzers_text {
- /*background: url('/img/brazzify_24.png') top left no-repeat;*/
  display: none;
  width: 122px;
  height: 24px;
- /*cursor: pointer;*/
 }
 
-/*
-#brazzer_text img {
- width: 122px;
- height: 24px;
- margin: 0;
- padding: 0;
-}*/
+#android_link {
+ background: url('/img/android_20.png') left no-repeat;
+ padding: 5px 0 5px 22px;
+}

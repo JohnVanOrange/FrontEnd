@@ -98,7 +98,7 @@ $(document).ready(function () {
 
  /*Keyboard controls*/
  $('body').keydown(function (event) {
-  console.log(event.keyCode);
+  /*console.log(event.keyCode);*/
   switch (event.keyCode) {
   case 32://Space
    event.preventDefault();
