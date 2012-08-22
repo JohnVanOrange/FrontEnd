@@ -33,8 +33,10 @@ var page_refresh = {
 function exception_handler(e) {
  noty({text: e.message, type: 'error'});
  switch (e.name) {
- case 1000: //Missing URL
-  break;
+ case 1020: //Must be logged in to save image
+ case 1021: //Must be logged in to unsave image
+  $('#star').toggleClass('saved not_saved');
+  break; 
  }
 }
 

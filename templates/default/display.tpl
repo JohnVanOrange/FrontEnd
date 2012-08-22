@@ -28,7 +28,7 @@
  {if $type != 'gif' AND !$brazzify AND $show_brazz}<div id='brazzers_text'> <a href='{$web_root}brazzify/{$image_name}' id='brazzify'><img src='/img/brazzify_24.png' height=24 width=122 alt='Brazzify Image' /></a></div>{/if}
 </div>
 <div class='empty'>
- {if $user}<div id='star' class='{if !$data.save}not_{/if}saved' title='Save Image'></div>{/if}
+ <div id='star' class='{if !$data.save}not_{/if}saved' title='Save Image'></div>
 </div> 
 
 </div>

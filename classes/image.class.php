@@ -2,22 +2,25 @@
 require_once(ROOT_DIR.'/classes/base.class.php');
 require_once(ROOT_DIR.'/classes/tag.class.php');
 require_once(ROOT_DIR.'/classes/user.class.php');
+require_once(ROOT_DIR.'/classes/report.class.php');
 
 class Image extends Base {
 
  private $tag;
  private $user;
+ private $report;
 
  public function __construct($options=array()) {
   parent::__construct();
   $this->tag = new Tag;
   $this->user = new User;
+  $this->report = new Report;
  }
  
  public function save($options=array()) {
   $current = $this->user->current($options);
   $ip = $_SERVER['REMOTE_ADDR'];
-  if (!$current) throw new Exception('Must be logged in to save images');
+  if (!$current) throw new Exception('Must be logged in to save images',1020);
   $sql = 'INSERT INTO resources(ip, image, user_id, type) VALUES(:ip, :image, :user_id, "save")';
   $val = array(
    ':ip' => $ip,
@@ -50,7 +53,7 @@ class Image extends Base {
 
  public function unsave($options=array()) {
   $current = $this->user->current($options);
-  if (!$current) throw new Exception('Must be logged in to unsave images');
+  if (!$current) throw new Exception('Must be logged in to unsave images',1021);
   $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "save")';
   $val = array(
    ':image' => $options['image'],
@@ -150,6 +153,22 @@ class Image extends Base {
   $this->db->fetch($sql,$val);
   return array(
    'message' => 'Image Reported.'
+  );
+ }
+ 
+ public function reported($options=array()) {
+  $current = call('user/current');
+  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
+  $sql = 'SELECT * FROM reports WHERE resolved = 0 ORDER BY RAND() LIMIT 1';
+  $report_result = $this->db->fetch($sql);
+  $report_type = $this->report->get(array('id'=>$report_result[0]['report_type']));
+  $report_result[0]['value'] = $report_type[0]['value'];
+  $sql = 'SELECT * FROM images WHERE id = '.$report_result[0]['image_id'];
+  $image_result = $this->db->fetch($sql);
+  if (!$image_result) throw new Exception('No image result', 404);
+  return array(
+   'report' => $report_result[0],
+   'image' => $image_result[0]
   );
  }
 
