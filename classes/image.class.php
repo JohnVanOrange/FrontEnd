@@ -221,7 +221,7 @@ class Image extends Base {
  }
  
  public function reported($options=array()) {
-  $current = $this->user->current;
+  $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
   $sql = 'SELECT * FROM reports WHERE resolved = 0 ORDER BY RAND() LIMIT 1';
   $report_result = $this->db->fetch($sql);
