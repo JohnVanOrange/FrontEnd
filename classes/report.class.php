@@ -12,5 +12,14 @@ class Report extends Base {
   return $this->db->fetch($sql);
  }
  
+ public function get($options=array()) {
+  if (!$options['id']) return $this->all();
+  $sql = 'SELECT id, value FROM report_types WHERE id = :id;';
+  $val = array(
+   ':id' => $options['id']
+  );
+  return $this->db->fetch($sql,$val);
+ }
+ 
 }
 ?>

@@ -64,6 +64,70 @@ class Image extends Base {
    'message' => 'Image unsaved.'
   );
  }
+ 
+ public function approve($options=array()) {
+  $current = $this->user->current($options);
+  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
+  $sql = 'UPDATE reports SET resolved = 1 WHERE image_id = :id';
+  $val = array(
+   ':id' => $options['id']
+  );
+  $this->db->fetch($sql,$val);
+  $sql = 'UPDATE images SET approved = 1, display = 1 WHERE id = :id';
+  $this->db->fetch($sql,$val);
+  return array(
+   'message' => 'Image approved.'
+  );
+ }
+ 
+ public function remove($options=array()) {
+  $current = $this->user->current($options);
+  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
+  if (!$options['uid']) {
+   if (!$options['id']) throw new Exception('ID or UID required');
+   $sql = 'SELECT uid FROM images WHERE id = :id';
+   $val = array(
+    ':id' => $options['id']
+   );
+   $result = $this->db->fetch($sql,$val);
+   $options['uid'] = $result[0]['uid'];
+  }
+  if (!$options['id']) {
+   $sql = 'SELECT id FROM images WHERE uid = :uid';
+   $val = array(
+    ':uid' => $options['uid']
+   );
+   $result = $this->db->fetch($sql,$val);
+   $options['id'] = $result[0]['id'];
+  }
+  $sql = 'SELECT filename FROM images WHERE uid = :uid';
+  $val = array(
+   ':uid' => $options['uid']
+  );
+  $result = $this->db->fetch($sql,$val);
+  $filename = $result[0]['filename'];
+  //clean up resources
+  $sql = 'DELETE FROM resources WHERE image = :uid';
+  $this->db->fetch($sql,$val);
+  //remove image in db
+  $sql = 'DELETE FROM images WHERE uid = :uid';
+  $this->db->fetch($sql,$val);
+  //clean up reports
+  $val = array(
+   ':id' => $options['id']
+  );
+  $sql = 'DELETE FROM reports WHERE image_id = :id';
+  $this->db->fetch($sql,$val);
+  //clean up tags
+  $sql = 'DELETE FROM tags WHERE image_id = :id';
+  $this->db->fetch($sql,$val);
+  //remove image
+  unlink(ROOT_DIR.'/media/'.$filename);
+  unlink(ROOT_DIR.'/media/thumbs/'.$filename);
+  return array(
+   'message' => 'Image removed.'
+  );
+ }
 
  private function add($options=array()) {
   if (!isset($options['c_link'])) $options['c_link'] = NULL;
@@ -157,7 +221,7 @@ class Image extends Base {
  }
  
  public function reported($options=array()) {
-  $current = call('user/current');
+  $current = $this->user->current;
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
   $sql = 'SELECT * FROM reports WHERE resolved = 0 ORDER BY RAND() LIMIT 1';
   $report_result = $this->db->fetch($sql);
