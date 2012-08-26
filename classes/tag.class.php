@@ -21,11 +21,15 @@ class Tag extends Base {
    if(!$tag_id) {
     $tag_id = $this->addtoList($tag);
    }
-   $sql = 'INSERT INTO resources (image, value, type) VALUES(:image, :tag_id, "tag")';
    $val = array(
     ':image' => $options['image'],
     ':tag_id' => $tag_id
    );
+   #check for dupe
+   $sql = 'SELECT * FROM resources WHERE (image = :image AND value = :tag_id AND type = "tag")';
+   $result = $this->db->fetch($sql,$val);
+   if ($result) throw new Exception('Tag already exists');
+   $sql = 'INSERT INTO resources (image, value, type) VALUES(:image, :tag_id, "tag")';
    $this->db->fetch($sql,$val);
   }
   switch (count($tags)) {
