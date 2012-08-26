@@ -21,15 +21,9 @@ class Tag extends Base {
    if(!$tag_id) {
     $tag_id = $this->addtoList($tag);
    }
-   $sql = 'SELECT * from images WHERE uid = :image LIMIT 1;';
+   $sql = 'INSERT INTO resources (image, value, type) VALUES(:image, :tag_id, "tag")';
    $val = array(
-    ':image' => $options['image']
-   );
-   $image = $this->db->fetch($sql,$val);
-   $image = $image[0];
-   $sql = 'INSERT INTO tags (image_id, tag_id) VALUES(:image_id, :tag_id);';
-   $val = array(
-    ':image_id' => $image['id'],
+    ':image' => $options['image'],
     ':tag_id' => $tag_id
    );
    $this->db->fetch($sql,$val);
@@ -42,7 +36,7 @@ class Tag extends Base {
     $return['message'] = 'Tags added';
    break;
   }
-  $return['tags'] = $this->get(array('value'=>$image['id']));
+  $return['tags'] = $this->get(array('value'=>$options['image']));
   return $return;
  }
  
@@ -52,13 +46,13 @@ class Tag extends Base {
    $options['search_by'] = 'basename';
    $options['value'] = $this->text2slug($options['value']);
    case 'basename':
-   case 'image_id':
+   case 'image':
    break;
    default:
-    $options['search_by'] = 'image_id';
+    $options['search_by'] = 'image';
    break;
   }
-  $sql = 'SELECT l.name, basename, uid FROM tags t INNER JOIN tag_list l ON l.id = t.tag_id INNER JOIN images i ON i.id = t.image_id WHERE '.$options['search_by'].' = :value';
+  $sql = 'SELECT l.name, basename, uid FROM resources r INNER JOIN tag_list l ON l.id = r.value INNER JOIN images i ON i.uid = r.image WHERE ('.$options['search_by'].' = :value AND r.type = "tag")';
   $val = array(
    ':value' => $options['value']
   );

@@ -243,9 +243,7 @@ class Image extends Base {
     ':basename' => $options['tag']
    );
    $result = $this->db->fetch($sql,$val);
-   $sql = 'SELECT image_id FROM tags WHERE tag_id ='.$result[0]['id'].' ORDER BY RAND() LIMIT 1';
-   $result = $this->db->fetch($sql);
-   $sql = 'SELECT uid FROM images WHERE id ='.$result[0]['image_id'];
+   $sql = 'SELECT image AS uid FROM resources WHERE (value = '.$result[0]['id'].' AND type = "tag") ORDER BY RAND() LIMIT 1';
   }
   else {
    $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
@@ -281,7 +279,7 @@ class Image extends Base {
   #Verify image isn't supposed to be hidden
   if (!$result['display']) throw new Exception('Image removed', 403);
   #Get tags
-  $result['tags'] = $this->tag->get(array('value'=>$result['id']));
+  $result['tags'] = $this->tag->get(array('value'=>$result['uid']));
   #Get resources
   $user = $this->user->current($options);
   if ($user) {
