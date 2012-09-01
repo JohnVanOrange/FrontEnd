@@ -311,7 +311,7 @@ $.extend($.ui.dialog.prototype.options, {
   event.preventDefault();
   $('#keyboard_dialog').dialog({
    title: 'Keyboard Shortcuts',
-   width: 400
+   width: 335
   });
  });
 
