@@ -305,6 +305,15 @@ $.extend($.ui.dialog.prototype.options, {
    }
   });
  });
+ 
+ /*Keyboard Shortcut dialog*/
+ $('#keyboard').click(function (event) {
+  event.preventDefault();
+  $('#keyboard_dialog').dialog({
+   title: 'Keyboard Shortcuts',
+   width: 400
+  });
+ });
 
  /*Theme changer*/
  $('#set_theme').click(function () {

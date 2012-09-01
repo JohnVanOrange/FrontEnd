@@ -124,7 +124,7 @@ div.addthis_toolbox {
  margin: 1em;
 }
 
-#report_dialog, #addimage_dialog, #tag_dialog, #login_dialog, #account_dialog {
+.dialog {
  display: none;
  text-align: left;
 }
@@ -184,3 +184,24 @@ body .noty_text a, body .noty_text a:hover, body .noty_text a:visited, body .not
  background: url('/img/android_20.png') left no-repeat;
  padding: 5px 0 5px 22px;
 }
+
+#keyboard_dialog table {
+ border-collapse: collapse;
+}
+
+#keyboard_dialog td {
+ border: 1px solid #CCC;
+ padding: 5px;
+}
+
+#keyboard_dialog table tr:nth-child(2n) {
+ background-color: #DDD;
+}
+
+.key {
+ color: white;
+ font-family: monospace;
+ border-radius: 4px;
+ padding: 3px 5px;
+ background-color: #667C26;    
+}​​
