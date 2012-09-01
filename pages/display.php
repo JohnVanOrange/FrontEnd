@@ -24,7 +24,6 @@ $tpl->assign('report_types',call('report/all'));
 if ($result['tags']) $tpl->assign('tags',$result['tags']);
 if ($result['data']) $tpl->assign('data',$result['data']);
 if ($result['c_link']) $tpl->assign('c_link', $result['c_link']);
-if (defined('DISQUS_SHORTNAME')) $tpl->assign('disqus_shortname', DISQUS_SHORTNAME);
 
 $tpl->assign('brazzify',FALSE);
 if (isset($brazzify)) $tpl->assign('brazzify',TRUE);

@@ -20,9 +20,6 @@
 {if $c_link}
 <p><a href='{$c_link}' id='c_link'>External Comments</a></p>
 {/if}
-{if $disqus_shortname}
-{include file='disqus.tpl'}
-{/if}
 <div class='empty'>
  <!--{if $type != 'gif' AND !$brazzify AND $show_brazz}<div id='brazzers_text'></div>{/if}-->
  {if $type != 'gif' AND !$brazzify AND $show_brazz}<div id='brazzers_text'> <a href='{$web_root}brazzify/{$image_name}' id='brazzify'><img src='/img/brazzify_24.png' height=24 width=122 alt='Brazzify Image' /></a></div>{/if}
