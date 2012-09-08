@@ -7,7 +7,8 @@
 <a id='rand_link' href='../random?{$rand}' rel='nofollow'>
  <input type='hidden' name='uid' id='uid' value='{$uid}'>
  <input type='hidden' name='image_id' id='image_id' value='{$image_id}'>
- <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' {if $brazzify}class='brazzified' {/if}name='{$image_name}' height='{$height}' width='{$width}' alt='Main Image' />
+ <input type='hidden' name='image_name' id='image_name' value='{$image_name}'>
+ <img id='main_image' src='{if $brazzify}http://brazzify.me/?s={/if}{$image}' {if $brazzify}class='brazzified' {/if}name='{$uid}' height='{$height}' width='{$width}' alt='Main Image' />
 </a>
 </div>
 <p id='tags'>
@@ -22,11 +23,11 @@
 {/if}
 <div class='empty'>
  <!--{if $type != 'gif' AND !$brazzify AND $show_brazz}<div id='brazzers_text'></div>{/if}-->
- {if $type != 'gif' AND !$brazzify AND $show_brazz}<div id='brazzers_text'> <a href='{$web_root}brazzify/{$image_name}' id='brazzify'><img src='/img/brazzify_24.png' height=24 width=122 alt='Brazzify Image' /></a></div>{/if}
+ {if $type != 'gif' AND !$brazzify AND $show_brazz}<div id='brazzers_text'> <a href='{$web_root}b/{$uid}' id='brazzify'><img src='/img/brazzify_24.png' height=24 width=122 alt='Brazzify Image' /></a></div>{/if}
 </div>
 <div class='empty'>
  <div id='star' class='{if !$data.save}not_{/if}saved' title='Save Image'></div>
-</div> 
+</div>
 
 </div>
 {include file='report_dialog.tpl'}

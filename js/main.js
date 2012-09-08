@@ -373,12 +373,12 @@ $.extend($.ui.dialog.prototype.options, {
 });
 
 function brazzify() {
- $('#main_image').attr('src', 'http://brazzify.me/?s=http://' + document.domain + '/media/' + $('#main_image').attr('name'));
+ $('#main_image').attr('src', 'http://brazzify.me/?s=http://' + document.domain + '/media/' + $('#image_name').val());
  $('#brazzers_text').hide();
  $('#main_image').addClass('brazzified');
 }
 
 function normal() {
- $('#main_image').attr('src', 'http://' + document.domain + '/media/' + $('#main_image').attr('name'));
+ $('#main_image').attr('src', 'http://' + document.domain + '/media/' + $('#image_name').val());
  $('#main_image').removeClass('brazzified');
 }
