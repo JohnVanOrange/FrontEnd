@@ -1,10 +1,14 @@
 <?php
 require_once(ROOT_DIR.'/classes/base.class.php');
+require_once(ROOT_DIR.'/classes/resource.class.php');
 
 class Tag extends Base {
  
+ private $res;
+ 
  public function __construct() {
   parent::__construct();
+  $this->res = new Resource;
  }
  
  public function add($options=array()) {
@@ -29,8 +33,12 @@ class Tag extends Base {
    $sql = 'SELECT * FROM resources WHERE (image = :image AND value = :tag_id AND type = "tag")';
    $result = $this->db->fetch($sql,$val);
    if ($result) throw new Exception('Tag already exists');
-   $sql = 'INSERT INTO resources (image, value, type) VALUES(:image, :tag_id, "tag")';
-   $this->db->fetch($sql,$val);
+   $res = array(
+    'image' => $options['image'],
+    'value' => $tag_id,
+    'type' => 'tag'
+   );
+   $this->res->add($res);
   }
   switch (count($tags)) {
    case 1:

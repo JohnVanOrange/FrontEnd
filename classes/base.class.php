@@ -39,13 +39,7 @@ class Base {
  }
  
  protected function log($text,$file) {
-  /*if (!isset($this->log[$file])) {
-   $this->log[$file] = fopen($file,'a');
-  }
-  $timestamp = date('c');
-  $log = $timestamp."\t".$text."\n";*/
   $this->logs[] = $text;
-  //return fwrite($this->log[$file],$log);
   return TRUE;
  }
 

@@ -3,31 +3,31 @@ require_once(ROOT_DIR.'/classes/base.class.php');
 require_once(ROOT_DIR.'/classes/tag.class.php');
 require_once(ROOT_DIR.'/classes/user.class.php');
 require_once(ROOT_DIR.'/classes/report.class.php');
+require_once(ROOT_DIR.'/classes/resource.class.php');
 
 class Image extends Base {
 
  private $tag;
  private $user;
  private $report;
+ private $res;
 
  public function __construct($options=array()) {
   parent::__construct();
   $this->tag = new Tag;
   $this->user = new User;
   $this->report = new Report;
+  $this->res = new Resource;
  }
  
  public function save($options=array()) {
   $current = $this->user->current($options);
-  $ip = $_SERVER['REMOTE_ADDR'];
   if (!$current) throw new Exception('Must be logged in to save images',1020);
-  $sql = 'INSERT INTO resources(ip, image, user_id, type) VALUES(:ip, :image, :user_id, "save")';
-  $val = array(
-   ':ip' => $ip,
-   ':image' => $options['image'],
-   ':user_id' => $current['id']
+  $res = array(
+   'image' => $options['image'],
+   'type' => 'save'
   );
-  $this->db->fetch($sql,$val);
+  $this->res->add($res);
   return array(
    'message' => 'Image saved.'
   );
@@ -175,6 +175,11 @@ class Image extends Base {
    $s->execute($val);//need to verify this was successful
    $thumb = $this->scale(array('image'=>$uid));
    file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
+   $res = array(
+    'image' => $uid,
+	'type' => 'upload'
+   );
+   $this->res->add($res);
    return array(
     'url' => WEB_ROOT.'v/'.$uid,
     'image' => WEB_ROOT.'media/'.$filename,
