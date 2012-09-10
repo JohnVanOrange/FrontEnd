@@ -67,27 +67,26 @@ $(document).ready(function () {
 
  /*Star and brazzify positioning/visual hacks*/
  $('#main_image').hover(function() {
-   //onhover
-   if (!$('#main_image').hasClass('brazzified')) $('#brazzers_text').fadeIn('fast');
-   $('#brazzers_text').position({
-    my: 'right bottom',
-    at: 'right bottom',
-    of: $('#main_image'),
-    offset: '-3, -3'
-   });
-   $('#star').fadeIn('fast');
-   $('#star').position({
-    my: 'left top',
-    at: 'left top',
-    of: $('#main_image'),
-    offset: '3, 3'
-   });
-
-  },function() {
-   //offhover
-   if (!$('#star').is(':hover')) $('#star').fadeOut('fast');
-   if (!$('#brazzers_text').is(':hover')) $('#brazzers_text').fadeOut('fast');
+  //onhover
+  if (!$('#main_image').hasClass('brazzified')) $('#brazzers_text').fadeIn('fast');
+  $('#brazzers_text').position({
+   my: 'right bottom',
+   at: 'right bottom',
+   of: $('#main_image'),
+   offset: '-3, -3'
   });
+  $('#star').fadeIn('fast');
+  $('#star').position({
+   my: 'left top',
+   at: 'left top',
+   of: $('#main_image'),
+   offset: '3, 3'
+  });
+ },function() {
+  //offhover
+  if (!$('#star').is(':hover')) $('#star').fadeOut('fast');
+  if (!$('#brazzers_text').is(':hover')) $('#brazzers_text').fadeOut('fast');
+ });
  
 
  /*Options for Notifications*/
@@ -129,16 +128,23 @@ $(document).ready(function () {
    break;
   }
  });
- $('input').keydown(function (event) {
-  event.stopPropagation();//make sure input boxes don't propagate keypresses to the body
- });
-$.extend($.ui.dialog.prototype.options, { 
- open: function() {
-  $(this).parent().find('.ui-dialog-buttonpane button').keydown(function (event) {
-   event.stopPropagation();//allow spaces to submit form
+ 
+ /*Make sure input boxes don't propagate keypresses to the body*/
+ inputKeyboardHandler = function() {
+  $('input').on('keydown', function (event) {
+   event.stopPropagation();
   });
- } 
-});
+ }
+ inputKeyboardHandler();
+ 
+ /*Make it so keyboard events don't propagate to the dialog box buttons*/
+ $.extend($.ui.dialog.prototype.options, { 
+  open: function() {
+   $(this).parent().find('.ui-dialog-buttonpane button').keydown(function (event) {
+    event.stopPropagation();//allow spaces to submit form
+   });
+  } 
+ });
 
  /*Create Account dialog*/
  $('#create_acct').click(function (event) {
@@ -268,6 +274,7 @@ $.extend($.ui.dialog.prototype.options, {
  /*Add Tag dialog*/
  $('#add_tag').click(function (event) {
   event.preventDefault();
+  inputKeyboardHandler();
   var tag_name_ac = $('#tag_name').autocomplete({
    source: '/api/tag/suggest',
    minLength: 2
