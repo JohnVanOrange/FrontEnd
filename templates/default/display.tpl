@@ -4,7 +4,7 @@
 </p>
 {if $tag_name}<p id='tag_filter'>Images filtered by tag {$tag_name}. <a href='{$web_root}'>View all images</a></p>{/if}
 <div id='img_container'>
-<a id='rand_link' href='../random?{$rand}' rel='nofollow'>
+<a id='rand_link' href='../{$page}?{$rand}' rel='nofollow'>
  <input type='hidden' name='uid' id='uid' value='{$uid}'>
  <input type='hidden' name='image_id' id='image_id' value='{$image_id}'>
  <input type='hidden' name='image_name' id='image_name' value='{$image_name}'>

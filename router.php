@@ -19,6 +19,12 @@ switch($request[0]) {
   include(ROOT_DIR.'/pages/random.php');
  break;
  
+ case 'n':
+  $new = TRUE;
+  $image_name = $request[1];
+  include(ROOT_DIR.'/pages/display.php');
+ break;
+
  case 'b':
  case 'brazzify':
   $brazzify = TRUE;
@@ -26,6 +32,10 @@ switch($request[0]) {
  case 'display':
   $image_name = $request[1];
   include(ROOT_DIR.'/pages/display.php');
+ break;
+ 
+ case 'new':
+  include(ROOT_DIR.'/pages/new.php');
  break;
 
  case 'i':
