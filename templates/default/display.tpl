@@ -1,5 +1,5 @@
 {include file='header.tpl'}
-<p id='head_text'>Click picture for more.
+<p id='head_text'><strong><a href='/new'>NEW FEATURE: Browse only new images!</a></strong>
  Search image on: <a href='http://www.google.com/searchbyimage?image_url={$image}'>Google</a> | <a href='http://tineye.com/search?url={$image}'>Tineye</a>
 </p>
 {if $tag_name}<p id='tag_filter'>Images filtered by tag {$tag_name}. <a href='{$web_root}'>View all images</a></p>{/if}
