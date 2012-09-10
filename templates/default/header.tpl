@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{$site_name}{if $uid} - {$uid}{/if}</title>
+<title>{$site_name}{if $tags} -{foreach from=$tags item=tag} {$tag.name}{/foreach}{/if}</title>
 <link rel='shortcut icon' type='image/png' href='{$web_root}img/{$favicon}' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/main.css?20120901' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/ui-theme/jquery-ui-1.8.21.custom.css' />
