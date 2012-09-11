@@ -3,6 +3,8 @@ require('smarty.php');
 
 $template = 'tag.tpl';
 
+$tag_name = $request[1];
+
 $images = call('tag/all',array('tag'=>$tag_name));
 foreach ($images as $i) {
  $imagelist[] = call('image/get',array('image'=>$i['image']));

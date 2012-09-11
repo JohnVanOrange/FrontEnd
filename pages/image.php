@@ -3,6 +3,8 @@ require_once('smarty.php');
 
 $template = 'image.tpl';
 
+$image_name = $request[1];
+
 $result = call('image/get',array('image'=>$image_name));
 
 $tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);

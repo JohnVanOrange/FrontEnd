@@ -1,5 +1,8 @@
 <?php
 
+$class = $request[1];
+$method = $request[2];
+
 header ('Content-type: application/json; charset=UTF-8');
 header ('Access-Control-Allow-Origin: *');
 

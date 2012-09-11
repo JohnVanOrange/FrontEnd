@@ -1,0 +1,19 @@
+{
+	"api":		"api",
+	"b":		"display",
+	"bot":		"bot",
+	"brazzify":	"display",
+	"display":	"display",
+	"error":	"error",
+	"f":		"random",
+	"i":		"image",
+	"m":		"random",
+	"n":		"display",
+	"new":		"new",
+	"random":	"random",
+	"s":		"saved",
+	"t":		"tag",
+	"tos":		"tos",
+	"upload":	"upload",
+	"v":		"display"
+}

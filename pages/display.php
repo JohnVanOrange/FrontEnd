@@ -3,6 +3,18 @@ require_once('smarty.php');
 
 $template = 'display.tpl';
 
+switch($request[0]) {
+ case 'b':
+ case 'brazzify':
+  $brazzify = TRUE;
+ break;
+ case 'n':
+  $new = TRUE;
+ break;
+}
+
+$image_name = $request[1];
+
 $result = call('image/get',array('image'=>$image_name));
 
 $url = parse_url(WEB_ROOT);
