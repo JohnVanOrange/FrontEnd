@@ -12,6 +12,8 @@ body.light {
  background: linear-gradient(left, rgba(255,255,255,.2) 0%,rgba(158,158,158,.2) 30%,rgba(158,158,158,.2) 70%,rgba(255,255,255,.2) 100%), #FFF;
  background: -webkit-linear-gradient(left, rgba(255,255,255,.2) 0%,rgba(158,158,158,.2) 30%,rgba(158,158,158,.2) 70%,rgba(255,255,255,.2) 100%), #FFF;
  background: -moz-linear-gradient(left, rgba(255,255,255,.2) 0%,rgba(158,158,158,.2) 30%,rgba(158,158,158,.2) 70%,rgba(255,255,255,.2) 100%), #FFF;
+ background: -o-linear-gradient(left, rgba(255,255,255,.2) 0%,rgba(158,158,158,.2) 30%,rgba(158,158,158,.2) 70%,rgba(255,255,255,.2) 100%), #FFF;
+ background: -ms-linear-gradient(left, rgba(255,255,255,.2) 0%,rgba(158,158,158,.2) 30%,rgba(158,158,158,.2) 70%,rgba(255,255,255,.2) 100%), #FFF;
 }
 
 a {
@@ -51,6 +53,8 @@ body.dark {
  background: linear-gradient(left, rgba(0,0,0,.15) 0%,rgba(158,158,158,.15) 30%,rgba(158,158,158,.15) 70%,rgba(0,0,0,.15) 100%), #000;
  background: -webkit-linear-gradient(left, rgba(0,0,0,.15) 0%,rgba(158,158,158,.15) 30%,rgba(158,158,158,.15) 70%,rgba(0,0,0,.15) 100%), #000;
  background: -moz-linear-gradient(left, rgba(0,0,0,.15) 0%,rgba(158,158,158,.15) 30%,rgba(158,158,158,.15) 70%,rgba(0,0,0,.15) 100%), #000;
+ background: -o-linear-gradient(left, rgba(0,0,0,.15) 0%,rgba(158,158,158,.15) 30%,rgba(158,158,158,.15) 70%,rgba(0,0,0,.15) 100%), #000;
+ background: -ms-linear-gradient(left, rgba(0,0,0,.15) 0%,rgba(158,158,158,.15) 30%,rgba(158,158,158,.15) 70%,rgba(0,0,0,.15) 100%), #000;
 }
 
 body.dark a, body.dark a:visited, body.dark a:visited:hover, body.dark a:hover {
