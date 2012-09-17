@@ -128,10 +128,17 @@ nav > ul li p {
 nav > ul li a:hover { color: #ffffff; }
 nav > ul li ul {
   position: absolute;
-  right: 4px;
+  left: 0;
   top: 100%;
+  width: 10em;
   display: none;
 }
+
+nav > ul li#menu ul {
+ left: auto;
+ right: 4px;    
+}
+
 nav > ul li:hover > ul { display: block; }
 nav > ul li ul li {
   padding: 4px;

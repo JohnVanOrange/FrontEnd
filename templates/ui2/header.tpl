@@ -8,10 +8,15 @@
 	<ul>
 		<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&d=retro&r=pg'></li>
 		<li id="username" title="View Profile"><a href='/s/'>{$user.username}</a></li>
-		<li id="add_image" title="Add Image"><img src="/img/add.png" alt="Add Image"></li>
+		<li id="add_image"><img src="/img/add.png" alt="Add Image" title="Add Image">
+			<ul>
+				<li><a>Add from Computer</a></li>
+				<li><a>Add from Internet</a></li>
+			</ul>
+		</li>
 		<li id='save_image' class='{if !$data.save}not_{/if}saved' title='Save Image'></li>
 		<li id="share_image"><img src="/img/share.png" alt="Share Image" title='Share Image'>
-		<ul>
+			<ul>
 				<li><a>Facebook</a></li>
 				<li><a>Google+</a></li>
 				<li><a>Twitter</a></li>
