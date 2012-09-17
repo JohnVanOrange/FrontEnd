@@ -50,7 +50,7 @@ footer {
     padding-top: 5em;
 }
 
-#actionbar {
+nav {
     position: absolute;
     top: 0;
     right: 0;
@@ -66,19 +66,13 @@ footer {
     background: linear-gradient(to bottom, #606c88 20%,#354468 100%); /* W3C */
 }
 
-#username, #tag_search {
-    position: relative;
-    top: -8px;
+#tag_search {
     padding-left: 5px;
     border-radius: 8px;
 }
 
-#actionbar a, #actionbar a:visited, #actionbar a:visited:hover, #actionbar a:hover {
+nav a, nav a:visited, nav a:visited:hover, nav a:hover {
     color: #fff;
-}
-
-#actionbar span {
-    padding-right: 8px;
 }
 
 #save_image {
@@ -98,4 +92,61 @@ footer {
 
 .image {
     box-shadow: 4px 4px 20px 0 #000;
+}
+
+
+/*Menu Stuff*/
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav > ul {
+  margin: 0 auto;
+}
+nav > ul p { margin: 0; }
+nav > ul li {
+  float: left;
+  position: relative;
+  text-align: center;
+  padding-right: 8px;
+}
+
+nav > ul li a {
+	display: block;
+	padding-top: 3px;
+}
+
+nav > ul li p {
+  color: #ffffff;
+  width: 100px;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
+nav > ul li a:hover { color: #ffffff; }
+nav > ul li ul {
+  position: absolute;
+  right: 4px;
+  top: 100%;
+  display: none;
+}
+nav > ul li:hover > ul { display: block; }
+nav > ul li ul li {
+  padding: 4px;
+  background-color: #354468;
+  border-right: none;
+  border-top: 1px solid #bcbcbc;
+  text-align: left;
+  width: 100%;
+  z-index: 1;
+}
+nav > ul li ul li:first-child { border: none; }
+nav > ul li ul li a:hover { color: #ff9900; }
+nav > ul li ul li:last-child {
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
 }
