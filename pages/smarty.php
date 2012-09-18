@@ -5,11 +5,11 @@ switch ($_COOKIE['mobile']) {
  break;
  case 'n':
  default:
-  $temptype = 'default';
+  $temptype = 'ui2';
  break;
 }
 
-if ($_GET['type']) $temptype = $_GET['type']; //this shouldn't be left in production code
+//if ($_GET['type']) $temptype = $_GET['type']; //this shouldn't be left in production code
 
 define('SMARTY_DIR',ROOT_DIR.'/smarty/libs/');
 define('TEMPLATE_DIR',ROOT_DIR.'/templates/'.$temptype);
