@@ -16,7 +16,7 @@
 <meta charset="utf-8">
 <title>{$site_name} - Image Upload</title>
 <link rel='shortcut icon' type='image/png' href='{$web_root}img/Nyan-Cat-Original_032x032_32.png' />
-<link rel='stylesheet' type='text/css' href='{$web_root}css/theme/jvo/jvo.css' />
+<link rel='stylesheet' type='text/css' href='{$web_root}css/themes/jvo/jvo.css' />
 <meta name="viewport" content="width=device-width">
 <!-- Bootstrap CSS Toolkit styles -->
 <link rel="stylesheet" href="{$web_root}css/bootstrap.min.css">

@@ -1,0 +1,1 @@
+{include file='add_internet_dialog.tpl'}

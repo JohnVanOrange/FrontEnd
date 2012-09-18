@@ -38,7 +38,7 @@ img {
 a {
     text-decoration: none;
 	:hover {
-		text-decoration: underline;
+		text-decoration: none;
 	}
 }
 
@@ -75,8 +75,8 @@ nav {
     padding: 6px 6px 6px 12px;
     font-size: 80%;
     border-radius: 0 0 0 8px;
-    background: @menu_grad_bottom;
-	.linear_gradient_2(top, @menu_grad_top, 20%, @menu_grad_bottom, 100%, @menu_grad_bottom);
+    background: @menu_color;
+	.linear_gradient_2(top, lighten(@menu_color, 15%), 20%, @menu_color, 100%, @menu_color);
 }
 
 #tag_search {
@@ -108,8 +108,29 @@ nav a, nav a:visited, nav a:visited:hover, nav a:hover {
 }
 
 #content {
- width: 80%;
- margin: auto;
+	width: 80%;
+	margin: auto;
+}
+
+#tos {
+	text-align: left;
+	font-size: 90%;
+}
+
+#tos p{
+	margin: 1em;
+}
+
+.ui-menu-item, .ui-dialog-title {
+	text-shadow: none;
+}
+
+#url {
+	width: 450px;
+}
+
+#add_internet_dialog {
+	display: none;
 }
 
 @import 'menu';

@@ -29,7 +29,7 @@
 				<li><a>Android App</a></li>
                 <li><a>Suggestions/Bugs</a></li>
                 <li><a>Keyboard Shortcuts</a></li>
-                <li><a>Logout</a></li>
+                <li><a href='' id='logout'>Logout</a></li>
 			</ul>
 		</li>
 

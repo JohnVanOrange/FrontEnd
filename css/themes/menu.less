@@ -39,7 +39,7 @@ nav > ul {
 			display: none;
 			li {
 				padding: 4px;
-				background-color: @menu_grad_bottom;
+				background-color: @menu_color;
 				border-right: none;
 				border-top: 1px solid #bcbcbc;
 				text-align: left;
@@ -53,6 +53,9 @@ nav > ul {
 					-moz-border-radius-bottomleft: 10px;
 					-webkit-border-bottom-right-radius: 10px;
 					-webkit-border-bottom-left-radius: 10px;
+				}
+				&:hover {
+						background-color: lighten(@menu_color, 20%);
 				}
 				a {
 					&:hover {
