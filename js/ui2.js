@@ -1,38 +1,61 @@
-$(document).ready(function()
-{
+var api = {
+ client : function (method, opt) {
+  var url = '/api/' + method;
+  var response = $.parseJSON($.ajax({
+   type: 'post',
+   async: false,
+   url: url,
+   data: opt,
+   dataType: 'json'
+  }).responseText);
+  if (response.hasOwnProperty('error')) {
+   throw {name: response.error, message: response.message};
+  }
+  return response;
+ },
+ call : function (method, opt) {
+  return this.client(method, opt);
+ }
+};
 
-    $(".menu").click(function()
-    {
-        var X=$(this).attr('id');
-        if(X==1)
-        {
-            $(".submenu").hide();
-            $(this).attr('id', '0');
-        }
-        else
-        {
-            $(".submenu").show();
-            $(this).attr('id', '1');
-        }
+function exception_handler(e) {
+ noty({text: e.message, type: 'error'});
+ switch (e.name) {
+ case 1020: //Must be logged in to save image
+ case 1021: //Must be logged in to unsave image
+  $('#star').toggleClass('saved not_saved');
+  break; 
+ }
+}
 
-    });
+function call(method, opt) {
+ "use strict";
+ try {
+  var result = api.call(method, opt);
+  if (result.message) {
+   var message = result.message;
+   if (result.thumb) {
+    message = message + '<br><img src="' + result.thumb + '">';
+   }
+   if (result.url) {
+    message = '<a href="' + result.url + '">' + message + '</a>';
+   }
+   noty({text: message});
+  }
+  return result;
+ } catch (e) {
+  exception_handler(e);
+ }
+ return null;
+}
 
-    //Mouse click on sub menu
-    $(".submenu").mouseup(function()
-    {
-        return false
-    });
-
-    //Mouse click on my menu link
-    $(".account").mouseup(function()
-    {
-        return false
-    });
-
-    //Document Click
-    $(document).mouseup(function()
-    {
-        $(".submenu").hide();
-        $(".account").attr('id', '');
-    });
+$(document).ready(function() {
+ /*Force images to fit to page width*/
+ $('#img_container').imagefit();
+ 
+ /*Options for Notifications*/
+ $.noty.defaultOptions.layout = 'topLeft';
+ $.noty.defaultOptions.type = 'information';
+ $.noty.defaultOptions.timeout = 10000;
+ 
 });
