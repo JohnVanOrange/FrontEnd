@@ -1,0 +1,115 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+.linear_gradient_2(@start, @color_a, @pos_a, @color_b, @pos_b, @color) {
+    background: linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
+	background: -webkit-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
+	background: -moz-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
+	background: -o-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
+	background: -ms-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
+}
+
+.linear_gradient_4(@start, @color_a, @pos_a, @color_b, @pos_b, @color_c, @pos_c, @color_d, @pos_d, @color) {
+    background: linear-gradient(@start, @color_a @pos_a, @color_b @pos_b, @color_c @pos_c, @color_d @pos_d), @color;
+	background: -webkit-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b, @color_c @pos_c, @color_d @pos_d), @color;
+	background: -moz-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b, @color_c @pos_c, @color_d @pos_d), @color;
+	background: -o-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b, @color_c @pos_c, @color_d @pos_d), @color;
+	background: -ms-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b, @color_c @pos_c, @color_d @pos_d), @color;
+}
+
+html {
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    margin:0 auto;
+    text-align: center;
+    text-shadow: 1px 1px 2px #000;
+}
+
+body {
+	color: @text_color;
+	background: @bg_color;
+    .linear_gradient_4(left, @body_grad_edge, 0%, @body_grad_center, 30%, @body_grad_center, 70%, @body_grad_edge, 100%, @bg_color);
+}
+
+img {
+	border: 0;
+}
+
+a {
+    text-decoration: none;
+	:hover {
+		text-decoration: underline;
+	}
+}
+
+body a, body a:visited, body a:visited:hover, body a:hover {
+    color: #ff9900;
+}
+
+header a, header a:visited, header a:visited:hover, header a:hover {
+	color: @text_color;
+}
+
+h1 {
+  margin: 0;
+}
+
+header {
+    height: 48px;
+    text-align: left;
+    font-family: 'Oswald', sans-serif;
+    margin: 8px;
+    text-shadow: 2px 2px 4px #000
+}
+
+footer {
+    font-size: 75%;
+    padding-top: 5em;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 24px;
+    padding: 6px 6px 6px 12px;
+    font-size: 80%;
+    border-radius: 0 0 0 8px;
+    background: @menu_grad_bottom;
+	.linear_gradient_2(top, @menu_grad_top, 20%, @menu_grad_bottom, 100%, @menu_grad_bottom);
+}
+
+#tag_search {
+    padding-left: 5px;
+    border-radius: 8px;
+}
+
+nav a, nav a:visited, nav a:visited:hover, nav a:hover {
+    color: #fff;
+}
+
+#save_image {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#save_image.saved {
+    background: url('/img/star.png') top left no-repeat;
+}
+
+#save_image.not_saved {
+    background: url('/img/unstar.png') top left no-repeat;
+}
+
+.image {
+    box-shadow: 4px 4px 20px 0 #000;
+}
+
+#content {
+ width: 80%;
+ margin: auto;
+}
+
+@import 'menu';
