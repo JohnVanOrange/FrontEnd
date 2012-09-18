@@ -1,7 +1,7 @@
 <body>
 
 <header>
-    <h1>John VanOrange</h1>
+    <a href='/'><h1>John VanOrange</h1></a>
 </header>
 
 <nav>
@@ -10,8 +10,8 @@
 		<li id="username" title="View Profile"><a href='/s/'>{$user.username}</a></li>
 		<li id="add_image"><img src="/img/add.png" alt="Add Image" title="Add Image">
 			<ul>
-				<li><a>Add from Computer</a></li>
-				<li><a>Add from Internet</a></li>
+				<li><a href='/upload'>Add from Computer</a></li>
+				<li><a href='' id='addInternet'>Add from Internet</a></li>
 			</ul>
 		</li>
 		<li id='save_image' class='{if !$data.save}not_{/if}saved' title='Save Image'></li>
