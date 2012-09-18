@@ -4,7 +4,7 @@ function page_exception_handler($e) {
  switch($e->getCode()) {
   case 403:
   case 404:
-   $number = $e->getCode();
+   $request[1] = $e->getCode();
    include(ROOT_DIR.'/pages/error.php');
    die();
    break;
