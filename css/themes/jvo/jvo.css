@@ -114,8 +114,41 @@ nav a:hover {
 #url {
   width: 450px;
 }
-#add_internet_dialog {
+.dialog {
+  text-align: left;
   display: none;
+  text-shadow: none;
+}
+#keyboard_dialog table {
+  border-collapse: collapse;
+}
+#keyboard_dialog td {
+  border: 1px solid #CCC;
+  padding: 5px;
+}
+#keyboard_dialog table tr:nth-child(2n) {
+  background-color: #DDD;
+}
+.key {
+  color: white;
+  font-family: monospace;
+  border-radius: 4px;
+  padding: 3px 5px;
+  background-color: #667C26;
+}
+#search button {
+  height: 10px;
+  width: 10px;
+  border: none;
+  background: none;
+  margin-left: -18px;
+}
+fieldset {
+  text-align: left;
+  display: inline-block;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 ul,
 li {

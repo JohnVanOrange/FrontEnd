@@ -17,6 +17,12 @@
 	background: -ms-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b, @color_c @pos_c, @color_d @pos_d), @color;
 }
 
+.border_radius(@tl, @tr, @br, @bl) {
+	-moz-border-radius: @tl @tr @br @bl;
+	-webkit-border-radius: @tl @tr @br @bl;
+	border-radius: @tl @tr @br @bl;
+}
+
 html {
     font-family: 'Nunito', sans-serif;
     padding: 0;
@@ -129,8 +135,45 @@ nav a, nav a:visited, nav a:visited:hover, nav a:hover {
 	width: 450px;
 }
 
-#add_internet_dialog {
+.dialog {
+	text-align: left;
 	display: none;
+	text-shadow: none;
+}
+
+#keyboard_dialog table {
+	border-collapse: collapse;
+}
+
+#keyboard_dialog td {
+	border: 1px solid #CCC;
+	padding: 5px;
+}
+
+#keyboard_dialog table tr:nth-child(2n) {
+	background-color: #DDD;
+}
+
+.key {
+	color: white;
+	font-family: monospace;
+	border-radius: 4px;
+	padding: 3px 5px;
+	background-color: #667C26;    
+}
+
+#search button {
+	height: 10px;
+	width: 10px;
+	border: none;
+	background: none;
+	margin-left: -18px
+}
+
+fieldset {
+	text-align: left;
+	display: inline-block;
+	.border_radius(10px, 10px, 10px, 10px);
 }
 
 @import 'menu';

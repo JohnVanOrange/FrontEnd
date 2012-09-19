@@ -286,7 +286,7 @@ $(document).ready(function () {
    });
    var tagtext = '', i;
    for (i in result.tags) {
-    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a> ';
+    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>';
    }
    $('#tagtext').html(tagtext);
   };

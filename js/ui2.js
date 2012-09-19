@@ -53,6 +53,9 @@ $(document).ready(function() {
  /*Force images to fit to page width*/
  $('#img_container').imagefit();
  
+ /*Icon for search button*/
+ $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
+ 
  /*Options for Notifications*/
  $.noty.defaults.layout = 'topRight';
  $.noty.defaults.type = 'information';
@@ -105,6 +108,81 @@ $(document).ready(function() {
    });
   } 
  });
+
+ /*Create Account dialog*/
+ $('#create_acct').click(function (event) {
+  event.preventDefault();
+  var create = function () {
+   if ($('#create_password').val() !== $('#create_password2').val()) {
+    var e = {message: "Passwords don't match"};
+    exception_handler(e);
+   } else {
+    var response = call('user/add', {
+     'username': $('#create_username').val(),
+     'password': $('#create_password').val(),
+     'email': $('#create_email').val()
+    });
+    if (!response.error) {
+     call('user/login', {
+      'username': $('#create_username').val(),
+      'password': $('#create_password').val()
+     });
+     $('#account_dialog').dialog('close');
+     window.location.reload();
+    }
+   }
+  };
+  $('#create_email').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    create();
+   }
+  });
+  $('#account_dialog').dialog({
+   title: 'Create Account',
+   width: 430,
+   buttons: {
+    'Create': function () {
+     create();
+    }
+   }
+  });
+ });
+
+ /*Login dialog*/
+ $('#login').click(function (event) {
+  event.preventDefault();
+  var login = function () {
+   var response = call('user/login', {
+    'username': $('#login_username').val(),
+    'password': $('#login_password').val()
+   });
+   if (response.sid) {
+    $('#login_dialog').dialog('close');
+    window.location.reload();
+   }
+  };
+  $('#login_password').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    login();
+   }
+  });
+  $('#login_username').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    login();
+   }
+  });
+  $('#login_dialog').dialog({
+   title: 'Login',
+   buttons: {
+    'Login': function () {
+     login();
+    }
+   }
+  });
+ });
  
  /*Logout*/
  $('#logout').click(function (event) {
@@ -143,5 +221,85 @@ $('#save_image').click(function () {
    }
   });
  });
+ 
+ /*Report Image dialog*/
+ $('#report').click(function (event) {
+  event.preventDefault();
+  $('#report_dialog').dialog({
+   title: 'Report Image',
+   buttons: {
+    'Report': function () {
+     call('image/report', {
+      'id': $('#image_id').val(),
+      'type': $('#report_dialog input[type=radio]:checked').val()
+     });
+     $(this).dialog('close');
+    }
+   }
+  });
+ });
+ 
+ /*Add Tag dialog*/
+ $('#add_tag').click(function (event) {
+  event.preventDefault();
+  inputKeyboardHandler();
+  var tag_name_ac = $('#tag_name').autocomplete({
+   source: '/api/tag/suggest',
+   minLength: 2
+  });
+  var addtag = function () {
+   var result = call('tag/add', {
+    'name': $('#tag_name').val(),
+    'image' : $('.image').attr('id')
+   });
+   var tagtext = '', i;
+   for (i in result.tags) {
+    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
+   }
+   tagtext = tagtext.substring(0, tagtext.length - 2);
+   $('#tagtext').html(tagtext);
+  };
+  $('#tag_name').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    addtag();
+    $('#tag_dialog').dialog('close');
+   }
+  });
+  $('#tag_dialog').dialog({
+   title: 'Add Tags',
+   width: 350,
+   buttons: {
+    'Add': function () {
+     addtag();
+     $(this).dialog('close');
+    }
+   },
+   close: function () {
+    $('#tag_name').unbind('keydown');
+    tag_name_ac.autocomplete('destroy');
+   }
+  });
+ });
+ 
+ /*Keyboard Shortcut dialog*/
+ $('#keyboard').click(function (event) {
+  event.preventDefault();
+  $('#keyboard_dialog').dialog({
+   title: 'Keyboard Shortcuts',
+   width: 335
+  });
+ });
+ 
+ /*Search by tag box*/
+ $('form#search').submit(function (event) {
+  event.preventDefault();
+  var taginfo = call('tag/get', {'value': $('#tag_search').val(), 'search_by': 'name'});
+  window.location.href = taginfo[0].url;
+ });
+ 
+ 
+ 
+ 
  
 });
