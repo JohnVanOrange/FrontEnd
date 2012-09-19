@@ -9,13 +9,13 @@
 			</ul>
 		</li>
 		<li id='save_image' class='{if !$data.save}not_{/if}saved' title='Save Image'></li>
-		<li id="share_image"><img src="/img/share.png" alt="Share Image" title='Share Image'>
+		<!--<li id="share_image"><img src="/img/share.png" alt="Share Image" title='Share Image'>
 			<ul>
 				<li><a>Facebook</a></li>
 				<li><a>Google+</a></li>
 				<li><a>Twitter</a></li>
 			</ul>
-		</li>
+		</li>-->
 		<li id="report_image" title='Report Image'><a href='' id='report'><img src="/img/report.png" alt="Report Image"></a></li>
 		<li><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button><form></li>
 		<li id="menu"><img src="/img/menu.png" alt="Menu" title='Menu'>
