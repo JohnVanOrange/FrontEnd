@@ -150,6 +150,9 @@ fieldset {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
 }
+#tagtext {
+  font-size: 80%;
+}
 ul,
 li {
   margin: 0;
