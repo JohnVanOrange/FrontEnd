@@ -9,4 +9,5 @@ $tpl->assign('favicon',FAVICON);
 if (defined('APP_LINK')) $tpl->assign('app_link',APP_LINK);
 $tpl->assign('user', call('user/current'));
 $tpl->assign('theme', call('theme/get'));
+$tpl->assign('current_url', $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 ?>

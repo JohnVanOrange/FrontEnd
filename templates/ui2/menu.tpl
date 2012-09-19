@@ -9,13 +9,15 @@
 			</ul>
 		</li>
 		<li id='save_image' class='{if !$data.save}not_{/if}saved' title='Save Image'></li>
-		<!--<li id="share_image"><img src="/img/share.png" alt="Share Image" title='Share Image'>
+		<li id="share_image"><img src="/img/share.png" alt="Share Image" title='Share Image'>
 			<ul>
-				<li><a>Facebook</a></li>
-				<li><a>Google+</a></li>
-				<li><a>Twitter</a></li>
+				<li><a href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pubid=ra-4f95e38340e66b80&url={$current_url}" rel="nofollow" target='_blank'>Facebook</a></li>
+				<li><a href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pubid=ra-4f95e38340e66b80&url={$current_url}&via=JohnVanOrange&related=JohnVanOrange" rel="nofollow" target='_blank'>Twitter</a></li>
+				<li><a href="http://api.addthis.com/oexchange/0.8/forward/google_plusone_share/offer?pubid=ra-4f95e38340e66b80&url={$current_url}" rel="nofollow" target='_blank'>Google+</a></li>
+				<li><a href="http://www.reddit.com/submit?url={$current_url}" rel="nofollow" target='_blank'>Reddit</a></li>
+				<li><a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?pubid=ra-4f95e38340e66b80&url={$current_url}" rel="nofollow" target='_blank'>E-Mail</a></li>
 			</ul>
-		</li>-->
+		</li>
 		<li id="report_image" title='Report Image'><a href='' id='report'><img src="/img/report.png" alt="Report Image"></a></li>
 		<li><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button><form></li>
 		<li id="menu"><img src="/img/menu.png" alt="Menu" title='Menu'>

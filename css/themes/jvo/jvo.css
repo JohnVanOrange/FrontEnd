@@ -73,6 +73,7 @@ nav {
 }
 #tag_search {
   padding-left: 5px;
+  padding-right: 16px;
   border-radius: 8px;
 }
 nav a,
