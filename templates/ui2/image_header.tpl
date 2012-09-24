@@ -1,6 +1,11 @@
 <link rel='image_src' href='{$image}'>
 <meta property='og:image' content='{$image}'>
-<meta property='og:title' content='{$site_name}{if $tags} -{foreach from=$tags item=tag} {$tag.name}{/foreach}{/if}'>
+<meta property='og:title' content='{$site_name}{if $title_text} - {$title_text}{/if}'>
+<meta property="og:type" content="object">
+<meta property="og:url" content="{$current_url}">
+
+<meta property="fb:admins" content="503316760">
+<meta property="fb:app_id" content="416046151777678">
  
 <meta name="twitter:card" content="photo">
 <meta name='twitter:title' content='{$site_name}{if $tags} -{foreach from=$tags item=tag} {$tag.name}{/foreach}{/if}'>

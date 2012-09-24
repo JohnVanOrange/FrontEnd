@@ -150,6 +150,10 @@ fieldset {
 #tagtext {
   font-size: 80%;
 }
+.addthis_toolbox {
+  margin: 10px auto;
+  width: 10%;
+}
 ul,
 li {
   margin: 0;
