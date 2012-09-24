@@ -33,7 +33,15 @@ $tpl->assign('width',$result['width']);
 $tpl->assign('height',$result['height']);
 $tpl->assign('rand',md5(uniqid(rand(), true)));
 $tpl->assign('report_types',call('report/all'));
-if ($result['tags']) $tpl->assign('tags',$result['tags']);
+$tpl->assign('title_text', $result['uid']);
+if ($result['tags']) {
+ $tpl->assign('tags',$result['tags']);
+ $title_text = '';
+ foreach ($result['tags'] as $tag) {
+  $title_text .= $tag['name'] . ', ';
+ }
+ $tpl->assign('title_text', rtrim($title_text, ', '));
+}
 if ($result['data']) $tpl->assign('data',$result['data']);
 if ($result['c_link']) $tpl->assign('c_link', $result['c_link']);
 if ($new) {
@@ -42,6 +50,9 @@ if ($new) {
 else {
  $tpl->assign('page','random');
 }
+
+
+
 
 $tpl->assign('brazzify',FALSE);
 if (isset($brazzify)) $tpl->assign('brazzify',TRUE);

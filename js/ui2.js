@@ -18,20 +18,8 @@ var api = {
  }
 };
 
-var page_refresh = {
- timer : null,
- set : function(secs) {
-  this.timer = setTimeout(function() {
-   $('#main_image').click();
-  }, secs * 1000);
- },
- remove : function() {
-  clearTimeout(this.timer);
- }
-}
- 
 function exception_handler(e) {
- noty({text: e.message, type: 'error'});
+ noty({text: e.message, type: 'error', dismissQueue:true});
  switch (e.name) {
  case 1020: //Must be logged in to save image
  case 1021: //Must be logged in to unsave image
@@ -52,7 +40,7 @@ function call(method, opt) {
    if (result.url) {
     message = '<a href="' + result.url + '">' + message + '</a>';
    }
-   noty({text: message});
+   noty({text: message, dismissQueue: true});
   }
   return result;
  } catch (e) {
@@ -61,49 +49,24 @@ function call(method, opt) {
  return null;
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
  /*Force images to fit to page width*/
  $('#img_container').imagefit();
-
- /*Star and brazzify positioning/visual hacks*/
- $('#main_image').hover(function() {
-  //onhover
-  if (!$('#main_image').hasClass('brazzified')) $('#brazzers_text').fadeIn('fast');
-  $('#brazzers_text').position({
-   my: 'right bottom',
-   at: 'right bottom',
-   of: $('#main_image'),
-   offset: '-3, -3'
-  });
-  $('#star').fadeIn('fast');
-  $('#star').position({
-   my: 'left top',
-   at: 'left top',
-   of: $('#main_image'),
-   offset: '3, 3'
-  });
- },function() {
-  //offhover
-  if (!$('#star').is(':hover')) $('#star').fadeOut('fast');
-  if (!$('#brazzers_text').is(':hover')) $('#brazzers_text').fadeOut('fast');
- });
  
-
+ /*Icon for search button*/
+ $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
+ 
  /*Options for Notifications*/
- $.noty.defaultOptions.layout = 'topRight';
- $.noty.defaultOptions.type = 'information';
- $.noty.defaultOptions.timeout = 10000;
-
- /*Initialize history.js*/
- var History = window.History;
-
+ $.noty.defaults.layout = 'topRight';
+ $.noty.defaults.type = 'information';
+ $.noty.defaults.timeout = 10000;
+ 
  /*Keyboard controls*/
  $('body').keydown(function (event) {
-  /*console.log(event.keyCode);*/
   switch (event.keyCode) {
   case 32://Space
    event.preventDefault();
-   $('#main_image').click();
+   $('.image').click();
    break;
   case 37://left arrow
    window.history.back();
@@ -111,20 +74,20 @@ $(document).ready(function () {
   case 39://right arrow
    window.history.forward();
    break;
-  case 66://b
-   $('#brazzify').click();
-   break;
-  case 82: //r
-   $('#refresh').click();
-   break;
+  //case 66://b
+  // $('#brazzify').click();
+  // break;
+  //case 82: //r
+  // $('#refresh').click();
+  // break;
   case 83://s
-   $('#star').click();
+   $('#save_image').click();
    break;
-  case 84://t
-   $('#set_theme').click();
-   break;
+  //case 84://t
+  // $('#set_theme').click();
+  // break;
   case 124:
-   window.location.href = 'http://johnvanorange.com/b/joJpMJ';
+   window.location.href = 'http://johnvanorange.com/v/joJpMJ';
    break;
   }
  });
@@ -191,21 +154,21 @@ $(document).ready(function () {
   event.preventDefault();
   var login = function () {
    var response = call('user/login', {
-    'username': $('#username').val(),
-    'password': $('#password').val()
+    'username': $('#login_username').val(),
+    'password': $('#login_password').val()
    });
    if (response.sid) {
     $('#login_dialog').dialog('close');
     window.location.reload();
    }
   };
-  $('#password').bind('keydown', function (event) {
+  $('#login_password').bind('keydown', function (event) {
    if (event.keyCode === 13) {
     event.preventDefault();
     login();
    }
   });
-  $('#username').bind('keydown', function (event) {
+  $('#login_username').bind('keydown', function (event) {
    if (event.keyCode === 13) {
     event.preventDefault();
     login();
@@ -220,20 +183,45 @@ $(document).ready(function () {
    }
   });
  });
-
+ 
  /*Logout*/
  $('#logout').click(function (event) {
   var response = call('user/logout');
   if (!response.error) window.location.reload();
  });
+ 
+$('#save_image').click(function () {
+ $('#save_image').toggleClass('saved not_saved');
+ if ($('#save_image').hasClass('saved')) {
+  call('image/save',{image:$('.image').attr('id')});
+ } else {
+  call('image/unsave',{image:$('.image').attr('id')});
+ }
+});
 
- /*Search by tag box*/
- $('#search form').submit(function (event) {
-  event.preventDefault();
-  var taginfo = call('tag/get', {'value': $('#tagsearch').val(), 'search_by': 'name'});
-  window.location.href = taginfo[0].url;
+ /*Tag Search Autocomplete*/
+ $('#tag_search').autocomplete({
+  source: '/api/tag/suggest',
+  minLength: 2
  });
-
+ 
+ /*Upload Image dialog*/
+ $('#addInternet').click(function (event) {
+  event.preventDefault();
+  $('#add_internet_dialog').dialog({
+   title: 'Add Image from URL',
+   width: 500,
+   buttons: {
+    'Add': function () {
+     call('image/addFromURL', {
+      'url': $('#url').val()
+     });
+     $(this).dialog('close');
+    }
+   }
+  });
+ });
+ 
  /*Report Image dialog*/
  $('#report').click(function (event) {
   event.preventDefault();
@@ -250,27 +238,7 @@ $(document).ready(function () {
    }
   });
  });
-
- /*Upload Image dialog*/
- $('#upload').click(function (event) {
-  event.preventDefault();
-  $('#addimage_dialog').dialog({
-   title: 'Add Images',
-   width: 500,
-   buttons: {
-    'Select from Computer' : function () {
-     window.location.href = '/upload';
-    },
-    'Add from URL': function () {
-     call('image/addFromURL', {
-      'url': $('#url').val()
-     });
-     $(this).dialog('close');
-    }
-   }
-  });
- });
-
+ 
  /*Add Tag dialog*/
  $('#add_tag').click(function (event) {
   event.preventDefault();
@@ -282,12 +250,13 @@ $(document).ready(function () {
   var addtag = function () {
    var result = call('tag/add', {
     'name': $('#tag_name').val(),
-    'image' : $('#uid').val()
+    'image' : $('.image').attr('id')
    });
    var tagtext = '', i;
    for (i in result.tags) {
-    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>';
+    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
    }
+   tagtext = tagtext.substring(0, tagtext.length - 2);
    $('#tagtext').html(tagtext);
   };
   $('#tag_name').bind('keydown', function (event) {
@@ -321,71 +290,16 @@ $(document).ready(function () {
    width: 335
   });
  });
-
- /*Theme changer*/
- $('#set_theme').click(function () {
-  $('body').toggleClass('light dark');
-  call('theme/set',{theme:$('body').attr('class')});
- });
  
- /*Save image*/
- $('#star').click(function () {
-  $('#star').toggleClass('saved not_saved');
-  if ($('#star').hasClass('saved')) {
-   call('image/save',{image:$('#uid').val()});
-  } else {
-   call('image/unsave',{image:$('#uid').val()});
-  }
- });
- 
- /*Auto refresh*/
- if ($('#refresh_time').val() > 0) page_refresh.set($('#refresh_time').val());
- $('#refresh').change(function () {
-  if ($('#refresh').attr('checked')) {
-   refresh = call('refresh/set');
-   page_refresh.set(refresh.refresh);
-  } else {
-   call('refresh/remove');
-   page_refresh.remove();
-  }
- });
-
- /*Brazzify page changing using history.js*/
- $('#brazzify').click(function (event) {
+ /*Search by tag box*/
+ $('form#search').submit(function (event) {
   event.preventDefault();
-  History.pushState({state: 1}, 'Brazzified', '/b/' + $('#uid').val());
+  var taginfo = call('tag/get', {'value': $('#tag_search').val(), 'search_by': 'name'});
+  window.location.href = taginfo[0].url;
  });
- $(window).bind("statechange", function () {
-  var state = History.getState();
-  if (state.data.state === 1) {brazzify(); } else {normal(); }
-  if (state.data.state === 1) {brazzify(); } else {normal(); }
- });
-
- /*Tag Search Autocomplete*/
- $('#tagsearch').autocomplete({
-  source: '/api/tag/suggest',
-  minLength: 2
- });
-
- /*Image Carousel*/
- $("#carousel").CloudCarousel(
-  {
-   xPos: 300,
-   yPos: 80,
-   mouseWheel: true
-  }
- );
  
-
+ 
+ 
+ 
+ 
 });
-
-function brazzify() {
- $('#main_image').attr('src', 'http://brazzify.me/?s=http://' + document.domain + '/media/' + $('#image_name').val());
- $('#brazzers_text').hide();
- $('#main_image').addClass('brazzified');
-}
-
-function normal() {
- $('#main_image').attr('src', 'http://' + document.domain + '/media/' + $('#image_name').val());
- $('#main_image').removeClass('brazzified');
-}

@@ -5,7 +5,7 @@ switch ($_COOKIE['mobile']) {
  break;
  case 'n':
  default:
-  $temptype = 'default';
+  $temptype = 'ui2';
  break;
 }
 
