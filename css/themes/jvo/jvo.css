@@ -150,13 +150,14 @@ fieldset {
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
+  clear: right;
 }
 #tagtext {
   font-size: 80%;
 }
 .addthis_toolbox {
-  margin: 10px auto;
-  width: 10%;
+  display: inline-block;
+  margin: 10px;
 }
 ul,
 li {
