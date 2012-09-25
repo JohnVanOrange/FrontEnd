@@ -198,7 +198,7 @@ nav > ul li ul {
   position: absolute;
   left: 0;
   top: 100%;
-  width: 10em;
+  width: 12em;
   display: none;
 }
 nav > ul li ul li {
@@ -222,10 +222,31 @@ nav > ul li ul li:last-child {
 nav > ul li ul li:hover {
   background-color: #5971aa;
 }
+nav > ul li ul li a {
+  height: 16px;
+  padding: 0 0 0 20px;
+  background: url('/img/social.png') no-repeat;
+  background-position: -16px 0;
+}
 nav > ul li ul li a:hover {
   color: #ff9900;
 }
 nav > ul li#menu ul {
   left: auto;
   right: 4px;
+}
+#facebook_menu {
+  background-position: 0 -48px;
+}
+#twitter_menu {
+  background-position: 0 -16px;
+}
+#reddit_menu {
+  background-position: 0 -80px;
+}
+#email_menu {
+  background-position: 0 -32px;
+}
+#android_menu {
+  background-position: 0 0;
 }
