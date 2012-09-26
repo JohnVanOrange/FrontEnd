@@ -2,6 +2,7 @@
 	<ul>
 		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&d=retro&r=pg'></li>
 		<li id="username" title="View Profile"><a href='/s/'>{$user.username}</a></li>{/if}
+		{if $image}
 		<li id="add_image"><img src="/img/add.png" alt="Add Image" title="Add Image">
 			<ul>
 				<li><a href='/upload'>Add from Computer</a></li>
@@ -18,6 +19,13 @@
 			</ul>
 		</li>
 		<li id="report_image" title='Report Image'><a href='' id='report'><img src="/img/report.png" alt="Report Image"></a></li>
+		<li id="search_image" title='More Image Information'><img src="/img/image_search.png" alt="More Image Information">
+			<ul>
+				<li><a href='http://www.google.com/searchbyimage?image_url={$image}'>Search using Google</a></li>
+				<li><a href='http://tineye.com/search?url={$image}'>Search using Tineye</a></li>
+			</ul>
+		</li>
+		{/if}
 		<li><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button><form></li>
 		<li id="menu"><img src="/img/menu.png" alt="Menu" title='Menu'>
 			<ul>
