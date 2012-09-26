@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(256) collate utf8_unicode_ci NOT NULL,
   `filename` varchar(256) collate utf8_unicode_ci NOT NULL,
-  `uid` varchar(6) collate utf8_unicode_ci NOT NULL,
+  `uid` varchar(6) character set utf8 collate utf8_bin NOT NULL,
   `hash` varchar(32) collate utf8_unicode_ci default NULL,
   `type` varchar(4) collate utf8_unicode_ci default NULL,
   `width` smallint(5) unsigned default NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `imgur_history` (
-  `id` varchar(5) collate utf8_unicode_ci NOT NULL
+  `id` varchar(5) character set utf8 collate utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `reports` (
@@ -46,7 +46,7 @@ INSERT INTO `report_types` (`id`, `value`, `public`) VALUES
 
 CREATE TABLE IF NOT EXISTS `sessions` (
   `user_id` int(8) unsigned NOT NULL,
-  `sid` varchar(16) collate utf8_unicode_ci NOT NULL,
+  `sid` varchar(16) character set utf8 collate utf8_bin NOT NULL,
   KEY `sid` (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `resources` (
   `ip` varchar(15) collate utf8_unicode_ci default NULL,
-  `image` varchar(6) collate utf8_unicode_ci NOT NULL,
+  `image` varchar(6) character set utf8 collate utf8_bin NOT NULL,
   `user_id` int(8) unsigned default NULL,
   `value` int(8) default NULL,
   `type` varchar(8) collate utf8_unicode_ci NOT NULL
