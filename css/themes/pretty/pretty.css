@@ -1,6 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Nunito);
 
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+header {
+  padding-left: 52px;
+  background: url('/img/cute_bear_title.svg') left no-repeat;
+}
 html {
   font-family: 'Nunito', sans-serif;
   padding: 0;
