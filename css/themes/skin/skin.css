@@ -1,6 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Nunito);
 
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+header {
+  padding-left: 62px;
+  background: url('/img/lips_46.png') left no-repeat;
+}
 html {
   font-family: 'Nunito', sans-serif;
   padding: 0;
