@@ -83,6 +83,9 @@ $(document).ready(function() {
   case 83://s
    $('#save_image').click();
    break;
+  case 84://t
+   $('#add_tag').click();
+   break;
   //case 84://t
   // $('#set_theme').click();
   // break;
