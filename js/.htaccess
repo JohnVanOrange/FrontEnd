@@ -1,6 +1,6 @@
 <ifModule mod_expires.c>
 ExpiresActive On
-ExpiresDefault A86400
-ExpiresByType application/x-javascript A86400
-ExpiresByType application/javascript A86400
+ExpiresDefault A432000
+ExpiresByType application/x-javascript A432000
+ExpiresByType application/javascript A432000
 </ifModule>

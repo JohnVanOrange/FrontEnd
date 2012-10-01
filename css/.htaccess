@@ -1,5 +1,5 @@
 <ifModule mod_expires.c>
 ExpiresActive On
-ExpiresDefault A86400
-ExpiresByType text/css A86400
+ExpiresDefault A432000
+ExpiresByType text/css A432000
 </ifModule>
