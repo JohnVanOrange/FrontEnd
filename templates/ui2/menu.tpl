@@ -23,6 +23,7 @@
 			<ul>
 				<li><a href='http://www.google.com/searchbyimage?image_url={$image}'>Search using Google</a></li>
 				<li><a href='http://tineye.com/search?url={$image}'>Search using Tineye</a></li>
+				{if $c_link}<li><a href='{$c_link}'>External Comments</a></li>{/if}
 			</ul>
 		</li>
 		{/if}
