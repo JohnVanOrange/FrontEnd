@@ -226,7 +226,7 @@ $('#save_image').click(function () {
  });
  
  /*Report Image dialog*/
- $('#report').click(function (event) {
+ $('#report_image').click(function (event) {
   event.preventDefault();
   $('#report_dialog').dialog({
    title: 'Report Image',

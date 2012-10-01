@@ -82,18 +82,6 @@ nav a:visited:hover,
 nav a:hover {
   color: #fff;
 }
-#save_image {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-#save_image.saved {
-  background: url('/img/star.png') top left no-repeat;
-}
-#save_image.not_saved {
-  background: url('/img/unstar.png') top left no-repeat;
-}
 .image {
   box-shadow: 4px 4px 20px 0 #000;
 }
@@ -177,6 +165,13 @@ nav > ul li {
   text-align: center;
   padding-right: 8px;
 }
+nav > ul li.icon {
+  width: 24px;
+  height: 24px;
+  background: url('/img/menu_icons.png') no-repeat;
+  background-position: -24px 0;
+  cursor: pointer;
+}
 nav > ul li:hover > ul {
   display: block;
 }
@@ -198,7 +193,7 @@ nav > ul li ul {
   position: absolute;
   left: 0;
   top: 100%;
-  width: 12em;
+  width: 13em;
   display: none;
 }
 nav > ul li ul li {
@@ -234,6 +229,27 @@ nav > ul li ul li a:hover {
 nav > ul li#menu ul {
   left: auto;
   right: 4px;
+}
+#add_image {
+  background-position: 0 0px;
+}
+#save_image.saved {
+  background-position: 0 -96px;
+}
+#save_image.not_saved {
+  background-position: 0 -120px;
+}
+#share_image {
+  background-position: 0 -24px;
+}
+#report_image {
+  background-position: 0 -48px;
+}
+#search_image {
+  background-position: 0 -72px;
+}
+#menu {
+  background-position: 0 -144px;
 }
 #facebook_menu {
   background-position: 0 -48px;

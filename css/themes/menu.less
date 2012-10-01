@@ -14,6 +14,13 @@ nav > ul {
 		position: relative;
 		text-align: center;
 		padding-right: 8px;
+		&.icon {
+				width: 24px;
+				height: 24px;
+				background: url('/img/menu_icons.png') no-repeat;
+				background-position: -24px 0;
+				cursor: pointer;
+		}
 		&:hover > ul {
 			display: block;
 		}
@@ -35,7 +42,7 @@ nav > ul {
 			position: absolute;
 			left: 0;
 			top: 100%;
-			width: 12em;
+			width: 13em;
 			display: none;
 			li {
 				padding: 4px;
@@ -77,6 +84,33 @@ nav > ul {
 	}
 }
 
+//Sprite positions
+
+//Menubar
+
+#add_image {
+		background-position: 0 0px;
+}
+#save_image.saved {
+		background-position: 0 -96px;
+}
+#save_image.not_saved {
+		background-position: 0 -120px;
+}
+#share_image {
+		background-position: 0 -24px;
+}
+#report_image {
+		background-position: 0 -48px;
+}
+#search_image {
+		background-position: 0 -72px;
+}
+#menu {
+		background-position: 0 -144px;
+}
+
+//Dropdowns
 #facebook_menu {
 		background-position: 0 -48px;
 }
