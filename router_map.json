@@ -2,7 +2,6 @@
 	"api":		"api",
 	"b":		"display",
 	"bot":		"bot",
-	"brazzify":	"display",
 	"display":	"display",
 	"error":	"error",
 	"f":		"random",
@@ -14,6 +13,7 @@
 	"s":		"saved",
 	"t":		"tag",
 	"tos":		"tos",
+	"u":		"user",
 	"upload":	"upload",
 	"v":		"display"
 }

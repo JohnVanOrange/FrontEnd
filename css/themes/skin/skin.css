@@ -55,6 +55,7 @@ header {
 footer {
   font-size: 75%;
   padding-top: 5em;
+  clear: both;
 }
 nav {
   position: absolute;
@@ -146,6 +147,18 @@ fieldset {
 .addthis_toolbox {
   display: inline-block;
   margin: 10px;
+}
+#profile_image {
+  float: left;
+  padding-left: 10em;
+}
+#profile_image img {
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border-radius: 8px 8px 8px 8px;
+}
+#profile_image p {
+  font-size: 80%;
 }
 ul,
 li {
