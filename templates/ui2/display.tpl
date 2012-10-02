@@ -10,7 +10,7 @@
 			<img id="{$uid}" class="image" alt='Main Image' src='{$image}' height='{$height}' width='{$width}'/>
 		</a>
 		<div>{if $uploader}<p>
-			Uploaded by <a href='/u/{$uploader.username}'>{$uploader.username}
+			Uploaded by <a href='/u/{$uploader.username}'>{$uploader.username}</a>
 		</p>{/if}</div>
 	</section>
 
