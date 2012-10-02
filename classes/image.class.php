@@ -290,6 +290,12 @@ class Image extends Base {
   if (!$result['display']) throw new Exception('Image removed', 403);
   #Get tags
   $result['tags'] = $this->tag->get(array('value'=>$result['uid']));
+  #Get uploader
+  $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
+  $uploader = $this->db->fetch($sql);
+  if ($uploader) {
+   $result['uploader'] = $this->user->get($uploader[0]['user_id']);
+  }
   #Get resources
   $user = $this->user->current($options);
   if ($user) {

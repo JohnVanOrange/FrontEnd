@@ -44,6 +44,7 @@ if ($result['tags']) {
 }
 if ($result['data']) $tpl->assign('data',$result['data']);
 if ($result['c_link']) $tpl->assign('c_link', $result['c_link']);
+if ($result['uploader']) $tpl->assign('uploader', $result['uploader']);
 if ($new) {
  $tpl->assign('page','new');
 }

@@ -53,6 +53,13 @@ $(document).ready(function() {
  /*Force images to fit to page width*/
  $('#img_container').imagefit();
  
+ $('#img_container p').position({
+  my: 'right bottom',
+  at: 'right top',
+  of: $('.image'),
+  offset: '0, -15'
+ });
+ 
  /*Icon for search button*/
  $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
  

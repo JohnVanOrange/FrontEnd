@@ -9,6 +9,9 @@
 		<a id='rand_image' href='../{$page}?{$rand}' rel='nofollow'>
 			<img id="{$uid}" class="image" alt='Main Image' src='{$image}' height='{$height}' width='{$width}'/>
 		</a>
+		<div>{if $uploader}<p>
+			Uploaded by <a href='/u/{$uploader.username}'>{$uploader.username}
+		</p>{/if}</div>
 	</section>
 
 
