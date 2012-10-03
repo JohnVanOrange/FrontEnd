@@ -14,7 +14,7 @@ class Tag extends Base {
  public function add($options=array()) {
   $tags = explode(',',$options['name']);
   foreach ($tags as $tag) {
-   $tag = htmlspecialchars(trim($tag));
+   $tag = htmlspecialchars(trim(stripslashes($tag)));
    $slug = $this->text2slug($tag);
    $sql = 'SELECT id from tag_list WHERE basename = :name;';
    $val = array(
