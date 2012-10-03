@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `resources` (
+  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `ip` varchar(15) collate utf8_unicode_ci default NULL,
   `image` varchar(6) character set utf8 collate utf8_bin NOT NULL,
   `user_id` int(8) unsigned default NULL,
