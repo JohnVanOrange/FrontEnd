@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `height` smallint(5) unsigned default NULL,
   `c_link` varchar(256) collate utf8_unicode_ci default NULL,
   `display` tinyint(1) NOT NULL default '1',
-  `reported` tinyint(1) NOT NULL default '0',
+  `nsfw` tinyint(1) NOT NULL default '0',
   `approved` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `filename` (`filename`)
