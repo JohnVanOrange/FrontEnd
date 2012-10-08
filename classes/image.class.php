@@ -220,6 +220,16 @@ class Image extends Base {
    ':image_id' => $options['id']
   );
   $this->db->fetch($sql,$val);
+  $message = 'A new image was reported on '. SITE_NAME . ".\n\n";
+  $message .= "View Reported Images:\n";
+  $message .= WEB_ROOT.'admin/reported'."\n\n";
+  $message .= "IP:\n";
+  $message .= $_SERVER['REMOTE_ADDR'];
+  mail(
+   ADMIN_EMAIL,
+   'New Reported Image for '. SITE_NAME,
+   $message
+  );
   return array(
    'message' => 'Image Reported.'
   );
