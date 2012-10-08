@@ -23,7 +23,8 @@ function exception_handler(e) {
  switch (e.name) {
  case 1020: //Must be logged in to save image
  case 1021: //Must be logged in to unsave image
-  $('#star').toggleClass('saved not_saved');
+  $('#save_image').toggleClass('saved not_saved');
+  $('#login').click();
   break; 
  }
 }
@@ -120,8 +121,9 @@ $(document).ready(function() {
  });
 
  /*Create Account dialog*/
- $('#create_acct').click(function (event) {
+ $('.create_acct').click(function (event) {
   event.preventDefault();
+  $('#login_dialog').dialog('close');
   var create = function () {
    if ($('#create_password').val() !== $('#create_password2').val()) {
     var e = {message: "Passwords don't match"};
