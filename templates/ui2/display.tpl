@@ -5,9 +5,9 @@
 <!--This can be removed once reported images start using uid-->
 <input type='hidden' name='image_id' id='image_id' value='{$image_id}'>
 
-	<section id='img_container'>
+	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
 		<a id='rand_image' href='../{$page}?{$rand}' rel='nofollow'>
-			<img id="{$uid}" class="image" alt='Main Image' src='{$image}' height='{$height}' width='{$width}'/>
+			<img id="{$uid}" class="image" alt='Main Image' src='{$image}' height='{$height}' width='{$width}' itemprop='contentUrl' />
 		</a>
 		<div>{if $uploader}<p>
 			Uploaded by <a href='/u/{$uploader.username}'>{$uploader.username}</a>
