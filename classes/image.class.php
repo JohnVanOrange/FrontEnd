@@ -7,16 +7,12 @@ require_once(ROOT_DIR.'/classes/resource.class.php');
 
 class Image extends Base {
 
- private $tag;
  private $user;
- private $report;
  private $res;
 
  public function __construct($options=array()) {
   parent::__construct();
-  $this->tag = new Tag;
   $this->user = new User;
-  $this->report = new Report;
   $this->res = new Resource;
  }
  
@@ -236,11 +232,12 @@ class Image extends Base {
  }
  
  public function reported($options=array()) {
+  $report = new Report;
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
   $sql = 'SELECT * FROM reports WHERE resolved = 0 ORDER BY RAND() LIMIT 1';
   $report_result = $this->db->fetch($sql);
-  $report_type = $this->report->get(array('id'=>$report_result[0]['report_type']));
+  $report_type = $report->get(array('id'=>$report_result[0]['report_type']));
   $report_result[0]['value'] = $report_type[0]['value'];
   $sql = 'SELECT * FROM images WHERE id = '.$report_result[0]['image_id'];
   $image_result = $this->db->fetch($sql);
@@ -276,6 +273,7 @@ class Image extends Base {
  }
 
  public function get($options=array()) {
+  $tag = new Tag;
   if (!$options['image']) throw new Exception('No image given.', 404);
   #Get image data
   switch (strlen($options['image'])) {
@@ -299,7 +297,7 @@ class Image extends Base {
   #Verify image isn't supposed to be hidden
   if (!$result['display']) throw new Exception('Image removed', 403);
   #Get tags
-  $result['tags'] = $this->tag->get(array('value'=>$result['uid']));
+  $result['tags'] = $tag->get(array('value'=>$result['uid']));
   #Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
