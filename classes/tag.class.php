@@ -1,6 +1,7 @@
 <?php
 require_once(ROOT_DIR.'/classes/base.class.php');
 require_once(ROOT_DIR.'/classes/resource.class.php');
+require_once(ROOT_DIR.'/classes/image.class.php');
 
 class Tag extends Base {
  
@@ -78,10 +79,19 @@ class Tag extends Base {
  }
  
  public function all($options=array()) {
+  $i = $this->image = new Image;
   $images = $this->get(array('value'=>$options['tag'],'search_by'=>'basename'));
   $results = array();
   foreach($images as $image) {
-   $results[] = array('image'=>$image['uid']);
+   //$results[] = array('image'=>$image['uid']);
+   try {
+    $results[] = $i->get(array('image'=>$image['uid']));
+   }
+   catch(Exception $e) {
+    if ($e->getCode() != 403) {
+     throw new Exception($e);
+    }
+   }
   }
   return $results;
  }
