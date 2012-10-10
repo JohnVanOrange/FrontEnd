@@ -239,6 +239,7 @@ class Image extends Base {
   $report_result = $this->db->fetch($sql);
   $report_type = $report->get(array('id'=>$report_result[0]['report_type']));
   $report_result[0]['value'] = $report_type[0]['value'];
+  //TODO: switch this to $image->get once reported images use uid
   $sql = 'SELECT * FROM images WHERE id = '.$report_result[0]['image_id'];
   $image_result = $this->db->fetch($sql);
   if (!$image_result) throw new Exception('No image result', 404);
@@ -274,6 +275,7 @@ class Image extends Base {
 
  public function get($options=array()) {
   $tag = new Tag;
+  $current = $this->user->current($options);
   if (!$options['image']) throw new Exception('No image given.', 404);
   #Get image data
   switch (strlen($options['image'])) {
@@ -295,7 +297,7 @@ class Image extends Base {
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
   #Verify image isn't supposed to be hidden
-  if (!$result['display']) throw new Exception('Image removed', 403);
+  if (!$result['display'] AND $current['type'] < 2) throw new Exception('Image removed', 403);
   #Get tags
   $result['tags'] = $tag->get(array('value'=>$result['uid']));
   #Get uploader
@@ -305,9 +307,8 @@ class Image extends Base {
    $result['uploader'] = $this->user->get($uploader[0]['user_id']);
   }
   #Get resources
-  $user = $this->user->current($options);
-  if ($user) {
-   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$user['id'].'")';
+  if ($current) {
+   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$current['id'].'")';
    $resources = $this->db->fetch($sql);
    foreach ($resources as $r) {
     $data[$r['type']] = $r;
