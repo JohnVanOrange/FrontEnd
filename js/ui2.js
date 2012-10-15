@@ -84,9 +84,6 @@ $(document).ready(function() {
   case 39://right arrow
    window.history.forward();
    break;
-  //case 66://b
-  // $('#brazzify').click();
-  // break;
   //case 82: //r
   // $('#refresh').click();
   // break;
@@ -96,9 +93,6 @@ $(document).ready(function() {
   case 84://t
    $('#add_tag').click();
    break;
-  //case 84://t
-  // $('#set_theme').click();
-  // break;
   case 124:
    window.location.href = 'http://johnvanorange.com/v/joJpMJ';
    break;
@@ -244,7 +238,7 @@ $('#save_image').click(function () {
    buttons: {
     'Report': function () {
      call('image/report', {
-      'id': $('#image_id').val(),
+      'image': $('.image').attr('id'),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
      $(this).dialog('close');

@@ -22,15 +22,6 @@ CREATE TABLE IF NOT EXISTS `imgur_history` (
   `id` varchar(5) character set utf8 collate utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS `reports` (
-  `id` int(5) unsigned NOT NULL auto_increment,
-  `image_id` int(10) unsigned NOT NULL,
-  `report_type` int(3) unsigned NOT NULL,
-  `reason` varchar(255) collate utf8_unicode_ci default NULL,
-  `resolved` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
 CREATE TABLE IF NOT EXISTS `report_types` (
   `id` int(3) unsigned NOT NULL auto_increment,
   `value` varchar(32) collate utf8_unicode_ci NOT NULL,

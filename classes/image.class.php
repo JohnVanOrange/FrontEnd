@@ -64,12 +64,13 @@ class Image extends Base {
  public function approve($options=array()) {
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
-  $sql = 'UPDATE reports SET resolved = 1 WHERE image_id = :id';
+  if (!$options['image']) throw new Exception('Image UID required');
+  $sql = 'DELETE FROM resources WHERE image = :image AND type = "report";';
   $val = array(
-   ':id' => $options['id']
+   ':image' => $options['image']
   );
   $this->db->fetch($sql,$val);
-  $sql = 'UPDATE images SET approved = 1, display = 1 WHERE id = :id';
+  $sql = 'UPDATE images SET display = 1 WHERE uid = :image';
   $this->db->fetch($sql,$val);
   return array(
    'message' => 'Image approved.'
@@ -79,43 +80,18 @@ class Image extends Base {
  public function remove($options=array()) {
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
-  if (!$options['uid']) {
-   if (!$options['id']) throw new Exception('ID or UID required');
-   $sql = 'SELECT uid FROM images WHERE id = :id';
-   $val = array(
-    ':id' => $options['id']
-   );
-   $result = $this->db->fetch($sql,$val);
-   $options['uid'] = $result[0]['uid'];
-  }
-  if (!$options['id']) {
-   $sql = 'SELECT id FROM images WHERE uid = :uid';
-   $val = array(
-    ':uid' => $options['uid']
-   );
-   $result = $this->db->fetch($sql,$val);
-   $options['id'] = $result[0]['id'];
-  }
-  $sql = 'SELECT filename FROM images WHERE uid = :uid';
+  if (!$options['image']) throw new Exception('Image UID required');
+  $sql = 'SELECT filename FROM images WHERE uid = :image';
   $val = array(
-   ':uid' => $options['uid']
+   ':image' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
   $filename = $result[0]['filename'];
   //clean up resources
-  $sql = 'DELETE FROM resources WHERE image = :uid';
+  $sql = 'DELETE FROM resources WHERE image = :image';
   $this->db->fetch($sql,$val);
   //remove image in db
-  $sql = 'DELETE FROM images WHERE uid = :uid';
-  $this->db->fetch($sql,$val);
-  //clean up reports
-  $val = array(
-   ':id' => $options['id']
-  );
-  $sql = 'DELETE FROM reports WHERE image_id = :id';
-  $this->db->fetch($sql,$val);
-  //clean up tags
-  $sql = 'DELETE FROM tags WHERE image_id = :id';
+  $sql = 'DELETE FROM images WHERE uid = :image';
   $this->db->fetch($sql,$val);
   //remove image
   unlink(ROOT_DIR.'/media/'.$filename);
@@ -203,17 +179,16 @@ class Image extends Base {
 
  public function report($options=array()) {
   //Add report
-  $sql = 'INSERT INTO reports(image_id, report_type, reason) VALUES(:image_id, :report_type, :reason)';
-  $val = array(
-   ':image_id' => $options['id'],
-   ':report_type' => $options['type'],
-   ':reason' => $options['reason']
+  $res = array(
+   'image' => $options['image'],
+   'value' => $options['type'],
+   'type' => 'report'
   );
-  $this->db->fetch($sql,$val);
+  $this->res->add($res);
   //Hide image
-  $sql = 'UPDATE images SET display=0 WHERE id = :image_id';
+  $sql = 'UPDATE images SET display=0 WHERE uid = :uid';
   $val = array (
-   ':image_id' => $options['id']
+   ':uid' => $options['image']
   );
   $this->db->fetch($sql,$val);
   $message = 'A new image was reported on '. SITE_NAME . ".\n\n";
@@ -235,17 +210,15 @@ class Image extends Base {
   $report = new Report;
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
-  $sql = 'SELECT * FROM reports WHERE resolved = 0 ORDER BY RAND() LIMIT 1';
+  $sql = 'SELECT * FROM resources WHERE type = "report" ORDER BY RAND() LIMIT 1;';
   $report_result = $this->db->fetch($sql);
-  $report_type = $report->get(array('id'=>$report_result[0]['report_type']));
+  $report_type = $report->get(array('id'=>$report_result[0]['value']));
   $report_result[0]['value'] = $report_type[0]['value'];
-  //TODO: switch this to $image->get once reported images use uid
-  $sql = 'SELECT * FROM images WHERE id = '.$report_result[0]['image_id'];
-  $image_result = $this->db->fetch($sql);
+  $image_result = $this->get(array('image'=>$report_result[0]['image']));
   if (!$image_result) throw new Exception('No image result', 404);
   return array(
    'report' => $report_result[0],
-   'image' => $image_result[0]
+   'image' => $image_result
   );
  }
 
