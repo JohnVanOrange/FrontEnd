@@ -223,6 +223,16 @@ class Image extends Base {
    'image' => $image_result
   );
  }
+ 
+ public function unapproved($options=array()) {
+  $current = $this->user->current($options);
+  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
+  $sql = 'SELECT uid FROM images WHERE approved = 0 ORDER BY RAND() LIMIT 1;';
+  $image = $this->db->fetch($sql);
+  $image_result = $this->get(array('image'=>$image[0]['uid']));
+  if (!$image_result) throw new Exception('No image result', 404);
+  return $image_result;
+ }
 
  public function random($options=array()) {
   if ($options['new']) {
