@@ -65,12 +65,14 @@ class Image extends Base {
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
   if (!$options['image']) throw new Exception('Image UID required');
+  $nsfw = 0;
+  if ($options['nsfw']) $nsfw = 1;
   $sql = 'DELETE FROM resources WHERE image = :image AND type = "report";';
   $val = array(
    ':image' => $options['image']
   );
   $this->db->fetch($sql,$val);
-  $sql = 'UPDATE images SET display = 1 WHERE uid = :image';
+  $sql = 'UPDATE images SET display = 1, approved = 1, nsfw = '. $nsfw.' WHERE uid = :image';
   $this->db->fetch($sql,$val);
   return array(
    'message' => 'Image approved.'
