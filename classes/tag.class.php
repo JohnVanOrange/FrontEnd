@@ -83,7 +83,6 @@ class Tag extends Base {
   $images = $this->get(array('value'=>$options['tag'],'search_by'=>'basename'));
   $results = array();
   foreach($images as $image) {
-   //$results[] = array('image'=>$image['uid']);
    try {
     $results[] = $i->get(array('image'=>$image['uid']));
    }

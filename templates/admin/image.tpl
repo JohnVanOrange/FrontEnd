@@ -1,6 +1,6 @@
 {include file='header.tpl'}
 
-<h1>Approve Image</h1>
+<h1>Image Admin</h1>
 
 <button id='approve'>Approve</button> <button id='nsfw'>Approve as NSFW</button> <button id='reject'>Reject</button> <button id='skip'>Skip</button></p>
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">

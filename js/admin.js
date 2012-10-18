@@ -1,17 +1,17 @@
 $(document).ready(function () {
  $('#approve').click(function() {
-  call('image/approve',{image: $('#uid').val()});
-  $('#main_image').click();
+  call('image/approve',{image: $('.image').attr('id')});
+  $('.image').click();
  });
  $('#nsfw').click(function() {
-  call('image/approve',{image: $('#uid').val(),nsfw: true});
-  $('#main_image').click();
+  call('image/approve',{image: $('.image').attr('id'),nsfw: true});
+  $('.image').click();
  });
  $('#reject').click(function() {
-  call('image/remove',{image: $('#uid').val()});
-  $('#main_image').click();
+  call('image/remove',{image: $('.image').attr('id')});
+  $('.image').click();
  });
  $('#skip').click(function() {
-  $('#main_image').click();
+  $('.image').click();
  });
 });

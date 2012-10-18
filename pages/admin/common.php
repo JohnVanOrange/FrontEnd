@@ -5,5 +5,6 @@
 $tpl->assign('site_name',SITE_NAME);
 $tpl->assign('web_root',WEB_ROOT);
 $tpl->assign('favicon',FAVICON);
+$tpl->assign('site_theme', THEME);
 $tpl->assign('user', call('user/current'));
 ?>

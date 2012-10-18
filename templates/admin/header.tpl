@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>{$site_name} - Admin</title>
-<link rel='shortcut icon' type='image/png' href='{$web_root}img/{$favicon}' />
-<link rel='stylesheet' type='text/css' href='{$web_root}css/main.css?20120815' />
-<link rel='stylesheet' type='text/css' href='{$web_root}css/ui-theme/jquery-ui-1.8.21.custom.css' />
-<link rel='stylesheet' type='text/css' href='{$web_root}css/jquery.noty.css' />
-<link rel='stylesheet' type='text/css' href='{$web_root}css/noty_theme_default.css' />
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <title>{$site_name} Admin</title>
+    <link rel='shortcut icon' type='image/png' href='{$web_root}img/{$favicon}' />
+    <link rel='stylesheet' type='text/css' href='{$web_root}css/themes/{$site_theme}/{$site_theme}.css?20121002' />
+    <link rel='stylesheet' type='text/css' href='{$web_root}css/ui-theme/jquery-ui-1.8.21.custom.css' />
 </head>
 
 <body>
-<div id='search'>
- {if $user.username}
-  <img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=16&d=retro&r=pg'> <a href='/s/'>{$user.username}</a> | <a href='' id='logout'>Logout</a>
- {else}
-  Not logged in
- {/if}
-</div>
+
+<header>
+    <a href='/'><h1>{$site_name} Admin</h1></a>
+</header>
+
+<nav>
+	<ul>
+		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&d=retro&r=pg'></li>
+		<li id="username" title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
+        {if $image}
+		<li id='save_image' class='{if !$data.save}not_{/if}saved icon' title='Save Image'></li>
+        {/if}
+	</ul>
+</nav>

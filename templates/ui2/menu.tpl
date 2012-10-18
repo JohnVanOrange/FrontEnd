@@ -25,6 +25,7 @@
 				<li><a href='http://tineye.com/search?url={$image}'>Search using Tineye</a></li>
 				{if $c_link}<li><a href='{$c_link}'>External Comments</a></li>{/if}
 				<li><a href='{$image}'>View Fullscreen</a></li>
+				{if $is_admin}<li><a href='/admin/image/{$uid}'>Image Admin</a></li>{/if}
 			</ul>
 		</li>
 		{/if}
