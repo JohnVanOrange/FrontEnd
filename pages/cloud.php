@@ -19,7 +19,7 @@ foreach ($tags as $i=>$tag)  {
  //$tags[$i]['weight'] = ceil((($maxfont * ($tag['count'] - $min['count']) / $max['count'] - $min['count']) + 2) * 10);
  if ($tag['count'] > $min['count']) {
   $tags[$i]['diff'] =  ($tag['count'] - $min['count']);
-  $tags[$i]['weight'] = ceil($maxfont * ($tag['count'] - $min['count']) / $max['count'] - $min['count']) + $minfont;
+  $tags[$i]['weight'] = ceil(($maxfont * ($tag['count'] - $min['count'])) / ($max['count'] - $min['count'])) + $minfont;
  }
  else {
   $tags[$i]['weight'] = $minfont;
