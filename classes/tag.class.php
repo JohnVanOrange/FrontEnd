@@ -110,7 +110,6 @@ class Tag extends Base {
  public function top($options=array()) {
   $sql = 'SELECT t.name, t.basename, COUNT(*) AS count FROM resources r INNER JOIN tag_list t ON t.id = r.value WHERE r.type = "tag" GROUP BY r.value ORDER BY COUNT(*) DESC LIMIT 200;';
   $results = $this->db->fetch($sql);
-  shuffle($results);
   return $results;
  }
  
