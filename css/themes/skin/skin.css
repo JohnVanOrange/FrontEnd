@@ -167,6 +167,9 @@ fieldset {
 #profile_image p {
   font-size: 80%;
 }
+.tag_cloud_name {
+  padding: 10px;
+}
 ul,
 li {
   margin: 0;

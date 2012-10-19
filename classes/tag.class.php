@@ -107,6 +107,13 @@ class Tag extends Base {
   return $return;
  }
  
+ public function top($options=array()) {
+  $sql = 'SELECT t.name, t.basename, COUNT(*) AS count FROM resources r INNER JOIN tag_list t ON t.id = r.value WHERE r.type = "tag" GROUP BY r.value ORDER BY COUNT(*) DESC LIMIT 200;';
+  $results = $this->db->fetch($sql);
+  shuffle($results);
+  return $results;
+ }
+ 
  private function addtoList($name) {
   $basename = $this->text2slug($name);
   $sql = 'SELECT id FROM tag_list WHERE basename = :basename';
@@ -124,5 +131,6 @@ class Tag extends Base {
   $s->execute($val);
   return $this->db->lastInsertId();
  }
+ 
 }
 ?>
