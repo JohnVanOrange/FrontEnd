@@ -19,6 +19,10 @@
  <p>Tags:
   {foreach name=tags from=$image.tags item=tag}<p class='tag'>{$tag.name}</p>{/foreach}
  {/if}
+ 
+ <p>Images: {$stats.images}</p>
+ <p><a href='/admin/approve'>Approved:</a> {$stats.approved} ({$stats.approved_percent}%)</p>
+ {if $stats.reports}<p><a href='/admin/reported'>Reported:</a> {$stats.reports}</p>{/if}
 </div>
 
 <div id='content'>

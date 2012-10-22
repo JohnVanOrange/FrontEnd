@@ -317,6 +317,12 @@ class Image extends Base {
   return $uid;
  }
  
+ function stats($options = array()) {
+  $sql = 'SELECT (SELECT COUNT(*) from images) AS images,(SELECT COUNT(*) from resources WHERE type = "report") AS reports,(SELECT COUNT(*) from images WHERE approved = 1) AS approved';
+  $result = $this->db->fetch($sql);
+  return $result[0];
+ }
+ 
  public function scale($options=array()) {
   if (!$options['width']) $options['width'] = '240';
   if (!$options['height']) $options['height'] = '160';
