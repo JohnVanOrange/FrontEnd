@@ -1,9 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Nunito);
-
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+
+@import url(http://fonts.googleapis.com/css?family=Nunito);
 header {
   padding-left: 62px;
   background: url('/img/lips_46.png') left no-repeat;
+  font-family: 'Oswald', sans-serif;
 }
 html {
   font-family: 'Nunito', sans-serif;
@@ -48,7 +49,6 @@ h1 {
 header {
   height: 48px;
   text-align: left;
-  font-family: 'Oswald', sans-serif;
   margin: 8px;
   text-shadow: 2px 2px 4px #000000;
 }
