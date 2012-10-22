@@ -194,8 +194,8 @@ class Image extends Base {
   );
   $this->db->fetch($sql,$val);
   $message = 'A new image was reported on '. SITE_NAME . ".\n\n";
-  $message .= "View Reported Images:\n";
-  $message .= WEB_ROOT.'admin/reported'."\n\n";
+  $message .= "View Reported Image:\n";
+  $message .= WEB_ROOT.'admin/image/'.$options['image']."\n\n";
   $message .= "IP:\n";
   $message .= $_SERVER['REMOTE_ADDR'];
   mail(
@@ -209,19 +209,13 @@ class Image extends Base {
  }
  
  public function reported($options=array()) {
-  $report = new Report;
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
   $sql = 'SELECT * FROM resources WHERE type = "report" ORDER BY RAND() LIMIT 1;';
   $report_result = $this->db->fetch($sql);
-  $report_type = $report->get(array('id'=>$report_result[0]['value']));
-  $report_result[0]['value'] = $report_type[0]['value'];
   $image_result = $this->get(array('image'=>$report_result[0]['image']));
   if (!$image_result) throw new Exception('No image result', 404);
-  return array(
-   'report' => $report_result[0],
-   'image' => $image_result
-  );
+  return $image_result;
  }
  
  public function unapproved($options=array()) {
