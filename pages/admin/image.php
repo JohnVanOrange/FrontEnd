@@ -1,7 +1,7 @@
 <?php
 require_once('smarty.php');
 
-$template = 'approve.tpl';
+$template = 'image.tpl';
 
 $uid = $request[2];
 

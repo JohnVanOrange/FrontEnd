@@ -267,9 +267,6 @@ class Image extends Base {
    case 6:
     $sql = 'SELECT * from images WHERE uid = :name LIMIT 1;';
    break;
-   case 32:
-    $sql = 'SELECT * from images WHERE name = :name LIMIT 1;';
-   break;
    default:
     $sql = 'SELECT * from images WHERE filename = :name LIMIT 1;';
    break;
@@ -284,7 +281,8 @@ class Image extends Base {
   #Verify image isn't supposed to be hidden
   if (!$result['display'] AND $current['type'] < 2) throw new Exception('Image removed', 403);
   #Get tags
-  $result['tags'] = $tag->get(array('value'=>$result['uid']));
+  $tag_result = $tag->get(array('value'=>$result['uid']));
+  if ($tag_result) $result['tags'] = $tag_result;
   #Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
@@ -299,6 +297,17 @@ class Image extends Base {
     $data[$r['type']] = $r;
    }
    $result['data'] = $data;
+  }
+  if ($current['type'] > 1) { //if admin
+   #Get report data
+   $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
+   $report_result = $this->db->fetch($sql);
+   if ($report_result) {
+    $report = new Report;
+    $report_type = $report->get(array('id'=>$report_result[0]['value']));
+    $report_result[0]['value'] = $report_type[0]['value'];
+    $result['report'] = $report_result[0];
+   }
   }
   return $result;
  //this should return image URL's as well
