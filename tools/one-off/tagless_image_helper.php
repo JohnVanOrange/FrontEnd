@@ -1,6 +1,7 @@
 <?php
 require_once('../../settings.inc');
 require_once(ROOT_DIR.'/classes/image.class.php');
+require_once(ROOT_DIR.'/classes/tag.class.php');
 require_once('simple_html_dom.php');
 
 class remote extends Base {
@@ -24,18 +25,32 @@ class remote extends Base {
 
 $db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 $image = new Image;
+$tag = new Tag;
 $remote = new remote;
 $sql = 'SELECT filename,uid FROM images WHERE display=1';
 $results = $db->fetch($sql);
+$counter = 0;
+$no_result_counter = 0;
+$tag_added = 0;
 foreach ($results as $result) {
- $image_url = WEB_ROOT.'media/'.$result['filename'];
- $html = str_get_html($remote->fetch('http://www.google.com/searchbyimage?image_url='.$image_url));
- $data = $html->find('a[style]',0);
- $tag =$data->nodes[0]->_[4];
- if ($tag) {
-  $image->addTag(array('name'=>$tag,'image'=>$result['uid']));
-  echo 'Tag added: '.$tag."\n";
+ $sql = 'SELECT image FROM resources WHERE image = "'.$result['uid'].'" AND type="tag"';
+ $results = $db->fetch($sql);
+ $counter++;
+ if (!$results) {
+  $no_result_counter++;
+  $image_url = WEB_ROOT.'media/'.$result['filename'];
+  $html = str_get_html($remote->fetch('http://www.google.com/searchbyimage?image_url='.$image_url));
+  $data = $html->find('a[style]',0);
+  $taginfo = $data->nodes[0]->_[4];
+  if ($taginfo) {
+   $tag->add(array('name'=>$taginfo,'image'=>$result['uid']));
+   echo 'Tag added: '.$taginfo."\n";
+   $tag_added++;
+  }
  }
 }
+echo "\n\n";
+echo "Process complete!\n";
+echo $counter . " total images, " . $no_result_counter . ' untagged images, ' . $tag_added . " tags added\n";
 
 ?>
