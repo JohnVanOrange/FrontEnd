@@ -25,7 +25,7 @@ function exception_handler(e) {
  case 1021: //Must be logged in to unsave image
   $('#save_image').toggleClass('saved not_saved');
   $('#login').click();
-  break; 
+  break;
  }
 }
 
@@ -50,10 +50,60 @@ function call(method, opt) {
  return null;
 }
 
-$(document).ready(function() {
+var images = {
+ initialize : function(uid) {
+  image = this.load(uid);
+  this.load_next();
+ },
+ store : [],
+ next : null,
+ load_next : function() {
+  this.next = this.random();
+  $('<img/>')[0].src = '/media/' + this.next.filename;
+ },
+ forward : function() {
+  image = this.next;
+  History.pushState(image, image.uid, '/v/' + image.uid);
+  this.update_page(image);
+  this.load_next();
+  return image;
+ },
+ load : function(uid) {
+  if (this.store[uid]) {
+   image = this.store[uid];
+  }
+  else {
+   image = this.get(uid);
+  }
+  History.replaceState(image, image.uid, '/v/' + image.uid);
+  this.update_page(image);
+ },
+ get : function(uid) {
+  return this.store_image(call('image/get', {image : uid}));
+ },
+ random : function() {
+  return this.store_image(call('image/random'));
+ },
+ store_image : function(image) {
+  this.store[image.uid] = image;
+  return image;
+ },
+ update_page : function(image) {
+  $('.image').attr('id',image.uid);
+  $('.image').attr('src','/media/'+image.filename);
+  $('.image').width(image.width);
+  $('.image').attr('width',image.width);
+  $('.image').height(image.height);
+  $('.image').attr('height',image.height);
+  display_mods();
+ }
+};
+
+function display_mods() {
  /*Force images to fit to page width*/
+ $('.image').css('max-width','');
  $('#img_container').imagefit();
- 
+ /*Uploaded by message*/
  if ($('#img_container').length != 0) {
   $('#img_container p').position({
    my: 'right bottom',
@@ -62,9 +112,29 @@ $(document).ready(function() {
    offset: '0, -15'
   });
  }
- 
+}
+
+$(document).ready(function() {
+ /*Display hacks*/
+ display_mods()
  /*Icon for search button*/
  $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
+ 
+ /*UI Navigation*/
+ 
+ /*Initialize history.js*/
+ var History = window.History;
+ images.initialize($('.image').attr('id'));
+
+ $(window).bind("statechange", function () {
+  var state = History.getState();
+  images.load(state.data.uid);
+ });
+ 
+ $('.image').click(function (event) {
+  event.preventDefault();
+  images.forward();
+ });
  
  /*Options for Notifications*/
  $.noty.defaults.layout = 'topRight';
@@ -305,9 +375,5 @@ $('#save_image').click(function () {
   var taginfo = call('tag/get', {'value': $('#tag_search').val(), 'search_by': 'name'});
   window.location.href = taginfo[0].url;
  });
- 
- 
- 
- 
  
 });

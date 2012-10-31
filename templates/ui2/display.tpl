@@ -6,14 +6,14 @@
 		<a id='rand_image' href='../{$page}?{$rand}' rel='nofollow'>
 			<img id="{$uid}" class="image" alt='Main Image' src='{$image}' height='{$height}' width='{$width}' itemprop='contentUrl' />
 		</a>
-		<div>{if $uploader}<p>
+		<div><p{if !$uploader} style='display:none'{/if}>
 			Uploaded by <a href='/u/{$uploader.username}'>{$uploader.username}</a>
-		</p>{/if}</div>
+		</p></div>
 	</section>
 
 <fieldset>
 	<legend>Tags</legend>
-	<span id='tagtext'>{if $tags}{foreach name=tags from=$tags item=tag}<a href='{$tag.url}'>{$tag.name}</a>{if !$smarty.foreach.tags.last}, {/if}{/foreach}{else}<em>none currently </em>{/if}</span>
+	<span id='tagtext'><span class='tag'{if !$tags} style='display:none'{/if}>{if $tags}{foreach name=tags from=$tags item=tag}<a href='{$tag.url}'>{$tag.name}</a>{if !$smarty.foreach.tags.last}, {/if}{/foreach}{/if}</span><span class='notag'{if $tags} style='display:none'{/if}><em>none currently </em></span></span>
 	<button id='add_tag'>Add</button>
 </fieldset>
 
