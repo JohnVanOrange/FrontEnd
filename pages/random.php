@@ -7,5 +7,5 @@ $tag = rtrim(str_replace($url['host'], '', $_SERVER['HTTP_HOST']),'.');
 
 $image = call('image/random',array('tag'=>$tag));
 
-header('Location: '.$url['scheme'].'://'.$_SERVER['HTTP_HOST'].'/v/'.$image['uid']);
+header('Location: '. $image['page_url']);
 ?>
