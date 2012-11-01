@@ -271,21 +271,21 @@ class Image extends Base {
    ':name' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
-  #See if there was a result
+  //See if there was a result
   if (!$result) throw new Exception('Image not found', 404);
   $result = $result[0];
-  #Verify image isn't supposed to be hidden
+  //Verify image isn't supposed to be hidden
   if (!$result['display'] AND $current['type'] < 2) throw new Exception('Image removed', 403);
-  #Get tags
+  //Get tags
   $tag_result = $tag->get(array('value'=>$result['uid']));
   if ($tag_result) $result['tags'] = $tag_result;
-  #Get uploader
+  //Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
   if ($uploader) {
    $result['uploader'] = $this->user->get($uploader[0]['user_id']);
   }
-  #Get resources
+  //Get resources
   if ($current) {
    $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$current['id'].'")';
    $resources = $this->db->fetch($sql);
@@ -295,7 +295,7 @@ class Image extends Base {
    $result['data'] = $data;
    if ($data['save']) $result['saved'] = 1;
   }
-  #Page title
+  //Page title
   $result['page_title'] = SITE_NAME . ' - ';
   if ($result['tags']) {
    $title_text = '';
@@ -307,8 +307,11 @@ class Image extends Base {
   else {
    $result['page_title'] .= $result['uid'];
   }
+  //URLs
+  $result['image_url'] = WEB_ROOT . 'media/'. $result['filename'];
+  $result['page_url'] = WEB_ROOT . 'v/' . $result['uid'];
   if ($current['type'] > 1) { //if admin
-   #Get report data
+   //Get report data
    $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
    $report_result = $this->db->fetch($sql);
    if ($report_result) {
@@ -319,7 +322,6 @@ class Image extends Base {
    }
   }
   return $result;
- //this should return image URL's as well
  }
 
  public function getUID($options = array()) {
