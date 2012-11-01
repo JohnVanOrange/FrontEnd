@@ -25,7 +25,8 @@ class Image extends Base {
   );
   $this->res->add($res);
   return array(
-   'message' => 'Image saved.'
+   'message' => 'Image saved.',
+   'saved' => 1
   );
  }
 
@@ -57,7 +58,8 @@ class Image extends Base {
   );
   $this->db->fetch($sql,$val);
   return array(
-   'message' => 'Image unsaved.'
+   'message' => 'Image unsaved.',
+   'saved' => 0
   );
  }
  
@@ -291,6 +293,19 @@ class Image extends Base {
     $data[$r['type']] = $r;
    }
    $result['data'] = $data;
+   if ($data['save']) $result['saved'] = 1;
+  }
+  #Page title
+  $result['page_title'] = SITE_NAME . ' - ';
+  if ($result['tags']) {
+   $title_text = '';
+   foreach ($result['tags'] as $tag) {
+    $title_text .= $tag['name'] . ', ';
+   }
+   $result['page_title'] .= rtrim($title_text, ', ');
+  }
+  else {
+   $result['page_title'] .= $result['uid'];
   }
   if ($current['type'] > 1) { //if admin
    #Get report data
