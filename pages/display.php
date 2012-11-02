@@ -24,7 +24,7 @@ if ($tag_basename) {
  $tpl->assign('tag_name',$page_tag[0]['name']);
 }
 
-$tpl->assign('image', WEB_ROOT.'media/'.$result['filename']);
+$tpl->assign('image', $result['image_url']);
 $tpl->assign('image_name', $result['filename']);
 $tpl->assign('image_id',$result['id']);
 $tpl->assign('uid',$result['uid']);
