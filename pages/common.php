@@ -11,7 +11,6 @@ $tpl->assign('favicon',FAVICON);
 if (defined('APP_LINK')) $tpl->assign('app_link',APP_LINK);
 $tpl->assign('user', $user);
 if ($user['type'] > 1) $tpl->assign('is_admin', TRUE);
-//$tpl->assign('theme', call('theme/get'));
 $tpl->assign('site_theme', THEME);
 $tpl->assign('current_url', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 ?>

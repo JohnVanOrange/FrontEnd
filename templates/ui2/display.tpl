@@ -19,9 +19,9 @@
 
 <br>
 
-<div class="addthis_toolbox addthis_default_style ">
-	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-	<a class="addthis_button_google_plusone" g:plusone:count="false"></a>
+<div id='social'>
+	<div id='facebook_like' href='{$current_url}' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
+	<!--<a class="addthis_button_google_plusone" g:plusone:count="false"></a>-->
 </div>
 
 </div>

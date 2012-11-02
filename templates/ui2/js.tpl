@@ -6,16 +6,21 @@
 <script defer src='{$web_root}js/noty/layouts/topRight.js'></script>
 <script defer src='{$web_root}js/noty/themes/default.js'></script>
 <script defer src='{$web_root}js/jquery.mousewheel.js'></script>
-<script defer src='{$web_root}js/ui2.js?20121010'></script>
+<script defer src='{$web_root}js/ui2.js?20121102'></script>
 
-{literal}<script type="text/javascript">var addthis_config = {"data_track_addressbar":false, ui_click:true};</script>{/literal}
-<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f95e38340e66b80"></script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{$ga}']);
-    _gaq.push(['_trackPageview']);
 
     (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
