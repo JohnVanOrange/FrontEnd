@@ -59,7 +59,7 @@ var images = {
  next : null,
  load_next : function() {
   this.next = this.random();
-  $('<img/>')[0].src = '/media/' + this.next.filename;
+  $('<img/>')[0].src = this.next.image_url;
  },
  forward : function() {
   image = this.next;
