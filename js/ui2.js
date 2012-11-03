@@ -52,7 +52,8 @@ function call(method, opt) {
 
 var images = {
  initialize : function(uid) {
-  image = this.load(uid);
+  image = this.get(uid);
+  History.replaceState(image, image.page_title, image.page_url);
   this.load_next();
  },
  store : [],
