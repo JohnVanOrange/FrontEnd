@@ -6,7 +6,7 @@
 <script defer src='{$web_root}js/noty/layouts/topRight.js'></script>
 <script defer src='{$web_root}js/noty/themes/default.js'></script>
 <script defer src='{$web_root}js/jquery.mousewheel.js'></script>
-<script defer src='{$web_root}js/ui2.js?20121102'></script>
+<script defer src='{$web_root}js/ui2.js?20121106'></script>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

@@ -134,9 +134,9 @@ var images = {
   $('#googlesearch').attr('href','http://www.google.com/searchbyimage?image_url='+image.image_url);
   $('#tineye').attr('href','http://tineye.com/search?url='+image.image_url);
   $('#fullscreen').attr('href',image.image_url);
-  if ($('#admin_link')) {$('#admin_link').attr('href','/admin/image/'+image.uid)};
+  if ($('#admin_link').length !== 0) {$('#admin_link').attr('href','/admin/image/'+image.uid);}
   $('#facebook_like').attr('href',image.page_url);
-  if (typeof FB!='undefined') {FB.XFBML.parse()};
+  if (typeof FB !== 'undefined') {FB.XFBML.parse();}
   display_mods();
  }
 };
@@ -163,14 +163,15 @@ $(document).ready(function() {
  $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
  
  /*UI Navigation*/ 
- /*Initialize history.js*/
- var History = window.History;
- images.initialize($('.image').attr('id'));
-
- $(window).bind("statechange", function () {
-  var state = History.getState();
-  images.load(state.data.uid);
- });
+ if ($('#image_data').length === 0) {
+  /*Initialize history.js*/
+  var History = window.History;
+  images.initialize($('.image').attr('id'));
+  $(window).bind("statechange", function () {
+   var state = History.getState();
+   images.load(state.data.uid);
+  });
+ }
  
  $('.image').click(function (event) {
   event.preventDefault();
