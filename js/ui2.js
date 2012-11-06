@@ -174,8 +174,10 @@ $(document).ready(function() {
  }
  
  $('.image').click(function (event) {
-  event.preventDefault();
-  images.forward();
+  if ($('#image_data').length === 0) {
+   event.preventDefault();
+   images.forward();
+  }
  });
  
  /*Options for Notifications*/
