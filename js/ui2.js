@@ -56,6 +56,7 @@ var images = {
   History.replaceState(image, image.page_title, image.page_url);
   this.load_next();
  },
+ load_flag : false,
  store : [],
  next : null,
  load_next : function() {
@@ -70,15 +71,19 @@ var images = {
   return image;
  },
  load : function(uid) {
-  if (this.store[uid]) {
-   image = this.store[uid];
+  this.load_flag = true;
+  if (!this.load_flag) {
+   if (this.store[uid]) {
+    image = this.store[uid];
+   }
+   else {
+    image = this.get(uid);
+   }
+   History.replaceState(image, image.page_title, image.page_url);
+   _gaq.push(['_trackPageview', image.page_url]);
+   this.update_page(image);
+   this.load_flag = false;
   }
-  else {
-   image = this.get(uid);
-  }
-  History.replaceState(image, image.page_title, image.page_url);
-  _gaq.push(['_trackPageview', image.page_url]);
-  this.update_page(image);
  },
  get : function(uid) {
   return this.store_image(call('image/get', {image : uid}));
