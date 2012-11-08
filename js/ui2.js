@@ -71,8 +71,8 @@ var images = {
   return image;
  },
  load : function(uid) {
-  this.load_flag = true;
   if (!this.load_flag) {
+   this.load_flag = true;
    if (this.store[uid]) {
     image = this.store[uid];
    }
