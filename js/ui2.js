@@ -52,54 +52,69 @@ function call(method, opt) {
 
 var images = {
  initialize : function(uid) {
+  console.log('initialize ' + uid);
   image = this.get(uid);
   History.replaceState(image, image.page_title, image.page_url);
   this.load_next();
+  console.log('initialize ' + uid + ' complete');
  },
- load_flag : false,
  store : [],
  next : null,
  load_next : function() {
+  console.log('load_next');
   this.next = this.random();
   $('<img/>')[0].src = this.next.image_url;
+  console.log('load_next complete');
  },
  forward : function() {
+  console.log('forward');
   image = this.next;
   History.pushState(image, image.page_title, image.page_url);
-  this.update_page(image);
   this.load_next();
+  console.log('forward complete');
   return image;
  },
  load : function(uid) {
-  if (!this.load_flag) {
-   this.load_flag = true;
-   if (this.store[uid]) {
-    image = this.store[uid];
-   }
-   else {
-    image = this.get(uid);
-   }
-   History.replaceState(image, image.page_title, image.page_url);
-   _gaq.push(['_trackPageview', image.page_url]);
-   this.update_page(image);
-   this.load_flag = false;
+  console.log('load ' + uid);
+  if (this.store[uid]) {
+   image = this.store[uid];
   }
+  else {
+   image = this.get(uid);
+  }
+  History.replaceState(image, image.page_title, image.page_url);
+  _gaq.push(['_trackPageview', image.page_url]);
+  this.update_page(image);
+  console.log('load ' + uid + ' complete');
  },
  get : function(uid) {
-  return this.store_image(call('image/get', {image : uid}));
+  console.log('get ' + uid);
+  //return this.store_image(call('image/get', {image : uid}));
+  r = call('image/get', {image : uid});
+  console.log('get ' + uid + ' complete');
+  return r;
  },
  random : function() {
-  return this.store_image(call('image/random'));
+  console.log('random');
+  //return this.store_image(call('image/random'));
+  r = this.store_image(call('image/random'));
+  console.log('random complete');
+  return r;
  },
  store_image : function(image) {
+  console.log('store image ' + image.uid);
   this.store[image.uid] = image;
+  console.log('store image ' + image.uid + ' complete');
   return image;
  },
  update_store : function(image) {
+  console.log('update store ' + image.uid);
   this.store[image.uid] = image;
   History.replaceState(image, image.page_title, image.page_url);
+  console.log('update store ' + image.uid + ' complete');
  },
  update_page : function(image) {
+  console.log('update page ' + image.uid);
   $('.image').attr('id',image.uid);
   $('.image').attr('src', image.image_url);
   $('.image').width(image.width);
@@ -143,6 +158,7 @@ var images = {
   $('#facebook_like').attr('href',image.page_url);
   if (typeof FB !== 'undefined') {FB.XFBML.parse();}
   display_mods();
+  console.log('update page ' + image.uid + ' complete');
  }
 };
 
@@ -173,8 +189,10 @@ $(document).ready(function() {
   var History = window.History;
   images.initialize($('.image').attr('id'));
   $(window).bind("statechange", function () {
+   console.log('state change');
    var state = History.getState();
    images.load(state.data.uid);
+   console.log('state change complete');
   });
  }
  
