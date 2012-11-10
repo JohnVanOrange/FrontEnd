@@ -23,7 +23,7 @@ function exception_handler(e) {
  switch (e.name) {
  case 1020: //Must be logged in to save image
  case 1021: //Must be logged in to unsave image
-  //$('#save_image').toggleClass('saved not_saved');
+  $('#save_image').toggleClass('saved not_saved');
   $('#login').click();
   break;
  }
@@ -50,118 +50,6 @@ function call(method, opt) {
  return null;
 }
 
-var images = {
- initialize : function(uid) {
-  console.log('initialize ' + uid);
-  image = this.get(uid);
-  History.replaceState(image, image.page_title, image.page_url);
-  this.load_next();
-  console.log('initialize ' + uid + ' complete');
- },
- store : [],
- next : null,
- load_next : function() {
-  console.log('load_next');
-  this.next = this.random();
-  $('<img/>')[0].src = this.next.image_url;
-  console.log('load_next complete');
- },
- forward : function() {
-  console.log('forward');
-  image = this.next;
-  History.pushState(image, image.page_title, image.page_url);
-  this.load_next();
-  console.log('forward complete');
-  return image;
- },
- load : function(uid) {
-  console.log('load ' + uid);
-  if (this.store[uid]) {
-   image = this.store[uid];
-  }
-  else {
-   image = this.get(uid);
-  }
-  History.replaceState(image, image.page_title, image.page_url);
-  _gaq.push(['_trackPageview', image.page_url]);
-  this.update_page(image);
-  console.log('load ' + uid + ' complete');
- },
- get : function(uid) {
-  console.log('get ' + uid);
-  //return this.store_image(call('image/get', {image : uid}));
-  r = call('image/get', {image : uid});
-  console.log('get ' + uid + ' complete');
-  return r;
- },
- random : function() {
-  console.log('random');
-  //return this.store_image(call('image/random'));
-  r = this.store_image(call('image/random'));
-  console.log('random complete');
-  return r;
- },
- store_image : function(image) {
-  console.log('store image ' + image.uid);
-  this.store[image.uid] = image;
-  console.log('store image ' + image.uid + ' complete');
-  return image;
- },
- update_store : function(image) {
-  console.log('update store ' + image.uid);
-  this.store[image.uid] = image;
-  History.replaceState(image, image.page_title, image.page_url);
-  console.log('update store ' + image.uid + ' complete');
- },
- update_page : function(image) {
-  console.log('update page ' + image.uid);
-  $('.image').attr('id',image.uid);
-  $('.image').attr('src', image.image_url);
-  $('.image').width(image.width);
-  $('.image').attr('width',image.width);
-  $('.image').height(image.height);
-  $('.image').attr('height',image.height);
-  if (image.tags) {
-   var tagtext = '', i;
-   for (i in image.tags) {
-    tagtext = tagtext + '<a href="' + image.tags[i].url + '">' + image.tags[i].name + '</a>, ';
-   }
-   tagtext = tagtext.substring(0, tagtext.length - 2);
-   $('#tagtext span.tag').html(tagtext);
-   $('#tagtext span.tag').show();
-   $('#tagtext span.notag').hide();
-  }
-  else {
-   $('#tagtext span.tag').hide();
-   $('#tagtext span.notag').show();
-  }
-  if (image.saved) {
-   $('#save_image').addClass('saved').removeClass('not_saved');
-  }
-  else {
-   $('#save_image').addClass('not_saved').removeClass('saved');
-  }
-  if (image.uploader) {
-   $('#img_container p').html("Uploaded by <a href='/u/" + image.uploader.username + "'>" + image.uploader.username + "</a>").show();
-  }
-  else {
-   $('#img_container p').hide();
-  }
-  $('#facebook_menu').attr('href','http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pubid=ra-4f95e38340e66b80&url='+image.page_url);
-  $('#twitter_menu').attr('href','http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pubid=ra-4f95e38340e66b80&url='+image.page_url+'&via=JohnVanOrange&related=JohnVanOrange');
-  $('#reddit_menu').attr('href','http://www.reddit.com/submit?url='+image.page_url);
-  $('#email_menu').attr('href','http://api.addthis.com/oexchange/0.8/forward/email/offer?pubid=ra-4f95e38340e66b80&url='+image.page_url);
-  $('#googlesearch').attr('href','http://www.google.com/searchbyimage?image_url='+image.image_url);
-  $('#tineye').attr('href','http://tineye.com/search?url='+image.image_url);
-  $('#fullscreen').attr('href',image.image_url);
-  if ($('#admin_link').length !== 0) {$('#admin_link').attr('href','/admin/image/'+image.uid);}
-  $('#facebook_like').attr('href',image.page_url);
-  if (typeof FB !== 'undefined') {FB.XFBML.parse();}
-  display_mods();
-  console.log('update page ' + image.uid + ' complete');
- }
-};
-
 function display_mods() {
  /*Force images to fit to page width*/
  $('.image').css('max-width','');
@@ -182,26 +70,6 @@ $(document).ready(function() {
  display_mods()
  /*Icon for search button*/
  $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
- 
- /*UI Navigation*/ 
- if ($('#image_data').length === 0) {
-  /*Initialize history.js*/
-  var History = window.History;
-  images.initialize($('.image').attr('id'));
-  $(window).bind("statechange", function () {
-   console.log('state change');
-   var state = History.getState();
-   images.load(state.data.uid);
-   console.log('state change complete');
-  });
- }
- 
- $('.image').click(function (event) {
-  if ($('#image_data').length === 0) {
-   event.preventDefault();
-   images.forward();
-  }
- });
  
  /*Options for Notifications*/
  $.noty.defaults.layout = 'topRight';
@@ -335,17 +203,14 @@ $(document).ready(function() {
   if (!response.error) window.location.reload();
  });
  
-$('#save_image').click(function () {
- //$('#save_image').toggleClass('saved not_saved');
- if ($('#save_image').hasClass('saved')) {
-  result = call('image/unsave',{image:$('.image').attr('id')});
- } else {
-  result = call('image/save',{image:$('.image').attr('id')});
- }
- state = History.getState();
- state.data.saved = result.saved;
- images.update_store(state.data);
-});
+ $('#save_image').click(function () {
+  $('#save_image').toggleClass('saved not_saved');
+  if ($('#save_image').hasClass('saved')) {
+   call('image/save',{image:$('.image').attr('id')});
+  } else {
+   call('image/unsave',{image:$('.image').attr('id')});
+  }
+ });
 
  /*Tag Search Autocomplete*/
  $('#tag_search').autocomplete({
@@ -400,9 +265,12 @@ $('#save_image').click(function () {
     'name': $('#tag_name').val(),
     'image' : $('.image').attr('id')
    });
-   state = History.getState();
-   state.data.tags = result.tags;
-   images.update_store(state.data);
+   var tagtext = '', i;
+   for (i in result.tags) {
+    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
+   }
+   tagtext = tagtext.substring(0, tagtext.length - 2);
+   $('#tagtext').html(tagtext);
   };
   $('#tag_name').bind('keydown', function (event) {
    if (event.keyCode === 13) {
