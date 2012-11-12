@@ -55,7 +55,7 @@ function display_mods() {
  $('.image').css('max-width','');
  $('#img_container').imagefit();
  /*Uploaded by message*/
- if ($('#img_container').length != 0) {
+ if ($('#img_container').length !== 0) {
   $('#img_container p').position({
    my: 'right bottom',
    at: 'right top',
@@ -89,9 +89,6 @@ $(document).ready(function() {
   case 39://right arrow
    window.history.forward();
    break;
-  //case 82: //r
-  // $('#refresh').click();
-  // break;
   case 83://s
    $('#save_image').click();
    break;
@@ -198,7 +195,7 @@ $(document).ready(function() {
  });
  
  /*Logout*/
- $('#logout').click(function (event) {
+ $('#logout').click(function () {
   var response = call('user/logout');
   if (!response.error) window.location.reload();
  });
