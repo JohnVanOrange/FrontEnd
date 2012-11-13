@@ -258,17 +258,9 @@ class Image extends Base {
   $tag = new Tag;
   $current = $this->user->current($options);
   if (!$options['image']) throw new Exception('No image given.', 404);
-  #Get image data
-  switch (strlen($options['image'])) {
-   case 6:
-    $sql = 'SELECT * from images WHERE uid = :name LIMIT 1;';
-   break;
-   default:
-    $sql = 'SELECT * from images WHERE filename = :name LIMIT 1;';
-   break;
-  }
+  $sql = 'SELECT * from images WHERE uid = :image LIMIT 1;';
   $val = array(
-   ':name' => $options['image']
+   ':image' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
   //See if there was a result
