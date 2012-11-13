@@ -170,6 +170,13 @@ fieldset {
 .tag_cloud_name {
   padding: 10px;
 }
+#social {
+  font-size: 1px;
+  padding: 5px;
+}
+#facebook_like {
+  padding-right: 8px;
+}
 ul,
 li {
   margin: 0;

@@ -20,8 +20,8 @@
 <br>
 
 <div id='social'>
-	<div id='facebook_like' href='{$current_url}' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
-	<!--<a class="addthis_button_google_plusone" g:plusone:count="false"></a>-->
+	<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
+	<div class="g-plusone" data-size="medium"></div>
 </div>
 
 </div>
