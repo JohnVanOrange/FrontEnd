@@ -17,16 +17,10 @@
  <td align="left"><span class='key'>&rarr;</span></td>
  <td align="left">Go forward in browser history</td>
 </tr>
-<!--{if $show_brazz}
 <tr>
- <td align="left"><span class='key'>b</span></td>
- <td align="left">Brazzify image</td>
-</tr>
-{/if}-->
-<!--<tr>
  <td align="left"><span class='key'>t</span></td>
- <td align="left">Toggle theme</td>
-</tr>-->
+ <td align="left">Add tag</td>
+</tr>
 <tr>
 {if $user}
  <td align="left"><span class='key'>s</span></td>

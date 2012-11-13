@@ -93,6 +93,7 @@ $(document).ready(function() {
    $('#save_image').click();
    break;
   case 84://t
+   event.preventDefault();
    $('#add_tag').click();
    break;
   case 124:
@@ -253,6 +254,7 @@ $(document).ready(function() {
  $('#add_tag').click(function (event) {
   event.preventDefault();
   inputKeyboardHandler();
+  $('#tag_name').val('');
   var tag_name_ac = $('#tag_name').autocomplete({
    source: '/api/tag/suggest',
    minLength: 2
