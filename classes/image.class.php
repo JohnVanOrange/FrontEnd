@@ -231,22 +231,7 @@ class Image extends Base {
  }
 
  public function random($options=array()) {
-  if ($options['new']) {
-   // TODO eventually make the value a user selectable amount
-   $sql = 'SELECT uid FROM (SELECT uid, display FROM images ORDER BY id DESC LIMIT 500) AS new WHERE display = "1" ORDER BY RAND() LIMIT 1';
-  }
-  elseif ($options['tag']) {
-   $sql = 'SELECT id FROM tag_list WHERE basename = :basename';
-   $val = array(
-    ':basename' => $options['tag']
-   );
-   $result = $this->db->fetch($sql,$val);
-   //TODO this probably needs to make sure that it's only returning images that are allowed to be displayed
-   $sql = 'SELECT image AS uid FROM resources WHERE (value = '.$result[0]['id'].' AND type = "tag") ORDER BY RAND() LIMIT 1';
-  }
-  else {
-   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
-  }
+  $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
   if (!$result) throw new Exception('No image results', 404);
   $image = $this->get(array('image'=>$result[0]['uid']));
