@@ -238,6 +238,11 @@ class Image extends Base {
   $image['response'] = $image['uid']; //backwards compatibility
   return $image;
  }
+ 
+ public function recent($options=array()) {
+  $sql = 'SELECT * FROM `resources` WHERE type = "upload" ORDER BY created DESC';
+  
+ }
 
  public function get($options=array()) {
   $tag = new Tag;
