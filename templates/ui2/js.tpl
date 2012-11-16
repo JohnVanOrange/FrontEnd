@@ -5,8 +5,7 @@
 <script defer src='{$web_root}js/noty/jquery.noty.js'></script>
 <script defer src='{$web_root}js/noty/layouts/topRight.js'></script>
 <script defer src='{$web_root}js/noty/themes/default.js'></script>
-<script defer src='{$web_root}js/jquery.mousewheel.js'></script>
-<script defer src='{$web_root}js/ui2.js?20121108'></script>
+<script defer src='{$web_root}js/ui2.js?20121110'></script>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -16,6 +15,14 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 
 <script type="text/javascript">
 

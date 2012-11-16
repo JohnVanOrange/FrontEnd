@@ -18,7 +18,7 @@ var puts = function(err, stdout, stderr) {
 dirlist = function(dir) {
 	var list = fs.readdirSync(dir);
 	var dirlist = [];
-	for(i in list) {
+	for(var i in list) {
 		if (!~list[i].indexOf(".")) dirlist.push(list[i])
 	}
 	return dirlist;
@@ -26,7 +26,7 @@ dirlist = function(dir) {
 
 dl = dirlist(theme_loc)
 
-for(i in dl) {
+for(var i in dl) {
 	exec('lessc ' + theme_loc + dl[i] + '.less > ' + theme_loc + dl[i] + '/' + dl[i] + '.css', puts);
 }
 

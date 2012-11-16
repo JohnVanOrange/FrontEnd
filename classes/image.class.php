@@ -231,44 +231,26 @@ class Image extends Base {
  }
 
  public function random($options=array()) {
-  if ($options['new']) {
-   // TODO eventually make the value a user selectable amount
-   $sql = 'SELECT uid FROM (SELECT uid, display FROM images ORDER BY id DESC LIMIT 500) AS new WHERE display = "1" ORDER BY RAND() LIMIT 1';
-  }
-  elseif ($options['tag']) {
-   $sql = 'SELECT id FROM tag_list WHERE basename = :basename';
-   $val = array(
-    ':basename' => $options['tag']
-   );
-   $result = $this->db->fetch($sql,$val);
-   //TODO this probably needs to make sure that it's only returning images that are allowed to be displayed
-   $sql = 'SELECT image AS uid FROM resources WHERE (value = '.$result[0]['id'].' AND type = "tag") ORDER BY RAND() LIMIT 1';
-  }
-  else {
-   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
-  }
+  $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
   if (!$result) throw new Exception('No image results', 404);
   $image = $this->get(array('image'=>$result[0]['uid']));
   $image['response'] = $image['uid']; //backwards compatibility
   return $image;
  }
+ 
+ public function recent($options=array()) {
+  $sql = 'SELECT * FROM `resources` WHERE type = "upload" ORDER BY created DESC';
+  
+ }
 
  public function get($options=array()) {
   $tag = new Tag;
   $current = $this->user->current($options);
   if (!$options['image']) throw new Exception('No image given.', 404);
-  #Get image data
-  switch (strlen($options['image'])) {
-   case 6:
-    $sql = 'SELECT * from images WHERE uid = :name LIMIT 1;';
-   break;
-   default:
-    $sql = 'SELECT * from images WHERE filename = :name LIMIT 1;';
-   break;
-  }
+  $sql = 'SELECT * from images WHERE uid = :image LIMIT 1;';
   $val = array(
-   ':name' => $options['image']
+   ':image' => $options['image']
   );
   $result = $this->db->fetch($sql,$val);
   //See if there was a result
