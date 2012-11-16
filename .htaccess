@@ -15,12 +15,8 @@ DirectoryIndex router.php
 RewriteEngine On
 Options +FollowSymlinks
 
-SetEnvIfNoCase User-Agent (curl)  block_bot
- <limit GET POST PUT>
-  Order Allow,Deny
-  Allow from all
-  Deny from env=block_bot
- </limit>
+RewriteCond %{REQUEST_FILENAME} !thumbs
+RewriteRule ^media mediarouter.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

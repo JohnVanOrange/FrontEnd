@@ -16,4 +16,5 @@ define('SHOW_BRAZZ',1);
 define('FAVICON','Nyan-Cat-Original_032x032_32.png');
 define('403_IMAGE','403.jpg');
 define('404_IMAGE','404.jpg');
+define('WATERMARK','johnvanorange.png');
 ?>

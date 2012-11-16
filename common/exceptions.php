@@ -51,7 +51,8 @@ function call($method, $options=array()) {
   'theme' => 'Theme',
   'report' => 'Report',
   'refresh' => 'Refresh',
-  'reddit' => 'Reddit'
+  'reddit' => 'Reddit',
+  'media' => 'Media'
  );
  try {
   switch ($class) {
@@ -62,6 +63,7 @@ function call($method, $options=array()) {
    case 'report':
    case 'refresh':
    case 'reddit':
+   case 'media':
     $class_name = $valid_classes[$class];
     require_once('classes/'.$class.'.class.php');
    break;
