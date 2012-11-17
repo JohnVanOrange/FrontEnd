@@ -39,8 +39,11 @@ class Media extends Base {
 
   $iWidth = $image->getImageWidth();
   $iHeight = $image->getImageHeight();
+  
+  $low = $iWidth;
+  if ($iHeight < $iWidth) $low = $iHeight;
 
-  $watermark->scaleImage($iWidth * .25, 0);
+  $watermark->scaleImage($low * .35, 0);
 
   $wWidth = $watermark->getImageWidth();
   $wHeight = $watermark->getImageHeight();
