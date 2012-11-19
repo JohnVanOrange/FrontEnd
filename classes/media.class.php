@@ -33,6 +33,9 @@ class Media extends Base {
  
  public function watermark($options=array()) {
   $imagedata = $this->image->get(array('image'=>$options['image']));
+  
+  if ($imagedata['type'] == 'gif') return $this->get($options);
+  
   $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
 
   $watermark = new Imagick(ROOT_DIR.'/img/'.WATERMARK);
