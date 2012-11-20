@@ -15,9 +15,6 @@ DirectoryIndex router.php
 RewriteEngine On
 Options +FollowSymlinks
 
-RewriteCond %{REQUEST_FILENAME} !thumbs
-RewriteRule ^media mediarouter.php [L]
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . router.php
