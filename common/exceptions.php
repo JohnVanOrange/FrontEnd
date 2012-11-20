@@ -14,6 +14,8 @@ function page_exception_handler($e) {
     $message .= $e->getMessage()."\n\n";
     $message .= "Code:\n";
     $message .= $e->getCode()."\n\n";
+    $message .= "Page requested:\n";
+    $message .= $_SERVER['REQUEST_URI'];    
     $message .= "IP:\n";
     $message .= $_SERVER['REMOTE_ADDR'];
     mail(
