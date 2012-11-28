@@ -23,7 +23,7 @@
 			<ul>
 				<li><a id='googlesearch' href='http://www.google.com/searchbyimage?image_url={$image}'>Search using Google</a></li>
 				<li><a id='tineye' href='http://tineye.com/search?url={$image}'>Search using Tineye</a></li>
-				<!--{if $c_link}<li><a id='externalcom' href='{$c_link}'>External Comments</a></li>{/if}  These need to be added back and act like the uploader/tags that are always there and by shown/hidden by js -->
+				{if $c_link}<li><a id='externalcom' href='{$c_link}'>External Comments</a></li>{/if}
 				<li><a id='fullscreen' href='{$image}'>View Fullscreen</a></li>
 				{if $is_admin}<li><a id='admin_link' href='/admin/image/{$uid}'>Image Admin</a></li>{/if}
 			</ul>
