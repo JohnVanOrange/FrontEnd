@@ -67,7 +67,6 @@ function call($method, $options=array()) {
    case 'reddit':
    case 'media':
     $class_name =  $valid_classes[$class];
-    //require_once('classes/JohnVanOrange/jvo/'.$class.'.php');
    break;
    default:
     throw new Exception('Invalid class/URL');
