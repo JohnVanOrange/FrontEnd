@@ -1,5 +1,6 @@
 <?php
 //Requires PHPUnit
+require_once('../vendor/autoload.php');
 require_once('../settings.inc');
 
 use JohnVanOrange\jvo;

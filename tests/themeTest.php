@@ -1,5 +1,6 @@
 <?php
 //Requires PHPUnit
+require_once('../vendor/autoload.php');
 require_once('../settings.inc');
 
 class themeTest extends PHPUnit_Framework_TestCase {

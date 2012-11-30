@@ -1,4 +1,5 @@
 <?php
+require_once('vendor/autoload.php');
 require_once('settings.inc');
 require_once('common/exceptions.php');
 

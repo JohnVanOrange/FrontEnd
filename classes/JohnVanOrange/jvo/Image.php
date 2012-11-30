@@ -1,6 +1,7 @@
 <?php
 namespace JohnVanOrange\jvo;
 use Exception;
+use Imagick;
 
 class Image extends Base {
 
