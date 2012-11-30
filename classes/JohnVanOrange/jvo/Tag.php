@@ -1,5 +1,7 @@
 <?php
 namespace JohnVanOrange\jvo;
+use Exception;
+
 class Tag extends Base {
  
  private $res;

@@ -1,13 +1,13 @@
 <?php
 //Requires PHPUnit
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/classes/base.class.php');
 
+use JohnVanOrange\jvo;
 class baseTest extends PHPUnit_Framework_TestCase {
  
  protected $base;
  protected function setUp(){
-  $this->base = new Base();
+  $this->base = new JohnVanOrange\jvo\Base();
  }
  protected function tearDown(){
   unset($this->base);

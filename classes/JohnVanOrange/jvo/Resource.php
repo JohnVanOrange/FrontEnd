@@ -1,5 +1,7 @@
 <?php
 namespace JohnVanOrange\jvo;
+use Exception;
+
 class Resource extends Base {
  
  private $user;
