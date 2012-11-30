@@ -1,5 +1,5 @@
 {
- "name" : "johnvanorange/jvo",
+ "name" : "JohnVanOrange/jvo",
  "description" : "Random Image Website",
  "homepage" : "http://cbulock.github.com/JohnVanOrange/",
  "authors" : [
@@ -17,5 +17,10 @@
  },
  "require" : {
   "smarty/smarty" : "3.1.*"
+ },
+ "autoload" : {
+  "psr-0" : {
+   "JohnVanOrange\\jvo" : "classes/"
+  }
  }
 }

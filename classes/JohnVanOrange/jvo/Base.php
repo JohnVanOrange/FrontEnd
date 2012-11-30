@@ -1,6 +1,5 @@
 <?php
-require_once(ROOT_DIR.'/classes/db.class.php');
-
+namespace JohnVanOrange\jvo;
 class Base {
 
  protected $db;

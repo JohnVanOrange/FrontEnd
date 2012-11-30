@@ -1,8 +1,5 @@
 <?php
-//require_once('../settings.inc');
-require_once(ROOT_DIR.'/classes/base.class.php');
-require_once(ROOT_DIR.'/classes/image.class.php');
-
+namespace JohnVanOrange\jvo;
 class Reddit extends Base {
 
  protected $log;

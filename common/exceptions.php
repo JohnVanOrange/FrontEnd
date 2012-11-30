@@ -45,16 +45,16 @@ function call($method, $options=array()) {
  $result = explode('/',$method);
  $class = $result[0];
  $method = $result[1];
- 
+
  $valid_classes = array(
-  'image' => 'Image',
-  'user' => 'User',
-  'tag' => 'Tag',
-  'theme' => 'Theme',
-  'report' => 'Report',
-  'refresh' => 'Refresh',
-  'reddit' => 'Reddit',
-  'media' => 'Media'
+  'image' => 'JohnVanOrange\jvo\Image',
+  'user' => 'JohnVanOrange\jvo\User',
+  'tag' => 'JohnVanOrange\jvo\Tag',
+  'theme' => 'JohnVanOrange\jvo\Theme',
+  'report' => 'JohnVanOrange\jvo\Report',
+  'refresh' => 'JohnVanOrange\jvo\Refresh',
+  'reddit' => 'JohnVanOrange\jvo\Reddit',
+  'media' => 'JohnVanOrange\jvo\Media'
  );
  try {
   switch ($class) {
@@ -66,8 +66,8 @@ function call($method, $options=array()) {
    case 'refresh':
    case 'reddit':
    case 'media':
-    $class_name = $valid_classes[$class];
-    require_once('classes/'.$class.'.class.php');
+    $class_name =  $valid_classes[$class];
+    //require_once('classes/JohnVanOrange/jvo/'.$class.'.php');
    break;
    default:
     throw new Exception('Invalid class/URL');

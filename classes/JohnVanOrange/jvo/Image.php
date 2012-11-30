@@ -1,10 +1,5 @@
 <?php
-require_once(ROOT_DIR.'/classes/base.class.php');
-require_once(ROOT_DIR.'/classes/tag.class.php');
-require_once(ROOT_DIR.'/classes/user.class.php');
-require_once(ROOT_DIR.'/classes/report.class.php');
-require_once(ROOT_DIR.'/classes/resource.class.php');
-
+namespace JohnVanOrange\jvo;
 class Image extends Base {
 
  private $user;

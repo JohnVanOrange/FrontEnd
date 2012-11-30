@@ -1,7 +1,5 @@
 <?php
-require_once(ROOT_DIR.'/classes/base.class.php');
-require_once(ROOT_DIR.'/classes/image.class.php');
-
+namespace JohnVanOrange\jvo;
 class Media extends Base {
  
  private $image;

@@ -1,6 +1,5 @@
 <?php
-require_once(ROOT_DIR.'/classes/base.class.php');
-
+namespace JohnVanOrange\jvo;
 class User extends Base {
 
  private $sid;
