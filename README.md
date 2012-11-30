@@ -6,5 +6,3 @@ To setup this repo, do the following:
  * /templates_c/, /media/, /media/thumbs/, /upload-handler/files/, and /upload-handler/thumbnails/ must be writable by apache.
  * A MySQL database needs to be created.  The sql directory contains the query to create the required structure
  * The settings.inc.default file needs to be renamed to settings.inc and the correct database and various settings input
-
-This also requires that the Imagick extension be setup in PHP.
