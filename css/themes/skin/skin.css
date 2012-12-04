@@ -126,8 +126,10 @@ nav a:hover {
   padding: 3px 5px;
   background-color: #667C26;
 }
+#search {
+  margin-top: -4px;
+}
 #search button {
-  height: 10px;
   width: 10px;
   border: none;
   background: none;
