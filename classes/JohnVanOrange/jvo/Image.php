@@ -28,9 +28,11 @@ class Image extends Base {
  }
 
  public function saved($options=array()) {
+  if (!$options['username']) throw new \Exception('Username not given', 404);
   $current = $this->user->current($options);
-  if (!$current) throw new \Exception('Must be logged in to view saved images');
-  $sql = 'SELECT image FROM resources WHERE user_id = '.$current['id'].' AND type = "save"';
+  $user = $this->user->get(array('search_by'=>'username','value'=>$options['username']));
+  if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
+  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
   $results = $this->db->fetch($sql);
   foreach ($results as $result) {
    try {
