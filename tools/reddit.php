@@ -1,8 +1,8 @@
 <?
+require_once('../vendor/autoload.php');
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/classes/base.class.php');
 
-class remote extends Base {
+class remote extends JohnVanOrange\jvo\Base {
  public function fetch($url) {
   return $this->remoteFetch(array('url'=>$url));
  }

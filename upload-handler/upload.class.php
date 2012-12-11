@@ -9,9 +9,9 @@
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
-
+require_once('../vendor/autoload.php');
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/classes/image.class.php');
+//require_once(ROOT_DIR.'/classes/image.class.php');
 
 
 class UploadHandler
@@ -20,7 +20,7 @@ class UploadHandler
     protected $image;
 
     function __construct($options=null) {
-        $this->image = new Image;
+        $this->image = new JohnVanOrange\jvo\Image;
         $this->options = array(
             'script_url' => $this->getFullUrl().'/',
             'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']).'/files/',

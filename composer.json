@@ -1,5 +1,28 @@
 {
+ "name" : "JohnVanOrange/jvo",
+ "description" : "Random Image Website",
+ "homepage" : "http://cbulock.github.com/JohnVanOrange/",
+ "authors" : [
+  {
+   "name" : "Cameron Bulock",
+   "email" : "cameron@bulock.com",
+   "homepage" : "http://cameron.bulock.com",
+   "role" : "Developer"
+  }
+ ],
+ "support" : {
+  "issues" : "https://github.com/cbulock/JohnVanOrange/issues",
+  "wiki" : "https://github.com/cbulock/JohnVanOrange/wiki",
+  "source" : "https://github.com/cbulock/JohnVanOrange"
+ },
  "require" : {
-  "smarty/smarty" : "3.1.*"
+  "php" : ">=5.3.2",
+  "smarty/smarty" : "3.1.*",
+  "ext-imagick" : "*"
+ },
+ "autoload" : {
+  "psr-0" : {
+   "JohnVanOrange\\jvo" : "classes"
+  }
  }
 }

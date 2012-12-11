@@ -1,6 +1,6 @@
 <?php
-require_once(ROOT_DIR.'/classes/base.class.php');
-require_once(ROOT_DIR.'/classes/user.class.php');
+namespace JohnVanOrange\jvo;
+use Exception;
 
 class Resource extends Base {
  

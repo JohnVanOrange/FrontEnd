@@ -7,13 +7,13 @@ header ('Content-type: application/json; charset=UTF-8');
 header ('Access-Control-Allow-Origin: *');
 
 $valid_classes = array(
- 'image' => 'Image',
- 'user' => 'User',
- 'tag' => 'Tag',
- 'theme' => 'Theme',
- 'report' => 'Report',
- 'refresh' => 'Refresh',
- 'reddit' => 'Reddit'
+ 'image' => 'JohnVanOrange\jvo\Image',
+ 'user' => 'JohnVanOrange\jvo\User',
+ 'tag' => 'JohnVanOrange\jvo\Tag',
+ 'theme' => 'JohnVanOrange\jvo\Theme',
+ 'report' => 'JohnVanOrange\jvo\Report',
+ 'refresh' => 'JohnVanOrange\jvo\Refresh',
+ 'reddit' => 'JohnVanOrange\jvo\Reddit'
 );
 
 try {
@@ -26,7 +26,6 @@ try {
   case 'refresh':
   case 'reddit':
    $class_name = $valid_classes[$class];
-   require_once('classes/'.$class.'.class.php');
   break;
   default:
    throw new Exception('Invalid class/URL');

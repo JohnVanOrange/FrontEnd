@@ -1,9 +1,6 @@
 <?php
-require_once(ROOT_DIR.'/classes/base.class.php');
-require_once(ROOT_DIR.'/classes/tag.class.php');
-require_once(ROOT_DIR.'/classes/user.class.php');
-require_once(ROOT_DIR.'/classes/report.class.php');
-require_once(ROOT_DIR.'/classes/resource.class.php');
+namespace JohnVanOrange\jvo;
+use Imagick;
 
 class Image extends Base {
 
@@ -18,7 +15,7 @@ class Image extends Base {
  
  public function save($options=array()) {
   $current = $this->user->current($options);
-  if (!$current) throw new Exception('Must be logged in to save images',1020);
+  if (!$current) throw new \Exception('Must be logged in to save images',1020);
   $res = array(
    'image' => $options['image'],
    'type' => 'save'
@@ -31,17 +28,19 @@ class Image extends Base {
  }
 
  public function saved($options=array()) {
+  if (!$options['username']) throw new \Exception('Username not given', 404);
   $current = $this->user->current($options);
-  if (!$current) throw new Exception('Must be logged in to view saved images');
-  $sql = 'SELECT image FROM resources WHERE user_id = '.$current['id'].' AND type = "save"';
+  $user = $this->user->get(array('search_by'=>'username','value'=>$options['username']));
+  if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
+  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
   $results = $this->db->fetch($sql);
   foreach ($results as $result) {
    try {
     $return[] = $this->get(array('image'=>$result['image']));
    }
-   catch(Exception $e) {
+   catch(\Exception $e) {
     if ($e->getCode() != 403) {
-     throw new Exception($e);
+     throw new \Exception($e);
     }
    }
   }
@@ -50,7 +49,7 @@ class Image extends Base {
 
  public function unsave($options=array()) {
   $current = $this->user->current($options);
-  if (!$current) throw new Exception('Must be logged in to unsave images',1021);
+  if (!$current) throw new \Exception('Must be logged in to unsave images',1021);
   $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "save")';
   $val = array(
    ':image' => $options['image'],
@@ -65,8 +64,8 @@ class Image extends Base {
  
  public function approve($options=array()) {
   $current = $this->user->current($options);
-  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
-  if (!$options['image']) throw new Exception('Image UID required');
+  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
+  if (!$options['image']) throw new \Exception('Image UID required');
   $nsfw = 0;
   if ($options['nsfw']) $nsfw = 1;
   $sql = 'DELETE FROM resources WHERE image = :image AND type = "report";';
@@ -83,8 +82,8 @@ class Image extends Base {
  
  public function remove($options=array()) {
   $current = $this->user->current($options);
-  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401);
-  if (!$options['image']) throw new Exception('Image UID required');
+  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
+  if (!$options['image']) throw new \Exception('Image UID required');
   $sql = 'SELECT filename FROM images WHERE uid = :image';
   $val = array(
    ':image' => $options['image']
@@ -110,7 +109,7 @@ class Image extends Base {
   $info = getimagesize($options['path']);
   if (!$info) {
    unlink($options['path']);
-   throw new Exception('Not a valid image',1100);
+   throw new \Exception('Not a valid image',1100);
   }
   $filetypepart = explode('/',$info['mime']);
   $type = end($filetypepart);
@@ -173,7 +172,7 @@ class Image extends Base {
  }
 
  public function addFromURL($options=array()) {
-  if (!$options['url']) throw new Exception('Missing URL',1000);
+  if (!$options['url']) throw new \Exception('Missing URL',1000);
   $image = $this->remoteFetch(array('url'=>$options['url']));
   $filename = md5(mt_rand().$options['url']);
   $newpath = ROOT_DIR.'/media/'.$filename;
@@ -212,28 +211,28 @@ class Image extends Base {
  
  public function reported($options=array()) {
   $current = $this->user->current($options);
-  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
+  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
   $sql = 'SELECT * FROM resources WHERE type = "report" ORDER BY RAND() LIMIT 1;';
   $report_result = $this->db->fetch($sql);
   $image_result = $this->get(array('image'=>$report_result[0]['image']));
-  if (!$image_result) throw new Exception('No image result', 404);
+  if (!$image_result) throw new \Exception('No image result', 404);
   return $image_result;
  }
  
  public function unapproved($options=array()) {
   $current = $this->user->current($options);
-  if ($current['type'] < 2) throw new Exception('Must be an admin to access method', 401); 
+  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
   $sql = 'SELECT uid FROM images WHERE approved = 0 ORDER BY RAND() LIMIT 1;';
   $image = $this->db->fetch($sql);
   $image_result = $this->get(array('image'=>$image[0]['uid']));
-  if (!$image_result) throw new Exception('No image result', 404);
+  if (!$image_result) throw new \Exception('No image result', 404);
   return $image_result;
  }
 
  public function random($options=array()) {
   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
-  if (!$result) throw new Exception('No image results', 404);
+  if (!$result) throw new \Exception('No image results', 404);
   $image = $this->get(array('image'=>$result[0]['uid']));
   $image['response'] = $image['uid']; //backwards compatibility
   return $image;
@@ -247,7 +246,7 @@ class Image extends Base {
  public function get($options=array()) {
   $tag = new Tag;
   $current = $this->user->current($options);
-  if (!$options['image']) throw new Exception('No image given.', 404);
+  if (!$options['image']) throw new \Exception('No image given.', 404);
   #Get image data
   switch (strlen($options['image'])) {
    case 6:	
@@ -262,10 +261,10 @@ class Image extends Base {
   );
   $result = $this->db->fetch($sql,$val);
   //See if there was a result
-  if (!$result) throw new Exception('Image not found', 404);
+  if (!$result) throw new \Exception('Image not found', 404);
   $result = $result[0];
   //Verify image isn't supposed to be hidden
-  if (!$result['display'] AND $current['type'] < 2) throw new Exception('Image removed', 403);
+  if (!$result['display'] AND $current['type'] < 2) throw new \Exception('Image removed', 403);
   //Get tags
   $tag_result = $tag->get(array('value'=>$result['uid']));
   if ($tag_result) $result['tags'] = $tag_result;

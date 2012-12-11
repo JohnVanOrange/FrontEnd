@@ -1,13 +1,14 @@
 <?php
 //Requires PHPUnit
+require_once('../vendor/autoload.php');
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/classes/db.class.php');
 
+use JohnVanOrange\jvo;
 class dbTest extends PHPUnit_Framework_TestCase {
  
  protected $db;
  protected function setUp(){
-  $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+  $this->db = new JohnVanOrange\jvo\DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
  }
  protected function tearDown(){
   unset($this->db);

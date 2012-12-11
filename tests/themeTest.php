@@ -1,16 +1,15 @@
 <?php
 //Requires PHPUnit
+require_once('../vendor/autoload.php');
 require_once('../settings.inc');
-require_once(ROOT_DIR.'/classes/theme.class.php');
-require_once(ROOT_DIR.'/classes/user.class.php');
 
 class themeTest extends PHPUnit_Framework_TestCase {
  
  protected $theme;
  protected $sid;
  protected function setUp(){
-  $this->theme = new Theme();
-  $user = new User();
+  $this->theme = new JohnVanOrange\jvo\Theme();
+  $user = new JohnVanOrange\jvo\User();
   $login = $user->login(array(
    'username' => 'testuser',
    'password' => 'testpass'

@@ -1,4 +1,8 @@
 <?php
+namespace JohnVanOrange\jvo;
+use Exception;
+
+use PDO;
 
 class DB extends PDO {
 

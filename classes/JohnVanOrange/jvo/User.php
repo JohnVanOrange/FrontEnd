@@ -1,5 +1,6 @@
 <?php
-require_once(ROOT_DIR.'/classes/base.class.php');
+namespace JohnVanOrange\jvo;
+use Exception;
 
 class User extends Base {
 
