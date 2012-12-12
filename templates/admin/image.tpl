@@ -15,6 +15,7 @@
  {if $image.report}<p>Reported as: <span class='alert'>{$image.report.value}</span></p>{/if}
  {if $image.nsfw}<p>NSFW</p>{/if}
  {if $image.uploader.username}<p>Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a></p>{/if}
+ {if $image.c_link}<p><a href='{$image.c_link}'>External comments</a></p>{/if}
  {if $image.tags}
  <p>Tags:
   {foreach name=tags from=$image.tags item=tag}<p class='tag'>{$tag.name}</p>{/foreach}
