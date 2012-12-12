@@ -16,7 +16,7 @@
 
 <nav>
 	<ul>
-		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&d=retro&r=pg'></li>
+		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&amp;d=retro&amp;r=pg' alt='User avatar'></li>
 		<li id="username" title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
         {if $image}
 		<li id='save_image' class='{if !$data.save}not_{/if}saved icon' title='Save Image'></li>

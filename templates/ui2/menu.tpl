@@ -1,6 +1,6 @@
 <nav>
 	<ul>
-		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&d=retro&r=pg'></li>
+		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&amp;d=retro&amp;r=pg' alt='User avatar'></li>
 		<li id="username" title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
 		{if $image}
 		<li id="add_image" class='icon'>
@@ -12,10 +12,10 @@
 		<li id='save_image' class='{if !$saved}not_{/if}saved icon' title='Save Image'></li>
 		<li id="share_image" class='icon'>
 			<ul>
-				<li><a id='facebook_menu' href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pubid=ra-4f95e38340e66b80&url={$current_url}" rel="nofollow" target='_blank'>Facebook</a></li>
-				<li><a id='twitter_menu' href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pubid=ra-4f95e38340e66b80&url={$current_url}&via=JohnVanOrange&related=JohnVanOrange" rel="nofollow" target='_blank'>Twitter</a></li>
+				<li><a id='facebook_menu' href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}" rel="nofollow" target='_blank'>Facebook</a></li>
+				<li><a id='twitter_menu' href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}&via=JohnVanOrange&related=JohnVanOrange" rel="nofollow" target='_blank'>Twitter</a></li>
 				<li><a id='reddit_menu' href="http://www.reddit.com/submit?url={$current_url}" rel="nofollow" target='_blank'>Reddit</a></li>
-				<li><a id='email_menu' href="http://api.addthis.com/oexchange/0.8/forward/email/offer?pubid=ra-4f95e38340e66b80&url={$current_url}" rel="nofollow" target='_blank'>E-Mail</a></li>
+				<li><a id='email_menu' href="http://api.addthis.com/oexchange/0.8/forward/email/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}" rel="nofollow" target='_blank'>E-Mail</a></li>
 			</ul>
 		</li>
 		<li id="report_image" title='Report Image' class='icon'><a href='' id='report'></a></li>
