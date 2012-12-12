@@ -1,13 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Boogaloo);
 
-@import url(http://fonts.googleapis.com/css?family=Nunito);
+@import url(http://fonts.googleapis.com/css?family=Carme);
 header {
   padding-left: 52px;
   background: url('/img/cute_bear_title.svg') left no-repeat;
   font-family: 'Boogaloo', sans-serif;
 }
 html {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Carme', sans-serif;
   padding: 0;
   margin: 0 auto;
   text-align: center;
