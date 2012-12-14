@@ -4,12 +4,14 @@
 
 <div id='info'>
 
+<h1>Image Details</h1>
+
 <img id="{$image.uid}" class="image" alt='Main Image' src='{$image.thumb_url}' />
 
 <ul>
  <li>Type: {$image.type|upper}</li>
- <li>Width: {$image.width}</li>
- <li>Height: {$image.height}</li>
+ <li>Width: {$image.width}px</li>
+ <li>Height: {$image.height}px</li>
  {if $image.data.upload}<li>Added on {$image.data.upload.created|date_format}</li>{/if}
  {if $image.uploader.username}<li>Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a></li>{/if}
  {if $image.c_link}<li><a href='{$image.c_link}'>External comments</a></li>{/if}
