@@ -143,6 +143,9 @@ fieldset {
   border-radius: 10px 10px 10px 10px;
   clear: right;
 }
+legend {
+  color: white;
+}
 #tagtext {
   font-size: 80%;
 }
