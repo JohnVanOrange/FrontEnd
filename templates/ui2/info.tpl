@@ -18,7 +18,7 @@
  {if $image.approved}
   {if $image.nsfw}<li>Flagged NSFW</li>{/if}
  {/if}
- {if $image.saved}<li>Saved on {$image.data.save.created|date_format}</li>{/if}
+ {if $image.saved}<li>Saved{if $image.data.save.created} on {$image.data.save.created|date_format}{/if}</li>{/if}
  {if $image.tags}
   <li>
    <ul>Tags:

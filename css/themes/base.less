@@ -208,27 +208,31 @@ fieldset {
 	padding-right: 8px;
 }
 
-#info img {
-	float: right;
-	margin-right: 20%;
-}
-
-#info ul {
-	text-align: left;
-	margin-left: 20%;
-	width: 30%;
-	padding: 1em;
-	background-color: rgba(0, 0, 0, 0.5);
-	.border_radius(8px,8px,8px,8px);
-	li {
-		ul {
-			margin-left: 0;
-			width: 100%;
-			padding:0;
-			background:0;
-			li {
-				list-style: disc;
-				margin-left: 2em;
+#info {
+	h1 {
+		margin-bottom: 1em;
+	}
+	img {
+		float: right;
+		margin-right: 20%;
+	}
+	ul {
+		text-align: left;
+		margin-left: 20%;
+		width: 30%;
+		padding: 1em;
+		background-color: rgba(0, 0, 0, 0.5);
+		.border_radius(8px,8px,8px,8px);
+		li {
+			ul {
+				margin-left: 0;
+				width: 100%;
+				padding:0;
+				background:0;
+				li {
+					list-style: disc;
+					margin-left: 2em;
+				}
 			}
 		}
 	}
