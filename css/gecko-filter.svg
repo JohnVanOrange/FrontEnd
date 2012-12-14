@@ -1,0 +1,10 @@
+<svg height="0" xmlns="http://www.w3.org/2000/svg">
+  <filter id="info" x="-10%" y="-10%" width="110%" height="110%">
+	<feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+	<feComponentTransfer>
+      <feFuncR type="linear" slope=".6" intercept=".05"/>
+      <feFuncG type="linear" slope=".6" intercept=".05"/>
+      <feFuncB type="linear" slope=".6" intercept=".05"/>
+    </feComponentTransfer>
+  </filter>
+</svg>

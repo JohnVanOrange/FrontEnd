@@ -1,8 +1,8 @@
-<link rel='image_src' href='{$image}'>
-<meta property='og:image' content='{$image}'>
- <meta name='og:image:width' content='{$width}'>
-<meta name='og:image:height' content='{$height}'>
-<meta property='og:title' content='{$site_name}{if $title_text} - {$title_text}{/if}'>
+<link rel='image_src' href='{$image.image_url}'>
+<meta property='og:image' content='{$image.image_url}'>
+<meta name='og:image:width' content='{$image.width}'>
+<meta name='og:image:height' content='{$image.height}'>
+<meta property='og:title' content='{$image.page_title}'>
 <meta property="og:type" content="image">
 <meta property="og:url" content="{$current_url}">
 
@@ -10,7 +10,7 @@
 <meta property="fb:app_id" content="416046151777678">
  
 <meta name="twitter:card" content="photo">
-<meta name='twitter:title' content='{$site_name}{if $tags} -{foreach from=$tags item=tag} {$tag.name}{/foreach}{/if}'>
-<meta name='twitter:image' content='{$image}'>
-<meta name='twitter:image:width' content='{$width}'>
-<meta name='twitter:image:height' content='{$height}'>
+<meta name='twitter:title' content='{$image.page_title}'>
+<meta name='twitter:image' content='{$image.image_url}'>
+<meta name='twitter:image:width' content='{$image.width}'>
+<meta name='twitter:image:height' content='{$image.height}'>
