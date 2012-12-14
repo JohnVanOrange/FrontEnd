@@ -56,22 +56,19 @@ nav > ul {
 					border: none;
 				}
 				&:last-child {
-					-moz-border-radius-bottomright: 10px;
-					-moz-border-radius-bottomleft: 10px;
-					-webkit-border-bottom-right-radius: 10px;
-					-webkit-border-bottom-left-radius: 10px;
+					.border_radius(0, 0, 10px, 10px);
 				}
 				&:hover {
-						background-color: lighten(@menu_color, 20%);
+					background-color: lighten(@menu_color, 20%);
 				}
 				a {
-						height: 16px;
-						padding: 0 0 0 20px;
-						background: url('/img/social.png') no-repeat;
-						background-position: -16px 0;
-						&:hover {
-								color: #ff9900;
-						}
+					height: 16px;
+					padding: 0 0 0 20px;
+					background: url('/img/social.png') no-repeat;
+					background-position: -16px 0;
+					&:hover {
+						color: #ff9900;
+					}
 				}
 			}
 		}
