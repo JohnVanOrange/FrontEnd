@@ -24,7 +24,6 @@
 				<li><a id='googlesearch' href='http://www.google.com/searchbyimage?image_url={$image.image_url}'>Search using Google</a></li>
 				<li><a id='tineye' href='http://tineye.com/search?url={$image.image_url}'>Search using Tineye</a></li>
 				<li><a href='/info/{$image.uid}'>Details</a></li>
-				{if $image.c_link}<li><a id='externalcom' href='{$image.c_link}'>External Comments</a></li>{/if}
 				<li><a id='fullscreen' href='{$image.image_url}'>View Fullscreen</a></li>
 				{if $is_admin}<li><a id='admin_link' href='/admin/image/{$image.uid}'>Image Admin</a></li>{/if}
 			</ul>
