@@ -209,6 +209,9 @@ legend {
   list-style: disc;
   margin-left: 2em;
 }
+#info .data {
+  font-family: monospace;
+}
 #info_bg {
   position: fixed;
   top: 0;

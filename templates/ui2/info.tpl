@@ -9,12 +9,11 @@
 <img id="{$image.uid}" class="image" alt='Main Image' src='{$image.thumb_url}' />
 
 <ul>
- <li>Type: {$image.type|upper}</li>
- <li>Width: {$image.width}px</li>
- <li>Height: {$image.height}px</li>
+ <li>Type: <span class='data'>{$image.type|upper}</span></li>
+ <li>Width: <span class='data'>{$image.width}px</span></li>
+ <li>Height: <span class='data'>{$image.height}px</span></li>
  {if $image.data.upload}<li>Added on {$image.data.upload.created|date_format}</li>{/if}
  {if $image.uploader.username}<li>Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a></li>{/if}
- {if $image.c_link}<li><a href='{$image.c_link}'>External comments</a></li>{/if}
  {if $image.approved}
   {if $image.nsfw}<li>Flagged NSFW</li>{/if}
  {/if}
@@ -25,7 +24,16 @@
     {foreach name=tags from=$image.tags item=tag}<li><a href='/t/{$tag.basename}'>{$tag.name}</a></li>{/foreach}
    </ul>
   </li>
- {/if} 
+ {/if}
+ <li>
+  <ul>External Resources:
+   <li><a href='http://regex.info/exif.cgi?url={$image.image_url}'>Additional image info (EXIF and technical data)</a></li>
+   <li><a href='http://www.google.com/searchbyimage?image_url={$image.image_url}'>Reverse Google search</a></li>
+   <li><a href='http://tineye.com/search?url={$image.image_url}'>Reverse Tineye search</a></li>
+   <li><a href='http://imgops.com/{$image.image_url}'>Image tools</a></li>
+   {if $image.c_link}<li><a href='{$image.c_link}'>Comments</a></li>{/if}
+  </ul>
+ </li>
 </ul>
 
 </div>
