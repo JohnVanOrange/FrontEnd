@@ -1,0 +1,17 @@
+.nomobile {
+ display: none;
+}
+
+#content {
+	width: 100%;
+}
+
+header  {
+	margin-top: -0.8em;
+	margin-bottom: 0;
+	transform: translate(50%);
+	-moz-transform: translate(50%) scale(2);
+	-ms-transform: translate(50%) scale(2);
+	-webkit-transform: translate(-20%) scale(0.6);
+	-o-transform: translate(50%) scale(2);
+}

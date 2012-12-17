@@ -1,11 +1,11 @@
 <nav>
 	<ul>
-		{if $user.username}<li><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&amp;d=retro&amp;r=pg' alt='User avatar'></li>
-		<li id="username" title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
+		{if $user.username}<li><a href='/u/{$user.username}'><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&amp;d=retro&amp;r=pg' alt='User avatar'></a></li>
+		<li id="username" class='nomobile' title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
 		{if $image}
 		<li id="add_image" class='icon'>
 			<ul>
-				<li><a href='/upload'>Upload from Computer</a></li>
+				<li><a href='/upload'>Upload Image</a></li>
 				<li><a href='' id='addInternet'>Add Image from URL</a></li>
 			</ul>
 		</li>
@@ -19,7 +19,7 @@
 			</ul>
 		</li>
 		<li id="report_image" title='Report Image' class='icon'><a href='' id='report'></a></li>
-		<li id="search_image" class='icon'>
+		<li id="search_image" class='icon nomobile'>
 			<ul>
 				<li><a id='googlesearch' href='http://www.google.com/searchbyimage?image_url={$image.image_url}'>Search using Google</a></li>
 				<li><a id='tineye' href='http://tineye.com/search?url={$image.image_url}'>Search using Tineye</a></li>
@@ -29,7 +29,7 @@
 			</ul>
 		</li>
 		{/if}
-		<li><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button></form></li>
+		<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button></form></li>
 		<li id="menu" class='icon'>
 			<ul>
                 {if !$user.username}<li><a href='' id='login'>Login</a></li>
