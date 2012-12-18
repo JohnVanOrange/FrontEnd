@@ -1,15 +1,5 @@
 <?php
-switch ($_COOKIE['mobile']) {
- case 'y':
-  $temptype = 'mobile';
- break;
- case 'n':
- default:
-  $temptype = 'ui2';
- break;
-}
-
-define('TEMPLATE_DIR',ROOT_DIR.'/templates/'.$temptype);
+define('TEMPLATE_DIR',ROOT_DIR.'/templates/ui2');
 
 $tpl = new Smarty;
 
