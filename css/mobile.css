@@ -16,3 +16,7 @@ header  {
 	-webkit-transform: translate(-20%) scale(0.6);
 	-o-transform: translate(50%) scale(2);
 }
+
+nav > ul  li {
+	padding-right: 4px;
+}
