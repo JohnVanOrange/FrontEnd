@@ -9,6 +9,7 @@
 header  {
 	margin-top: -0.8em;
 	margin-bottom: 0;
+	margin-left: 0;
 	transform: translate(50%);
 	-moz-transform: translate(50%) scale(2);
 	-ms-transform: translate(50%) scale(2);
