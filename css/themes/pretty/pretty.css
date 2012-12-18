@@ -210,7 +210,7 @@ legend {
   margin-left: 2em;
 }
 #info .data {
-  font-family: monospace;
+  font-family: monospace, serif;
 }
 #info_bg {
   position: fixed;
@@ -240,6 +240,9 @@ nav > ul li {
   position: relative;
   text-align: center;
   padding-right: 8px;
+}
+nav > ul li#user_avatar {
+  margin-top: -3px;
 }
 nav > ul li.icon {
   width: 24px;
