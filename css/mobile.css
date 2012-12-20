@@ -33,3 +33,7 @@ nav > ul  li {
 	-webkit-transform: scale(0.6);
 	-o-transform: translate(50%) scale(2);
 }
+
+#fdbk_tab {
+	display: none;
+}
