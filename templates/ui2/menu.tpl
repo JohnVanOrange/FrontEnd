@@ -13,7 +13,7 @@
 		<li id="share_image" class='icon'>
 			<ul>
 				<li><a id='facebook_menu' href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}" rel="nofollow" target='_blank'>Facebook</a></li>
-				<li><a id='twitter_menu' href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}&via=JohnVanOrange&related=JohnVanOrange" rel="nofollow" target='_blank'>Twitter</a></li>
+				<li><a id='twitter_menu' href="http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}&amp;via=JohnVanOrange&amp;related=JohnVanOrange" rel="nofollow" target='_blank'>Twitter</a></li>
 				<li><a id='reddit_menu' href="http://www.reddit.com/submit?url={$current_url}" rel="nofollow" target='_blank'>Reddit</a></li>
 				<li><a id='email_menu' href="http://api.addthis.com/oexchange/0.8/forward/email/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}" rel="nofollow" target='_blank'>E-Mail</a></li>
 			</ul>
