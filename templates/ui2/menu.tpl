@@ -6,7 +6,7 @@
 		<li id="add_image" class='icon'>
 			<ul>
 				<li><a href='/upload'>Upload Image</a></li>
-				<li><a href='' id='addInternet'>Add Image from URL</a></li>
+				<li><a href='/form/add_internet' id='addInternet'>Add Image from URL</a></li>
 			</ul>
 		</li>
 		<li id='save_image' class='{if !$image.saved}not_{/if}saved icon' title='Save Image'></li>
@@ -32,12 +32,12 @@
 		<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button></form></li>
 		<li id="menu" class='icon'>
 			<ul>
-                {if !$user.username}<li><a href='' id='login'>Login</a></li>
-                <li><a href='' class='create_acct'>Create Account</a></li>{/if}
+                {if !$user.username}<li><a href='/form/login' id='login'>Login</a></li>
+                <li><a href='/form/account' class='create_acct'>Create Account</a></li>{/if}
 				<li><a href='/tags'>Tag Cloud</a></li>
 				{if $app_link}<li><a id='android_menu' href='{$app_link}'>Android App</a></li>{/if}
                 <li><a href='https://github.com/cbulock/JohnVanOrange/issues/new'>Suggestions/Bugs</a></li>
-                <li><a href='' id='keyboard'>Keyboard Shortcuts</a></li>
+                <li><a href='/form/keyboard' id='keyboard'>Keyboard Shortcuts</a></li>
                 {if $user.username}<li><a href='' id='logout'>Logout</a></li>{/if}
 			</ul>
 		</li>

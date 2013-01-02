@@ -124,6 +124,9 @@ nav a, nav a:visited, nav a:visited:hover, nav a:hover {
 	text-align: left;
 	display: none;
 	text-shadow: none;
+	.submit {
+		display: none;
+	}
 }
 
 #keyboard_dialog table {
@@ -255,6 +258,16 @@ legend {
 	-webkit-filter: blur(10px) contrast(60%);
 	-ms-filter: blur(10px) contrast(60%);
 	filter: url(/css/gecko-filter.svg#info);
+}
+
+#form {
+	div {
+		text-align: center;
+		display: block;
+		.submit {
+			display: block;
+		}
+	}
 }
 
 @import 'menu';

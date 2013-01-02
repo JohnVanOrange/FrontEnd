@@ -1,6 +1,6 @@
-{include file='add_internet_dialog.tpl'}
-{include file='login_dialog.tpl'}
-{include file='account_dialog.tpl'}
-{include file='keyboard_dialog.tpl'}
-{include file='report_dialog.tpl'}
-{include file='tag_dialog.tpl'}
+{include file='dialog/add_internet.tpl'}
+{include file='dialog/login.tpl'}
+{include file='dialog/account.tpl'}
+{include file='dialog/keyboard.tpl'}
+{include file='dialog/report.tpl'}
+{include file='dialog/tag.tpl'}

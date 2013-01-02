@@ -109,6 +109,9 @@ nav a:hover {
   display: none;
   text-shadow: none;
 }
+.dialog .submit {
+  display: none;
+}
 #keyboard_dialog table {
   border-collapse: collapse;
 }
@@ -222,6 +225,13 @@ legend {
   -webkit-filter: blur(10px) contrast(60%);
   -ms-filter: blur(10px) contrast(60%);
   filter: url(/css/gecko-filter.svg#info);
+}
+#form div {
+  text-align: center;
+  display: block;
+}
+#form div .submit {
+  display: block;
 }
 ul,
 li {

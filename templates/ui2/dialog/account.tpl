@@ -5,5 +5,6 @@
 <input type='password' name='create_password' id='create_password' placeholder='Password'>
 <input type='password' name='create_password2' id='create_password2' placeholder='Confirm Password'>
 <input type='email' name='create_email' id='create_email' placeholder='E-mail'>
+<span class='submit'><button type='submit'>Create Account</button></span>
 </form>
 </div>
