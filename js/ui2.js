@@ -66,6 +66,15 @@ function display_mods() {
 }
 
 $(document).ready(function() {
+ /*Ubuntu integration*/
+ window.Unity = external.getUnityObject(1.0);
+ Unity.init({
+  name: "John VanOrange",
+  iconUrl: "http://jvo.cbulock.com/img/orange_slice_128.png",
+  onInit: null
+ });
+ 
+ 
  /*Display hacks*/
  display_mods()
  /*Icon for search button*/
