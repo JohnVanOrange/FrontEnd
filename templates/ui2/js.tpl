@@ -1,3 +1,9 @@
+<script type='text/javascript'>
+ var web_root = '{$web_root}';
+ var site_name = '{$site_name}';
+ var unity_icon = '{$unity_icon}';
+</script>
+
 <script defer src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>
 <script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'></script>
 <script defer src='{$web_root}js/jquery.imagefit.js'></script>

@@ -69,11 +69,10 @@ $(document).ready(function() {
  /*Ubuntu integration*/
  window.Unity = external.getUnityObject(1.0);
  Unity.init({
-  name: "John VanOrange",
-  iconUrl: "http://jvo.cbulock.com/img/orange_slice_128.png",
+  name: site_name,
+  iconUrl: web_root+"img/"+unity_icon,
   onInit: null
  });
- 
  
  /*Display hacks*/
  display_mods()
