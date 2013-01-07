@@ -2,7 +2,7 @@
 
 <p><b>1. User's Acknowledgment and Acceptance of Terms</b></p>
 
-<p>{$site_name} (&quot;Us&quot; or &quot;We&quot;) provides the {$site_name} site and various related services (collectively, the &quot;site&quot;) to you, the user, subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the &quot;Terms of Use&quot;), as well as any other written agreement between us and you. In addition, when using particular services or materials on this site, users shall be subject to any posted rules applicable to such services or materials that may contain terms and conditions in addition to those in these Terms of Use. All such guidelines or rules are hereby incorporated by reference into these Terms of Use.</p>
+<p>John VanOrange Network, LLC (&quot;Us&quot; or &quot;We&quot;) provides the {$site_name} site and various related services (collectively, the &quot;site&quot;) to you, the user, subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the &quot;Terms of Use&quot;), as well as any other written agreement between us and you. In addition, when using particular services or materials on this site, users shall be subject to any posted rules applicable to such services or materials that may contain terms and conditions in addition to those in these Terms of Use. All such guidelines or rules are hereby incorporated by reference into these Terms of Use.</p>
 
 <p>BY USING THIS SITE, YOU AGREE TO BE BOUND BY THESE TERMS OF USE. IF YOU DO NOT WISH TO BE BOUND BY THE THESE TERMS OF USE, PLEASE EXIT THE SITE NOW. YOUR REMEDY FOR DISSATISFACTION WITH THIS SITE, OR ANY PRODUCTS, SERVICES, CONTENT, OR OTHER INFORMATION AVAILABLE ON OR THROUGH THIS SITE, IS TO STOP USING THE SITE AND/OR THOSE PARTICULAR PRODUCTS OR SERVICES. YOUR AGREEMENT WITH US REGARDING COMPLIANCE WITH THESE TERMS OF USE BECOMES EFFECTIVE IMMEDIATELY UPON COMMENCEMENT OF YOUR USE OF THIS SITE.</p>
 
@@ -48,7 +48,7 @@
 
 <p><b>6. Intellectual Property Information</b></p>
 
-<p>Copyright (c) 05/01/2012 {$site_name} All Rights Reserved.</p>
+<p>Copyright (c) 2012-{$smarty.now|date_format:"%Y"} John VanOrange Network, LLC All Rights Reserved.</p>
 
 <p>For purposes of these Terms of Use, &quot;content&quot; is defined as any information, data, communications, software, photos, video, graphics, music, sounds, and other material and services that can be viewed by users on our site. This includes message boards, chat, and other original content.</p>
 
@@ -84,7 +84,7 @@
 
 <p>Designated Agent for Claimed Infringement:</p>
 
-<p>Contact: Cameron Bulock<br />Address: 7725 Bramblewood Dr. Apt. 2-B<br />Phone: 5178794090</p>
+<p>Contact: Cameron Bulock c/o John VanOrange Network<br />Address: 7725 Bramblewood Dr. Apt. 2-B Lansing MI 48917<br />Phone: 5173030998</p>
 
 <p>You acknowledge and agree that upon receipt of a notice of a claim of copyright infringement, we may immediately remove the identified materials from our site without liability to you or any other party and that the claims of the complaining party and the party that originally posted the materials will be referred to the United States Copyright Office for adjudication as provided in the Digital Millennium Copyright Act.</p>
 
@@ -152,7 +152,7 @@
 
 <p><b>17. Notices</b></p>
 
-<p>All notices to a party shall be in writing and shall be made either via email or conventional mail. Notices to us must be sent to the attention of Customer Service at admin@johnvanorange.com, if by email, or at {$site_name} 7725 Bramblewood Dr. Apt 2-B if by conventional mail. Notices to you may be sent to the address supplied by you as part of your Registration Data. In addition, we may broadcast notices or messages through the site to inform you of changes to the site or other matters of importance, and such broadcasts shall constitute notice to you at the time of sending.</p>
+<p>All notices to a party shall be in writing and shall be made either via email or conventional mail. Notices to us must be sent to the attention of Customer Service at admin@johnvanorange.com, if by email, or at John VanOrange Network 7725 Bramblewood Dr. Apt 2-B Lansing, MI 48917 if by conventional mail. Notices to you may be sent to the address supplied by you as part of your Registration Data. In addition, we may broadcast notices or messages through the site to inform you of changes to the site or other matters of importance, and such broadcasts shall constitute notice to you at the time of sending.</p>
 
 <p><b>18. Entire Agreement</b></p>
 
@@ -174,4 +174,4 @@
 
 <p><b>20. Contact Information</b></p>
 
-<p>Except as explicitly noted on this site, the services available through this site are offered by {$site_name} located at 7725 Bramblewood Dr. Apt 2-B. Our telephone number is 517-879-4090. If you notice that any user is violating these Terms of Use, please contact us at admin@johnvanorange.com.</p>
+<p>Except as explicitly noted on this site, the services available through this site are offered by John VanOrange Network, LLC located at 7725 Bramblewood Dr. Apt 2-B Lansing, MI 48917. Our telephone number is 517-303-0998. If you notice that any user is violating these Terms of Use, please contact us at admin@johnvanorange.com.</p>
