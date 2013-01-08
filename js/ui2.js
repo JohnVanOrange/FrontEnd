@@ -67,12 +67,14 @@ function display_mods() {
 
 $(document).ready(function() {
  /*Ubuntu integration*/
- window.Unity = external.getUnityObject(1.0);
- Unity.init({
-  name: site_name,
-  iconUrl: web_root+"img/"+unity_icon,
-  onInit: null
- });
+ try {
+  window.Unity = external.getUnityObject(1.0);
+  Unity.init({
+   name: site_name,
+   iconUrl: web_root+"img/"+unity_icon,
+   onInit: null
+  });
+ } catch(err) {}
  
  /*Display hacks*/
  display_mods()
