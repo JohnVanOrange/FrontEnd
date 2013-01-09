@@ -60,15 +60,15 @@ button {
 	-moz-border-radius: 8px;
 	border-radius: 8px;
 	text-shadow: 1px 1px 3px #666666;
-	border: solid #050505 1px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#3d3b3c), to(#a38b96));
-	background: -moz-linear-gradient(top, #3d3b3c, #a38b96);
-	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#a38b96);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#a38b96);
-	display:inline-block; /* IE is so silly */
+	border: solid @button_border 1px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(@button_start), to(@button_end));
+	background: -moz-linear-gradient(top, @button_start, @button_end);
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
+	display:inline-block;
 }
 button:hover {
-	background: #664f0b;
+	background: @button_hover;
 }
 
 header a, header a:visited, header a:visited:hover, header a:hover {

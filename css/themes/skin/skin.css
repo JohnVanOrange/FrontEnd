@@ -47,13 +47,11 @@ button {
   border-radius: 8px;
   text-shadow: 1px 1px 3px #666666;
   border: solid #050505 1px;
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#3d3b3c), to(#a38b96));
-  background: -moz-linear-gradient(top, #3d3b3c, #a38b96);
-  -ms-filter: progid:dximagetransform.microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#a38b96);
-  filter: progid:dximagetransform.microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#a38b96);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#3d3b3c), to(#575456));
+  background: -moz-linear-gradient(top, #3d3b3c, #575456);
+  -ms-filter: progid:dximagetransform.microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#575456);
+  filter: progid:dximagetransform.microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#575456);
   display: inline-block;
-  /* IE is so silly */
-
 }
 button:hover {
   background: #664f0b;
