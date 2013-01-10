@@ -2,7 +2,8 @@
 
 @import url(http://fonts.googleapis.com/css?family=Carme);
 header {
-  padding-left: 52px;
+  padding-left: 68px;
+  background: url('/img/room.jpg') left no-repeat;
   font-family: 'Oswald', sans-serif;
 }
 html {
@@ -83,12 +84,12 @@ nav {
   padding: 6px 6px 6px 12px;
   font-size: 80%;
   border-radius: 0 0 0 8px;
-  background: #354468;
-  background: linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
-  background: -webkit-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
-  background: -moz-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
-  background: -o-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
-  background: -ms-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
+  background: #d60b15;
+  background: linear-gradient(top, #f53942 20%, #d60b15 100%), #d60b15;
+  background: -webkit-linear-gradient(top, #f53942 20%, #d60b15 100%), #d60b15;
+  background: -moz-linear-gradient(top, #f53942 20%, #d60b15 100%), #d60b15;
+  background: -o-linear-gradient(top, #f53942 20%, #d60b15 100%), #d60b15;
+  background: -ms-linear-gradient(top, #f53942 20%, #d60b15 100%), #d60b15;
 }
 #tag_search {
   padding-left: 5px;
@@ -305,7 +306,7 @@ nav > ul li ul {
 }
 nav > ul li ul li {
   padding: 4px;
-  background-color: #354468;
+  background-color: #d60b15;
   border-right: none;
   border-top: 1px solid #bcbcbc;
   text-align: left;
@@ -321,7 +322,7 @@ nav > ul li ul li:last-child {
   border-radius: 0 0 10px 10px;
 }
 nav > ul li ul li:hover {
-  background-color: #5971aa;
+  background-color: #f65159;
 }
 nav > ul li ul li a {
   height: 16px;
