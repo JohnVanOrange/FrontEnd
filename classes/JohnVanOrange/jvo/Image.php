@@ -128,7 +128,7 @@ class Image extends Base {
   if ($result) {
    unlink($fullfilename);
    return array(
-    'url' => WEB_ROOT.'v/'.$result[0]['uid'],
+    'url' => WEB_ROOT.$result[0]['uid'],
     'image' => WEB_ROOT.'media/'.$result[0]['filename'],
     'thumb' => WEB_ROOT.'media/thumbs/'.$result[0]['filename'],
     'message' => 'Duplicate image.'
@@ -156,7 +156,7 @@ class Image extends Base {
    );
    $this->res->add($res);
    return array(
-    'url' => WEB_ROOT.'v/'.$uid,
+    'url' => WEB_ROOT.$uid,
     'image' => WEB_ROOT.'media/'.$filename,
     'thumb' => WEB_ROOT.'media/thumbs/'.$filename,
     'message' => 'Image added.'
