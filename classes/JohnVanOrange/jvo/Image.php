@@ -299,7 +299,7 @@ class Image extends Base {
   //URLs
   $result['image_url'] = WEB_ROOT . 'media/'. $result['filename'];
   $result['thumb_url'] = WEB_ROOT . 'media/thumbs/'. $result['filename'];
-  $result['page_url'] = WEB_ROOT . 'v/' . $result['uid'];
+  $result['page_url'] = WEB_ROOT . $result['uid'];
   if ($current['type'] > 1) { //if admin
    //Get report data
    $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
