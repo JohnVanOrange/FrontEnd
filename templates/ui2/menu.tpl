@@ -5,7 +5,7 @@
 		{if $image}
 		<li id="add_image" class='icon'>
 			<ul>
-				<li><a href='/upload'>Upload Image</a></li>
+				<li><a href='/add'>Upload Image</a></li>
 				<li><a href='/form/add_internet' id='addInternet'>Add Image from URL</a></li>
 			</ul>
 		</li>

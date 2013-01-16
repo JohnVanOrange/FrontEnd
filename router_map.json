@@ -1,22 +1,19 @@
 {
+	"add":		"upload",
 	"api":		"api",
 	"b":		"display",
 	"bot":		"bot",
 	"display":	"display",
 	"error":	"error",
-	"f":		"random",
 	"form":		"form",
 	"i":		"image",
 	"info":		"info",
-	"m":		"random",
 	"n":		"display",
 	"new":		"new",
-	"random":	"random",
 	"s":		"saved",
 	"t":		"tag",
 	"tags":		"cloud",
 	"tos":		"tos",
 	"u":		"user",
-	"upload":	"upload",
 	"v":		"display"
 }
