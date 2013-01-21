@@ -222,8 +222,8 @@ $(document).ready(function() {
  });
  
  $('#save_image').click(function () {
-  $('#save_image').toggleClass('saved not_saved');
-  if ($('#save_image').hasClass('saved')) {
+  $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
+  if ($('#save_image').hasClass('icon-star-1')) {
    call('image/save',{image:$('.image').attr('id')});
   } else {
    call('image/unsave',{image:$('.image').attr('id')});

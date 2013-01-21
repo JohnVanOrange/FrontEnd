@@ -12,7 +12,7 @@
 	</section>
 
 <fieldset>
-	<legend>Tags</legend>
+	<legend class='icon-tags'>Tags</legend>
 	<span id='tagtext'><span class='tag'{if !$image.tags} style='display:none'{/if}>{if $image.tags}{foreach name=tags from=$image.tags item=tag}<a href='{$tag.url}'>{$tag.name}</a>{if !$smarty.foreach.tags.last}, {/if}{/foreach}{/if}</span><span class='notag'{if $image.tags} style='display:none'{/if}><em>none currently </em></span></span>
 	<button id='add_tag'>Add</button>
 </fieldset>

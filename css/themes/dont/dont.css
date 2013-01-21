@@ -274,11 +274,8 @@ nav > ul li#user_avatar {
   margin-top: -3px;
 }
 nav > ul li.icon {
-  width: 24px;
-  height: 24px;
-  background: url('/img/menu_icons.png') no-repeat;
-  background-position: -24px 0;
   cursor: pointer;
+  font-size: 150%;
 }
 nav > ul li:hover > ul {
   display: block;
@@ -288,7 +285,8 @@ nav > ul li a {
   padding-top: 3px;
 }
 nav > ul li a:hover {
-  color: #ffffff;
+  /*color: #ffffff;*/
+
 }
 nav > ul li p {
   color: #ffffff;
@@ -305,6 +303,7 @@ nav > ul li ul {
   display: none;
 }
 nav > ul li ul li {
+  font-size: 14px;
   padding: 4px;
   background-color: #d60b15;
   border-right: none;
@@ -326,9 +325,6 @@ nav > ul li ul li:hover {
 }
 nav > ul li ul li a {
   height: 16px;
-  padding: 0 0 0 20px;
-  background: url('/img/social.png') no-repeat;
-  background-position: -16px 0;
 }
 nav > ul li ul li a:hover {
   color: #ff9900;
@@ -336,40 +332,4 @@ nav > ul li ul li a:hover {
 nav > ul li#menu ul {
   left: auto;
   right: 4px;
-}
-#add_image {
-  background-position: 0 0px;
-}
-#save_image.saved {
-  background-position: 0 -96px;
-}
-#save_image.not_saved {
-  background-position: 0 -120px;
-}
-#share_image {
-  background-position: 0 -24px;
-}
-#report_image {
-  background-position: 0 -48px;
-}
-#search_image {
-  background-position: 0 -72px;
-}
-#menu {
-  background-position: 0 -144px;
-}
-#facebook_menu {
-  background-position: 0 -48px;
-}
-#twitter_menu {
-  background-position: 0 -16px;
-}
-#reddit_menu {
-  background-position: 0 -80px;
-}
-#email_menu {
-  background-position: 0 -32px;
-}
-#android_menu {
-  background-position: 0 0;
 }

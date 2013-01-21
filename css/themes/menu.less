@@ -18,11 +18,8 @@ nav > ul {
 			margin-top: -3px;
 		}
 		&.icon {
-				width: 24px;
-				height: 24px;
-				background: url('/img/menu_icons.png') no-repeat;
-				background-position: -24px 0;
 				cursor: pointer;
+				font-size: 150%;
 		}
 		&:hover > ul {
 			display: block;
@@ -31,7 +28,7 @@ nav > ul {
 			display: block;
 			padding-top: 3px;
 			&:hover {
-				color: #ffffff;
+				/*color: #ffffff;*/
 			}
 		}
 		p {
@@ -48,6 +45,7 @@ nav > ul {
 			width: 13em;
 			display: none;
 			li {
+				font-size: 14px;
 				padding: 4px;
 				background-color: @menu_color;
 				border-right: none;
@@ -66,9 +64,6 @@ nav > ul {
 				}
 				a {
 					height: 16px;
-					padding: 0 0 0 20px;
-					background: url('/img/social.png') no-repeat;
-					background-position: -16px 0;
 					&:hover {
 						color: #ff9900;
 					}
@@ -82,47 +77,4 @@ nav > ul {
 			}
 		}
 	}
-}
-
-//Sprite positions
-
-//Menubar
-
-#add_image {
-		background-position: 0 0px;
-}
-#save_image.saved {
-		background-position: 0 -96px;
-}
-#save_image.not_saved {
-		background-position: 0 -120px;
-}
-#share_image {
-		background-position: 0 -24px;
-}
-#report_image {
-		background-position: 0 -48px;
-}
-#search_image {
-		background-position: 0 -72px;
-}
-#menu {
-		background-position: 0 -144px;
-}
-
-//Dropdowns
-#facebook_menu {
-		background-position: 0 -48px;
-}
-#twitter_menu {
-		background-position: 0 -16px;
-}
-#reddit_menu {
-		background-position: 0 -80px;
-}
-#email_menu {
-		background-position: 0 -32px;
-}
-#android_menu {
-		background-position: 0 0;
 }
