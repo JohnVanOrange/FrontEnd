@@ -1,0 +1,485 @@
+{
+  "name": "",
+  "glyphs": [
+    {
+      "search": [
+        "android"
+      ],
+      "code": 38,
+      "uid": "aaf371ab44841e9aaffebd179d324ce4",
+      "css": "android",
+      "orig_css": "android",
+      "orig_code": 38,
+      "src": "zocial",
+      "from": 38
+    },
+    {
+      "search": [
+        "reddit"
+      ],
+      "code": 62,
+      "uid": "b3a537446285bb3510bba57d20374818",
+      "css": "reddit",
+      "orig_css": "reddit",
+      "orig_code": 62,
+      "src": "zocial",
+      "from": 62
+    },
+    {
+      "search": [
+        "google"
+      ],
+      "code": 71,
+      "uid": "6d6d0efe9717ec2962ef0a77c6210df9",
+      "css": "google",
+      "orig_css": "google",
+      "orig_code": 71,
+      "src": "zocial",
+      "from": 71
+    },
+    {
+      "search": [
+        "keyboard"
+      ],
+      "code": 9000,
+      "uid": "005a38f6af74b31aeb817fedb09d2175",
+      "css": "keyboard",
+      "orig_css": "keyboard",
+      "orig_code": 9000,
+      "src": "entypo",
+      "from": 9000
+    },
+    {
+      "search": [
+        "cloud"
+      ],
+      "code": 9729,
+      "uid": "114fed43140e2b5ce42c48b95c19375b",
+      "css": "cloud",
+      "orig_css": "cloud",
+      "orig_code": 9729,
+      "src": "entypo",
+      "from": 9729
+    },
+    {
+      "search": [
+        "star"
+      ],
+      "code": 59392,
+      "from": 9733,
+      "uid": "474656633f79ea2f1dad59ff63f6bf07",
+      "css": "star-1",
+      "orig_css": "star",
+      "orig_code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "star"
+      ],
+      "code": 59393,
+      "from": 9734,
+      "uid": "d17030afaecc1e1c22349b99f3c4992a",
+      "css": "star-empty-1",
+      "orig_css": "star-empty",
+      "orig_code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "flag"
+      ],
+      "code": 9873,
+      "from": 9873,
+      "uid": "57a0ac800df728aad61a7cf9e12f5fef",
+      "css": "flag",
+      "orig_css": "flag",
+      "orig_code": 9873,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "tools"
+      ],
+      "code": 9874,
+      "uid": "6a7b9d4863bb7e6c79e9457a72d689b6",
+      "css": "tools",
+      "orig_css": "tools",
+      "orig_code": 9874,
+      "src": "entypo",
+      "from": 9874
+    },
+    {
+      "search": [
+        "settings",
+        "cog",
+        "gear"
+      ],
+      "code": 9881,
+      "from": 9881,
+      "uid": "e99461abfef3923546da8d745372c995",
+      "css": "cog",
+      "orig_css": "cog",
+      "orig_code": 9881,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "attention",
+        "warning",
+        "alert"
+      ],
+      "code": 9888,
+      "from": 9888,
+      "uid": "c76b7947c957c9b78b11741173c8349b",
+      "css": "attention",
+      "orig_css": "attention",
+      "orig_code": 9888,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "plus"
+      ],
+      "code": 10133,
+      "from": 10133,
+      "uid": "a66cdc7278e6b33b8bd44a141f5e1a8d",
+      "css": "plus-circled",
+      "orig_css": "plus-circled",
+      "orig_code": 10133,
+      "src": "entypo"
+    },
+    {
+      "search": [
+        "profile",
+        "contact",
+        "user",
+        "add"
+      ],
+      "code": 59136,
+      "uid": "6274e0601f2feef7eced89146e708de0",
+      "css": "user-add",
+      "orig_css": "user-add",
+      "orig_code": 59136,
+      "src": "entypo",
+      "from": 59136
+    },
+    {
+      "search": [
+        "info"
+      ],
+      "code": 59141,
+      "from": 59141,
+      "uid": "e82cedfa1d5f15b00c5a81c9bd731ea2",
+      "css": "info-circle",
+      "orig_css": "info-circle",
+      "orig_code": 59141,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "tag",
+        "category",
+        "price",
+        "offer"
+      ],
+      "code": 59149,
+      "from": 59149,
+      "uid": "a3f89e106175a5c5c4e9738870b12e55",
+      "css": "tags",
+      "orig_css": "tags",
+      "orig_code": 59149,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "comment",
+        "reply",
+        "write"
+      ],
+      "code": 59160,
+      "from": 59160,
+      "uid": "b90868gfogj970a1g0dnot6hm5r4uj55",
+      "css": "comment",
+      "orig_css": "comment",
+      "orig_code": 59160,
+      "src": "typicons"
+    },
+    {
+      "search": [
+        "share"
+      ],
+      "code": 59196,
+      "uid": "91426c82d94428a33353e495418435e3",
+      "css": "share",
+      "orig_css": "share",
+      "orig_code": 59196,
+      "src": "entypo",
+      "from": 59196
+    },
+    {
+      "search": [
+        "login"
+      ],
+      "code": 59200,
+      "uid": "a204f0fa972408eaae5a363c444991b2",
+      "css": "login",
+      "orig_css": "login",
+      "orig_code": 59200,
+      "src": "entypo",
+      "from": 59200
+    },
+    {
+      "search": [
+        "logout"
+      ],
+      "code": 59201,
+      "uid": "2d76f2c8d13be40694ecadfea7fb83c3",
+      "css": "logout",
+      "orig_css": "logout",
+      "orig_code": 59201,
+      "src": "entypo",
+      "from": 59201
+    },
+    {
+      "search": [
+        "resize",
+        "fullscreen"
+      ],
+      "code": 59204,
+      "uid": "4815ddddea76d90e367a9694a93b7e24",
+      "file": "fullscreen",
+      "css": "resize-full",
+      "orig_css": "resize-full",
+      "orig_code": 59204,
+      "src": "iconic",
+      "from": 59204
+    },
+    {
+      "search": [
+        "load",
+        "progress",
+        "wait"
+      ],
+      "code": 59444,
+      "meta": {
+        "email": "berbentseva_angela@yahoo.com",
+        "author": "Angela Berbentseva, specially for fontello"
+      },
+      "uid": "9bd60140934a1eb9236fd7a8ab1ff6ba",
+      "css-ext": "animate-spin",
+      "css": "spin4",
+      "orig_css": "spin4",
+      "orig_code": 59444,
+      "src": "fontelico",
+      "from": 59444
+    },
+    {
+      "search": [
+        "menu"
+      ],
+      "code": 61641,
+      "uid": "559647a6f430b3aeadbecd67194451dd",
+      "css": "menu",
+      "orig_css": "menu",
+      "orig_code": 61641,
+      "src": "fontawesome",
+      "from": 61641
+    },
+    {
+      "search": [
+        "mail",
+        "email"
+      ],
+      "code": 61664,
+      "uid": "ccc2329632396dc096bb638d4b46fb98",
+      "css": "mail-alt",
+      "orig_css": "mail-alt",
+      "orig_code": 61664,
+      "src": "fontawesome",
+      "from": 61664
+    },
+    {
+      "search": [
+        "github",
+        "social",
+        "logo"
+      ],
+      "code": 62208,
+      "uid": "d94334f23acba022bfd68e49d76b31bb",
+      "css": "github",
+      "orig_css": "github",
+      "orig_code": 62208,
+      "src": "entypo",
+      "from": 62208
+    },
+    {
+      "search": [
+        "facebook"
+      ],
+      "code": 62209,
+      "meta": {
+        "twitter": "https://twitter.com/puzrin",
+        "github": "https://github.com/puzrin",
+        "author": "Vitaly Puzrin"
+      },
+      "uid": "8045477f6a7ef0bd7caff130ad25b88d",
+      "file": "facebook-rect",
+      "css": "facebook-rect",
+      "orig_css": "facebook-rect",
+      "orig_code": 62209,
+      "src": "brandico",
+      "from": 62209
+    },
+    {
+      "search": [
+        "twitter"
+      ],
+      "code": 62211,
+      "meta": {
+        "homepage": "https://twitter.com/about/resources/logos",
+        "author": "Twitter"
+      },
+      "uid": "4c01f5d3ba5fbf029bca8630cce41e6a",
+      "file": "twitter-bird",
+      "transform": {
+        "rescale": 0.9,
+        "offset": 0.05
+      },
+      "css": "twitter-bird",
+      "orig_css": "twitter-bird",
+      "orig_code": 62211,
+      "src": "brandico",
+      "from": 62211
+    },
+    {
+      "search": [
+        "google"
+      ],
+      "code": 62217,
+      "meta": {
+        "homepage": "http://www.google.com/+/business/brand-guidelines.html",
+        "author": "Google"
+      },
+      "uid": "626fb97a7c0c0db53a1853fb9e96e223",
+      "file": "googleplus-rect",
+      "css": "googleplus-rect",
+      "orig_css": "googleplus-rect",
+      "orig_code": 62217,
+      "src": "brandico",
+      "from": 62217
+    },
+    {
+      "search": [
+        "image",
+        "picture",
+        "photo"
+      ],
+      "code": 59394,
+      "uid": "3def559c3c39b8500882e02892b7daa8",
+      "css": "picture-1",
+      "orig_css": "picture",
+      "orig_code": 59394,
+      "src": "entypo",
+      "from": 127748
+    },
+    {
+      "search": [
+        "image",
+        "picture",
+        "photo"
+      ],
+      "code": 127748,
+      "from": 127748,
+      "uid": "381da2c2f7fd51f8de877c044d7f439d",
+      "css": "picture",
+      "orig_css": "picture",
+      "orig_code": 127748,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "thumbs",
+        "up",
+        "like",
+        "love",
+        "vote"
+      ],
+      "code": 128077,
+      "uid": "7ad4d2306ebda8452e5e3eff3cd8241c",
+      "css": "thumbs-up",
+      "orig_css": "thumbs-up",
+      "orig_code": 128077,
+      "src": "entypo",
+      "from": 128077
+    },
+    {
+      "search": [
+        "thumbs",
+        "down",
+        "dislike",
+        "unlike",
+        "vote"
+      ],
+      "code": 128078,
+      "uid": "429fba993b729174468a9493613ad1ba",
+      "css": "thumbs-down",
+      "orig_css": "thumbs-down",
+      "orig_code": 128078,
+      "src": "entypo",
+      "from": 128078
+    },
+    {
+      "search": [
+        "profile",
+        "contact",
+        "user"
+      ],
+      "code": 128100,
+      "uid": "bbd66ef66bb8fa9edde54d9a90b89150",
+      "css": "user",
+      "orig_css": "user",
+      "orig_code": 128100,
+      "src": "entypo",
+      "from": 128100
+    },
+    {
+      "search": [
+        "upload"
+      ],
+      "code": 128228,
+      "from": 128228,
+      "uid": "eeec3208c90b7b48e804919d0d2d4a41",
+      "css": "upload",
+      "orig_css": "upload",
+      "orig_code": 128228,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "search",
+        "find"
+      ],
+      "code": 128269,
+      "uid": "7222571caa5c15f83dcfd447c58d68d9",
+      "css": "search",
+      "orig_css": "search",
+      "orig_code": 128269,
+      "src": "entypo",
+      "from": 128269
+    },
+    {
+      "search": [
+        "link",
+        "url"
+      ],
+      "code": 128279,
+      "uid": "815503841e980c848f55e0271deacead",
+      "css": "link",
+      "orig_css": "link",
+      "orig_code": 128279,
+      "src": "entypo",
+      "from": 128279
+    }
+  ]
+}
