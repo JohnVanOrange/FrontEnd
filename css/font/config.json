@@ -276,6 +276,18 @@
     },
     {
       "search": [
+        "blank"
+      ],
+      "code": 61640,
+      "uid": "2c2ca8a96b31781c9c8056d05c0a8980",
+      "css": "blank",
+      "orig_css": "blank",
+      "orig_code": 61640,
+      "src": "fontawesome",
+      "from": 61640
+    },
+    {
+      "search": [
         "menu"
       ],
       "code": 61641,
