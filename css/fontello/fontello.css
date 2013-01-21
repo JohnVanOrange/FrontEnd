@@ -51,6 +51,7 @@
 .icon-logout:before { content: '\e741'; } /* '' */
 .icon-resize-full:before { content: '\e744'; } /* '' */
 .icon-spin4:before { content: '\e834'; } /* '' */
+.icon-blank:before { content: '\f0c8'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
 .icon-github:before { content: '\f300'; } /* '' */
