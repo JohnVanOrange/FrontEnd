@@ -23,7 +23,7 @@ function exception_handler(e) {
  switch (e.name) {
  case 1020: //Must be logged in to save image
  case 1021: //Must be logged in to unsave image
-  $('#save_image').toggleClass('saved not_saved');
+  $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
   $('#login').click();
   break;
  }
