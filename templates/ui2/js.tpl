@@ -13,6 +13,8 @@
 <script defer src='{$web_root}js/noty/themes/default.js'></script>
 <script defer src='{$web_root}js/ui2.js?20130121'></script>
 
+<script defer src="//assets.pinterest.com/js/pinit.js"></script>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

@@ -204,6 +204,10 @@ legend {
 #facebook_like {
   padding-right: 8px;
 }
+#pintrest {
+  display: inline-block;
+  padding-right: 8px;
+}
 #info h1 {
   margin-bottom: 1em;
 }
