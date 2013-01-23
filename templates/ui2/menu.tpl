@@ -35,6 +35,7 @@
                 {if !$user.username}<li><a href='/form/login' id='login' class='icon-login'>Login</a></li>
                 <li><a href='/form/account' class='create_acct icon-user-add'>Create Account</a></li>{/if}
 				<li><a href='/tags' class='icon-cloud'>Tag Cloud</a></li>
+				{if $browser.name == 'firefox'}<li><a id='firefox_menu' href='' class='icon-blank'>Firefox Web App</a></li>{/if}
 				{if $app_link}<li><a id='android_menu' href='{$app_link}' class='icon-android'>Android App</a></li>{/if}
                 <li><a href='https://github.com/cbulock/JohnVanOrange/issues/new' class='icon-github'>Suggestions/Bugs</a></li>
                 <li><a href='/form/keyboard' id='keyboard' class='icon-keyboard'>Keyboard Shortcuts</a></li>

@@ -66,6 +66,7 @@ function display_mods() {
 }
 
 $(document).ready(function() {
+
  /*Ubuntu integration*/
  try {
   window.Unity = external.getUnityObject(1.0);
@@ -328,6 +329,26 @@ $(document).ready(function() {
   event.preventDefault();
   var taginfo = call('tag/get', {'value': $('#tag_search').val(), 'search_by': 'name'});
   window.location.href = taginfo[0].url;
+ });
+ 
+ /*Firefox Open Web App integration*/
+ $('#firefox_menu').click(function (event) {
+  event.preventDefault();
+  var apps = window.navigator.mozApps.getInstalled();
+  apps.onsuccess = function() {
+   if (!apps.result.length) {
+    var request = window.navigator.mozApps.install(web_root+'manifest.webapp');
+    request.onsuccess = function () {
+     // Save the App object that is returned
+     var appRecord = this.result;
+     noty({text: 'Web App Installed', dismissQueue: true});
+    };
+    request.onerror = function () {
+     // Display the error information from the DOMError object
+     noty({text: 'Install failed, error: ' + this.error.name, type: 'error', dismissQueue:true});
+    };
+   };
+  };
  });
  
 });

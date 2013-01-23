@@ -14,4 +14,26 @@ $tpl->assign('user', $user);
 if ($user['type'] > 1) $tpl->assign('is_admin', TRUE);
 $tpl->assign('site_theme', THEME);
 $tpl->assign('current_url', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
+
+$tpl->assign('browser', browser_info());
+
+function browser_info($agent=null) {
+  // Declare known browsers to look for
+  $known = array('chrome', 'msie', 'firefox', 'safari', 'webkit', 'opera', 'netscape', 'konqueror', 'gecko');
+
+  // Clean up agent and build regex that matches phrases for known browsers
+  // (e.g. "Firefox/2.0" or "MSIE 6.0" (This only matches the major and minor
+  // version numbers.  E.g. "2.0.0.6" is parsed as simply "2.0"
+  $agent = strtolower($agent ? $agent : $_SERVER['HTTP_USER_AGENT']);
+  $pattern = '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9]+(?:\.[0-9]+)?)#';
+
+  // Find all phrases (or return empty array if none found)
+  if (!preg_match_all($pattern, $agent, $matches)) return array();
+
+  // Since some UAs have more than one phrase (e.g Firefox has a Gecko phrase,
+  // Opera 7,8 have a MSIE phrase), use the last one found (the right-most one
+  // in the UA).  That's usually the most correct.
+  $i = count($matches['browser'])-1;
+  return array('name' => $matches['browser'][$i] , 'version' => $matches['version'][$i]);
+}
 ?>
