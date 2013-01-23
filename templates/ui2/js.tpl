@@ -1,7 +1,7 @@
 <script type='text/javascript'>
  var web_root = '{$web_root}';
  var site_name = '{$site_name}';
- var unity_icon = '{$unity_icon}';
+ var icon_set = '{$icon_set}';
 </script>
 
 <script defer src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>

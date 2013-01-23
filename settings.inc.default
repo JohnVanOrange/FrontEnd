@@ -13,9 +13,8 @@ define('APP_LINK','');
 define('SHOW_SCORN',0);
 define('SHOW_SOCIAL',1);
 define('SHOW_BRAZZ',1);
-define('FAVICON','orange_slice_16.png');
-define('UNITY_ICON','orange_slice_128.png');
 define('403_IMAGE','403.jpg');
 define('404_IMAGE','404.jpg');
 define('WATERMARK','johnvanorange.png');
+define('ICON_SET','orange_slice');
 ?>

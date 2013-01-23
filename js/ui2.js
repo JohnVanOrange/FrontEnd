@@ -72,7 +72,7 @@ $(document).ready(function() {
   window.Unity = external.getUnityObject(1.0);
   Unity.init({
    name: site_name,
-   iconUrl: web_root+"img/"+unity_icon,
+   iconUrl: web_root+"icons/"+icon_set+"/128.png",
    onInit: null
   });
  } catch(err) {}

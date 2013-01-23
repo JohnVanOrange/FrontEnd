@@ -15,7 +15,7 @@
 <head>
 <meta charset="utf-8">
 <title>{$site_name} - Image Upload</title>
-<link rel='shortcut icon' type='image/png' href='{$web_root}img/{$favicon}' />
+<link rel='shortcut icon' type='image/png' href='{$web_root}icons/{$icon_set}/16.png' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/themes/{$site_theme}/{$site_theme}.css' />
 <meta name="viewport" content="width=device-width">
 <!-- Bootstrap CSS Toolkit styles -->
