@@ -110,11 +110,13 @@ nav a:hover {
   width: 80%;
   margin: auto;
 }
-#tos {
+#tos,
+#privacy {
   text-align: left;
   font-size: 90%;
 }
-#tos p {
+#tos p,
+#privacy {
   margin: 1em;
 }
 .ui-menu-item,
