@@ -11,7 +11,7 @@
 <script defer src='{$web_root}js/noty/jquery.noty.js'></script>
 <script defer src='{$web_root}js/noty/layouts/topRight.js'></script>
 <script defer src='{$web_root}js/noty/themes/default.js'></script>
-<script defer src='{$web_root}js/ui2.js?20130121'></script>
+<script defer src='{$web_root}js/ui2.js?20130127'></script>
 
 <script defer src="//assets.pinterest.com/js/pinit.js"></script>
 

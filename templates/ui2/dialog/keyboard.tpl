@@ -23,6 +23,10 @@
  <td><span class='key'>t</span></td>
  <td>Add tag</td>
 </tr>
+<tr>
+ <td><span class='key'>r</span></td>
+ <td>Report image</td>
+</tr>
 {if $user}
 <tr>
  <td><span class='key'>s</span></td>

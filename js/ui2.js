@@ -109,6 +109,9 @@ $(document).ready(function() {
    case 39://right arrow
     window.history.forward();
     break;
+   case 82://r
+    $('#report_image').click();
+	break;
    case 83://s
     $('#save_image').click();
     break;
