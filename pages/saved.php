@@ -5,7 +5,7 @@ $template = 'saved.tpl';
 
 $username = $request[1];
 
-$tpl->assign('images',call('image/saved',array('username'=>$username)));
+$tpl->assign('images',call('user/saved',array('username'=>$username)));
 
 $tpl->assign('title_text', 'Saved Images');
 

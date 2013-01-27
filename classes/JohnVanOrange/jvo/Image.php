@@ -27,46 +27,6 @@ class Image extends Base {
   );
  }
 
- public function saved($options=array()) {
-  if (!$options['username']) throw new \Exception('Username not given', 404);
-  $current = $this->user->current($options);
-  $user = $this->user->get(array('search_by'=>'username','value'=>$options['username']));
-  if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
-  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
-  $results = $this->db->fetch($sql);
-  foreach ($results as $result) {
-   try {
-    $return[] = $this->get(array('image'=>$result['image']));
-   }
-   catch(\Exception $e) {
-    if ($e->getCode() != 403) {
-     throw new \Exception($e);
-    }
-   }
-  }
-  return $return;
- }
- 
- public function uploaded($options=array()) {
-  if (!$options['username']) throw new \Exception('Username not given', 404);
-  $current = $this->user->current($options);
-  $user = $this->user->get(array('search_by'=>'username','value'=>$options['username']));
-  if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
-  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "upload"';
-  $results = $this->db->fetch($sql);
-  foreach ($results as $result) {
-   try {
-    $return[] = $this->get(array('image'=>$result['image']));
-   }
-   catch(\Exception $e) {
-    if ($e->getCode() != 403) {
-     throw new \Exception($e);
-    }
-   }
-  }
-  return $return;
- }
-
  public function unsave($options=array()) {
   $current = $this->user->current($options);
   if (!$current) throw new \Exception('Must be logged in to unsave images',1021);

@@ -5,7 +5,7 @@ $template = 'uploads.tpl';
 
 $username = $request[1];
 
-$tpl->assign('images',call('image/uploaded',array('username'=>$username)));
+$tpl->assign('images',call('user/uploaded',array('username'=>$username)));
 
 $tpl->assign('title_text', 'Uploaded Images');
 

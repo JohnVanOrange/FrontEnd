@@ -1,6 +1,5 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class User extends Base {
 
@@ -77,9 +76,9 @@ class User extends Base {
   );
   $userdata = $this->db->fetch($sql,$val);
   $userdata = $userdata[0];
-  if (!$userdata) throw new Exception('User not found');
+  if (!$userdata) throw new \Exception('User not found');
   $pwhash = $this->passhash($options['password'],$userdata['salt']);
-  if ($pwhash != $userdata['password']) throw new Exception('Invalid password');
+  if ($pwhash != $userdata['password']) throw new \Exception('Invalid password');
   #succesfully login
   $sid = $this->getSecureID();
   $this->setCookie('sid', $sid);
@@ -107,9 +106,9 @@ class User extends Base {
  }
 
  public function add($options=array()) {
-  if (!$options['username']) throw new Exception('No username specified');
-  if (!$options['password']) throw new Exception('No password specified');
-  if (!$options['email']) throw new Exception('No email specified');
+  if (!$options['username']) throw new \Exception('No username specified');
+  if (!$options['password']) throw new \Exception('No password specified');
+  if (!$options['email']) throw new \Exception('No email specified');
   $salt = $this->getSecureID();
   $sql = 'INSERT INTO users(username, password, salt, email) VALUES(:username, :password, :salt, :email)';
   $val = array(
@@ -123,5 +122,49 @@ class User extends Base {
    'message' => 'User added.'
   );
  }
+ 
+ public function saved($options=array()) {
+  if (!$options['username']) throw new \Exception('Username not given', 404);
+  $current = $this->current($options);
+  $user = $this->get(array('search_by'=>'username','value'=>$options['username']));
+  if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
+  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
+  $results = $this->db->fetch($sql);
+  $image = new Image();
+  foreach ($results as $result) {
+   try {
+    $return[] = $image->get(array('image'=>$result['image']));
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() != 403) {
+     throw new \Exception($e);
+    }
+   }
+  }
+  return $return;
+ }
+ 
+ public function uploaded($options=array()) {
+  if (!$options['username']) throw new \Exception('Username not given', 404);
+  $current = $this->current($options);
+  $user = $this->get(array('search_by'=>'username','value'=>$options['username']));
+  if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
+  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "upload"';
+  $results = $this->db->fetch($sql);
+  $image = new Image();
+  foreach ($results as $result) {
+   try {
+    $return[] = $image->get(array('image'=>$result['image']));
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() != 403) {
+     throw new \Exception($e);
+    }
+   }
+  }
+  return $return;
+ } 
+ 
+ 
 }
 ?>
