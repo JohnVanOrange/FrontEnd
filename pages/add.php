@@ -1,7 +1,7 @@
 <?php
 require_once('smarty.php');
 
-$template = 'upload.tpl';
+$template = 'add.tpl';
 
 $tpl->assign('title_text', 'Upload Images');
 
