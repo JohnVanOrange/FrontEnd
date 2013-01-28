@@ -17,10 +17,6 @@ header  {
 	-o-transform: translate(-20%) scale(0.6);
 }
 
-nav > ul  li {
-	padding-right: 4px;
-}
-
 #profile_image {
 	float: none;
 	padding-left: 0;

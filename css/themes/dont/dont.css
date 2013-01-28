@@ -241,8 +241,8 @@ legend {
   background: 0;
 }
 #info ul li ul li {
-  list-style: disc;
-  margin-left: 2em;
+  list-style: none;
+  margin-left: 1em;
 }
 #info .data {
   font-family: monospace, serif;
@@ -281,7 +281,7 @@ nav > ul li {
   float: left;
   position: relative;
   text-align: center;
-  padding-right: 8px;
+  padding-right: 4px;
 }
 nav > ul li#user_avatar {
   margin-top: -3px;

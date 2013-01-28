@@ -22,7 +22,7 @@
 		<li id='search_image' class='nomobile icon-picture icon'>
 			<ul>
 				<li><a id='googlesearch' class='icon-google' href='http://www.google.com/searchbyimage?image_url={$image.image_url}'>Search using Google</a></li>
-				<li><a id='tineye' class='icon-blank' href='http://tineye.com/search?url={$image.image_url}'>Search using Tineye</a></li>
+				<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={$image.image_url}'>Search using Tineye</a></li>
 				<li><a class='icon-info-circle' href='/info/{$image.uid}'>Details</a></li>
 				<li><a id='fullscreen' class='icon-resize-full' href='{$image.image_url}'>View Fullscreen</a></li>
 				{if $is_admin}<li><a id='admin_link' class='icon-cog' href='/admin/image/{$image.uid}'>Image Admin</a></li>{/if}
@@ -35,7 +35,7 @@
                 {if !$user.username}<li><a href='/form/login' id='login' class='icon-login'>Login</a></li>
                 <li><a href='/form/account' class='create_acct icon-user-add'>Create Account</a></li>{/if}
 				<li><a href='/tags' class='icon-cloud'>Tag Cloud</a></li>
-				{if $browser.name == 'firefox'}<li><a id='firefox_menu' href='' class='icon-blank'>Firefox Web App</a></li>{/if}
+				{if $browser.name == 'firefox'}<li><a id='firefox_menu' href='' class='icon-firefox'>Firefox Web App</a></li>{/if}
 				{if $app_link}<li><a id='android_menu' href='{$app_link}' class='icon-android'>Android App</a></li>{/if}
                 <li><a href='https://github.com/cbulock/JohnVanOrange/issues/new' class='icon-github'>Suggestions/Bugs</a></li>
                 <li><a href='/form/keyboard' id='keyboard' class='icon-keyboard'>Keyboard Shortcuts</a></li>

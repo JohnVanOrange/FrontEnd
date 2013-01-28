@@ -9,7 +9,7 @@
 <h2>Image Admin</h2>
 
 <div id='image_data'>
- <p><a href='/v/{$image.uid}'>{$image.uid}</a></p>
+ <p><a href='{$image.page_url}'>{$image.uid}</a></p>
  {if !$image.display}<p class='alert'>HIDDEN</p>{/if}
  {if !$image.approved}<p class='alert'>NOT APPROVED</p>{/if}
  {if $image.report}<p>Reported as: <span class='alert'>{$image.report.value}</span></p>{/if}
