@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot");
-  src: url("../font/fontello.eot?#iefix") format('embedded-opentype'), url("../font/fontello.woff") format('woff'), url("../font/fontello.ttf") format('truetype'), url("../font/fontello.svg#fontello") format('svg');
+  src: url("../font/fontello.eot?20130128");
+  src: url("../font/fontello.eot?#iefix") format('embedded-opentype'), url("../font/fontello.woff?20130128") format('woff'), url("../font/fontello.ttf?20130128") format('truetype'), url("../font/fontello.svg#fontello") format('svg');
   font-weight: normal;
   font-style: normal;
 }
