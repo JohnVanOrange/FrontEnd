@@ -1,4 +1,5 @@
 vendor
+components
 composer.lock
 templates_c
 error_log

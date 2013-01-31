@@ -17,6 +17,7 @@
 <title>{$site_name} - Image Upload</title>
 <link rel='shortcut icon' type='image/png' href='{$web_root}icons/{$icon_set}/16.png' />
 <link rel='stylesheet' type='text/css' href='{$web_root}css/themes/{$site_theme}/{$site_theme}.css' />
+<link rel='stylesheet' type='text/css' href='{$web_root}css/ui-theme/jquery-ui-1.8.21.custom.css' />
 <meta name="viewport" content="width=device-width">
 <!-- Bootstrap CSS Toolkit styles -->
 <link rel="stylesheet" href="{$web_root}css/bootstrap.min.css">
@@ -25,7 +26,7 @@
 <!-- Bootstrap CSS fixes for IE6 -->
 <!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-<link rel='stylesheet' type='text/css' href='{$web_root}css/jquery.fileupload-ui.css' />
+<link rel='stylesheet' type='text/css' href='{$web_root}components/jquery-file-upload/css/jquery.fileupload-ui.css' />
 <!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
@@ -116,7 +117,7 @@
         <td class="name"><span>{%=file.name%}</span></td>
         <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
         {% if (file.error) { %}
-            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
         {% } else if (o.files.valid && !i) { %}
             <td>
                 <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
@@ -124,7 +125,7 @@
             <td class="start">{% if (!o.options.autoUpload) { %}
                 <button class="btn btn-primary">
                     <i class="icon-upload icon-white"></i>
-                    <span>{%=locale.fileupload.start%}</span>
+                    <span>Start</span>
                 </button>
             {% } %}</td>
         {% } else { %}
@@ -133,7 +134,7 @@
         <td class="cancel">{% if (!i) { %}
             <button class="btn btn-warning">
                 <i class="icon-ban-circle icon-white"></i>
-                <span>{%=locale.fileupload.cancel%}</span>
+                <span>Cancel</span>
             </button>
         {% } %}</td>
     </tr>
@@ -149,7 +150,7 @@
             <td></td>
             <td class="name"><span>{%=file.name%}</span></td>
             <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
         {% } else { %}
             <td class="preview">{% if (file.thumbnail_url) { %}
                 <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery"><img src="{%=file.thumbnail_url%}"></a>
@@ -165,9 +166,9 @@
 {/literal}
 </script>
 {include file='footer.tpl'}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="{$web_root}js/jquery.ui.widget.js"></script>
+<script src="{$web_root}components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
 <script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
@@ -177,20 +178,20 @@
 <!-- Bootstrap JS and Bootstrap Image Gallery are not required, but included for the demo -->
 <script src="http://blueimp.github.com/cdn/js/bootstrap.min.js"></script>
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="{$web_root}js/jquery.iframe-transport.js"></script>
+<script src="{$web_root}components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->
-<script src="{$web_root}js/jquery.fileupload.js"></script>
+<script src="{$web_root}components/jquery-file-upload/js/jquery.fileupload.js"></script>
 <!-- The File Upload file processing plugin -->
-<script src="{$web_root}js/jquery.fileupload-fp.js"></script>
+<script src="{$web_root}components/jquery-file-upload/js/jquery.fileupload-fp.js"></script>
 <!-- The File Upload user interface plugin -->
-<script src="{$web_root}js/jquery.fileupload-ui.js"></script>
-<!-- The localization script -->
-<script src="{$web_root}js/locale.js"></script>
+<script src="{$web_root}components/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
 <!-- The main application script -->
-<script src="{$web_root}js/upload.js"></script>
+<script src="{$web_root}components/jquery-file-upload/js/main.js"></script>
 <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
-<!--[if gte IE 8]><script src="js/cors/jquery.xdr-transport.js"></script><![endif]-->
-<script src='{$web_root}js/jquery.history.js'></script>
+<!--[if gte IE 8]><script src="{$web_root}components/jquery-file-upload/js/cors/jquery.xdr-transport.js"></script><![endif]-->
+<script src='{$web_root}js/noty/jquery.noty.js'></script>
+<script src='{$web_root}js/noty/layouts/topRight.js'></script>
+<script src='{$web_root}js/noty/themes/default.js'></script>
 <script src='{$web_root}js/ui2.js'></script>
 </body> 
 </html>

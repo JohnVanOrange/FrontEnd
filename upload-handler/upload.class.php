@@ -375,7 +375,7 @@ class UploadHandler
             // param_name is an array identifier like "files[]",
             // $_FILES is a multi-dimensional array:
             foreach ($upload['tmp_name'] as $index => $value) {
-                $info[] = $this->handle_file_upload(
+                $info['files'][] = $this->handle_file_upload(
                     $upload['tmp_name'][$index],
                     isset($_SERVER['HTTP_X_FILE_NAME']) ?
                         $_SERVER['HTTP_X_FILE_NAME'] : $upload['name'][$index],
@@ -390,7 +390,7 @@ class UploadHandler
         } elseif ($upload || isset($_SERVER['HTTP_X_FILE_NAME'])) {
             // param_name is a single object identifier like "file",
             // $_FILES is a one-dimensional array:
-            $info[] = $this->handle_file_upload(
+            $info['files'][] = $this->handle_file_upload(
                 isset($upload['tmp_name']) ? $upload['tmp_name'] : null,
                 isset($_SERVER['HTTP_X_FILE_NAME']) ?
                     $_SERVER['HTTP_X_FILE_NAME'] : (isset($upload['name']) ?
@@ -405,8 +405,8 @@ class UploadHandler
             );
         }
         header('Vary: Accept');
-        $imagedata = $this->image->addFromUpload(array('path'=>$this->options['upload_dir'].$info[0]->name));
-        $info[0]->url = $imagedata['url'];
+        $imagedata = $this->image->addFromUpload(array('path'=>$this->options['upload_dir'].$info['files'][0]->name));
+        $info['files'][0]->url = $imagedata['url'];
         $json = json_encode($info);
         $redirect = isset($_REQUEST['redirect']) ?
             stripslashes($_REQUEST['redirect']) : null;

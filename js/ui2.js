@@ -53,7 +53,9 @@ function call(method, opt) {
 function display_mods() {
  /*Force images to fit to page width*/
  $('.image').css('max-width','');
- $('#img_container').imagefit();
+ if ($('#img_container').length !== 0) {
+  $('#img_container').imagefit();
+ }
  /*Uploaded by message*/
  if ($('#img_container').length !== 0) {
   $('#img_container p').position({
@@ -135,13 +137,15 @@ $(document).ready(function() {
  inputKeyboardHandler();
  
  /*Make it so keyboard events don't propagate to the dialog box buttons*/
- $.extend($.ui.dialog.prototype.options, { 
-  open: function() {
-   $(this).parent().find('.ui-dialog-buttonpane button').keydown(function (event) {
-    event.stopPropagation();//allow spaces to submit form
-   });
-  } 
- });
+ if ($.ui !== undefined) {
+  $.extend($.ui.dialog.prototype.options, { 
+   open: function() {
+    $(this).parent().find('.ui-dialog-buttonpane button').keydown(function (event) {
+     event.stopPropagation();//allow spaces to submit form
+    });
+   } 
+  });
+ }
 
  /*Create Account dialog*/
  $('.create_acct').click(function (event) {
@@ -235,10 +239,12 @@ $(document).ready(function() {
  });
 
  /*Tag Search Autocomplete*/
- $('#tag_search').autocomplete({
-  source: '/api/tag/suggest',
-  minLength: 2
- });
+ if ($.ui !== undefined) {
+  $('#tag_search').autocomplete({
+   source: '/api/tag/suggest',
+   minLength: 2
+  });
+ }
  
  /*Upload Image dialog*/
  $('#addInternet').click(function (event) {
@@ -332,6 +338,10 @@ $(document).ready(function() {
   event.preventDefault();
   var taginfo = call('tag/get', {'value': $('#tag_search').val(), 'search_by': 'name'});
   window.location.href = taginfo[0].url;
+ });
+ 
+ $('.fileinput-button').click(function (event) {
+  $('#fileupload').fileupload({'url':'/upload-handler/index.php'});
  });
  
  /*Firefox Open Web App integration*/

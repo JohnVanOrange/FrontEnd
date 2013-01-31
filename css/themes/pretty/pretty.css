@@ -50,8 +50,8 @@ button {
   border: solid #ffffff 1px;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#dd7308), to(#f78d21));
   background: -moz-linear-gradient(top, #dd7308, #f78d21);
-  -ms-filter: progid:dximagetransform.microsoft.gradient(startColorStr=#dd7308, endColorStr=#f78d21);
-  filter: progid:dximagetransform.microsoft.gradient(startColorStr=#dd7308, endColorStr=#f78d21);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#dd7308, endColorStr=#f78d21);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#dd7308, endColorStr=#f78d21);
   display: inline-block;
 }
 button:hover {
