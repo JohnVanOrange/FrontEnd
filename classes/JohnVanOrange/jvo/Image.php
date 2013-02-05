@@ -265,16 +265,13 @@ class Image extends Base {
    if ($data['save']) $result['saved'] = 1;
   }
   //Page title
-  $result['page_title'] = SITE_NAME . ' - ';
+  $result['page_title'] = SITE_NAME;
   if ($result['tags']) {
-   $title_text = '';
+   $title_text = ' - ';
    foreach ($result['tags'] as $tag) {
     $title_text .= $tag['name'] . ', ';
    }
    $result['page_title'] .= rtrim($title_text, ', ');
-  }
-  else {
-   $result['page_title'] .= $result['uid'];
   }
   //URLs
   $result['image_url'] = WEB_ROOT . 'media/'. $result['filename'];
