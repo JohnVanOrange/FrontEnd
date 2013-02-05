@@ -189,9 +189,9 @@
 <script src="{$web_root}components/jquery-file-upload/js/main.js"></script>
 <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
 <!--[if gte IE 8]><script src="{$web_root}components/jquery-file-upload/js/cors/jquery.xdr-transport.js"></script><![endif]-->
-<script src='{$web_root}js/noty/jquery.noty.js'></script>
-<script src='{$web_root}js/noty/layouts/topRight.js'></script>
-<script src='{$web_root}js/noty/themes/default.js'></script>
+<script defer src='{$web_root}components/noty/js/noty/jquery.noty.js'></script>
+<script defer src='{$web_root}components/noty/js/noty/layouts/topRight.js'></script>
+<script defer src='{$web_root}components/noty/js/noty/themes/default.js'></script>
 <script src='{$web_root}js/ui2.js'></script>
 </body> 
 </html>
