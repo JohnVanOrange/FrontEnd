@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 
 @import url(http://fonts.googleapis.com/css?family=Carme);
-header {
+header,
+#jvo {
   padding-left: 52px;
   background: url('/img/orange_slice_title.svg') left no-repeat;
   font-family: 'Oswald', sans-serif;
@@ -264,6 +265,21 @@ legend {
 }
 #form div .submit {
   display: block;
+}
+#jvon div.site {
+  margin: 0 auto;
+  margin-top: 2em;
+  font-size: 20px;
+  text-align: center;
+  max-width: 20em;
+}
+#jvon div.site p {
+  font-family: 'Carme', sans-serif;
+  font-size: 12px;
+  text-align: left;
+}
+#jvon div.site a {
+  color: white;
 }
 ul,
 li {
