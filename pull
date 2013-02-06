@@ -1,0 +1,7 @@
+#! /bin/bash
+
+git checkout stable
+git pull
+composer self-update
+composer install
+bower install
