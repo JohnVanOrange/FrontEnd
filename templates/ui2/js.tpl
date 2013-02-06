@@ -6,7 +6,7 @@
 
 <script defer src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>
 <script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'></script>
-<script defer src='{$web_root}js/jquery.imagefit.js'></script>
+<script defer src='{$web_root}components/jquery-imagefit-plugin/jquery.imagefit.js'></script>
 <script defer src='{$web_root}js/jquery.history.js'></script>
 <script defer src='{$web_root}components/noty/js/noty/jquery.noty.js'></script>
 <script defer src='{$web_root}components/noty/js/noty/layouts/topRight.js'></script>
