@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Boogaloo);
 
 @import url(http://fonts.googleapis.com/css?family=Carme);
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 header,
 #pretty {
   padding-left: 52px;
@@ -8,7 +10,7 @@ header,
   font-family: 'Boogaloo', sans-serif;
 }
 html {
-  font-family: 'Carme', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   padding: 0;
   margin: 0 auto;
