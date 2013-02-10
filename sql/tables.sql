@@ -75,5 +75,6 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `image` varchar(6) character set utf8 collate utf8_bin NOT NULL,
   `user_id` int(8) unsigned default NULL,
   `value` int(8) default NULL,
-  `type` varchar(8) collate utf8_unicode_ci NOT NULL
+  `type` varchar(8) collate utf8_unicode_ci NOT NULL,
+  KEY `image` (`image`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
