@@ -85,7 +85,7 @@ $(document).ready(function() {
  $('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
  
  /*Options for Notifications*/
- $.noty.defaults.layout = 'topRight';
+ $.noty.defaults.layout = 'topLeft';
  $.noty.defaults.type = 'information';
  $.noty.defaults.timeout = 10000;
  
