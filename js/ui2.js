@@ -364,4 +364,12 @@ $(document).ready(function() {
   };
  });
  
+ /*Next image preload*/
+ if ($('#rand_image').length !== 0) {
+  next_image_data = call('image/random');
+  next_image = new Image();
+  next_image.src = next_image_data.image_url;
+  $('#rand_image').attr('href',next_image_data.page_url);
+ }
+ 
 });
