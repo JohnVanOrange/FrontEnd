@@ -28,7 +28,7 @@
  <li>
   <ul>External Resources:
    <li class='icon-picture-1'><a href='http://regex.info/exif.cgi?url={$image.image_url}'>Additional image info (EXIF and technical data)</a></li>
-   <li class='icon-google'><a href='hsttp://www.google.com/searchbyimage?image_url={$image.image_url}'>Reverse Google search</a></li>
+   <li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={$image.image_url}'>Reverse Google search</a></li>
    <li class='icon-search'><a href='http://tineye.com/search?url={$image.image_url}'>Reverse Tineye search</a></li>
    <li class='icon-tools'><a href='http://imgops.com/{$image.image_url}'>Image tools</a></li>
    {if $image.c_link}<li class='icon-comment'><a href='{$image.c_link}'>Comments</a></li>{/if}
