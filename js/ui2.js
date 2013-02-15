@@ -13,8 +13,27 @@ var api = {
   }
   return response;
  },
+ aclient : function (method, callback, opt) {
+  var url = '/api/' + method;
+  $.ajax({
+   type: 'post',
+   url: url,
+   data: opt,
+   dataType: 'json',
+   success: function(response) {
+    if (response.hasOwnProperty('error')) {
+     throw {name: response.error, message: response.message};
+    }
+    callback(response);
+    process(response);
+   }
+  });
+ },
  call : function (method, opt) {
   return this.client(method, opt);
+ },
+ call_a : function (method, callback, opt) {
+  return this.aclient(method, callback, opt);
  }
 };
 
@@ -27,6 +46,36 @@ function exception_handler(e) {
   $('#login').click();
   break;
  }
+}
+
+function call_a(method, callback, opt) {
+ "use strict";
+ try {
+  api.call_a(method, callback, opt);
+ } catch (e) {
+  exception_handler(e);
+ }
+ return null;
+}
+
+function process(result) {
+ "use strict";
+ try {
+  if (result.message) {
+   var message = result.message;
+   if (result.thumb) {
+    message = message + '<br><img src="' + result.thumb + '">';
+   }
+   if (result.url) {
+    message = '<a href="' + result.url + '">' + message + '</a>';
+   }
+   noty({text: message, dismissQueue: true});
+  }
+  return result;
+ } catch (e) {
+  exception_handler(e);
+ }
+ return null;
 }
 
 function call(method, opt) {
@@ -366,10 +415,11 @@ $(document).ready(function() {
  
  /*Next image preload*/
  if ($('#rand_image').length !== 0) {
-  next_image_data = call('image/random');
-  next_image = new Image();
-  next_image.src = next_image_data.image_url;
-  $('#rand_image').attr('href',next_image_data.page_url);
+  call_a('image/random', function(next_image_data){
+   next_image = new Image();
+   next_image.src = next_image_data.image_url;
+   $('#rand_image').attr('href',next_image_data.page_url); 
+  });
  }
  
 });
