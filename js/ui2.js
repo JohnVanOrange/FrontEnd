@@ -274,8 +274,10 @@ $(document).ready(function() {
  
  /*Logout*/
  $('#logout').click(function () {
-  var response = call('user/logout');
-  if (!response.error) window.location.reload();
+  event.preventDefault();
+  call_a('user/logout', function(response){
+   if (!response.error) window.location.reload();
+  })
  });
  
  $('#save_image').click(function () {
@@ -384,9 +386,10 @@ $(document).ready(function() {
  
  /*Search by tag box*/
  $('form#search').submit(function (event) {
-  event.preventDefault();
-  var taginfo = call('tag/get', {'value': $('#tag_search').val(), 'search_by': 'name'});
-  window.location.href = taginfo[0].url;
+  event.preventDefault();  
+  call_a('tag/get', function(taginfo){
+   window.location.href = taginfo[0].url;
+  }, {'value': $('#tag_search').val(), 'search_by': 'name'});
  });
  
  $('.fileinput-button').click(function (event) {
