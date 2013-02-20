@@ -110,7 +110,10 @@ class Reddit extends Base {
  private function getImageData($data) {
   $sql = 'SELECT id from imgur_history WHERE id = "'.$data.'"';
   if ($this->db->fetch($sql)) throw new Exception('Previously retrieved image ('.$data.')',200);
-  $imagedata = json_decode($this->remoteFetch(array('url'=>'http://api.imgur.com/2/image/'.$data.'.json')),TRUE);
+  $imagedata = json_decode($this->remoteFetch(array(
+   'url' => 'http://api.imgur.com/3/image/'.$data.'.json',
+   'headers' => array('Authorization: Client-ID '.IMGUR_CID)
+   )),TRUE);
   if (!$imagedata) throw new Exception('Error retrieving Imgur data',200);
   if ($imagedata['error']) {
    if ($imagedata['error']['message'] == 'API limits exceeded') throw new Exception('Imgur API limits exceeded',999);

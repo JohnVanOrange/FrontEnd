@@ -25,6 +25,7 @@ class Base {
   //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE); //disable for now as prod server doesn't handle properly
   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
   curl_setopt($ch, CURLOPT_TIMEOUT, 180);
+  if ($options['headers']) curl_setopt($ch, CURLOPT_HTTPHEADER, $options['headers']);
   $response = curl_exec($ch);
   curl_close($ch);
   return $response;
