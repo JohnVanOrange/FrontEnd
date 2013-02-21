@@ -31,8 +31,10 @@ class Reddit extends Base {
      case '200':
       $this->log($e->getMessage(),$this->logfile);
      break;
+	 case '999':
+	  throw new Exception($e);
      default:
-      throw new Exception($e);
+	  $this->log($e->getMessage(),$this->logfile);
      break;
     }
    }
