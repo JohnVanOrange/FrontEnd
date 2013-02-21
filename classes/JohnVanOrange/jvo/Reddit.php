@@ -103,7 +103,7 @@ class Reddit extends Base {
   $data = end($data);
   $data = explode('.',$data);
   $data = $data[0];
-  if (strlen($data) > 5) throw new Exception('Unknown URL value: '.$data.' Full URL: '.$post['data']['url'],200);
+  if (strlen($data) > 7) throw new Exception('Unknown URL value: '.$data.' Full URL: '.$post['data']['url'],200);
   return $data;
  }
 
