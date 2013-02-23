@@ -31,8 +31,10 @@ class Reddit extends Base {
      case '200':
       $this->log($e->getMessage(),$this->logfile);
      break;
+	 case '999':
+	  throw new Exception($e);
      default:
-      throw new Exception($e);
+	  $this->log($e->getMessage(),$this->logfile);
      break;
     }
    }
@@ -103,7 +105,7 @@ class Reddit extends Base {
   $data = end($data);
   $data = explode('.',$data);
   $data = $data[0];
-  if (strlen($data) > 5) throw new Exception('Unknown URL value: '.$data.' Full URL: '.$post['data']['url'],200);
+  if (strlen($data) > 7) throw new Exception('Unknown URL value: '.$data.' Full URL: '.$post['data']['url'],200);
   return $data;
  }
 
@@ -111,17 +113,18 @@ class Reddit extends Base {
   $sql = 'SELECT id from imgur_history WHERE id = "'.$data.'"';
   if ($this->db->fetch($sql)) throw new Exception('Previously retrieved image ('.$data.')',200);
   $imagedata = json_decode($this->remoteFetch(array(
-   'url' => 'http://api.imgur.com/3/image/'.$data.'.json',
+   'url' => 'https://api.imgur.com/3/image/'.$data.'.json',
    'headers' => array('Authorization: Client-ID '.IMGUR_CID)
    )),TRUE);
+  $imagedata = $imagedata['data'];
   if (!$imagedata) throw new Exception('Error retrieving Imgur data',200);
   if ($imagedata['error']) {
-   if ($imagedata['error']['message'] == 'API limits exceeded') throw new Exception('Imgur API limits exceeded',999);
-   throw new Exception('Imgur error: '.$imagedata['error']['message'].' '.$data,200);
+   if ($imagedata['error'] == 'User request limit exceeded') throw new Exception('Imgur API limits exceeded',999);
+   throw new Exception('Imgur error: '.$imagedata['error'].' '.$data,200);
   }
   $sql = 'INSERT INTO imgur_history(id) VALUES("'.$data.'")';
   $this->db->fetch($sql);
-  return $imagedata['image']['links']['original'];
+  return $imagedata['link'];
  }
 
  private function addImage($url, $post) {

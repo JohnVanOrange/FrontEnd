@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `imgur_history` (
-  `id` varchar(5) character set utf8 collate utf8_bin NOT NULL
+  `id` varchar(7) character set utf8 collate utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `report_types` (
