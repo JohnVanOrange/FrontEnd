@@ -21,11 +21,15 @@ var api = {
    data: opt,
    dataType: 'json',
    success: function(response) {
-    if (response.hasOwnProperty('error')) {
-     throw {name: response.error, message: response.message};
-    }
-    callback(response);
-    process(response);
+    try {
+     if (response.hasOwnProperty('error')) {
+      throw {name: response.error, message: response.message};
+     }
+     callback(response);
+     process(response);
+    } catch(e) {
+	 exception_handler(e);
+	}
    }
   });
  },
@@ -205,21 +209,23 @@ $(document).ready(function() {
     var e = {message: "Passwords don't match"};
     exception_handler(e);
    } else {
-    var response = call('user/add', {
+    call_a('user/add',function(response){
+	 if (!response.error) {
+      call('user/login', {
+       'username': $('#create_username').val(),
+       'password': $('#create_password').val()
+      });
+	  $('#account_dialog').dialog('close');
+      window.location.reload();
+	 }
+	},
+	{
      'username': $('#create_username').val(),
      'password': $('#create_password').val(),
      'email': $('#create_email').val()
     });
-    if (!response.error) {
-     call('user/login', {
-      'username': $('#create_username').val(),
-      'password': $('#create_password').val()
-     });
-     $('#account_dialog').dialog('close');
-     window.location.reload();
-    }
-   }
-  };
+   };
+  }
   $('#create_email').bind('keydown', function (event) {
    if (event.keyCode === 13) {
     event.preventDefault();
@@ -283,9 +289,9 @@ $(document).ready(function() {
  $('#save_image').click(function () {
   $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
   if ($('#save_image').hasClass('icon-star-1')) {
-   call('image/save',{image:$('.image').attr('id')});
+   call_a('image/save',function(){},{image:$('.image').attr('id')});
   } else {
-   call('image/unsave',{image:$('.image').attr('id')});
+   call_a('image/unsave',function(){},{image:$('.image').attr('id')});
   }
  });
 
@@ -305,7 +311,7 @@ $(document).ready(function() {
    width: 500,
    buttons: {
     'Add': function () {
-     call('image/addFromURL', {
+     call_a('image/addFromURL', function(){}, {
       'url': $('#url').val()
      });
      $(this).dialog('close');
@@ -321,7 +327,7 @@ $(document).ready(function() {
    title: 'Report Image',
    buttons: {
     'Report': function () {
-     call('image/report', {
+     call_a('image/report', function(){}, {
       'image': $('.image').attr('id'),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
@@ -341,16 +347,19 @@ $(document).ready(function() {
    minLength: 2
   });
   var addtag = function () {
-   var result = call('tag/add', {
+   var result = call_a('tag/add', function(result){
+    var tagtext = '', i;
+    for (i in result.tags) {
+     tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
+    }
+    tagtext = tagtext.substring(0, tagtext.length - 2);
+    $('#tagtext').html(tagtext);
+   }, 
+   {
     'name': $('#tag_name').val(),
     'image' : $('.image').attr('id')
    });
-   var tagtext = '', i;
-   for (i in result.tags) {
-    tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
-   }
-   tagtext = tagtext.substring(0, tagtext.length - 2);
-   $('#tagtext').html(tagtext);
+
   };
   $('#tag_name').bind('keydown', function (event) {
    if (event.keyCode === 13) {
