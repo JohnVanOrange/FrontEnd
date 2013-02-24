@@ -10,7 +10,7 @@
    <p>Where it all started. Random images that range from funny to sexy. Some content not suitable for work.</p>
   </div>
  </a></div>
- <div class='site'><a href='prettylovable.com'>
+ <div class='site'><a href='http://prettylovable.com'>
   <div id='pretty'>Pretty Lovable
    <p>Cats, dogs, and other various lovable animals. Designed for viewers of all ages.</p>
   </div>
