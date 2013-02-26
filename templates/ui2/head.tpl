@@ -9,6 +9,10 @@
     <link rel='stylesheet' type='text/css' href='{$web_root}css/fontello/fontello.css?20130128a' />
     <link rel='stylesheet' type='text/css' href='{$web_root}css/fontello/fontello-codes.css?20130128' />
     <link rel='stylesheet' type='text/css' href='{$web_root}css/ui-theme/jquery-ui-1.8.21.custom.css' />
+    
+    <!--[if lt IE 9]>
+    <script src="{$web_root}components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
 
 {if $image}{include file='image_header.tpl'}{/if}
 </head>
