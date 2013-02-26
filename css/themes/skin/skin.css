@@ -95,7 +95,6 @@ nav {
 }
 #tag_search {
   padding-left: 5px;
-  padding-right: 16px;
   border-radius: 8px;
 }
 nav a,
@@ -153,13 +152,7 @@ nav a:hover {
   background-color: #667C26;
 }
 #search {
-  margin-top: -4px;
-}
-#search button {
-  width: 10px;
-  border: none;
-  background: none;
-  margin-left: -18px;
+  margin-top: 1px;
 }
 fieldset {
   text-align: left;

@@ -29,7 +29,7 @@
 			</ul>
 		</li>
 		{/if}
-		<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit'>Search</button></form></li>
+		<li class='nomobile'><form action='' id='search'><input id='tag_search' type='search' results="0" placeholder='View by tag'><button type='submit'>Search</button></form></li>
 		<li id='menu' class='icon-menu icon'>
 			<ul>
                 {if !$user.username}<li><a href='/form/login' id='login' class='icon-login'>Login</a></li>
