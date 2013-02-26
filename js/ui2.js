@@ -1,19 +1,5 @@
 var api = {
- client : function (method, opt) {
-  var url = '/api/' + method;
-  var response = $.parseJSON($.ajax({
-   type: 'post',
-   async: false,
-   url: url,
-   data: opt,
-   dataType: 'json'
-  }).responseText);
-  if (response.hasOwnProperty('error')) {
-   throw {name: response.error, message: response.message};
-  }
-  return response;
- },
- aclient : function (method, callback, opt) {
+ client : function (method, callback, opt) {
   var url = '/api/' + method;
   $.ajax({
    type: 'post',
@@ -33,11 +19,8 @@ var api = {
    }
   });
  },
- call : function (method, opt) {
-  return this.client(method, opt);
- },
- call_a : function (method, callback, opt) {
-  return this.aclient(method, callback, opt);
+ call : function (method, callback, opt) {
+  return this.client(method, callback, opt);
  }
 };
 
@@ -52,10 +35,10 @@ function exception_handler(e) {
  }
 }
 
-function call_a(method, callback, opt) {
+function call(method, callback, opt) {
  "use strict";
  try {
-  api.call_a(method, callback, opt);
+  api.call(method, callback, opt);
  } catch (e) {
   exception_handler(e);
  }
@@ -82,25 +65,21 @@ function process(result) {
  return null;
 }
 
-function call(method, opt) {
- "use strict";
- try {
-  var result = api.call(method, opt);
-  if (result.message) {
-   var message = result.message;
-   if (result.thumb) {
-    message = message + '<br><img src="' + result.thumb + '">';
-   }
-   if (result.url) {
-    message = '<a href="' + result.url + '">' + message + '</a>';
-   }
-   noty({text: message, dismissQueue: true});
-  }
-  return result;
- } catch (e) {
-  exception_handler(e);
- }
- return null;
+function debug(method, opt) {
+ var id = Math.floor((Math.random()*1000)+1);
+ var start = +new Date();
+ call(method,
+  function(response){
+   end = +new Date();
+   time = end - start;
+   console.log({
+    id: id,
+    response: response,
+	time : time+'ms'
+   });
+  },
+  opt);
+  return id;
 }
 
 function display_mods() {
@@ -175,7 +154,7 @@ $(document).ready(function() {
     $('#add_tag').click();
     break;
    case 124:
-    window.location.href = 'http://johnvanorange.com/v/joJpMJ';
+    window.location.href = 'http://johnvanorange.com/joJpMJ';
     break;
    }
   }
@@ -209,14 +188,16 @@ $(document).ready(function() {
     var e = {message: "Passwords don't match"};
     exception_handler(e);
    } else {
-    call_a('user/add',function(response){
+    call('user/add',function(response){
 	 if (!response.error) {
-      call('user/login', {
+      call('user/login', function(){	  
+	   $('#account_dialog').dialog('close');
+       window.location.reload();
+	  },
+	  {
        'username': $('#create_username').val(),
        'password': $('#create_password').val()
       });
-	  $('#account_dialog').dialog('close');
-      window.location.reload();
 	 }
 	},
 	{
@@ -247,14 +228,17 @@ $(document).ready(function() {
  $('#login').click(function (event) {
   event.preventDefault();
   var login = function () {
-   var response = call('user/login', {
+   call('user/login', function(response){
+    if (response.sid) {
+     $('#login_dialog').dialog('close');
+     window.location.reload();
+    }
+   },
+   {
     'username': $('#login_username').val(),
     'password': $('#login_password').val()
    });
-   if (response.sid) {
-    $('#login_dialog').dialog('close');
-    window.location.reload();
-   }
+
   };
   $('#login_password').bind('keydown', function (event) {
    if (event.keyCode === 13) {
@@ -281,7 +265,7 @@ $(document).ready(function() {
  /*Logout*/
  $('#logout').click(function () {
   event.preventDefault();
-  call_a('user/logout', function(response){
+  call('user/logout', function(response){
    if (!response.error) window.location.reload();
   })
  });
@@ -289,9 +273,9 @@ $(document).ready(function() {
  $('#save_image').click(function () {
   $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
   if ($('#save_image').hasClass('icon-star-1')) {
-   call_a('image/save',function(){},{image:$('.image').attr('id')});
+   call('image/save',function(){},{image:$('.image').attr('id')});
   } else {
-   call_a('image/unsave',function(){},{image:$('.image').attr('id')});
+   call('image/unsave',function(){},{image:$('.image').attr('id')});
   }
  });
 
@@ -306,15 +290,24 @@ $(document).ready(function() {
  /*Upload Image dialog*/
  $('#addInternet').click(function (event) {
   event.preventDefault();
+  upload = function() {
+   call('image/addFromURL', function(){}, {
+    'url': $('#url').val()
+   });
+   $('#add_internet_dialog').dialog('close');
+  };
+  $('#url').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    upload();
+   }
+  });
   $('#add_internet_dialog').dialog({
    title: 'Add Image from URL',
    width: 500,
    buttons: {
     'Add': function () {
-     call_a('image/addFromURL', function(){}, {
-      'url': $('#url').val()
-     });
-     $(this).dialog('close');
+     upload();
     }
    }
   });
@@ -327,7 +320,7 @@ $(document).ready(function() {
    title: 'Report Image',
    buttons: {
     'Report': function () {
-     call_a('image/report', function(){}, {
+     call('image/report', function(){}, {
       'image': $('.image').attr('id'),
       'type': $('#report_dialog input[type=radio]:checked').val()
      });
@@ -347,7 +340,7 @@ $(document).ready(function() {
    minLength: 2
   });
   var addtag = function () {
-   var result = call_a('tag/add', function(result){
+   call('tag/add', function(result){
     var tagtext = '', i;
     for (i in result.tags) {
      tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
@@ -396,7 +389,7 @@ $(document).ready(function() {
  /*Search by tag box*/
  $('form#search').submit(function (event) {
   event.preventDefault();  
-  call_a('tag/get', function(taginfo){
+  call('tag/get', function(taginfo){
    window.location.href = taginfo[0].url;
   }, {'value': $('#tag_search').val(), 'search_by': 'name'});
  });
@@ -427,7 +420,7 @@ $(document).ready(function() {
  
  /*Next image preload*/
  if ($('#rand_image').length !== 0) {
-  call_a('image/random', function(next_image_data){
+  call('image/random', function(next_image_data){
    next_image = new Image();
    next_image.src = next_image_data.image_url;
    $('#rand_image').attr('href',next_image_data.page_url); 
