@@ -8,5 +8,6 @@ fi
 
 git checkout $BRANCH
 git pull
+composer update
 composer install
 bower install
