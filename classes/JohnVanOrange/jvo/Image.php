@@ -274,8 +274,9 @@ class Image extends Base {
    $result['page_title'] .= rtrim($title_text, ', ');
   }
   //URLs
-  $result['image_url'] = WEB_ROOT . 'media/'. $result['filename'];
-  $result['thumb_url'] = WEB_ROOT . 'media/thumbs/'. $result['filename'];
+  $siteURL = $this->siteURL();
+  $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. '/media/'. $result['filename'];
+  $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. '/media/thumbs/'. $result['filename'];
   $result['page_url'] = WEB_ROOT . $result['uid'];
   if ($current['type'] > 1) { //if admin
    //Get report data

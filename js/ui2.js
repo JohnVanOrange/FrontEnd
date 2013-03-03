@@ -113,8 +113,7 @@ $(document).ready(function() {
  
  /*Display hacks*/
  display_mods()
- /*Icon for search button*/
- //$('#search button[type=submit]').button({text: false, icons: {primary: 'ui-icon-search'} });
+ /*Hide search button*/
  $('#search button[type=submit]').button().hide();
  
  /*Options for Notifications*/

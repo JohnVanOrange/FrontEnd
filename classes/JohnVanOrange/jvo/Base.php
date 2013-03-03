@@ -69,6 +69,10 @@ class Base {
   $output = strtolower($output);
   return $output;
  }
+ 
+ protected function siteURL() {
+   return parse_url(WEB_ROOT);
+ }
 
 }
 ?>
