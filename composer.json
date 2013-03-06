@@ -18,8 +18,7 @@
  "require" : {
   "php" : ">=5.3.2",
   "smarty/smarty" : "3.1.*",
-  "ext-imagick" : "*",
-  "cypresslab/gitelephant": "0.9.14"
+  "ext-imagick" : "*"
  },
  "autoload" : {
   "psr-0" : {

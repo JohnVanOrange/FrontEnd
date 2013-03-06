@@ -13,8 +13,7 @@ $valid_classes = array(
  'theme' => 'JohnVanOrange\jvo\Theme',
  'report' => 'JohnVanOrange\jvo\Report',
  'refresh' => 'JohnVanOrange\jvo\Refresh',
- 'reddit' => 'JohnVanOrange\jvo\Reddit',
- 'rc' => 'JohnVanOrange\jvo\RC'
+ 'reddit' => 'JohnVanOrange\jvo\Reddit'
 );
 
 try {
@@ -26,7 +25,6 @@ try {
   case 'report':
   case 'refresh':
   case 'reddit':
-  case 'rc':
    $class_name = $valid_classes[$class];
   break;
   default:
