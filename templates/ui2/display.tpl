@@ -21,7 +21,7 @@
 
 <div id='social'>
 	<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
-	<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={$image.page_url|escape:"url"}&media={$image.image_url|escape:"url"}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>
+	<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={$image.page_url|escape:"url"}&amp;media={$image.image_url|escape:"url"}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="Pin It" alt='Pin It' /></a></div>
 	<div class="g-plusone" data-size="medium"></div>
 </div>
 
