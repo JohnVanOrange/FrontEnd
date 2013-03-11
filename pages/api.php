@@ -46,4 +46,3 @@ catch (exception $e) {
 //else {
 // echo $result;
 //}
-?>

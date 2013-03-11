@@ -24,4 +24,3 @@ class Resource extends Base {
   return $this->db->fetch($sql,$val);
  }
 }
-?>

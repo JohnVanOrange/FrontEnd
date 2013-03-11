@@ -135,4 +135,3 @@ class Reddit extends Base {
  }
  
 }
-?>

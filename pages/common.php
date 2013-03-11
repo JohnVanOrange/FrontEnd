@@ -35,4 +35,3 @@ function browser_info($agent=null) {
   $i = count($matches['browser'])-1;
   return array('name' => $matches['browser'][$i] , 'version' => $matches['version'][$i]);
 }
-?>

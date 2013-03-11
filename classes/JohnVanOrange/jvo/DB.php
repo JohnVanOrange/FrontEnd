@@ -21,4 +21,3 @@ class DB extends PDO {
   return $s->fetchAll();
  }
 }
-?>

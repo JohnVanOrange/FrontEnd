@@ -322,4 +322,3 @@ class Image extends Base {
  }
 
 }
-?>

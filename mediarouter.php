@@ -18,5 +18,3 @@ else {
 
 header('Content-type: '.$image->getImageMimeType());
 echo $image->getImagesBlob();
-
-?>

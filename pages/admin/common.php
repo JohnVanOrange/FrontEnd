@@ -7,4 +7,3 @@ $tpl->assign('web_root',WEB_ROOT);
 $tpl->assign('icon_set',ICON_SET);
 $tpl->assign('site_theme', THEME);
 $tpl->assign('user', call('user/current'));
-?>
