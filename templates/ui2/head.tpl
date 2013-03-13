@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
-    <title>{if $image.page_title}{$image.page_title}{else}{$site_name}{if $title_text} - {$title_text}{/if}{/if}</title>
+    <title>{if isset($image.page_title)}{$image.page_title}{else}{$site_name}{if $title_text} - {$title_text}{/if}{/if}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
     <link rel='shortcut icon' type='image/png' href='{$web_root}icons/{$icon_set}/16.png' />
     <link rel='stylesheet' type='text/css' media='screen' href='{$web_root}css/themes/{$site_theme}/{$site_theme}.css?20130121a' />
@@ -14,6 +14,6 @@
     <script src="{$web_root}components/html5shiv/dist/html5shiv.js"></script>
     <![endif]-->
 
-{if $image}{include file='image_header.tpl'}{/if}
+{if isset($image)}{include file='image_header.tpl'}{/if}
 </head>
 {include file='header.tpl'}

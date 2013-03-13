@@ -12,13 +12,13 @@
  <li>Type: <span class='data'>{$image.type|upper}</span></li>
  <li>Width: <span class='data'>{$image.width}px</span></li>
  <li>Height: <span class='data'>{$image.height}px</span></li>
- {if $image.data.upload}<li>Added on {$image.data.upload.created|date_format}</li>{/if}
- {if $image.uploader.username}<li>Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a></li>{/if}
- {if $image.approved}
-  {if $image.nsfw}<li>Flagged NSFW</li>{/if}
+ {if isset($image.data.upload)}<li>Added on {$image.data.upload.created|date_format}</li>{/if}
+ {if isset($image.uploader.username)}<li>Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a></li>{/if}
+ {if isset($image.approved)}
+  {if isset($image.nsfw)}<li>Flagged NSFW</li>{/if}
  {/if}
- {if $image.saved}<li>Saved{if $image.data.save.created} on {$image.data.save.created|date_format}{/if}</li>{/if}
- {if $image.tags}
+ {if isset($image.saved)}<li>Saved{if isset($image.data.save.created)} on {$image.data.save.created|date_format}{/if}</li>{/if}
+ {if isset($image.tags)}
   <li>
    <ul>Tags:
     {foreach name=tags from=$image.tags item=tag}<li class='icon-tag'><a href='/t/{$tag.basename}'>{$tag.name}</a></li>{/foreach}
@@ -31,7 +31,7 @@
    <li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={$image.image_url}'>Reverse Google search</a></li>
    <li class='icon-search'><a href='http://tineye.com/search?url={$image.image_url}'>Reverse Tineye search</a></li>
    <li class='icon-tools'><a href='http://imgops.com/{$image.image_url}'>Image tools</a></li>
-   {if $image.c_link}<li class='icon-comment'><a href='{$image.c_link}'>Comments</a></li>{/if}
+   {if isset($image.c_link)}<li class='icon-comment'><a href='{$image.c_link}'>Comments</a></li>{/if}
   </ul>
  </li>
 </ul>

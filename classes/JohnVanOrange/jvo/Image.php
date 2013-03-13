@@ -247,26 +247,27 @@ class Image extends Base {
   if (!$result['display'] AND $current['type'] < 2) throw new \Exception('Image removed', 403);
   //Get tags
   $tag_result = $tag->get(array('value'=>$result['uid']));
-  if ($tag_result) $result['tags'] = $tag_result;
+  if (isset($tag_result)) $result['tags'] = $tag_result;
   //Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
-  if ($uploader) {
-   $result['uploader'] = $this->user->get($uploader[0]['user_id']);
+  if (isset($uploader[0])) {
+   $result['uploader'] = $this->user->get(array('value' => $uploader[0]['user_id']));
   }
   //Get resources
   if ($current) {
    $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$current['id'].'")';
    $resources = $this->db->fetch($sql);
+   $data = NULL;
    foreach ($resources as $r) {
     $data[$r['type']] = $r;
    }
-   $result['data'] = $data;
-   if ($data['save']) $result['saved'] = 1;
+   if ($data) $result['data'] = $data;
+   if (isset($data['save'])) $result['saved'] = 1;
   }
   //Page title
   $result['page_title'] = SITE_NAME;
-  if ($result['tags']) {
+  if (isset($result['tags'])) {
    $title_text = ' - ';
    foreach ($result['tags'] as $tag) {
     $title_text .= $tag['name'] . ', ';
@@ -278,7 +279,7 @@ class Image extends Base {
   $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. '/media/'. $result['filename'];
   $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. '/media/thumbs/'. $result['filename'];
   $result['page_url'] = WEB_ROOT . $result['uid'];
-  if ($current['type'] > 1) { //if admin
+  if ($this->user->isAdmin()) {
    //Get report data
    $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
    $report_result = $this->db->fetch($sql);

@@ -12,6 +12,8 @@ class Resource extends Base {
  }
 
  public function add($options=array()) {
+  if (!isset($options['value'])) $options['value'] = NULL;
+  if (!isset($options['type'])) $options['type'] = NULL;
   $current = $this->user->current($options);
   $sql = 'INSERT INTO resources (ip, image, user_id, value, type) VALUES(:ip, :image, :user_id, :value, :type)';
   $val = array(

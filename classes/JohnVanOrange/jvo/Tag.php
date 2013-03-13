@@ -53,6 +53,7 @@ class Tag extends Base {
  }
  
  public function get($options=array()) {
+  if (!isset($options['search_by'])) $options['search_by'] = NULL;
   switch ($options['search_by']) {
    case 'name':
    $options['search_by'] = 'basename';
