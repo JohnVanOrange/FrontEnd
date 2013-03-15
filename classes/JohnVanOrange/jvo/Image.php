@@ -45,9 +45,9 @@ class Image extends Base {
  public function approve($options=array()) {
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
-  if (!$options['image']) throw new \Exception('Image UID required');
+  if (!isset($options['image'])) throw new \Exception('Image UID required');
   $nsfw = 0;
-  if ($options['nsfw']) $nsfw = 1;
+  if (isset($options['nsfw'])) $nsfw = 1;
   $sql = 'DELETE FROM resources WHERE image = :image AND type = "report";';
   $val = array(
    ':image' => $options['image']
@@ -247,12 +247,12 @@ class Image extends Base {
   if (!$result['display'] AND $current['type'] < 2) throw new \Exception('Image removed', 403);
   //Get tags
   $tag_result = $tag->get(array('value'=>$result['uid']));
-  if (isset($tag_result)) $result['tags'] = $tag_result;
+  if ($tag_result) $result['tags'] = $tag_result;
   //Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
-  if (isset($uploader[0])) {
-   $result['uploader'] = $this->user->get(array('value' => $uploader[0]['user_id']));
+  if ($uploader) {
+   $result['uploader'] = $this->user->get($uploader[0]['user_id']);
   }
   //Get resources
   if ($current) {
@@ -263,7 +263,7 @@ class Image extends Base {
     $data[$r['type']] = $r;
    }
    if ($data) $result['data'] = $data;
-   if (isset($data['save'])) $result['saved'] = 1;
+   if ($data['save']) $result['saved'] = 1;
   }
   //Page title
   $result['page_title'] = SITE_NAME;
@@ -279,7 +279,7 @@ class Image extends Base {
   $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. '/media/'. $result['filename'];
   $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. '/media/thumbs/'. $result['filename'];
   $result['page_url'] = WEB_ROOT . $result['uid'];
-  if ($this->user->isAdmin()) {
+  if ($current['type'] > 1) { //if admin
    //Get report data
    $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
    $report_result = $this->db->fetch($sql);
