@@ -252,7 +252,7 @@ class Image extends Base {
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
   if ($uploader) {
-   $result['uploader'] = $this->user->get($uploader[0]['user_id']);
+   $result['uploader'] = $this->user->get(array('value' => $uploader[0]['user_id']));
   }
   //Get resources
   if ($current) {
