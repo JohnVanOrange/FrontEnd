@@ -8,7 +8,7 @@
  AddOutputFilterByType DEFLATE text/html text/css application/javascript
 </IfModule>
 
-php_value request_order CGP
+#php_value request_order CGP
 
 DirectoryIndex router.php
 

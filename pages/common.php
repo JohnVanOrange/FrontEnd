@@ -1,5 +1,6 @@
 <?php
 $user = call('user/current');
+if (!isset($user['id'])) $user['id'] = 0;
 
 $tpl->assign('ga',GOOGLE_ANALYTICS);
 $tpl->assign('site_name',SITE_NAME);
@@ -10,7 +11,7 @@ $tpl->assign('icon_set',ICON_SET);
 if (defined('APP_LINK')) $tpl->assign('app_link',APP_LINK);
 if (defined('SHOW_JVON')) $tpl->assign('show_jvon',SHOW_JVON);
 $tpl->assign('user', $user);
-if ($user['type'] > 1) $tpl->assign('is_admin', TRUE);
+if (call('user/isAdmin')) $tpl->assign('is_admin', TRUE);
 $tpl->assign('site_theme', THEME);
 $tpl->assign('current_url', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 

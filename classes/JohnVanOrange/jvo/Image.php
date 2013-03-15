@@ -45,9 +45,9 @@ class Image extends Base {
  public function approve($options=array()) {
   $current = $this->user->current($options);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
-  if (!$options['image']) throw new \Exception('Image UID required');
+  if (!isset($options['image'])) throw new \Exception('Image UID required');
   $nsfw = 0;
-  if ($options['nsfw']) $nsfw = 1;
+  if (isset($options['nsfw'])) $nsfw = 1;
   $sql = 'DELETE FROM resources WHERE image = :image AND type = "report";';
   $val = array(
    ':image' => $options['image']
@@ -258,15 +258,16 @@ class Image extends Base {
   if ($current) {
    $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$current['id'].'")';
    $resources = $this->db->fetch($sql);
+   $data = NULL;
    foreach ($resources as $r) {
     $data[$r['type']] = $r;
    }
-   $result['data'] = $data;
+   if ($data) $result['data'] = $data;
    if ($data['save']) $result['saved'] = 1;
   }
   //Page title
   $result['page_title'] = SITE_NAME;
-  if ($result['tags']) {
+  if (isset($result['tags'])) {
    $title_text = ' - ';
    foreach ($result['tags'] as $tag) {
     $title_text .= $tag['name'] . ', ';

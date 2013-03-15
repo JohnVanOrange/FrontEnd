@@ -7,7 +7,7 @@ class User extends Base {
  
  public function __construct() {
   parent::__construct();
-  if ($_COOKIE['sid']) $this->setSID($_COOKIE['sid']);
+  if (isset($_COOKIE['sid'])) $this->setSID($_COOKIE['sid']);
  }
  
  private function getSecureID() {
@@ -18,8 +18,9 @@ class User extends Base {
   return md5($salt.$pass);
  }
  
- protected function isAdmin($options=array()) {
+ public function isAdmin($options=array()) {
   $user = $this->current();
+  if (!isset($user['type'])) $user['type'] = NULL;
   if ($user['type']>= 2) return TRUE;
   return FALSE;
  }
@@ -31,6 +32,7 @@ class User extends Base {
  }
 
  public function get($options=array()) {
+  if (!isset($options['search_by'])) $options['search_by'] = NULL;
   switch ($options['search_by']) {
    case 'username':
     $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE username = :value';
@@ -44,21 +46,23 @@ class User extends Base {
    ':value' => $options['value']
   );
   $user = $this->db->fetch($sql,$val);
-  $user = $user[0];
-  if ($user['email']) $user['email_hash'] = md5($user['email']);
+  if (isset($user[0])) $user = $user[0];
+  if (isset($user['email'])) $user['email_hash'] = md5($user['email']);
   unset($user['email']);
   return $user;
  }
 
  public function current($options=array()) {
   $sid = $this->getSID();
-  if ($options['sid']) $sid = $options['sid'];
+  if (isset($options['sid'])) $sid = $options['sid'];
   $sql = 'SELECT user_id FROM sessions WHERE sid = :sid LIMIT 1';
   $val = array(
    ':sid' => $sid
   );
   $user = $this->db->fetch($sql,$val);
-  return $this->get(array('value'=>$user[0]['user_id']));
+  $user_id = NULL;
+  if (isset($user[0]['user_id'])) $user_id = $user[0]['user_id'];
+  return $this->get(array('value'=>$user_id));
  }
 
  private function getSID() {
