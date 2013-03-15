@@ -263,7 +263,7 @@ class Image extends Base {
     $data[$r['type']] = $r;
    }
    if ($data) $result['data'] = $data;
-   if ($data['save']) $result['saved'] = 1;
+   if (isset($data['save'])) $result['saved'] = 1;
   }
   //Page title
   $result['page_title'] = SITE_NAME;
