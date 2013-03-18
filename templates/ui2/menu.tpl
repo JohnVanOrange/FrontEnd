@@ -1,6 +1,6 @@
 <nav>
 	<ul>
-		{if isset($user.username)}<li id='user_avatar'><a href='/u/{$user.username}'><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&amp;d=retro&amp;r=pg' alt='User avatar'></a></li>
+		{if isset($user.username)}<li id='user_avatar'><a href='/u/{$user.username}'><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=24&amp;d=retro&amp;r=pg' alt='User avatar' height='24' width='24'></a></li>
 		<li id="username" class='nomobile' title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
 		{if isset($image)}
 		<li id='add_image' class='icon-plus-circled icon'>
