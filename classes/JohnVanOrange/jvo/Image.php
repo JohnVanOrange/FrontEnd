@@ -247,11 +247,11 @@ class Image extends Base {
   if (!$result['display'] AND $current['type'] < 2) throw new \Exception('Image removed', 403);
   //Get tags
   $tag_result = $tag->get(array('value'=>$result['uid']));
-  if ($tag_result) $result['tags'] = $tag_result;
+  if (isset($tag_result)) $result['tags'] = $tag_result;
   //Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
-  if ($uploader) {
+  if (isset($uploader)) {
    $result['uploader'] = $this->user->get(array('value' => $uploader[0]['user_id']));
   }
   //Get resources
@@ -279,7 +279,7 @@ class Image extends Base {
   $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. '/media/'. $result['filename'];
   $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. '/media/thumbs/'. $result['filename'];
   $result['page_url'] = WEB_ROOT . $result['uid'];
-  if ($current['type'] > 1) { //if admin
+  if ($this->user->isAdmin()) {
    //Get report data
    $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
    $report_result = $this->db->fetch($sql);
