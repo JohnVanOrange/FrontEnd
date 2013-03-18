@@ -3,7 +3,7 @@
 <div id='content'>
 
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
-		<a id='rand_image' href='../{$page}?{$rand}' rel='nofollow'>
+		<a id='rand_image' href='/?{$rand}' rel='nofollow'>
 			<img id="{$image.uid}" class="image" alt='Main Image' src='{$image.image_url}' height='{$image.height}' width='{$image.width}' itemprop='contentUrl' />
 		</a>
 		<div><p{if !isset($image.uploader)} style='display:none'{/if} class='icon-upload'>

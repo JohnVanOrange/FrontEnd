@@ -4,16 +4,16 @@
  var icon_set = '{$icon_set}';
 </script>
 
-<script defer src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>
-<script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'></script>
-<script defer src='{$web_root}components/jquery-imagefit-plugin/jquery.imagefit.js'></script>
-<script defer src='{$web_root}components/history.js/scripts/bundled/html5/jquery.history.js'></script>
-<script defer src='{$web_root}components/noty/js/noty/jquery.noty.js'></script>
-<script defer src='{$web_root}components/noty/js/noty/layouts/topLeft.js'></script>
-<script defer src='{$web_root}components/noty/js/noty/themes/default.js'></script>
-<script defer src='{$web_root}js/ui2.js?20130213'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'></script>
+<script src='{$web_root}components/jquery-imagefit-plugin/jquery.imagefit.js'></script>
+<script async src='{$web_root}components/history.js/scripts/bundled/html5/jquery.history.js'></script>
+<script src='{$web_root}components/noty/js/noty/jquery.noty.js'></script>
+<script src='{$web_root}components/noty/js/noty/layouts/topLeft.js'></script>
+<script src='{$web_root}components/noty/js/noty/themes/default.js'></script>
+<script src='{$web_root}js/ui2.js?20130213'></script>
 
-<script defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script async src="//assets.pinterest.com/js/pinit.js"></script>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -46,7 +46,7 @@
 
 </script>
 
-<script type="text/javascript">
+<script type="text/javascript"><!-- get satisfaction -->
   var is_ssl = ("https:" == document.location.protocol);
   var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
   document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
