@@ -251,7 +251,7 @@ class Image extends Base {
   //Get uploader
   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
   $uploader = $this->db->fetch($sql);
-  if (isset($uploader)) {
+  if (isset($uploader[0])) {
    $result['uploader'] = $this->user->get(array('value' => $uploader[0]['user_id']));
   }
   //Get resources
@@ -267,7 +267,7 @@ class Image extends Base {
   }
   //Page title
   $result['page_title'] = SITE_NAME;
-  if (isset($result['tags'])) {
+  if (isset($result['tags'][0])) {
    $title_text = ' - ';
    foreach ($result['tags'] as $tag) {
     $title_text .= $tag['name'] . ', ';
