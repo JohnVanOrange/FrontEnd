@@ -271,6 +271,15 @@ legend {
 #jvon div.site a {
   color: white;
 }
+.thumb_wrap {
+  display: inline-block;
+  height: 164px;
+  width: 244px;
+}
+.thumb_wrap a img {
+  margin: 0 auto;
+  display: block;
+}
 ul,
 li {
   margin: 0;
