@@ -1,11 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 header,
 #skin {
   padding-left: 62px;
   background: url('/img/lips_46.png') left no-repeat;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Poiret One', sans-serif;
 }
 html {
   font-family: 'Open Sans', sans-serif;
