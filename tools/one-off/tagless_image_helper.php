@@ -1,7 +1,10 @@
 <?php
+namespace JohnVanOrange\jvo;
+
+require_once('../../vendor/autoload.php');
 require_once('../../settings.inc');
-require_once(ROOT_DIR.'/classes/image.class.php');
-require_once(ROOT_DIR.'/classes/tag.class.php');
+require_once('../../common/exceptions.php');
+
 require_once('simple_html_dom.php');
 
 class remote extends Base {
