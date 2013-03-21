@@ -9,6 +9,10 @@
     <link rel='stylesheet' type='text/css' href='{$web_root}css/fontello/fontello.css?20130128a' />
     <link rel='stylesheet' type='text/css' href='{$web_root}css/fontello/fontello-codes.css?20130128' />
     <link rel='stylesheet' type='text/css' href='{$web_root}css/ui-theme/jquery-ui-1.8.21.custom.css' />
+    <link rel="apple-touch-icon" href="{$web_root}icons/{$icon_set}/57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{$web_root}icons/{$icon_set}/72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{$web_root}icons/{$icon_set}/114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{$web_root}icons/{$icon_set}/144.png" />
     
     <!--[if lt IE 9]>
     <script src="{$web_root}components/html5shiv/dist/html5shiv.js"></script>
