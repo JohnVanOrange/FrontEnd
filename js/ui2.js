@@ -83,11 +83,7 @@ function debug(method, opt) {
 }
 
 function display_mods() {
- /*Force images to fit to page width*/
- $('.image').css('max-width','');
- if ($('#img_container').length !== 0) {
-  $('#img_container').imagefit();
- }
+
  /*Uploaded by message*/
  if ($('#img_container').length !== 0) {
   $('#img_container p').position({
