@@ -10,7 +10,6 @@ $request = explode('/',trim($request[0],'/'));
 $map = json_decode(file_get_contents('router_map.json'));
 
 if (strlen($request[0]) == 6 && !strstr($request[0], '/')) {
- //echo 'testing';
  $request[1] = $request[0];
  include(ROOT_DIR.'/pages/display.php');
 }
