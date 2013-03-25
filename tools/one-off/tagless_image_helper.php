@@ -37,15 +37,9 @@ $no_result_counter = 0;
 $tag_added = 0;
 foreach ($results as $result) {
  $counter++;
- // this should be refactored if I ever care enough.  Should just do image->get and check if there are tags
  $imagedata = $image->get(['image'=>$result['uid']]);
- //$sql = 'SELECT image FROM resources WHERE image = "'.$result['uid'].'" AND type="tag"';
- //$results = $db->fetch($sql);
  if (!isset($imagedata['tags'])) {
   $no_result_counter++;
-  //if this is refactored, the image_url will be in the image->get results
-  //$image_url = WEB_ROOT.'media/'.$result['filename'];
-  //$html = str_get_html($remote->fetch('http://www.google.com/searchbyimage?image_url='.$image_url));
   $html = str_get_html($remote->fetch('http://www.google.com/searchbyimage?image_url='.$imagedata['image_url']));
   $data = $html->find('a[style]',0);
   $taginfo = $data->nodes[0]->_[4];
