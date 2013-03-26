@@ -288,6 +288,9 @@ legend {
 #dislike_image.highlight {
   color: #fa241b;
 }
+#save_image.highlight {
+  color: yellow;
+}
 ul,
 li {
   margin: 0;

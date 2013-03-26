@@ -29,12 +29,11 @@ function exception_handler(e) {
  switch (e.name) {
  case 1020: //Must be logged in to save image
  case 1021: //Must be logged in to unsave image
-  $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
-  $('#login').click();
-  break;
  case 1022://Must be logged in to like images
  case 1023://Must be logged in to dislike images
   $('.like').removeClass('highlight');
+  $('#save_image').removeClass('highlight');
+  $('#login').click();
   break;
  }
 }
@@ -271,8 +270,8 @@ $(document).ready(function() {
  });
  
  $('#save_image').click(function () {
-  $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
-  if ($('#save_image').hasClass('icon-star-1')) {
+  $('#save_image').toggleClass('highlight');
+  if ($('#save_image').hasClass('highlight')) {
    call('image/save',function(){},{image:$('.image').attr('id')});
   } else {
    call('image/unsave',function(){},{image:$('.image').attr('id')});

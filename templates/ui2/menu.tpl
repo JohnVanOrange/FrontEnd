@@ -11,7 +11,7 @@
 				<li><a href='/form/add_internet' id='addInternet' class='icon-link'>Add Image from URL</a></li>
 			</ul>
 		</li>
-		<li id='save_image' class='{if !isset($image.saved)}icon-star-empty-1{else}icon-star-1{/if} icon' title='Save Image'></li>
+		<li id='save_image' class='icon-star-1 icon{if isset($image.saved)} highlight{/if}' title='Save Image'></li>
 		<li id='share_image' class='icon-share icon'>
 			<ul>
 				<li><a id='facebook_menu' class='icon-facebook-rect' href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pubid=ra-4f95e38340e66b80&amp;url={$current_url}" rel="nofollow" target='_blank'>Facebook</a></li>
