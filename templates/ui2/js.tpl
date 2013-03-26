@@ -10,7 +10,7 @@
 <script src='{$web_root}components/noty/js/noty/jquery.noty.js'></script>
 <script src='{$web_root}components/noty/js/noty/layouts/topLeft.js'></script>
 <script src='{$web_root}components/noty/js/noty/themes/default.js'></script>
-<script src='{$web_root}js/ui2.js?20130213'></script>
+<script src='{$web_root}js/ui2.js?20130325'></script>
 
 <script async src="//assets.pinterest.com/js/pinit.js"></script>
 
