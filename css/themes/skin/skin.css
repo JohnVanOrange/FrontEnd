@@ -292,6 +292,11 @@ legend {
 #save_image.highlight {
   color: yellow;
 }
+.pressed {
+  position: relative;
+  top: 2px;
+  text-shadow: none;
+}
 ul,
 li {
   margin: 0;

@@ -409,6 +409,11 @@ $(document).ready(function() {
   $('#fileupload').fileupload({'url':'/upload-handler/index.php'});
  });
  
+ $('.icon').click(function() {
+  $(this).addClass('pressed');
+  setTimeout(function(){$('.icon').removeClass('pressed')},80);
+ });
+ 
  /*Firefox Open Web App integration*/
  $('#firefox_menu').click(function (event) {
   event.preventDefault();
