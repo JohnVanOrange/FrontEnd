@@ -11,12 +11,17 @@ foreach ($thumbs as $name) {
  $width = '240';
  $height = '160';
 
- $image = new Imagick(ROOT_DIR.'/media/'.$name);
+ try {
+  $image = new Imagick(ROOT_DIR.'/media/'.$name);
 
- foreach ($image as $frame) {
- $frame->thumbnailImage($width,$height,TRUE);
+  foreach ($image as $frame) {
+   $frame->thumbnailImage($width,$height,TRUE);
+  }
+
+  file_put_contents(ROOT_DIR.'/media/thumbs/'.$name,$image->getImagesBlob());
+  echo "Created thumb for ". $name . "\n";
  }
-
- file_put_contents(ROOT_DIR.'/media/thumbs/'.$name,$image->getImagesBlob());
-
+ catch(ImagickException $e) {
+  echo "An exception occured for " . $name . " " . $e->getMessage();
+ }
 }
