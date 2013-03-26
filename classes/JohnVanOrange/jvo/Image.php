@@ -13,6 +13,46 @@ class Image extends Base {
   $this->res = new Resource;
  }
  
+ public function like($options=array()) {
+  $current = $this->user->current($options);
+  if (!$current) throw new \Exception('Must be logged in to rate images',1022);
+  $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "dislike")';
+  $val = array(
+   ':image' => $options['image'],
+   ':user_id' => $current['id']
+  );
+  $this->db->fetch($sql,$val);
+  $res = array(
+   'image' => $options['image'],
+   'type' => 'like'
+  );
+  $this->res->add($res);
+  return array(
+   'message' => 'Image liked.',
+   'liked' => 1
+  );
+ }
+
+ public function dislike($options=array()) {
+  $current = $this->user->current($options);
+  if (!$current) throw new \Exception('Must be logged in to rate images',1023);
+  $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "like")';
+  $val = array(
+   ':image' => $options['image'],
+   ':user_id' => $current['id']
+  );
+  $this->db->fetch($sql,$val);
+  $res = array(
+   'image' => $options['image'],
+   'type' => 'dislike'
+  );
+  $this->res->add($res);
+  return array(
+   'message' => 'Image disliked.',
+   'liked' => 0
+  );
+ } 
+ 
  public function save($options=array()) {
   $current = $this->user->current($options);
   if (!$current) throw new \Exception('Must be logged in to save images',1020);

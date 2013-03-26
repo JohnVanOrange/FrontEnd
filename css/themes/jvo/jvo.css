@@ -282,6 +282,12 @@ legend {
   margin: 0 auto;
   display: block;
 }
+#like_image.highlight {
+  color: #6aca4c;
+}
+#dislike_image.highlight {
+  color: #fa241b;
+}
 ul,
 li {
   margin: 0;

@@ -3,6 +3,8 @@
 		{if isset($user.username)}<li id='user_avatar'><a href='/u/{$user.username}'><img src='http://www.gravatar.com/avatar/{$user.email_hash}?s=48&amp;d=retro&amp;r=pg' alt='User avatar' height='24' width='24'></a></li>
 		<li id="username" class='nomobile' title="View Profile"><a href='/u/{$user.username}'>{$user.username}</a></li>{/if}
 		{if isset($image)}
+		<li id='like_image' class='like icon-thumbs-up icon{if isset($image.data.like)} highlight{/if}' title='Like Image'></li>
+		<li id='dislike_image' class='like icon-thumbs-down icon{if isset($image.data.dislike)} highlight{/if}' title='Dislike Image'></li>
 		<li id='add_image' class='icon-plus-circled icon'>
 			<ul>
 				<li><a href='/add' class='icon-upload'>Upload Image</a></li>

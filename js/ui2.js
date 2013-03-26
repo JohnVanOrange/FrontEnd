@@ -32,6 +32,10 @@ function exception_handler(e) {
   $('#save_image').toggleClass('icon-star-empty-1 icon-star-1');
   $('#login').click();
   break;
+ case 1022://Must be logged in to like images
+ case 1023://Must be logged in to dislike images
+  $('.like').removeClass('highlight');
+  break;
  }
 }
 
@@ -273,6 +277,18 @@ $(document).ready(function() {
   } else {
    call('image/unsave',function(){},{image:$('.image').attr('id')});
   }
+ });
+ 
+ $('#like_image').click(function () {
+  $('#like_image').addClass('highlight');
+  $('#dislike_image').removeClass('highlight');
+  call('image/like',function(){},{image:$('.image').attr('id')});
+ });
+ 
+  $('#dislike_image').click(function () {
+  $('#dislike_image').addClass('highlight');
+  $('#like_image').removeClass('highlight');
+  call('image/dislike',function(){},{image:$('.image').attr('id')});
  });
 
  /*Tag Search Autocomplete*/
