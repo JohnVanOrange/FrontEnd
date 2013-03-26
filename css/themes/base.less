@@ -94,7 +94,7 @@ footer {
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     height: 24px;
@@ -102,6 +102,7 @@ nav {
     font-size: 80%;
     border-radius: 0 0 0 8px;
     background: @menu_color;
+	z-index: 10;
 	.linear_gradient_2(top, lighten(@menu_color, 15%), 20%, @menu_color, 100%, @menu_color);
 }
 

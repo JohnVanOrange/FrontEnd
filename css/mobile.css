@@ -6,6 +6,10 @@
 	width: 100%;
 }
 
+body {
+	margin-bottom: 24px;
+}
+
 header  {
 	margin-top: -0.8em;
 	margin-bottom: 0;
@@ -15,6 +19,25 @@ header  {
 	-ms-transform: translate(-20%) scale(0.6);
 	-webkit-transform: translate(-20%) scale(0.6);
 	-o-transform: translate(-20%) scale(0.6);
+}
+
+nav {
+	top: auto;
+	bottom: 0;
+	border-radius: 8px 0 0 0;
+}
+
+nav > ul li ul {
+	top: auto;
+	bottom: 100%;
+}
+
+nav > ul li ul li:first-child {
+	border-radius: 6px 6px 0 0;
+}
+
+nav > ul li ul li:last-child {
+	border-radius: 0 0 0 0;
 }
 
 #profile_image {

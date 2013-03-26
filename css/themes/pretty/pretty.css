@@ -79,7 +79,7 @@ footer {
   clear: both;
 }
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 24px;
@@ -87,6 +87,7 @@ nav {
   font-size: 80%;
   border-radius: 0 0 0 8px;
   background: #dd7308;
+  z-index: 10;
   background: linear-gradient(top, #f8993a 20%, #dd7308 100%), #dd7308;
   background: -webkit-linear-gradient(top, #f8993a 20%, #dd7308 100%), #dd7308;
   background: -moz-linear-gradient(top, #f8993a 20%, #dd7308 100%), #dd7308;
