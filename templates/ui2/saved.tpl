@@ -3,7 +3,7 @@
 <div>
 {foreach from=$images item=image}
  <div class='thumb_wrap'>
-  <a href="{$image.page_url}"><img class='cloudcarousel' src="{$image.thumb_url}"></a>
+  <a href="{$image.page_url}"><img src="{$image.thumb_url}"></a>
  </div>
 {/foreach}
 </div>

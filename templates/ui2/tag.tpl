@@ -1,8 +1,10 @@
 {include file='head.tpl'}
 <h1>Images tagged {$tag.name}</h1>
-<div id='carousel'>
+<div>
 {foreach from=$images item=image}
- <a href="{$image.page_url}"><img class='cloudcarousel' src="{$image.thumb_url}"></a>
+ <div class='thumb_wrap'>
+  <a href="{$image.page_url}"><img src="{$image.thumb_url}"></a>
+ </div>
 {/foreach}
 </div>
 {include file='foot.tpl'}
