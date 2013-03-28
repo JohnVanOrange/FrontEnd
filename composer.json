@@ -16,7 +16,7 @@
   "source" : "https://github.com/cbulock/JohnVanOrange"
  },
  "require" : {
-  "php" : ">=5.3.2",
+  "php" : ">=5.4",
   "smarty/smarty" : "3.1.*",
   "ext-imagick" : "*"
  },
