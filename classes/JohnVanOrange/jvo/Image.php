@@ -362,4 +362,26 @@ class Image extends Base {
   return $image->getImagesBlob(); 
  }
 
+ public function merge($options=array()) {
+  $image = new Image();
+  if (!$this->user->isAdmin()) throw new \Exception('Must be an admin to access method', 401);
+  $image1 = $image->get(['image'=>$options['image1']]);
+  $image2 = $image->get(['image'=>$options['image2']]);
+  $primary = $image1; $sec = $image2;
+  //check total image area, assume the largest is the one to keep
+  if (($image2['height']*$image2['width']) > ($image2['height']*$image2['width'])) {
+   $primary = $image2;
+   $sec = $image1;
+  }
+  $this->res->merge([
+   'to' => $primary['uid'],
+   'from' => $sec['uid']
+  ]);
+  $this->remove(['image'=>$sec['uid']]);
+  return array(
+   'message' => 'Images merged.',
+   'image' => $primary['uid']
+  );
+ }
+ 
 }

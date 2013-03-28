@@ -1,6 +1,5 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Resource extends Base {
  
@@ -25,4 +24,16 @@ class Resource extends Base {
   );
   return $this->db->fetch($sql,$val);
  }
+ 
+ public function merge($options=array()) {
+  if (!$this->user->isAdmin()) throw new \Exception('Must be an admin to access method', 401);
+  $sql = 'UPDATE resources SET image = :to WHERE image = :from';
+  $val = array(
+   ':to' => $options['to'],
+   ':from' => $options['from']
+  );
+  $this->db->fetch($sql,$val);
+  return TRUE;
+ }
+ 
 }
