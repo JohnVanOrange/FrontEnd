@@ -378,10 +378,12 @@ class Image extends Base {
    'from' => $sec['uid']
   ]);
   $this->remove(['image'=>$sec['uid']]);
-  return array(
+  return [
    'message' => 'Images merged.',
-   'image' => $primary['uid']
-  );
+   'image' => $primary['uid'],
+   'url' => $primary['page_url'],
+   'thumb' => $primary['thumb_url']
+  ];
  }
  
 }
