@@ -21,8 +21,8 @@ class Tag extends Base {
     ':name' => $slug
    );
    $result = $this->db->fetch($sql,$val);
-   $tag_id = $result[0]['id'];
-   if(!$tag_id) {
+   if (isset($result[0]['id'])) $tag_id = $result[0]['id'];
+   if(!isset($tag_id)) {
     $tag_id = $this->addtoList($tag);
    }
    $val = array(
