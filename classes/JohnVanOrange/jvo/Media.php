@@ -6,35 +6,33 @@ class Media extends Base {
  
  private $image;
 
- public function __construct($options=array()) {
+ public function __construct() {
   parent::__construct();
   $this->image = new Image;
  }
  
  
- public function get($options=array()) {
-  $imagedata = $this->image->get(array('image'=>$options['image']));
+ public function get($image) {
+  $imagedata = $this->image->get($image);
   $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
   return $image;
  }
  
- public function scale($options=array()) {
-  if (!$options['width']) $options['width'] = '240';
-  if (!$options['height']) $options['height'] = '160';
-  $imagedata = $this->image->get(array('image'=>$options['image']));
+ public function scale($image, $width = 240, $height = 160) {
+  $imagedata = $this->image->get($image);
   $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
 
   foreach ($image as $frame) {
-   $frame->thumbnailImage($options['width'],$options['height'],TRUE);
+   $frame->thumbnailImage($width,$height,TRUE);
   }
 
   return $image; 
  }
  
- public function watermark($options=array()) {
-  $imagedata = $this->image->get(array('image'=>$options['image']));
+ public function watermark($image) {
+  $imagedata = $this->image->get($image);
   
-  if ($imagedata['type'] == 'gif') return $this->get($options);
+  if ($imagedata['type'] == 'gif') return $this->get($image);
   
   $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
 

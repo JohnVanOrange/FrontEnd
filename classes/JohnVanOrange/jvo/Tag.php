@@ -1,6 +1,5 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Tag extends Base {
  
@@ -11,8 +10,8 @@ class Tag extends Base {
   $this->res = new Resource;
  }
  
- public function add($options=array()) {
-  $tags = explode(',',$options['name']);
+ public function add($name, $image) {
+  $tags = explode(',',$name);
   foreach ($tags as $tag) {
    $tag = htmlspecialchars(trim(stripslashes($tag)));
    $slug = $this->text2slug($tag);
@@ -21,24 +20,20 @@ class Tag extends Base {
     ':name' => $slug
    );
    $result = $this->db->fetch($sql,$val);
+   $tag_id = NULL;
    if (isset($result[0]['id'])) $tag_id = $result[0]['id'];
    if(!isset($tag_id)) {
     $tag_id = $this->addtoList($tag);
    }
    $val = array(
-    ':image' => $options['image'],
+    ':image' => $image,
     ':tag_id' => $tag_id
    );
    #check for dupe
    $sql = 'SELECT * FROM resources WHERE (image = :image AND value = :tag_id AND type = "tag")';
    $result = $this->db->fetch($sql,$val);
-   if ($result) throw new Exception('Tag already exists');
-   $res = array(
-    'image' => $options['image'],
-    'value' => $tag_id,
-    'type' => 'tag'
-   );
-   $this->res->add($res);
+   if ($result) throw new \Exception('Tag already exists');
+   $this->res->add('tag', $image, $tag_id);
   }
   switch (count($tags)) {
    case 1:
@@ -48,26 +43,25 @@ class Tag extends Base {
     $return['message'] = 'Tags added';
    break;
   }
-  $return['tags'] = $this->get(array('value'=>$options['image']));
+  $return['tags'] = $this->get($image);
   return $return;
  }
  
- public function get($options=array()) {
-  if (!isset($options['search_by'])) $options['search_by'] = NULL;
-  switch ($options['search_by']) {
+ public function get($value, $search_by=NULL) {
+  switch ($search_by) {
    case 'name':
-   $options['search_by'] = 'basename';
-   $options['value'] = $this->text2slug($options['value']);
+    $search_by = 'basename';
+    $value = $this->text2slug($value);
    case 'basename':
    case 'image':
-   break;
+    break;
    default:
-    $options['search_by'] = 'image';
-   break;
+    $search_by = 'image';
+  break;
   }
-  $sql = 'SELECT l.name, basename, uid FROM resources r INNER JOIN tag_list l ON l.id = r.value INNER JOIN images i ON i.uid = r.image WHERE ('.$options['search_by'].' = :value AND r.type = "tag")';
+  $sql = 'SELECT l.name, basename, uid FROM resources r INNER JOIN tag_list l ON l.id = r.value INNER JOIN images i ON i.uid = r.image WHERE ('.$search_by.' = :value AND r.type = "tag")';
   $val = array(
-   ':value' => $options['value']
+   ':value' => $value
   );
   $results = $this->db->fetch($sql,$val);
   foreach ($results as $i => $r) {
@@ -77,27 +71,27 @@ class Tag extends Base {
   return $results;
  }
  
- public function all($options=array()) {
+ public function all($tag) {
   $i = $this->image = new Image;
-  $images = $this->get(array('value'=>$options['tag'],'search_by'=>'basename'));
+  $images = $this->get($tag, 'basename');
   $results = array();
   foreach($images as $image) {
    try {
-    $results[] = $i->get(array('image'=>$image['uid']));
+    $results[] = $i->get($image['uid']);
    }
-   catch(Exception $e) {
+   catch(\Exception $e) {
     if ($e->getCode() != 403) {
-     throw new Exception($e);
+     throw new \Exception($e);
     }
    }
   }
   return $results;
  }
 
- public function suggest($options=array()) {
+ public function suggest($term) {
   $sql = "SELECT name FROM tag_list WHERE name LIKE :name LIMIT 10;";
   $val = array(
-   ':name' => '%'.$options['term'].'%'
+   ':name' => '%'.$term.'%'
   );
   $results = $this->db->fetch($sql,$val);
   foreach ($results as $r) {
@@ -106,7 +100,7 @@ class Tag extends Base {
   return $return;
  }
  
- public function top($options=array()) {
+ public function top() {
   $sql = 'SELECT t.name, t.basename, COUNT(*) AS count FROM resources r INNER JOIN tag_list t ON t.id = r.value WHERE r.type = "tag" GROUP BY r.value ORDER BY COUNT(*) DESC LIMIT 200;';
   $results = $this->db->fetch($sql);
   return $results;

@@ -1,6 +1,5 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Refresh extends Base {
  
@@ -11,33 +10,32 @@ class Refresh extends Base {
   $this->user = new User;
  }
  
- public function set($options=array()) {
-  if (!isset($options['value'])) $options['value'] = 10;
-  $options['value'] = intval($options['value']);
-  if ($options['value'] < 0) $options['value'] = 0;
-  $user = $this->user->current($options);
-  if (!$user) throw new Exception('Must be logged in to set refresh time');
+ public function set($value = 10, $sid=NULL) {
+  $value = intval($value);
+  if ($value < 0) $value = 0;
+  $user = $this->user->current($sid);
+  if (!$user) throw new \Exception('Must be logged in to set refresh time');
   $sql = 'UPDATE users SET refresh = :refresh WHERE id = :user';
   $val = array(
-   ':refresh' => $options['value'],
+   ':refresh' => $value,
    ':user' => $user['id']
   );
   $this->db->fetch($sql,$val);
   $message = 'Automatic refresh removed';
-  if ($options['value']) $message = 'Automatic refresh time updated to '.$options['value'].' seconds';
+  if ($value) $message = 'Automatic refresh time updated to '.$value.' seconds';
   return array(
    'message' => $message,
-   'refresh' => $options['value']
+   'refresh' => $value
   );
  }
  
- public function remove($options=array()) {
-  return $this->set(array('value'=>0));
+ public function remove($sid=NULL) {
+  return $this->set(0, $sid);
  }
  
- public function get($options=array()) {
-  $user = $this->user->current($options);
-  if (!$user) throw new Exception('Must be logged in to get refresh time');
+ public function get($sid=NULL) {
+  $user = $this->user->current($sid);
+  if (!$user) throw new \Exception('Must be logged in to get refresh time');
   return $user['refresh'];
  }
  
