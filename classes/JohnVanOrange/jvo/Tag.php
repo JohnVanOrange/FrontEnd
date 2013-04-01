@@ -50,14 +50,14 @@ class Tag extends Base {
  public function get($value, $search_by=NULL) {
   switch ($search_by) {
    case 'name':
-   $search_by = 'basename';
-   $value = $this->text2slug($value);
+    $search_by = 'basename';
+    $value = $this->text2slug($value);
    case 'basename':
    case 'image':
-   break;
+    break;
    default:
     $search_by = 'image';
-   break;
+  break;
   }
   $sql = 'SELECT l.name, basename, uid FROM resources r INNER JOIN tag_list l ON l.id = r.value INNER JOIN images i ON i.uid = r.image WHERE ('.$search_by.' = :value AND r.type = "tag")';
   $val = array(
@@ -73,7 +73,7 @@ class Tag extends Base {
  
  public function all($tag) {
   $i = $this->image = new Image;
-  $images = $this->get(array('value'=>$tag,'search_by'=>'basename'));
+  $images = $this->get($tag, 'basename');
   $results = array();
   foreach($images as $image) {
    try {
