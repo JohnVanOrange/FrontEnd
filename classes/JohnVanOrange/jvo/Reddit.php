@@ -14,9 +14,9 @@ class Reddit extends Base {
   $this->logfile = ROOT_DIR.'/tools/reddit.log';
  }
 
- public function process($options=array()) {
-  $this->log("Beginning Subreddit ".$options['subreddit'],$this->logfile);
-  $posts = $this->getSubreddit($options['subreddit']);
+ public function process($subreddit) {
+  $this->log("Beginning Subreddit ".$subreddit,$this->logfile);
+  $posts = $this->getSubreddit($subreddit);
   foreach ($posts['data']['children'] as $post) {
    set_time_limit(60);
    try {
@@ -83,7 +83,7 @@ class Reddit extends Base {
  }
 
  private function getSubreddit($subreddit) {
-  return json_decode($this->remoteFetch(array('url'=>'http://www.reddit.com/r/'.$subreddit.'.json?limit=100')),TRUE);
+  return json_decode($this->remoteFetch('http://www.reddit.com/r/'.$subreddit.'.json?limit=100'),TRUE);
  }
 
  private function isImgurAlbum($post) {
@@ -112,10 +112,10 @@ class Reddit extends Base {
  private function getImageData($data) {
   $sql = 'SELECT id from imgur_history WHERE id = "'.$data.'"';
   if ($this->db->fetch($sql)) throw new Exception('Previously retrieved image ('.$data.')',200);
-  $imagedata = json_decode($this->remoteFetch(array(
-   'url' => 'https://api.imgur.com/3/image/'.$data.'.json',
-   'headers' => array('Authorization: Client-ID '.IMGUR_CID)
-   )),TRUE);
+  $imagedata = json_decode($this->remoteFetch(
+   'https://api.imgur.com/3/image/'.$data.'.json',
+   array('Authorization: Client-ID '.IMGUR_CID)
+   ),TRUE);
   $imagedata = $imagedata['data'];
   if (!$imagedata) throw new Exception('Error retrieving Imgur data',200);
   if ($imagedata['error']) {

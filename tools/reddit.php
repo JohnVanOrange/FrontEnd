@@ -4,7 +4,7 @@ require_once('../settings.inc');
 
 class remote extends JohnVanOrange\jvo\Base {
  public function fetch($url) {
-  return $this->remoteFetch(array('url'=>$url));
+  return $this->remoteFetch($url);
  }
 }
 

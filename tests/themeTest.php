@@ -10,10 +10,7 @@ class themeTest extends PHPUnit_Framework_TestCase {
  protected function setUp(){
   $this->theme = new JohnVanOrange\jvo\Theme();
   $user = new JohnVanOrange\jvo\User();
-  $login = $user->login(array(
-   'username' => 'testuser',
-   'password' => 'testpass'
-  ));
+  $login = $user->login('testuser', 'testpass');
   $this->sid = $login['sid'];
  }
  protected function tearDown(){
@@ -23,12 +20,12 @@ class themeTest extends PHPUnit_Framework_TestCase {
  /**** set ****/
  //Not currently testing any of the cookie based functionality
  public function test_set_loggedin_success() {
-  $result = $this->theme->set(array('theme'=>'dark','sid'=>$this->sid));
+  $result = $this->theme->set('dark',$this->sid);
   $this->assertEquals('Theme updated.',$result['message']);
  }
  public function test_set_loggedin_fail() {
   try {
-   $result = $this->theme->set(array('theme'=>'not_valid','sid'=>$this->sid));
+   $result = $this->theme->set('not_valid',$this->sid);
   }
   catch (Exception $e) {
    return;
@@ -39,11 +36,11 @@ class themeTest extends PHPUnit_Framework_TestCase {
  /**** get ****/
  //Not currently testing any of the cookie based functionality
  public function test_get_loggedin() {
-  $this->theme->set(array('theme'=>'dark','sid'=>$this->sid));
-  $result = $this->theme->get(array('sid'=>$this->sid));
+  $this->theme->set('dark',$this->sid);
+  $result = $this->theme->get($this->sid);
   $this->assertEquals('dark',$result);
-  $this->theme->set(array('theme'=>'light','sid'=>$this->sid));
-  $result = $this->theme->get(array('sid'=>$this->sid));
+  $this->theme->set('light',$this->sid);
+  $result = $this->theme->get($this->sid);
   $this->assertEquals('light',$result);
  }
  

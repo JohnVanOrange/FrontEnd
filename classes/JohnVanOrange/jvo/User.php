@@ -18,22 +18,21 @@ class User extends Base {
   return md5($salt.$pass);
  }
  
- public function isAdmin($options=array()) {
-  $user = $this->current();
+ public function isAdmin($sid=NULL) {
+  $user = $this->current($sid);
   if (!isset($user['type'])) $user['type'] = NULL;
   if ($user['type']>= 2) return TRUE;
   return FALSE;
  }
  
- protected function isLoggedIn($options=array()) {
-  $user = $this->current();
+ protected function isLoggedIn($sid=NULL) {
+  $user = $this->current($sid);
   if ($user) return TRUE;
   return FALSE;
  }
 
- public function get($options=array()) {
-  if (!isset($options['search_by'])) $options['search_by'] = NULL;
-  switch ($options['search_by']) {
+ public function get($value, $search_by=NULL) {
+  switch ($search_by) {
    case 'username':
     $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE username = :value';
    break;
@@ -43,7 +42,7 @@ class User extends Base {
    break;
   }
   $val = array(
-   ':value' => $options['value']
+   ':value' => $value
   );
   $user = $this->db->fetch($sql,$val);
   if (isset($user[0])) $user = $user[0];
@@ -52,9 +51,8 @@ class User extends Base {
   return $user;
  }
 
- public function current($options=array()) {
-  $sid = $this->getSID();
-  if (isset($options['sid'])) $sid = $options['sid'];
+ public function current($sid=NULL) {
+  if (!isset($sid)) $sid = $this->getSID();
   $sql = 'SELECT user_id FROM sessions WHERE sid = :sid LIMIT 1';
   $val = array(
    ':sid' => $sid
@@ -62,7 +60,7 @@ class User extends Base {
   $user = $this->db->fetch($sql,$val);
   $user_id = NULL;
   if (isset($user[0]['user_id'])) $user_id = $user[0]['user_id'];
-  return $this->get(array('value'=>$user_id));
+  return $this->get($user_id);
  }
 
  private function getSID() {
@@ -73,15 +71,15 @@ class User extends Base {
   $this->sid = $sid;
  }
  
- public function login($options=array()) {
+ public function login($username, $password) {
   $sql = 'SELECT * FROM users WHERE username = :username LIMIT 1';
   $val = array(
-   ':username' => $options['username']
+   ':username' => $username
   );
   $userdata = $this->db->fetch($sql,$val);
   $userdata = $userdata[0];
   if (!$userdata) throw new \Exception('User not found');
-  $pwhash = $this->passhash($options['password'],$userdata['salt']);
+  $pwhash = $this->passhash($password,$userdata['salt']);
   if ($pwhash != $userdata['password']) throw new \Exception('Invalid password');
   #succesfully login
   $sid = $this->getSecureID();
@@ -94,10 +92,8 @@ class User extends Base {
   );
  }
 
- public function logout($options=array()) {
-  $sid = $this->getSID();
-  if ($options['sid']) $sid = $options['sid'];
-  if ($options['sid']) $this->sid = $options['sid'];
+ public function logout($sid=NULL) {
+  if (!isset($sid)) $sid = $this->getSID();
   $sql = 'DELETE FROM sessions WHERE sid = :sid';
   $val = array(
    ':sid' => $sid
@@ -109,17 +105,14 @@ class User extends Base {
   );
  }
 
- public function add($options=array()) {
-  if (!$options['username']) throw new \Exception('No username specified');
-  if (!$options['password']) throw new \Exception('No password specified');
-  if (!$options['email']) throw new \Exception('No email specified');
+ public function add($username, $password, $email) {
   $salt = $this->getSecureID();
   $sql = 'INSERT INTO users(username, password, salt, email) VALUES(:username, :password, :salt, :email)';
   $val = array(
-   ':username' => $options['username'],
-   ':password' => $this->passhash($options['password'],$salt),
+   ':username' => $username,
+   ':password' => $this->passhash($password,$salt),
    ':salt' => $salt,
-   ':email' => $options['email']
+   ':email' => $email
   );
   $this->db->fetch($sql,$val);
   return array(
@@ -127,17 +120,16 @@ class User extends Base {
   );
  }
  
- public function saved($options=array()) {
-  if (!$options['username']) throw new \Exception('Username not given', 404);
-  $current = $this->current($options);
-  $user = $this->get(array('search_by'=>'username','value'=>$options['username']));
+ public function saved($username, $sid=NULL) {
+  $current = $this->current($sid);
+  $user = $this->get($username, 'username');
   if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
   $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
   $results = $this->db->fetch($sql);
   $image = new Image();
   foreach ($results as $result) {
    try {
-    $return[] = $image->get(array('image'=>$result['image']));
+    $return[] = $image->get($result['image']);
    }
    catch(\Exception $e) {
     if ($e->getCode() != 403) {
@@ -148,17 +140,16 @@ class User extends Base {
   return $return;
  }
  
- public function uploaded($options=array()) {
-  if (!$options['username']) throw new \Exception('Username not given', 404);
-  $current = $this->current($options);
-  $user = $this->get(array('search_by'=>'username','value'=>$options['username']));
+ public function uploaded($username, $sid=NULL) {
+  $current = $this->current($sid);
+  $user = $this->get($username, 'username');
   if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
   $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "upload"';
   $results = $this->db->fetch($sql);
   $image = new Image();
   foreach ($results as $result) {
    try {
-    $return[] = $image->get(array('image'=>$result['image']));
+    $return[] = $image->get($result['image']);
    }
    catch(\Exception $e) {
     if ($e->getCode() != 403) {

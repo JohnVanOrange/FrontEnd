@@ -1,23 +1,22 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Base {
 
  protected $db;
  private $logs=array();
 
- public function __construct($options=array()) {
+ public function __construct() {
   $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
  }
  
  public function __call($name, $args) {
-  throw new Exception('Invalid method '.$name);
+  throw new \Exception('Invalid method '.$name);
  }
 
- protected function remoteFetch($options=array()) {
+ protected function remoteFetch($url, $headers=NULL) {
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $options['url']);
+  curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -25,7 +24,7 @@ class Base {
   //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE); //disable for now as prod server doesn't handle properly
   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
   curl_setopt($ch, CURLOPT_TIMEOUT, 180);
-  if ($options['headers']) curl_setopt($ch, CURLOPT_HTTPHEADER, $options['headers']);
+  if ($headers) curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
   $response = curl_exec($ch);
   curl_close($ch);
   return $response;

@@ -1,6 +1,5 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Theme extends Base {
  
@@ -11,34 +10,34 @@ class Theme extends Base {
   $this->user = new User;
  }
  
- public function set($options=array()) {
-  switch ($options['theme']) {
+ public function set($theme, $sid=NULL) {
+  switch ($theme) {
    case 'light':
    case 'dark':
    break;
    default:
-    throw new Exception('Not a valid theme');
+    throw new \Exception('Not a valid theme');
    break;
   }
-  $user = $this->user->current($options);
+  $user = $this->user->current($sid);
   if ($user) {
    $sql = 'UPDATE users SET theme = :theme WHERE id = :user';
    $val = array(
-    ':theme' => $options['theme'],
+    ':theme' => $theme,
     ':user' => $user['id']
    );
    $this->db->fetch($sql,$val);
   }
   else {
-   $this->setCookie('theme',$options['theme']);
+   $this->setCookie('theme',$theme);
   }
   return array(
    'message' => 'Theme updated.'
   );
  }
  
- public function get($options=array()) {
-  $user = $this->user->current($options);
+ public function get($sid=NULL) {
+  $user = $this->user->current($sid);
   if ($user) {
    return $user['theme'];
   }
