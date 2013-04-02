@@ -10,6 +10,7 @@ $tpl->assign('show_social',SHOW_SOCIAL);
 $tpl->assign('icon_set',ICON_SET);
 if (defined('APP_LINK')) $tpl->assign('app_link',APP_LINK);
 if (defined('SHOW_JVON')) $tpl->assign('show_jvon',SHOW_JVON);
+if (defined('FB_APP_ID')) $tpl->assign('fb_app_id',FB_APP_ID);
 $tpl->assign('user', $user);
 if (call('user/isAdmin')) $tpl->assign('is_admin', TRUE);
 $tpl->assign('site_theme', THEME);

@@ -12,6 +12,7 @@ define('GOOGLE_ANALYTICS','');
 define('IMGUR_CID','');
 define('APP_LINK','');
 define('SHOW_SCORN',0);
+define('FB_APP_ID','');
 define('SHOW_SOCIAL',1);
 define('SHOW_JVON',1);
 define('403_IMAGE','403.jpg');
