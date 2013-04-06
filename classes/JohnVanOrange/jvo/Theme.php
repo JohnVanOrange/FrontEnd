@@ -10,6 +10,15 @@ class Theme extends Base {
   $this->user = new User;
  }
  
+ /**
+  * Set theme
+  *
+  * Set the UI theme.
+  *
+  * @param string $theme  Allowed values are "light" or "dark". If the user is logged in, this setting is associated with their account. Otherwise, this value is stored as a browser cookie.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent and it's desired to have this data saved with a user account.
+  */
+ 
  public function set($theme, $sid=NULL) {
   switch ($theme) {
    case 'light':
@@ -35,6 +44,14 @@ class Theme extends Base {
    'message' => 'Theme updated.'
   );
  }
+ 
+ /**
+  * Get theme
+  *
+  * Retrieve currently set UI theme.
+  *
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent and it's desired to have this data saved with a user account.
+  */
  
  public function get($sid=NULL) {
   $user = $this->user->current($sid);

@@ -10,6 +10,15 @@ class Tag extends Base {
   $this->res = new Resource;
  }
  
+ /**
+  * Add tag
+  *
+  * Add tags to images
+  *
+  * @param string $name The tag value to be added to the image. Multiple tags can be added if comma separated.
+  * @param string $image 6-digit image ID.
+  */
+ 
  public function add($name, $image) {
   $tags = explode(',',$name);
   foreach ($tags as $tag) {
@@ -29,7 +38,7 @@ class Tag extends Base {
     ':image' => $image,
     ':tag_id' => $tag_id
    );
-   #check for dupe
+   //check for dupe
    $sql = 'SELECT * FROM resources WHERE (image = :image AND value = :tag_id AND type = "tag")';
    $result = $this->db->fetch($sql,$val);
    if ($result) throw new \Exception('Tag already exists');
@@ -47,7 +56,16 @@ class Tag extends Base {
   return $return;
  }
  
- public function get($value, $search_by=NULL) {
+ /**
+  * Get tags
+  *
+  * List the tags for an image
+  *
+  * @param string $value The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename.
+  * @param string $search_by Defaults to "image". Other possible value is "basename".
+  */
+ 
+ public function get($value, $search_by='image') {
   switch ($search_by) {
    case 'name':
     $search_by = 'basename';
@@ -71,6 +89,14 @@ class Tag extends Base {
   return $results;
  }
  
+ /**
+  * All images with tag
+  *
+  * Get all images that have a certain tag.
+  *
+  * @param string $tag The basename value for a particular tag.
+  */
+ 
  public function all($tag) {
   $i = $this->image = new Image;
   $images = $this->get($tag, 'basename');
@@ -88,6 +114,14 @@ class Tag extends Base {
   return $results;
  }
 
+ /**
+  * Tag suggest
+  * 
+  * This is used to find suggested tags by giving it parts of text, and it will return the 10 closest matches for existing tags.
+  *
+  * @param string $term Partial text that is used to query for existing tag names.
+  */
+ 
  public function suggest($term) {
   $sql = "SELECT name FROM tag_list WHERE name LIKE :name LIMIT 10;";
   $val = array(
@@ -99,6 +133,12 @@ class Tag extends Base {
   }
   return $return;
  }
+ 
+ /**
+  * Top tags
+  * 
+  * Returns the top 200 used tags and a count of the number of times they are used.
+  */
  
  public function top() {
   $sql = 'SELECT t.name, t.basename, COUNT(*) AS count FROM resources r INNER JOIN tag_list t ON t.id = r.value WHERE r.type = "tag" GROUP BY r.value ORDER BY COUNT(*) DESC LIMIT 200;';

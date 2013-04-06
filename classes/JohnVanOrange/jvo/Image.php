@@ -13,6 +13,15 @@ class Image extends Base {
   $this->res = new Resource;
  }
  
+ /**
+  * Like image
+  *
+  * Like an image. Must be logged in to use this method.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function like($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to rate images',1022);
@@ -29,6 +38,15 @@ class Image extends Base {
   );
  }
 
+ /**
+  * Dislike image
+  *
+  * Dislike an image. Must be logged in to use this method.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function dislike($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to rate images',1023);
@@ -45,6 +63,15 @@ class Image extends Base {
   );
  } 
  
+ /**
+  * Save image
+  *
+  * Save an image for viewing later. Must be logged in to use this method.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function save($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to save images',1020);
@@ -55,6 +82,15 @@ class Image extends Base {
   );
  }
 
+ /**
+  * Unsave image
+  *
+  * Stop saving a previously saved image. Must be logged in to use this method.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function unsave($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to unsave images',1021);
@@ -69,6 +105,16 @@ class Image extends Base {
    'saved' => 0
   );
  }
+ 
+ /**
+  * Approve image
+  *
+  * Approves an image. If the image was reported, it will resolve all reports. If the image was hidden, it will now be displayed. Must be logged on as admin to access this method.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  * @nsfw bool If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way.
+  */
  
  public function approve($image, $sid=NULL, $nsfw=NULL) {
   $current = $this->user->current($sid);
@@ -86,6 +132,15 @@ class Image extends Base {
    'message' => 'Image approved.'
   );
  }
+ 
+ /**
+  * Remove image
+  *
+  * Removes an image and everything associated with it. Must be logged on as admin to access this method.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
  
  public function remove($image, $sid=NULL) {
   $current = $this->user->current($sid);
@@ -172,6 +227,15 @@ class Image extends Base {
   return $this->add($newpath);
  }
 
+ /**
+  * Add image from URL
+  *
+  * Allows adding images to site from remote URL's.
+  *
+  * @param string $url Full URL to an image to be added to the site. Must be JPEG, PNG, or GIF format.
+  * @param string $c_link An optional external link to comments for the image.
+  */
+ 
  public function addFromURL($url, $c_link=NULL) {
   $image = $this->remoteFetch($url);
   $filename = md5(mt_rand().$url);
@@ -180,6 +244,15 @@ class Image extends Base {
   return $this->add($newpath, $c_link);
  }
 
+ /**
+  * Report image
+  *
+  * Allows reporting of problematic images so they may undergo review.
+  *
+  * @param string $image The 6-digit id of an image.
+  * @param int $type Number value representing the reason type which can be found in report/all
+  */
+ 
  public function report($image, $type) {
   //Add report
   $this->res->add('report', $image, $type);
@@ -204,6 +277,14 @@ class Image extends Base {
   );
  }
  
+ /**
+  * Random reported image
+  *
+  * Retrieves a random image that has been reported by users. Must be logged in as an admin to access this method.
+  *
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function reported($sid=NULL) {
   $current = $this->user->current($sid);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
@@ -213,6 +294,14 @@ class Image extends Base {
   if (!$image_result) throw new \Exception('No image result', 404);
   return $image_result;
  }
+ 
+ /**
+  * Random unapproved image
+  *
+  * Retrieves a random unapproved image. Must be logged in as admin to access this method.
+  * 
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
  
  public function unapproved($sid=NULL) {
   $current = $this->user->current($sid);
@@ -224,6 +313,12 @@ class Image extends Base {
   return $image_result;
  }
 
+ /**
+  * Random image
+  *
+  * Retrieves a random image.
+  */
+ 
  public function random() {
   $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
   $result = $this->db->fetch($sql);
@@ -237,7 +332,16 @@ class Image extends Base {
   $sql = 'SELECT * FROM `resources` WHERE type = "upload" ORDER BY created DESC';
   //this doesn't do anything yet
  }
-
+ 
+ /**
+  * Get image
+  *
+  * Retrieve information about an image.
+  *
+  * @param string $image The 6-digit id of an image, or the filename of the image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function get($image, $sid=NULL) {
   $tag = new Tag;
   $current = $this->user->current($sid);
@@ -307,7 +411,7 @@ class Image extends Base {
   return $result;
  }
 
- public function getUID($length = 6) {
+ private function getUID($length = 6) {
   do {
    $uid = $this->generateUID($length);
    $sql = 'SELECT uid FROM images WHERE uid = "'.$uid.'" LIMIT 1';
@@ -316,7 +420,13 @@ class Image extends Base {
   return $uid;
  }
  
- function stats() {
+ /**
+  * Get stats
+  *
+  * Returns the total number of images, reported images and approved images.
+  */
+ 
+ public function stats() {
   $sql = 'SELECT (SELECT COUNT(*) from images) AS images,(SELECT COUNT(*) from resources WHERE type = "report") AS reports,(SELECT COUNT(*) from images WHERE approved = 1) AS approved';
   $result = $this->db->fetch($sql);
   return $result[0];
@@ -333,6 +443,16 @@ class Image extends Base {
   return $image->getImagesBlob(); 
  }
 
+ /**
+  * Merge images
+  *
+  * Merge two images into one, merging any assoicated resources. Must be logged in as admin to use this method.
+  *
+  * @param string $image1 The 6-digit id of an image.
+  * @param string $image2 The 6-digit id of an image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
+ 
  public function merge($image1, $image2, $sid=NULL) {
   $image = new Image();
   if (!$this->user->isAdmin($sid)) throw new \Exception('Must be an admin to access method', 401);

@@ -30,8 +30,17 @@ class User extends Base {
   if ($user) return TRUE;
   return FALSE;
  }
+ 
+ /**
+  * Get user
+  *
+  * Retrieve details about a user account.
+  *
+  * @param mixed $value By default, this is the user_id of an account. This can also be a username if the "search_by" parameter is set to "username".
+  * @param string $search_by Defaults to id. Valid values are "id" or "username".
+  */
 
- public function get($value, $search_by=NULL) {
+ public function get($value, $search_by='id') {
   switch ($search_by) {
    case 'username':
     $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE username = :value';
@@ -50,6 +59,14 @@ class User extends Base {
   unset($user['email']);
   return $user;
  }
+ 
+ /**
+  * Current user
+  *
+  * Retrieve user details of currently logged in account.
+  *
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
 
  public function current($sid=NULL) {
   if (!isset($sid)) $sid = $this->getSID();
@@ -71,6 +88,15 @@ class User extends Base {
   $this->sid = $sid;
  }
  
+ /**
+  * Account login
+  *
+  * Login to an account.
+  *
+  * @param string $username Valid username.
+  * @param string $password Valid password.
+  */
+ 
  public function login($username, $password) {
   $sql = 'SELECT * FROM users WHERE username = :username LIMIT 1';
   $val = array(
@@ -81,7 +107,7 @@ class User extends Base {
   if (!$userdata) throw new \Exception('User not found');
   $pwhash = $this->passhash($password,$userdata['salt']);
   if ($pwhash != $userdata['password']) throw new \Exception('Invalid password');
-  #succesfully login
+  //succesfully login
   $sid = $this->getSecureID();
   $this->setCookie('sid', $sid);
   $sql = 'INSERT INTO sessions(user_id, sid) VALUES("'.$userdata['id'].'","'.$sid.'");';
@@ -91,6 +117,14 @@ class User extends Base {
    'sid' => $sid
   );
  }
+ 
+ /**
+  * Logout account
+  *
+  * Logout of an account.
+  *
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
 
  public function logout($sid=NULL) {
   if (!isset($sid)) $sid = $this->getSID();
@@ -104,6 +138,16 @@ class User extends Base {
    'message' => 'Logged out.'
   );
  }
+ 
+ /**
+  * Add user
+  *
+  * Create new user account.
+  *
+  * @param string $username Any unique string used to login to an account
+  * @param string $password Any string
+  * @param string $email This can also be any string, but a valid email address would be required to do any password recovery.
+  */
 
  public function add($username, $password, $email) {
   $salt = $this->getSecureID();
@@ -119,6 +163,15 @@ class User extends Base {
    'message' => 'User added.'
   );
  }
+ 
+ /**
+  * User's saved images
+  *
+  * Load all saved images for a user account.
+  *
+  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
+  */
  
  public function saved($username, $sid=NULL) {
   $current = $this->current($sid);
@@ -139,6 +192,15 @@ class User extends Base {
   }
   return $return;
  }
+ 
+ /**
+  * User's uploaded images
+  *
+  * Load all uploaded images for a user account.
+  *
+  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
+  */
  
  public function uploaded($username, $sid=NULL) {
   $current = $this->current($sid);

@@ -58,7 +58,7 @@ class Base {
   return FALSE;
  }
 
- public function text2slug($text) {
+ protected function text2slug($text) {
   $output = htmlentities($text, ENT_COMPAT, "UTF-8", false); 
   $output = preg_replace('/&([a-z]{1,2})(?:acute|lig|grave|ring|tilde|uml|cedil|caron);/i','\1',$output);
   $output = html_entity_decode($output,ENT_COMPAT, "UTF-8"); 
