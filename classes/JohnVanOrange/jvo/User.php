@@ -36,6 +36,8 @@ class User extends Base {
   *
   * Retrieve details about a user account.
   *
+  * @api
+  * 
   * @param mixed $value By default, this is the user_id of an account. This can also be a username if the "search_by" parameter is set to "username".
   * @param string $search_by Defaults to id. Valid values are "id" or "username".
   */
@@ -65,6 +67,8 @@ class User extends Base {
   *
   * Retrieve user details of currently logged in account.
   *
+  * @api
+  * 
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
 
@@ -93,6 +97,8 @@ class User extends Base {
   *
   * Login to an account.
   *
+  * @api
+  * 
   * @param string $username Valid username.
   * @param string $password Valid password.
   */
@@ -123,6 +129,8 @@ class User extends Base {
   *
   * Logout of an account.
   *
+  * @api
+  * 
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
 
@@ -144,6 +152,8 @@ class User extends Base {
   *
   * Create new user account.
   *
+  * @api
+  * 
   * @param string $username Any unique string used to login to an account
   * @param string $password Any string
   * @param string $email This can also be any string, but a valid email address would be required to do any password recovery.
@@ -169,6 +179,8 @@ class User extends Base {
   *
   * Load all saved images for a user account.
   *
+  * @api
+  * 
   * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */
@@ -198,6 +210,8 @@ class User extends Base {
   *
   * Load all uploaded images for a user account.
   *
+  * @api
+  * 
   * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */

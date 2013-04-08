@@ -10,7 +10,9 @@ class Report extends Base {
  /**
   * All report types
   *
-  * Get a list of all image report types
+  * Get a list of all image report types.
+  *
+  * @api
   */
  
  public function all() {
@@ -23,6 +25,8 @@ class Report extends Base {
   *
   * Retrieve a specific report type
   *
+  * @api
+  * 
   * @param int $id If given, will return just the specific type of report that is specified by the id. If no id given, will return return all the results, same as report/all.
   */
  

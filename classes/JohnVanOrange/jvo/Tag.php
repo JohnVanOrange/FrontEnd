@@ -15,6 +15,8 @@ class Tag extends Base {
   *
   * Add tags to images
   *
+  * @api
+  * 
   * @param string $name The tag value to be added to the image. Multiple tags can be added if comma separated.
   * @param string $image 6-digit image ID.
   */
@@ -61,6 +63,8 @@ class Tag extends Base {
   *
   * List the tags for an image
   *
+  * @api
+  * 
   * @param string $value The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename.
   * @param string $search_by Defaults to "image". Other possible value is "basename".
   */
@@ -94,6 +98,8 @@ class Tag extends Base {
   *
   * Get all images that have a certain tag.
   *
+  * @api
+  * 
   * @param string $tag The basename value for a particular tag.
   */
  
@@ -119,6 +125,8 @@ class Tag extends Base {
   * 
   * This is used to find suggested tags by giving it parts of text, and it will return the 10 closest matches for existing tags.
   *
+  * @api
+  * 
   * @param string $term Partial text that is used to query for existing tag names.
   */
  
@@ -138,6 +146,8 @@ class Tag extends Base {
   * Top tags
   * 
   * Returns the top 200 used tags and a count of the number of times they are used.
+  *
+  * @api
   */
  
  public function top() {

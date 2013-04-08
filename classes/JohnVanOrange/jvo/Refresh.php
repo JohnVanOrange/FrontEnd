@@ -15,6 +15,8 @@ class Refresh extends Base {
   *
   * Set the auto-refresh time.
   *
+  * @api
+  * 
   * @param int $value The time in seconds for the auto refresh. Defaults to 10 seconds.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */
@@ -43,6 +45,8 @@ class Refresh extends Base {
   *
   * Removes the auto-refresh time. This is the same as setting /refresh/set to 0 seconds.
   *
+  * @api
+  * 
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */
  
@@ -55,6 +59,8 @@ class Refresh extends Base {
   *
   * Retrieve current page auto-refresh time. Must be logged in to use.
   *
+  * @api
+  * 
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */
   

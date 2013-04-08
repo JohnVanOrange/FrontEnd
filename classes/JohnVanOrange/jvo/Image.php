@@ -18,6 +18,8 @@ class Image extends Base {
   *
   * Like an image. Must be logged in to use this method.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
@@ -43,6 +45,8 @@ class Image extends Base {
   *
   * Dislike an image. Must be logged in to use this method.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
@@ -68,6 +72,8 @@ class Image extends Base {
   *
   * Save an image for viewing later. Must be logged in to use this method.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
@@ -87,6 +93,8 @@ class Image extends Base {
   *
   * Stop saving a previously saved image. Must be logged in to use this method.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
@@ -111,6 +119,8 @@ class Image extends Base {
   *
   * Approves an image. If the image was reported, it will resolve all reports. If the image was hidden, it will now be displayed. Must be logged on as admin to access this method.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   * @nsfw bool If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way.
@@ -138,6 +148,8 @@ class Image extends Base {
   *
   * Removes an image and everything associated with it. Must be logged on as admin to access this method.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
@@ -232,6 +244,8 @@ class Image extends Base {
   *
   * Allows adding images to site from remote URL's.
   *
+  * @api
+  * 
   * @param string $url Full URL to an image to be added to the site. Must be JPEG, PNG, or GIF format.
   * @param string $c_link An optional external link to comments for the image.
   */
@@ -249,6 +263,8 @@ class Image extends Base {
   *
   * Allows reporting of problematic images so they may undergo review.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image.
   * @param int $type Number value representing the reason type which can be found in report/all
   */
@@ -282,6 +298,8 @@ class Image extends Base {
   *
   * Retrieves a random image that has been reported by users. Must be logged in as an admin to access this method.
   *
+  * @api
+  * 
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
  
@@ -299,7 +317,9 @@ class Image extends Base {
   * Random unapproved image
   *
   * Retrieves a random unapproved image. Must be logged in as admin to access this method.
-  * 
+  *
+  * @api
+  *  
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
  
@@ -317,6 +337,8 @@ class Image extends Base {
   * Random image
   *
   * Retrieves a random image.
+  *
+  * @api
   */
  
  public function random() {
@@ -338,6 +360,8 @@ class Image extends Base {
   *
   * Retrieve information about an image.
   *
+  * @api
+  * 
   * @param string $image The 6-digit id of an image, or the filename of the image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   */
@@ -424,6 +448,8 @@ class Image extends Base {
   * Get stats
   *
   * Returns the total number of images, reported images and approved images.
+  *
+  * @api
   */
  
  public function stats() {
@@ -448,6 +474,8 @@ class Image extends Base {
   *
   * Merge two images into one, merging any assoicated resources. Must be logged in as admin to use this method.
   *
+  * @api
+  * 
   * @param string $image1 The 6-digit id of an image.
   * @param string $image2 The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.

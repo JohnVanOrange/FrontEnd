@@ -4,7 +4,7 @@
 <meta name='og:image:height' content='{$image.height}'>
 <meta property='og:type' content='website'>
 <meta property='og:title' content='{$image.page_title|escape}'>
-<meta property='og:description' content='{$image.page_title|escape}'>
+<meta property='og:description' content=''>
 <meta property="og:url" content="{$current_url}">
 
 <meta property="fb:admins" content="503316760">
