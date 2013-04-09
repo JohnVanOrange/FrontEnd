@@ -14,17 +14,19 @@ header  {
 	margin-top: -0.8em;
 	margin-bottom: 0;
 	margin-left: 0;
-	transform: translate(-20%) scale(0.6);
-	-moz-transform: translate(-20%) scale(0.6);
-	-ms-transform: translate(-20%) scale(0.6);
-	-webkit-transform: translate(-20%) scale(0.6);
-	-o-transform: translate(-20%) scale(0.6);
+	transform: translate(-25%) scale(0.5);
+	-moz-transform: translate(-25%) scale(0.5);
+	-ms-transform: translate(-25%) scale(0.5);
+	-webkit-transform: translate(-25%) scale(0.5);
+	-o-transform: translate(-25%) scale(0.5);
 }
 
 nav {
 	top: auto;
 	bottom: 0;
 	border-radius: 8px 0 0 0;
+	font-size: 100%;
+	padding-bottom: 10px;
 }
 
 nav > ul li ul {
@@ -40,9 +42,15 @@ nav > ul li ul li:last-child {
 	border-radius: 0 0 0 0;
 }
 
+#user_avatar img {
+	width: 32px;
+	height: 32px;
+}
+
 #profile_image {
 	float: none;
 	padding-left: 0;
+
 }
 
 #profile_image img {
