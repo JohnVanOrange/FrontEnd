@@ -1,0 +1,640 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \JohnVanOrange\jvo\Image</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/JohnVanOrange.html"><i class="icon-th"></i> JohnVanOrange</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">88</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public inherited"><a href="#method___call" title="__call :: "><span class="description">__call()
+        </span><pre>__call()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_addFromURL" title="addFromURL :: Add image from URL"><span class="description">Add image from URL</span><pre>addFromURL()</pre></a></li>
+<li class="method public "><a href="#method_addFromUpload" title="addFromUpload :: "><span class="description">addFromUpload()
+        </span><pre>addFromUpload()</pre></a></li>
+<li class="method public "><a href="#method_approve" title="approve :: Approve image"><span class="description">Approve image</span><pre>approve()</pre></a></li>
+<li class="method public "><a href="#method_dislike" title="dislike :: Dislike image"><span class="description">Dislike image</span><pre>dislike()</pre></a></li>
+<li class="method public "><a href="#method_get" title="get :: Get image"><span class="description">Get image</span><pre>get()</pre></a></li>
+<li class="method public "><a href="#method_like" title="like :: Like image"><span class="description">Like image</span><pre>like()</pre></a></li>
+<li class="method public "><a href="#method_merge" title="merge :: Merge images"><span class="description">Merge images</span><pre>merge()</pre></a></li>
+<li class="method public "><a href="#method_random" title="random :: Random image"><span class="description">Random image</span><pre>random()</pre></a></li>
+<li class="method public "><a href="#method_recent" title="recent :: "><span class="description">recent()
+        </span><pre>recent()</pre></a></li>
+<li class="method public "><a href="#method_remove" title="remove :: Remove image"><span class="description">Remove image</span><pre>remove()</pre></a></li>
+<li class="method public "><a href="#method_report" title="report :: Report image"><span class="description">Report image</span><pre>report()</pre></a></li>
+<li class="method public "><a href="#method_reported" title="reported :: Random reported image"><span class="description">Random reported image</span><pre>reported()</pre></a></li>
+<li class="method public "><a href="#method_save" title="save :: Save image"><span class="description">Save image</span><pre>save()</pre></a></li>
+<li class="method public "><a href="#method_scale" title="scale :: "><span class="description">scale()
+        </span><pre>scale()</pre></a></li>
+<li class="method public "><a href="#method_stats" title="stats :: Get stats"><span class="description">Get stats</span><pre>stats()</pre></a></li>
+<li class="method public "><a href="#method_unapproved" title="unapproved :: Random unapproved image"><span class="description">Random unapproved image</span><pre>unapproved()</pre></a></li>
+<li class="method public "><a href="#method_unsave" title="unsave :: Unsave image"><span class="description">Unsave image</span><pre>unsave()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method_generateUID" title="generateUID :: "><span class="description">generateUID()
+        </span><pre>generateUID()</pre></a></li>
+<li class="method protected inherited"><a href="#method_getLogs" title="getLogs :: "><span class="description">getLogs()
+        </span><pre>getLogs()</pre></a></li>
+<li class="method protected inherited"><a href="#method_log" title="log :: "><span class="description">log()
+        </span><pre>log()</pre></a></li>
+<li class="method protected inherited"><a href="#method_remoteFetch" title="remoteFetch :: "><span class="description">remoteFetch()
+        </span><pre>remoteFetch()</pre></a></li>
+<li class="method protected inherited"><a href="#method_setCookie" title="setCookie :: "><span class="description">setCookie()
+        </span><pre>setCookie()</pre></a></li>
+<li class="method protected inherited"><a href="#method_siteURL" title="siteURL :: "><span class="description">siteURL()
+        </span><pre>siteURL()</pre></a></li>
+<li class="method protected inherited"><a href="#method_text2slug" title="text2slug :: "><span class="description">text2slug()
+        </span><pre>text2slug()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method_add" title="add :: "><span class="description">add()
+        </span><pre>add()</pre></a></li>
+<li class="method private "><a href="#method_getUID" title="getUID :: "><span class="description">getUID()
+        </span><pre>getUID()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="property protected inherited"><a href="#property_db" title="$db :: "><span class="description"></span><pre>$db</pre></a></li></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private inherited"><a href="#property_logs" title="$logs :: "><span class="description"></span><pre>$logs</pre></a></li>
+<li class="property private "><a href="#property_res" title="$res :: "><span class="description"></span><pre>$res</pre></a></li>
+<li class="property private "><a href="#property_user" title="$user :: "><span class="description"></span><pre>$user</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\JohnVanOrange\jvo\Image"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/JohnVanOrange.html">JohnVanOrange</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/JohnVanOrange.jvo.html">jvo</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/JohnVanOrange.jvo.Image.html">Image</a>
+</li>
+</ul>
+<div class="element class"><div class="details">
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___call"></a><div class="element clickable method public method___call" data-toggle="collapse" data-target=".method___call .collapse">
+<h2>__call()
+        </h2>
+<pre>__call($name, $args) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::__call()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$args</h4></div>
+</div></div>
+</div>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_addFromURL"></a><div class="element clickable method public method_addFromURL" data-toggle="collapse" data-target=".method_addFromURL .collapse">
+<h2>Add image from URL</h2>
+<pre>addFromURL(string $url, string $c_link) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Allows adding images to site from remote URL's.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><p>Full URL to an image to be added to the site. Must be JPEG, PNG, or GIF format.</p></div>
+<div class="subelement argument">
+<h4>$c_link</h4>
+<code>string</code><p>An optional external link to comments for the image.</p></div>
+</div></div>
+</div>
+<a id="method_addFromUpload"></a><div class="element clickable method public method_addFromUpload" data-toggle="collapse" data-target=".method_addFromUpload .collapse">
+<h2>addFromUpload()
+        </h2>
+<pre>addFromUpload($path) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$path</h4></div>
+</div></div>
+</div>
+<a id="method_approve"></a><div class="element clickable method public method_approve" data-toggle="collapse" data-target=".method_approve .collapse">
+<h2>Approve image</h2>
+<pre>approve(string $image, string $sid, $nsfw) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Approves an image. If the image was reported, it will resolve all reports. If the image was hidden, it will now be displayed. Must be logged on as admin to access this method.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>api</th>
+<td></td>
+</tr>
+<tr>
+<th>nsfw</th>
+<td>bool If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way.</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+<div class="subelement argument"><h4>$nsfw</h4></div>
+</div></div>
+</div>
+<a id="method_dislike"></a><div class="element clickable method public method_dislike" data-toggle="collapse" data-target=".method_dislike .collapse">
+<h2>Dislike image</h2>
+<pre>dislike(string $image, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Dislike an image. Must be logged in to use this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_get"></a><div class="element clickable method public method_get" data-toggle="collapse" data-target=".method_get .collapse">
+<h2>Get image</h2>
+<pre>get(string $image, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Retrieve information about an image.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image, or the filename of the image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_like"></a><div class="element clickable method public method_like" data-toggle="collapse" data-target=".method_like .collapse">
+<h2>Like image</h2>
+<pre>like(string $image, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Like an image. Must be logged in to use this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_merge"></a><div class="element clickable method public method_merge" data-toggle="collapse" data-target=".method_merge .collapse">
+<h2>Merge images</h2>
+<pre>merge(string $image1, string $image2, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Merge two images into one, merging any assoicated resources. Must be logged in as admin to use this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image1</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$image2</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_random"></a><div class="element clickable method public method_random" data-toggle="collapse" data-target=".method_random .collapse">
+<h2>Random image</h2>
+<pre>random() </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Retrieves a random image.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_recent"></a><div class="element clickable method public method_recent" data-toggle="collapse" data-target=".method_recent .collapse">
+<h2>recent()
+        </h2>
+<pre>recent() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_remove"></a><div class="element clickable method public method_remove" data-toggle="collapse" data-target=".method_remove .collapse">
+<h2>Remove image</h2>
+<pre>remove(string $image, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Removes an image and everything associated with it. Must be logged on as admin to access this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_report"></a><div class="element clickable method public method_report" data-toggle="collapse" data-target=".method_report .collapse">
+<h2>Report image</h2>
+<pre>report(string $image, int $type) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Allows reporting of problematic images so they may undergo review.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>int</code><p>Number value representing the reason type which can be found in report/all</p>
+</div>
+</div></div>
+</div>
+<a id="method_reported"></a><div class="element clickable method public method_reported" data-toggle="collapse" data-target=".method_reported .collapse">
+<h2>Random reported image</h2>
+<pre>reported(string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Retrieves a random image that has been reported by users. Must be logged in as an admin to access this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_save"></a><div class="element clickable method public method_save" data-toggle="collapse" data-target=".method_save .collapse">
+<h2>Save image</h2>
+<pre>save(string $image, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Save an image for viewing later. Must be logged in to use this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_scale"></a><div class="element clickable method public method_scale" data-toggle="collapse" data-target=".method_scale .collapse">
+<h2>scale()
+        </h2>
+<pre>scale($image, $width, $height) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$image</h4></div>
+<div class="subelement argument"><h4>$width</h4></div>
+<div class="subelement argument"><h4>$height</h4></div>
+</div></div>
+</div>
+<a id="method_stats"></a><div class="element clickable method public method_stats" data-toggle="collapse" data-target=".method_stats .collapse">
+<h2>Get stats</h2>
+<pre>stats() </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Returns the total number of images, reported images and approved images.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_unapproved"></a><div class="element clickable method public method_unapproved" data-toggle="collapse" data-target=".method_unapproved .collapse">
+<h2>Random unapproved image</h2>
+<pre>unapproved(string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Retrieves a random unapproved image. Must be logged in as admin to access this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_unsave"></a><div class="element clickable method public method_unsave" data-toggle="collapse" data-target=".method_unsave .collapse">
+<h2>Unsave image</h2>
+<pre>unsave(string $image, string $sid) </pre>
+<div class="labels"><span class="label label-info">API</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Stop saving a previously saved image. Must be logged in to use this method.</p></div>
+<table class="table table-bordered"><tr>
+<th>api</th>
+<td></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$image</h4>
+<code>string</code><p>The 6-digit id of an image.</p>
+</div>
+<div class="subelement argument">
+<h4>$sid</h4>
+<code>string</code><p>Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.</p></div>
+</div></div>
+</div>
+<a id="method_generateUID"></a><div class="element clickable method protected method_generateUID" data-toggle="collapse" data-target=".method_generateUID .collapse">
+<h2>generateUID()
+        </h2>
+<pre>generateUID($length) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::generateUID()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$length</h4></div>
+</div></div>
+</div>
+<a id="method_getLogs"></a><div class="element clickable method protected method_getLogs" data-toggle="collapse" data-target=".method_getLogs .collapse">
+<h2>getLogs()
+        </h2>
+<pre>getLogs() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::getLogs()</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_log"></a><div class="element clickable method protected method_log" data-toggle="collapse" data-target=".method_log .collapse">
+<h2>log()
+        </h2>
+<pre>log($text, $file) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::log()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$text</h4></div>
+<div class="subelement argument"><h4>$file</h4></div>
+</div></div>
+</div>
+<a id="method_remoteFetch"></a><div class="element clickable method protected method_remoteFetch" data-toggle="collapse" data-target=".method_remoteFetch .collapse">
+<h2>remoteFetch()
+        </h2>
+<pre>remoteFetch($url, $headers) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::remoteFetch()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$url</h4></div>
+<div class="subelement argument"><h4>$headers</h4></div>
+</div></div>
+</div>
+<a id="method_setCookie"></a><div class="element clickable method protected method_setCookie" data-toggle="collapse" data-target=".method_setCookie .collapse">
+<h2>setCookie()
+        </h2>
+<pre>setCookie($name, $value, $expire, $path) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::setCookie()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument"><h4>$expire</h4></div>
+<div class="subelement argument"><h4>$path</h4></div>
+</div></div>
+</div>
+<a id="method_siteURL"></a><div class="element clickable method protected method_siteURL" data-toggle="collapse" data-target=".method_siteURL .collapse">
+<h2>siteURL()
+        </h2>
+<pre>siteURL() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::siteURL()</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_text2slug"></a><div class="element clickable method protected method_text2slug" data-toggle="collapse" data-target=".method_text2slug .collapse">
+<h2>text2slug()
+        </h2>
+<pre>text2slug($text) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::text2slug()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$text</h4></div>
+</div></div>
+</div>
+<a id="method_add"></a><div class="element clickable method private method_add" data-toggle="collapse" data-target=".method_add .collapse">
+<h2>add()
+        </h2>
+<pre>add($path, $c_link) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$path</h4></div>
+<div class="subelement argument"><h4>$c_link</h4></div>
+</div></div>
+</div>
+<a id="method_getUID"></a><div class="element clickable method private method_getUID" data-toggle="collapse" data-target=".method_getUID .collapse">
+<h2>getUID()
+        </h2>
+<pre>getUID($length) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$length</h4></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_db"> </a><div class="element clickable property protected property_db" data-toggle="collapse" data-target=".property_db .collapse">
+<h2></h2>
+<pre>$db </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::$$db</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_logs"> </a><div class="element clickable property private property_logs" data-toggle="collapse" data-target=".property_logs .collapse">
+<h2></h2>
+<pre>$logs </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\JohnVanOrange\jvo\Base::$$logs</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_res"> </a><div class="element clickable property private property_res" data-toggle="collapse" data-target=".property_res .collapse">
+<h2></h2>
+<pre>$res </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_user"> </a><div class="element clickable property private property_user" data-toggle="collapse" data-target=".property_user .collapse">
+<h2></h2>
+<pre>$user </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-08T10:40:42-04:00.<br></footer></div>
+</div>
+</body>
+</html>

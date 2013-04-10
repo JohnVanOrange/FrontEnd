@@ -1,23 +1,22 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Base {
 
  protected $db;
  private $logs=array();
 
- public function __construct($options=array()) {
+ public function __construct() {
   $this->db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
  }
  
  public function __call($name, $args) {
-  throw new Exception('Invalid method '.$name);
+  throw new \Exception('Invalid method '.$name);
  }
 
- protected function remoteFetch($options=array()) {
+ protected function remoteFetch($url, $headers=NULL) {
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $options['url']);
+  curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -25,7 +24,7 @@ class Base {
   //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE); //disable for now as prod server doesn't handle properly
   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
   curl_setopt($ch, CURLOPT_TIMEOUT, 180);
-  if ($options['headers']) curl_setopt($ch, CURLOPT_HTTPHEADER, $options['headers']);
+  if ($headers) curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
   $response = curl_exec($ch);
   curl_close($ch);
   return $response;
@@ -59,7 +58,7 @@ class Base {
   return FALSE;
  }
 
- public function text2slug($text) {
+ protected function text2slug($text) {
   $output = htmlentities($text, ENT_COMPAT, "UTF-8", false); 
   $output = preg_replace('/&([a-z]{1,2})(?:acute|lig|grave|ring|tilde|uml|cedil|caron);/i','\1',$output);
   $output = html_entity_decode($output,ENT_COMPAT, "UTF-8"); 

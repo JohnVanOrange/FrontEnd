@@ -18,22 +18,32 @@ class User extends Base {
   return md5($salt.$pass);
  }
  
- public function isAdmin($options=array()) {
-  $user = $this->current();
+ public function isAdmin($sid=NULL) {
+  $user = $this->current($sid);
   if (!isset($user['type'])) $user['type'] = NULL;
   if ($user['type']>= 2) return TRUE;
   return FALSE;
  }
  
- protected function isLoggedIn($options=array()) {
-  $user = $this->current();
+ protected function isLoggedIn($sid=NULL) {
+  $user = $this->current($sid);
   if ($user) return TRUE;
   return FALSE;
  }
+ 
+ /**
+  * Get user
+  *
+  * Retrieve details about a user account.
+  *
+  * @api
+  * 
+  * @param mixed $value By default, this is the user_id of an account. This can also be a username if the "search_by" parameter is set to "username".
+  * @param string $search_by Defaults to id. Valid values are "id" or "username".
+  */
 
- public function get($options=array()) {
-  if (!isset($options['search_by'])) $options['search_by'] = NULL;
-  switch ($options['search_by']) {
+ public function get($value, $search_by='id') {
+  switch ($search_by) {
    case 'username':
     $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE username = :value';
    break;
@@ -43,7 +53,7 @@ class User extends Base {
    break;
   }
   $val = array(
-   ':value' => $options['value']
+   ':value' => $value
   );
   $user = $this->db->fetch($sql,$val);
   if (isset($user[0])) $user = $user[0];
@@ -51,10 +61,19 @@ class User extends Base {
   unset($user['email']);
   return $user;
  }
+ 
+ /**
+  * Current user
+  *
+  * Retrieve user details of currently logged in account.
+  *
+  * @api
+  * 
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
 
- public function current($options=array()) {
-  $sid = $this->getSID();
-  if (isset($options['sid'])) $sid = $options['sid'];
+ public function current($sid=NULL) {
+  if (!isset($sid)) $sid = $this->getSID();
   $sql = 'SELECT user_id FROM sessions WHERE sid = :sid LIMIT 1';
   $val = array(
    ':sid' => $sid
@@ -62,7 +81,7 @@ class User extends Base {
   $user = $this->db->fetch($sql,$val);
   $user_id = NULL;
   if (isset($user[0]['user_id'])) $user_id = $user[0]['user_id'];
-  return $this->get(array('value'=>$user_id));
+  return $this->get($user_id);
  }
 
  private function getSID() {
@@ -73,17 +92,28 @@ class User extends Base {
   $this->sid = $sid;
  }
  
- public function login($options=array()) {
+ /**
+  * Account login
+  *
+  * Login to an account.
+  *
+  * @api
+  * 
+  * @param string $username Valid username.
+  * @param string $password Valid password.
+  */
+ 
+ public function login($username, $password) {
   $sql = 'SELECT * FROM users WHERE username = :username LIMIT 1';
   $val = array(
-   ':username' => $options['username']
+   ':username' => $username
   );
   $userdata = $this->db->fetch($sql,$val);
   $userdata = $userdata[0];
   if (!$userdata) throw new \Exception('User not found');
-  $pwhash = $this->passhash($options['password'],$userdata['salt']);
+  $pwhash = $this->passhash($password,$userdata['salt']);
   if ($pwhash != $userdata['password']) throw new \Exception('Invalid password');
-  #succesfully login
+  //succesfully login
   $sid = $this->getSecureID();
   $this->setCookie('sid', $sid);
   $sql = 'INSERT INTO sessions(user_id, sid) VALUES("'.$userdata['id'].'","'.$sid.'");';
@@ -93,11 +123,19 @@ class User extends Base {
    'sid' => $sid
   );
  }
+ 
+ /**
+  * Logout account
+  *
+  * Logout of an account.
+  *
+  * @api
+  * 
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  */
 
- public function logout($options=array()) {
-  $sid = $this->getSID();
-  if ($options['sid']) $sid = $options['sid'];
-  if ($options['sid']) $this->sid = $options['sid'];
+ public function logout($sid=NULL) {
+  if (!isset($sid)) $sid = $this->getSID();
   $sql = 'DELETE FROM sessions WHERE sid = :sid';
   $val = array(
    ':sid' => $sid
@@ -108,18 +146,27 @@ class User extends Base {
    'message' => 'Logged out.'
   );
  }
+ 
+ /**
+  * Add user
+  *
+  * Create new user account.
+  *
+  * @api
+  * 
+  * @param string $username Any unique string used to login to an account
+  * @param string $password Any string
+  * @param string $email This can also be any string, but a valid email address would be required to do any password recovery.
+  */
 
- public function add($options=array()) {
-  if (!$options['username']) throw new \Exception('No username specified');
-  if (!$options['password']) throw new \Exception('No password specified');
-  if (!$options['email']) throw new \Exception('No email specified');
+ public function add($username, $password, $email) {
   $salt = $this->getSecureID();
   $sql = 'INSERT INTO users(username, password, salt, email) VALUES(:username, :password, :salt, :email)';
   $val = array(
-   ':username' => $options['username'],
-   ':password' => $this->passhash($options['password'],$salt),
+   ':username' => $username,
+   ':password' => $this->passhash($password,$salt),
    ':salt' => $salt,
-   ':email' => $options['email']
+   ':email' => $email
   );
   $this->db->fetch($sql,$val);
   return array(
@@ -127,17 +174,27 @@ class User extends Base {
   );
  }
  
- public function saved($options=array()) {
-  if (!$options['username']) throw new \Exception('Username not given', 404);
-  $current = $this->current($options);
-  $user = $this->get(array('search_by'=>'username','value'=>$options['username']));
+ /**
+  * User's saved images
+  *
+  * Load all saved images for a user account.
+  *
+  * @api
+  * 
+  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
+  */
+ 
+ public function saved($username, $sid=NULL) {
+  $current = $this->current($sid);
+  $user = $this->get($username, 'username');
   if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
   $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
   $results = $this->db->fetch($sql);
   $image = new Image();
   foreach ($results as $result) {
    try {
-    $return[] = $image->get(array('image'=>$result['image']));
+    $return[] = $image->get($result['image']);
    }
    catch(\Exception $e) {
     if ($e->getCode() != 403) {
@@ -148,17 +205,27 @@ class User extends Base {
   return $return;
  }
  
- public function uploaded($options=array()) {
-  if (!$options['username']) throw new \Exception('Username not given', 404);
-  $current = $this->current($options);
-  $user = $this->get(array('search_by'=>'username','value'=>$options['username']));
+ /**
+  * User's uploaded images
+  *
+  * Load all uploaded images for a user account.
+  *
+  * @api
+  * 
+  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
+  */
+ 
+ public function uploaded($username, $sid=NULL) {
+  $current = $this->current($sid);
+  $user = $this->get($username, 'username');
   if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
   $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "upload"';
   $results = $this->db->fetch($sql);
   $image = new Image();
   foreach ($results as $result) {
    try {
-    $return[] = $image->get(array('image'=>$result['image']));
+    $return[] = $image->get($result['image']);
    }
    catch(\Exception $e) {
     if ($e->getCode() != 403) {

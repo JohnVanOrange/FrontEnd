@@ -26,7 +26,7 @@
  {if $stats.reports}<p><a href='/admin/reported'>Reported:</a> {$stats.reports}</p>{/if}
 </div>
 
-<div id='content'>
+<div id='content' class='image_admin'>
 
 	<p><button id='approve'>Approve</button> <button id='nsfw'>Approve as NSFW</button> <button id='reject'>Reject</button> <button id='skip'>Skip</button></p>
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">

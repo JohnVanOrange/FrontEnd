@@ -2,6 +2,7 @@
  var web_root = '{$web_root}';
  var site_name = '{$site_name}';
  var icon_set = '{$icon_set}';
+ var fb_app_id = '{$fb_app_id}';
 </script>
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'></script>

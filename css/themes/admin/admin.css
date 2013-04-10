@@ -14,7 +14,27 @@
   margin-left: 10px;
   font-style: italic;
 }
-#content {
+#content.image_admin {
   float: right;
   padding: 0 2%;
+}
+#content.merge {
+  width: 700px;
+  position: relative;
+  min-height: 200px;
+}
+.image1 {
+  position: absolute;
+  left: 0;
+}
+.image2 {
+  position: absolute;
+  right: 0;
+}
+.image_container {
+  top: 0;
+  width: 240px;
+}
+.image_container .preview {
+  padding-top: 10px;
 }
