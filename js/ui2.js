@@ -352,12 +352,12 @@ $(document).ready(function() {
   });
   var addtag = function () {
    call('tag/add', function(result){
-    var tagtext = '', i;
+    $('#tags').empty();
     for (i in result.tags) {
-     tagtext = tagtext + '<a href="' + result.tags[i].url + '">' + result.tags[i].name + '</a>, ';
+     tag = document.createElement('a');
+     $(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
+     $('#tags').append(tag);
     }
-    tagtext = tagtext.substring(0, tagtext.length - 2);
-    $('#tagtext').html(tagtext);
    }, 
    {
     'name': $('#tag_name').val(),

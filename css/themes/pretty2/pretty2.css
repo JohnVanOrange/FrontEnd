@@ -157,19 +157,53 @@ nav a:hover {
 #search {
   margin-top: 1px;
 }
-fieldset {
-  text-align: left;
-  display: inline-block;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  clear: right;
+.tag {
+  position: relative;
+  font-weight: bold;
+  font-size: 9px;
+  color: black;
+  background-color: #F0EAD6;
+  text-shadow: none;
+  text-decoration: none;
+  padding: 4px 4px 4px 10px;
+  margin: 3px;
+  background: linear-gradient(45deg, transparent 4px, #f3e5ab 4px), linear-gradient(315deg, transparent 4px, #f3e5ab 4px), linear-gradient(0, transparent 4px, #f3e5ab 4px), linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -webkit-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -webkit-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -webkit-linear-gradient(0, transparent 4px, #f3e5ab 4px), -webkit-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -moz-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(0, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -o-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -o-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -o-linear-gradient(0, transparent 4px, #f3e5ab 4px), -o-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -ms-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(0, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  -webkit-background-size: 60%;
+  -moz-background-size: 60%;
+  -o-background-size: 60%;
+  background-size: 60%;
+  background-position: bottom left, top left, top right, bottom right;
+  background-repeat: no-repeat;
+  box-shadow: 4px 4px 20px #000;
 }
-legend {
-  color: white;
+.tag:visited {
+  color: black;
 }
-#tagtext {
-  font-size: 80%;
+.tag:hover {
+  position: relative;
+  font-weight: bold;
+  font-size: 12px;
+  color: black;
+  background-color: #F0EAD6;
+  text-shadow: none;
+  text-decoration: none;
+  padding: 4px;
+  padding-left: 10px;
+  background: linear-gradient(45deg, transparent 4px, #f0ead6 4px), linear-gradient(315deg, transparent 4px, #f0ead6 4px), linear-gradient(0, transparent 4px, #f0ead6 4px), linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -webkit-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -webkit-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -webkit-linear-gradient(0, transparent 4px, #f0ead6 4px), -webkit-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -moz-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -moz-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -moz-linear-gradient(0, transparent 4px, #f0ead6 4px), -moz-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -o-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -o-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -o-linear-gradient(0, transparent 4px, #f0ead6 4px), -o-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -ms-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -ms-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -ms-linear-gradient(0, transparent 4px, #f0ead6 4px), -ms-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  -webkit-background-size: 60%;
+  -moz-background-size: 60%;
+  -o-background-size: 60%;
+  background-size: 60%;
+  background-position: bottom left,  top left, top right, bottom right;
+  background-repeat: no-repeat;
 }
 .addthis_toolbox {
   display: inline-block;
