@@ -172,10 +172,10 @@ nav a:hover {
   background: -moz-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(0, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(0, transparent 4px, #f3e5ab 4px);
   background: -o-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -o-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -o-linear-gradient(0, transparent 4px, #f3e5ab 4px), -o-linear-gradient(0, transparent 4px, #f3e5ab 4px);
   background: -ms-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(0, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(0, transparent 4px, #f3e5ab 4px);
-  -webkit-background-size: 60%;
-  -moz-background-size: 60%;
-  -o-background-size: 60%;
-  background-size: 60%;
+  -webkit-background-size: 60% 60%;
+  -moz-background-size: 60% 60%;
+  -o-background-size: 60% 60%;
+  background-size: 60% 60%;
   background-position: bottom left, top left, top right, bottom right;
   background-repeat: no-repeat;
   box-shadow: 4px 4px 20px #000;
@@ -198,10 +198,10 @@ nav a:hover {
   background: -moz-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -moz-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -moz-linear-gradient(0, transparent 4px, #f0ead6 4px), -moz-linear-gradient(0, transparent 4px, #f0ead6 4px);
   background: -o-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -o-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -o-linear-gradient(0, transparent 4px, #f0ead6 4px), -o-linear-gradient(0, transparent 4px, #f0ead6 4px);
   background: -ms-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -ms-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -ms-linear-gradient(0, transparent 4px, #f0ead6 4px), -ms-linear-gradient(0, transparent 4px, #f0ead6 4px);
-  -webkit-background-size: 60%;
-  -moz-background-size: 60%;
-  -o-background-size: 60%;
-  background-size: 60%;
+  -webkit-background-size: 60% 60%;
+  -moz-background-size: 60% 60%;
+  -o-background-size: 60% 60%;
+  background-size: 60% 60%;
   background-position: bottom left,  top left, top right, bottom right;
   background-repeat: no-repeat;
 }
