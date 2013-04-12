@@ -11,7 +11,7 @@
 <script src='{$web_root}components/noty/js/noty/jquery.noty.js'></script>
 <script src='{$web_root}components/noty/js/noty/layouts/topLeft.js'></script>
 <script src='{$web_root}components/noty/js/noty/themes/default.js'></script>
-<script src='{$web_root}js/ui2.js?20130325'></script>
+<script src='{$web_root}js/ui2.js?20130411'></script>
 
 <script async src="//assets.pinterest.com/js/pinit.js"></script>
 
@@ -46,12 +46,6 @@
 
 </script>
 
-<script type="text/javascript"><!-- get satisfaction -->
-  var is_ssl = ("https:" == document.location.protocol);
-  var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
-  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
 <script type="text/javascript">
   var feedback_widget_options = {};
 
@@ -60,6 +54,4 @@
   feedback_widget_options.placement = "left";
   feedback_widget_options.color = "#222";
   feedback_widget_options.style = "idea";
-
-  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 </script>

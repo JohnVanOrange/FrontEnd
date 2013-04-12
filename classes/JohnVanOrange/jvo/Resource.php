@@ -12,11 +12,13 @@ class Resource extends Base {
 
  public function add($type, $image = NULL, $value = NULL, $sid = NULL) {
   $current = $this->user->current($sid);
+  $user_id = NULL;
+  if (isset($current['id'])) $user_id = $current['id'];
   $sql = 'INSERT INTO resources (ip, image, user_id, value, type) VALUES(:ip, :image, :user_id, :value, :type)';
   $val = array(
    ':ip' => $_SERVER['REMOTE_ADDR'],
    ':image' => $image,
-   ':user_id' => $current['id'],
+   ':user_id' => $user_id,
    ':value' => $value,
    ':type' => $type
   );

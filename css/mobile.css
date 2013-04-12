@@ -1,5 +1,5 @@
 .nomobile {
- display: none;
+	display: none;
 }
 
 #content {
@@ -7,7 +7,7 @@
 }
 
 body {
-	margin-bottom: 24px;
+	margin-bottom: 32px;
 }
 
 header  {
@@ -59,8 +59,4 @@ nav > ul li ul li:last-child {
 	-ms-transform: translate(50%) scale(2);
 	-webkit-transform: scale(0.6);
 	-o-transform: translate(50%) scale(2);
-}
-
-#fdbk_tab {
-	display: none;
 }

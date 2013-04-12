@@ -11,11 +11,9 @@
 		</p></div>
 	</section>
 
-<fieldset>
-	<legend class='icon-tags'>Tags</legend>
-	<span id='tagtext'><span class='tag'{if !isset($image.tags)} style='display:none'{/if}>{if isset($image.tags)}{foreach name=tags from=$image.tags item=tag}<a href='{$tag.url}'>{$tag.name}</a>{if !$smarty.foreach.tags.last}, {/if}{/foreach}{/if}</span><span class='notag'{if isset($image.tags.0)} style='display:none'{/if}><em>none currently </em></span></span>
-	<button class='icon-tag' id='add_tag'>Add</button>
-</fieldset>
+
+	<span id='tags'>{if isset($image.tags.0)}{foreach name=tags from=$image.tags item=tag}<a class='tag' href='{$tag.url}'>{$tag.name}</a>{/foreach}{else}<em>no current tags</em>{/if}</span>
+	<button class='icon-tag' id='add_tag'>Add Tag</button>
 
 <br>
 

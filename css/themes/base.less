@@ -1,5 +1,33 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+.linear_gradient_multi4(@start, @start2, @start3, @start4, @color, @color2, @pos) {
+    background:
+		linear-gradient(@start, @color @pos, @color2 @pos),
+		linear-gradient(@start2, @color @pos, @color2 @pos),
+		linear-gradient(@start3, @color @pos, @color2 @pos),
+		linear-gradient(@start4, @color @pos, @color2 @pos);
+	background:
+		-webkit-linear-gradient(@start, @color @pos, @color2 @pos),
+		-webkit-linear-gradient(@start2, @color @pos, @color2 @pos),
+		-webkit-linear-gradient(@start3, @color @pos, @color2 @pos),
+		-webkit-linear-gradient(@start4, @color @pos, @color2 @pos);
+	background:
+		-moz-linear-gradient(@start, @color @pos, @color2 @pos),
+		-moz-linear-gradient(@start2, @color @pos, @color2 @pos),
+		-moz-linear-gradient(@start3, @color @pos, @color2 @pos),
+		-moz-linear-gradient(@start4, @color @pos, @color2 @pos);
+	background:
+		-o-linear-gradient(@start, @color @pos, @color2 @pos),
+		-o-linear-gradient(@start2, @color @pos, @color2 @pos),
+		-o-linear-gradient(@start3, @color @pos, @color2 @pos),
+		-o-linear-gradient(@start4, @color @pos, @color2 @pos);
+	background:
+		-ms-linear-gradient(@start, @color @pos, @color2 @pos),
+		-ms-linear-gradient(@start2, @color @pos, @color2 @pos),
+		-ms-linear-gradient(@start3, @color @pos, @color2 @pos),
+		-ms-linear-gradient(@start4, @color @pos, @color2 @pos);
+}
+
 .linear_gradient_2(@start, @color_a, @pos_a, @color_b, @pos_b, @color) {
     background: linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
 	background: -webkit-linear-gradient(@start, @color_a @pos_a, @color_b @pos_b), @color;
@@ -20,6 +48,13 @@
 	-moz-border-radius: @tl @tr @br @bl;
 	-webkit-border-radius: @tl @tr @br @bl;
 	border-radius: @tl @tr @br @bl;
+}
+
+.background_size(@size) {
+	-webkit-background-size: @size @size;
+	-moz-background-size: @size @size;
+	-o-background-size: @size @size;
+	background-size: @size @size;
 }
 
 html {
@@ -177,19 +212,39 @@ nav a, nav a:visited, nav a:visited:hover, nav a:hover {
 	margin-top: 1px;
 }
 
-fieldset {
-	text-align: left;
-	display: inline-block;
-	.border_radius(10px, 10px, 10px, 10px);
-	clear:right;
-}
-
-legend {
-	color: white;
-}
-
-#tagtext {
-	font-size: 80%;
+.tag {
+    position: relative;
+    font-weight: bold;
+	font-size: 9px;
+    color: black;
+    background-color: #F0EAD6;
+    text-shadow: none;
+    text-decoration: none;
+    padding: 4px 4px 4px 10px;
+    margin: 3px;
+	.linear_gradient_multi4(45deg, 315deg, 0, 0, transparent, #F3E5AB, 4px);
+	.background_size(60%);
+    background-position: bottom left, top left, top right, bottom right;
+    background-repeat: no-repeat;
+    box-shadow: 4px 4px 20px #000;
+	&:visited {
+		color: black;
+	}
+	&:hover {
+		position: relative;
+		font-weight: bold;
+		font-size: 12px;
+		color: black;
+		background-color: #F0EAD6;
+		text-shadow: none;
+		text-decoration: none;
+		padding: 4px;
+		padding-left: 10px;
+		.linear_gradient_multi4(45deg, 315deg, 0, 0, transparent, #F0EAD6, 4px);
+		.background_size(60%);
+		background-position: bottom left,  top left, top right, bottom right;
+		background-repeat: no-repeat;
+	}
 }
 
 .addthis_toolbox {
