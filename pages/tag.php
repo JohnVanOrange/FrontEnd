@@ -7,7 +7,7 @@ $api = new API();
 
 $template = 'tag.tpl';
 
-$tag_name = $request[1];
+$tag_name = $route->get_data(0);
 
 $tpl->assign('images', $api->call('tag/all',array('tag'=>$tag_name)));
 

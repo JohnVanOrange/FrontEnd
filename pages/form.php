@@ -3,7 +3,7 @@ require_once('smarty.php');
 
 $template = 'form.tpl';
 
-$tpl->assign('form', $request[1]);
+$tpl->assign('form', $route->get_data(0));
 
 require_once('common.php');
 

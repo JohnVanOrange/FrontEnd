@@ -7,7 +7,7 @@ $api = new API();
 
 $template = 'saved.tpl';
 
-$username = $request[1];
+$username = $route->get_data(0);
 
 $tpl->assign('images',$api->call('user/saved',array('username'=>$username)));
 

@@ -3,8 +3,8 @@ namespace JohnVanOrange\jvo;
 
 $api = new API();
 
-$class = $request[1];
-$method = $request[2];
+$class = $route->get_data(0);
+$method = $route->get_data(1);
 
 header ('Content-type: application/json; charset=UTF-8');
 header ('Access-Control-Allow-Origin: *');

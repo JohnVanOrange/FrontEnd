@@ -3,7 +3,7 @@ require_once('smarty.php');
 
 $template = 'image.tpl';
 
-$uid = $request[2];
+$uid = $route->get_data(1);
 
 $image = call('image/get',array('image'=>$uid));
 $stats = call('image/stats');

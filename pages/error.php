@@ -3,7 +3,7 @@ require('smarty.php');
 
 $template = 'error.tpl';
 
-$number = $request[1];
+$number = $route->get_data(0);
 
 header("HTTP/1.0 ".$number);
 $_SERVER['REDIRECT_STATUS'] = $number;

@@ -18,7 +18,8 @@ class Exception {
     switch($e->getCode()) {
      case 403:
      case 404:
-      $request[1] = $e->getCode();
+      $route = new Route();
+      $route->set_data(0, $e->getCode());
       include(ROOT_DIR.'/pages/error.php');
       die();
       break;

@@ -7,7 +7,7 @@ $api = new API();
 
 $template = 'user.tpl';
 
-$username = $request[1];
+$username = $route->get_data(0);
 
 $tpl->assign('profile', $api->call('user/get',array('value'=>$username,'search_by'=>'username')));
 

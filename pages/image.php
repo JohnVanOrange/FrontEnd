@@ -7,7 +7,7 @@ $api = new API();
 
 $template = 'image.tpl';
 
-$image_name = $request[1];
+$image_name = $route->get_data(0);
 
 $result = $api->call('image/get',array('image'=>$image_name));
 

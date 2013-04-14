@@ -7,7 +7,7 @@ $api = new API();
 
 $template = 'info.tpl';
 
-$uid = $request[1];
+$uid = $route->get_data(0);
 
 $image = $api->call('image/get',array('image'=>$uid));
 
