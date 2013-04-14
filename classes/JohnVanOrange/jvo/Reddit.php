@@ -1,6 +1,5 @@
 <?php
 namespace JohnVanOrange\jvo;
-use Exception;
 
 class Reddit extends Base {
 
@@ -32,7 +31,7 @@ class Reddit extends Base {
       $this->log($e->getMessage(),$this->logfile);
      break;
 	 case '999':
-	  throw new Exception($e);
+	  throw new \Exception($e);
      default:
 	  $this->log($e->getMessage(),$this->logfile);
      break;
@@ -46,7 +45,7 @@ class Reddit extends Base {
   if ($this->isImgur($post) !== FALSE) return $this->imgurProcess($post);
   if ($this->isDirectImage($post) !== FALSE) return $this->directImageProcess($post);
   if ($this->isQuickMeme($post) !== FALSE) return $this->quickMemeProcess($post);
-  throw new Exception('Not a known image type. URL: '.$post['data']['url'],200);
+  throw new \Exception('Not a known image type. URL: '.$post['data']['url'],200);
  }
 
  private function isQuickMeme($post) {
@@ -87,7 +86,7 @@ class Reddit extends Base {
  }
 
  private function isImgurAlbum($post) {
-  if (strpos($post['data']['url'],'imgur.com/a/') == TRUE) throw new Exception('Imgur album',200);
+  if (strpos($post['data']['url'],'imgur.com/a/') == TRUE) throw new \Exception('Imgur album',200);
   return TRUE;
  }
 
@@ -96,7 +95,7 @@ class Reddit extends Base {
  }
 
  private function checkScore($post, $minScore=5) {
-  if ($post['data']['score'] <= $minScore) throw new Exception('Score below '.$minScore,200);
+  if ($post['data']['score'] <= $minScore) throw new \Exception('Score below '.$minScore,200);
   return TRUE;
  }
 
@@ -105,22 +104,22 @@ class Reddit extends Base {
   $data = end($data);
   $data = explode('.',$data);
   $data = $data[0];
-  if (strlen($data) > 7) throw new Exception('Unknown URL value: '.$data.' Full URL: '.$post['data']['url'],200);
+  if (strlen($data) > 7) throw new \Exception('Unknown URL value: '.$data.' Full URL: '.$post['data']['url'],200);
   return $data;
  }
 
  private function getImageData($data) {
   $sql = 'SELECT id from imgur_history WHERE id = "'.$data.'"';
-  if ($this->db->fetch($sql)) throw new Exception('Previously retrieved image ('.$data.')',200);
+  if ($this->db->fetch($sql)) throw new \Exception('Previously retrieved image ('.$data.')',200);
   $imagedata = json_decode($this->remoteFetch(
    'https://api.imgur.com/3/image/'.$data.'.json',
    array('Authorization: Client-ID '.IMGUR_CID)
    ),TRUE);
   $imagedata = $imagedata['data'];
-  if (!$imagedata) throw new Exception('Error retrieving Imgur data',200);
+  if (!$imagedata) throw new \Exception('Error retrieving Imgur data',200);
   if ($imagedata['error']) {
-   if ($imagedata['error'] == 'User request limit exceeded') throw new Exception('Imgur API limits exceeded',999);
-   throw new Exception('Imgur error: '.$imagedata['error'].' '.$data,200);
+   if ($imagedata['error'] == 'User request limit exceeded') throw new \Exception('Imgur API limits exceeded',999);
+   throw new \Exception('Imgur error: '.$imagedata['error'].' '.$data,200);
   }
   $sql = 'INSERT INTO imgur_history(id) VALUES("'.$data.'")';
   $this->db->fetch($sql);

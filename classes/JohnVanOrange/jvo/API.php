@@ -1,10 +1,9 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-class API extends Base {
+class API {
 
  public function __construct() {
-  parent::__construct();
  }
  
  /*
@@ -13,9 +12,10 @@ class API extends Base {
   * Accesses allowed methods through a common interface to assist with exception handling.
   *
   * @param string $method Method name to access.
-  * @param array $params Associated array of named parameters and their values.
+  * @param mixed[] $params Associated array of named parameters and their values.
   * @param bool $js If true, the Javascript execption handler will be used.
   */
+ 
  public function call($method, $params=[], $js=FALSE) {
     $result = explode('/',$method);
     $class = $result[0];
@@ -63,8 +63,9 @@ class API extends Base {
      return $reflectMethod->invokeArgs($class_obj, $indexed_params);
     }
     catch(\Exception $e) {
-     if ($js) js_exception_handler($e);
-     page_exception_handler($e);
+     $exception = new Exception();
+     if ($js) $exception->js($e);
+     $exception->page($e);
     }
  }
 
