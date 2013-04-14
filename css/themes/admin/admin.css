@@ -12,7 +12,7 @@
 }
 #image_data .tag {
   margin-left: 10px;
-  font-style: italic;
+  display: inline-block;
 }
 #content.image_admin {
   float: right;
