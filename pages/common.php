@@ -1,5 +1,9 @@
 <?php
-$user = call('user/current');
+namespace JohnVanOrange\jvo;
+
+$api = new API();
+
+$user = $api->call('user/current');
 if (!isset($user['id'])) $user['id'] = 0;
 
 $tpl->assign('ga',GOOGLE_ANALYTICS);
@@ -12,7 +16,7 @@ if (defined('APP_LINK')) $tpl->assign('app_link',APP_LINK);
 if (defined('SHOW_JVON')) $tpl->assign('show_jvon',SHOW_JVON);
 if (defined('FB_APP_ID')) $tpl->assign('fb_app_id',FB_APP_ID);
 $tpl->assign('user', $user);
-if (call('user/isAdmin')) $tpl->assign('is_admin', TRUE);
+if ($api->call('user/isAdmin')) $tpl->assign('is_admin', TRUE);
 $tpl->assign('site_theme', THEME);
 $tpl->assign('current_url', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 

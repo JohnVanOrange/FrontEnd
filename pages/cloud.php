@@ -1,12 +1,16 @@
 <?php
+namespace JohnVanOrange\jvo;
+
 require('smarty.php');
+
+$api = new API();
 
 $template = 'cloud.tpl';
 
 $maxfont = '60';
 $minfont = '10';
 
-$tags = call('tag/top');
+$tags = $api->call('tag/top');
 
 $max = current($tags);
 $min = end($tags);

@@ -1,14 +1,18 @@
 <?php
+namespace JohnVanOrange\jvo;
+
 require_once('smarty.php');
+
+$api = new API();
 
 $template = 'display.tpl';
 
 $image_name = $request[1];
 
-$tpl->assign('image', call('image/get',array('image'=>$image_name)));
+$tpl->assign('image', $api->call('image/get',array('image'=>$image_name)));
 
 $tpl->assign('rand',md5(uniqid(rand(), true)));
-$tpl->assign('report_types',call('report/all'));
+$tpl->assign('report_types',$api->call('report/all'));
 
 require_once('common.php');
 

@@ -1,11 +1,15 @@
 <?php
+namespace JohnVanOrange\jvo;
+
 require_once('smarty.php');
+
+$api = new API();
 
 $template = 'info.tpl';
 
 $uid = $request[1];
 
-$image = call('image/get',array('image'=>$uid));
+$image = $api->call('image/get',array('image'=>$uid));
 
 $tpl->assign('image',$image);
 

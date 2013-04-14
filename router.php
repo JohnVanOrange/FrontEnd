@@ -2,7 +2,6 @@
 require_once('vendor/autoload.php');
 require_once('settings.inc');
 require_once('common/exceptions.php');
-require_once('common/call.php');
 
 $full_request = $_SERVER['REQUEST_URI'];
 $request = explode('?',$full_request);

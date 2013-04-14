@@ -1,11 +1,15 @@
 <?php
+namespace JohnVanOrange\jvo;
+
 require('smarty.php');
+
+$api = new API();
 
 $template = 'saved.tpl';
 
 $username = $request[1];
 
-$tpl->assign('images',call('user/saved',array('username'=>$username)));
+$tpl->assign('images',$api->call('user/saved',array('username'=>$username)));
 
 $tpl->assign('title_text', 'Saved Images');
 
