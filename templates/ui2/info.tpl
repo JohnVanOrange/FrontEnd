@@ -15,10 +15,10 @@
  {if isset($image.data.upload)}<li>Added on {$image.data.upload.created|date_format}</li>{/if}
  {if isset($image.uploader.username)}<li>Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a></li>{/if}
  {if isset($image.approved)}
-  {if isset($image.nsfw)}<li>Flagged NSFW</li>{/if}
+  {if $image.nsfw === '1'}<li>Flagged NSFW</li>{/if}
  {/if}
  {if isset($image.saved)}<li>Saved{if isset($image.data.save.created)} on {$image.data.save.created|date_format}{/if}</li>{/if}
- {if isset($image.tags)}
+ {if isset($image.tags.0)}
   <li>
    <ul>Tags:
     {foreach name=tags from=$image.tags item=tag}<li class='icon-tag'><a href='/t/{$tag.basename}'>{$tag.name}</a></li>{/foreach}
