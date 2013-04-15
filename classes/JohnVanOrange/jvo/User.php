@@ -109,8 +109,8 @@ class User extends Base {
    ':username' => $username
   );
   $userdata = $this->db->fetch($sql,$val);
+  if (!isset($userdata[0])) throw new \Exception('User not found');
   $userdata = $userdata[0];
-  if (!$userdata) throw new \Exception('User not found');
   $pwhash = $this->passhash($password,$userdata['salt']);
   if ($pwhash != $userdata['password']) throw new \Exception('Invalid password');
   //succesfully login
