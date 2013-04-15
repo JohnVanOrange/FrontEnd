@@ -1,4 +1,4 @@
-INSERT INTO  `jvano_main`.`users` (
+INSERT INTO  `users` (
 `username` ,
 `password` ,
 `salt` ,
