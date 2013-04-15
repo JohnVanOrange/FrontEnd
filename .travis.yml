@@ -10,4 +10,4 @@ before_script:
  - mysql -e 'create database jvo_test;'
  - cd tools; php dbimport.php ../sql/tables.sql; cd ..
 script:
- - cd tests; phpunit .; cd ..
+ - cd tests; phpunit .;
