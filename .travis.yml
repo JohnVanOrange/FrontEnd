@@ -8,6 +8,6 @@ before_script:
  - composer install
  - cp tests/settings.inc.travis settings.inc
  - mysql -e 'create database jvo_test;'
- - cd tools; php dbimport.php ../sql/tables.sql
+ - cd tools; php dbimport.php ../sql/tables.sql; cd ..
 script:
- - cd tests; phpunit .
+ - cd tests; phpunit .; cd ..
