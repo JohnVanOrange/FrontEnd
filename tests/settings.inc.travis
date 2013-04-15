@@ -5,7 +5,7 @@ define('SITE_NAME','John VanOrange');
 define('ADMIN_EMAIL','devnull@example.com');
 define('THEME','jvo');
 define('DB_HOST','localhost');
-define('DB_NAME','test');
+define('DB_NAME','jvo_test');
 define('DB_USER','root');
 define('DB_PASS','');
 define('GOOGLE_ANALYTICS','');
