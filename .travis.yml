@@ -6,6 +6,8 @@ before_script:
  - pear config-set preferred_state beta
  - printf "\n" | pecl install imagick
  - composer install
- - cp settings.inc.default settings.inc
+ - cp tests/settings.inc.travis settings.inc
+ - mysql -e 'create database test;'
+ - cd tools; php dbimport.php ../sql/tables.sql
 script:
  - cd tests; phpunit .
