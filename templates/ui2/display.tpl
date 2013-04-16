@@ -6,9 +6,11 @@
 		<a id='rand_image' href='/?{$rand}' rel='nofollow'>
 			<img id="{$image.uid}" class="image" alt='Main Image' src='{$image.image_url}' height='{$image.height}' width='{$image.width}' itemprop='contentUrl' />
 		</a>
-		<div><p{if !isset($image.uploader)} style='display:none'{/if} class='icon-upload'>
+		{if isset($image.uploader)}
+		<div><p class='icon-upload'>
 			Uploaded by <a href='/u/{$image.uploader.username}'>{$image.uploader.username}</a>
 		</p></div>
+		{/if}
 	</section>
 
 
