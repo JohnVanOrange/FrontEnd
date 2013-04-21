@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Poiret+One);
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
 header,
 #skin {
   padding-left: 62px;
@@ -331,6 +333,37 @@ nav a:hover {
   position: relative;
   top: 2px;
   text-shadow: none;
+}
+.apidocs {
+  text-align: left;
+  float: right;
+  width: 89%;
+}
+.method {
+  background: rgba(0, 31, 32, 0.8);
+  padding: 0.5em 1em;
+  margin: 1em;
+  -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
+}
+.endpoint a,
+.variable {
+  font-family: 'PT Mono';
+}
+.desc {
+  display: block;
+  padding-left: 2em;
+  font-size: 85%;
+}
+#classes {
+  float: left;
+  border: 1px dotted white;
+  width: 10%;
+}
+#classes p {
+  text-align: left;
+  padding-left: 10%;
 }
 ul,
 li {

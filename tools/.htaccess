@@ -1,2 +1,7 @@
+<FilesMatch "docview.php">
+ Order Allow,Deny
+ Allow from all
+</FilesMatch>
+
 Options -Indexes
 Deny from all
