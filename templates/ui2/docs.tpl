@@ -7,7 +7,7 @@
  <div class='method'>
  <h2 id='{$method.name}'>{$class.name}/{$method.name}</h2>
  {$method.docblock.{'long-description'}}
- <p class='endpoint'>Endpoint: <a href='{$web_root}api/{$class.name}/{$method.name}'>{$web_root}api/{$class.name}/{$method.name}</a></p>
+ <p class='endpoint'>Endpoint: <span class='variable'>{$web_root}api/{$class.name}/{$method.name}</span></p>
  <!--<p>{$method.docblock.description}</p>-->
  
  {if isset($method.params)}
