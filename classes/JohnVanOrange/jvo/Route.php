@@ -86,7 +86,8 @@ class Route {
      */
     
     public function get_data($index) {
-        return $this->data[$index];
+        if (isset($this->data[$index])) return $this->data[$index];
+        return NULL;
     }
     
     public function set_data($index, $data) {
