@@ -21,7 +21,10 @@
  {if isset($method.params)}
  <h3>Parameters</h3>
  {foreach $method.params as $param}
-  <p><span class='type'>{$param.type}</span> <span class='variable'>{$param.variable}</span> <span class='desc'>{$param.description}</span></p>
+  <p>
+    <span class='type'>{$param.type}</span> <span class='variable'>{$param.variable}</span>
+    <span class='desc'>{if isset($param.default)}Defaults to <span class='variable'>{$param.default}</span>. {/if}{$param.description}</span> 
+  </p>
  {/foreach}
  {/if}
  

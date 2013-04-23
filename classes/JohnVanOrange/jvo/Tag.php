@@ -66,7 +66,7 @@ class Tag extends Base {
   * @api
   * 
   * @param string $value The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename.
-  * @param string $search_by Defaults to "image". Other possible value is "basename".
+  * @param string $search_by Valid values are 'image' or 'basename'.
   */
  
  public function get($value, $search_by='image') {

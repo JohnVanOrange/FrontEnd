@@ -123,7 +123,7 @@ class Image extends Base {
   * 
   * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
-  * @nsfw bool If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way.
+  * @param bool $nsfw If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way.
   */
  
  public function approve($image, $sid=NULL, $nsfw=NULL) {

@@ -39,7 +39,7 @@ class User extends Base {
   * @api
   * 
   * @param mixed $value By default, this is the user_id of an account. This can also be a username if the "search_by" parameter is set to "username".
-  * @param string $search_by Defaults to id. Valid values are "id" or "username".
+  * @param string $search_by Valid values are 'id' or 'username'.
   */
 
  public function get($value, $search_by='id') {

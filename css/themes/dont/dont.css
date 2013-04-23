@@ -351,6 +351,9 @@ nav a:hover {
 .variable {
   font-family: 'PT Mono';
 }
+.variable {
+  font-weight: bold;
+}
 .desc {
   display: block;
   padding-left: 2em;

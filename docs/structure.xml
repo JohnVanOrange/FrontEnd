@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a12" title="">
-  <file path="Tag.php" hash="2f3d0ce2c18d6b76eec91a83cbaf43c0" package="Default">
+  <file path="Tag.php" hash="9d793cd3ab76510f25ac2293a32672d7" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Tag</name>
@@ -25,12 +25,12 @@
         </docblock>
         <argument line="24">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="24">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -44,13 +44,13 @@
           <tag line="61" name="param" description="The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename." type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="61" name="param" description="Defaults to &quot;image&quot;. Other possible value is &quot;basename&quot;." type="string" variable="$search_by">
+          <tag line="61" name="param" description="Valid values are 'image' or 'basename'." type="string" variable="$search_by">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
         <argument line="72">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="72">
@@ -72,7 +72,7 @@
         </docblock>
         <argument line="106">
           <name>$tag</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -89,7 +89,7 @@
         </docblock>
         <argument line="133">
           <name>$term</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -136,7 +136,7 @@
         </docblock>
         <argument line="24">
           <name>$theme</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="24">
@@ -184,7 +184,7 @@
         <full_name>get</full_name>
         <argument line="14">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -193,7 +193,7 @@
         <full_name>scale</full_name>
         <argument line="20">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="20">
@@ -212,7 +212,7 @@
         <full_name>watermark</full_name>
         <argument line="31">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -227,7 +227,7 @@
       <error line="31" code="50010">No DocBlock was found for method watermark()</error>
     </parse_markers>
   </file>
-  <file path="Refresh.php" hash="4049e383c319a385c898ae3980ca21d4" package="Default">
+  <file path="Refresh.php" hash="71dfce0fa470004f53119661a79a63d0" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Refresh</name>
@@ -243,7 +243,7 @@
           <description>Set auto-refresh</description>
           <long-description>&lt;p&gt;Set the auto-refresh time.&lt;/p&gt;</long-description>
           <tag line="13" name="api" description=""/>
-          <tag line="13" name="param" description="The time in seconds for the auto refresh. Defaults to 10 seconds." type="int" variable="$value">
+          <tag line="13" name="param" description="The time in seconds for the auto refresh." type="int" variable="$value">
             <type by_reference="false">int</type>
           </tag>
           <tag line="13" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
@@ -323,7 +323,7 @@
         <full_name>page</full_name>
         <argument line="17">
           <name>$e</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -332,7 +332,7 @@
         <full_name>js</full_name>
         <argument line="55">
           <name>$e</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -359,7 +359,7 @@
         <full_name>call</full_name>
         <argument line="19">
           <name>$method</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="19">
@@ -409,7 +409,7 @@
         <full_name>get_data</full_name>
         <argument line="88">
           <name>$index</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -418,12 +418,12 @@
         <full_name>set_data</full_name>
         <argument line="92">
           <name>$index</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="92">
           <name>$data</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -452,17 +452,17 @@
         <full_name>__construct</full_name>
         <argument line="8">
           <name>$dsn</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="8">
           <name>$user</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="8">
           <name>$pass</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="8">
@@ -480,7 +480,7 @@
         <full_name>fetch</full_name>
         <argument line="17">
           <name>$query</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="17">
@@ -512,7 +512,7 @@
         <full_name>add</full_name>
         <argument line="13">
           <name>$type</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="13">
@@ -536,12 +536,12 @@
         <full_name>merge</full_name>
         <argument line="28">
           <name>$to</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="28">
           <name>$from</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -555,7 +555,7 @@
       <error line="28" code="50010">No DocBlock was found for method merge()</error>
     </parse_markers>
   </file>
-  <file path="Image.php" hash="f456c14bf292971027c993e94d3b5de0" package="Default">
+  <file path="Image.php" hash="15be139a42f98050d90450030cfcecd9" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="5" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Image</name>
@@ -580,7 +580,7 @@
         </docblock>
         <argument line="27">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="27">
@@ -605,7 +605,7 @@
         </docblock>
         <argument line="54">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="54">
@@ -630,7 +630,7 @@
         </docblock>
         <argument line="81">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="81">
@@ -655,7 +655,7 @@
         </docblock>
         <argument line="102">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="102">
@@ -677,11 +677,13 @@
           <tag line="117" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="117" name="nsfw" description="bool If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way."/>
+          <tag line="117" name="param" description="If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way." type="bool" variable="$nsfw">
+            <type by_reference="false">bool</type>
+          </tag>
         </docblock>
         <argument line="129">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="129">
@@ -711,7 +713,7 @@
         </docblock>
         <argument line="157">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="157">
@@ -725,7 +727,7 @@
         <full_name>addFromUpload</full_name>
         <argument line="235">
           <name>$path</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -745,7 +747,7 @@
         </docblock>
         <argument line="253">
           <name>$url</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="253">
@@ -770,12 +772,12 @@
         </docblock>
         <argument line="272">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="272">
           <name>$type</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -842,7 +844,7 @@
         </docblock>
         <argument line="369">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="369">
@@ -865,7 +867,7 @@
         <full_name>scale</full_name>
         <argument line="461">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="461">
@@ -898,12 +900,12 @@
         </docblock>
         <argument line="484">
           <name>$image1</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="484">
           <name>$image2</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="484">
@@ -919,7 +921,6 @@
       <error line="7" code="50018">No DocBlock was found for property $user</error>
       <error line="8" code="50018">No DocBlock was found for property $res</error>
       <error line="10" code="50010">No DocBlock was found for method __construct()</error>
-      <error line="117" code="50015">Argument $nsfw is missing from the Docblock of approve()</error>
       <error line="180" code="50010">No DocBlock was found for method add()</error>
       <error line="235" code="50010">No DocBlock was found for method addFromUpload()</error>
       <error line="353" code="50010">No DocBlock was found for method recent()</error>
@@ -941,7 +942,7 @@
         <full_name>process</full_name>
         <argument line="16">
           <name>$subreddit</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -969,7 +970,7 @@
       <error line="129" code="50010">No DocBlock was found for method addImage()</error>
     </parse_markers>
   </file>
-  <file path="User.php" hash="3c68063ba01e54cb9c9f186a8eed1cdf" package="Default">
+  <file path="User.php" hash="ef022146c9c551fbe373cf23b320eca9" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>User</name>
@@ -997,13 +998,13 @@
           <tag line="34" name="param" description="By default, this is the user_id of an account. This can also be a username if the &quot;search_by&quot; parameter is set to &quot;username&quot;." type="mixed" variable="$value">
             <type by_reference="false">mixed</type>
           </tag>
-          <tag line="34" name="param" description="Defaults to id. Valid values are &quot;id&quot; or &quot;username&quot;." type="string" variable="$search_by">
+          <tag line="34" name="param" description="Valid values are 'id' or 'username'." type="string" variable="$search_by">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
         <argument line="45">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="45">
@@ -1045,12 +1046,12 @@
         </docblock>
         <argument line="106">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="106">
           <name>$password</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1090,17 +1091,17 @@
         </docblock>
         <argument line="162">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="162">
           <name>$password</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="162">
           <name>$email</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1120,7 +1121,7 @@
         </docblock>
         <argument line="188">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="188">
@@ -1145,7 +1146,7 @@
         </docblock>
         <argument line="219">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="219">
@@ -1182,12 +1183,12 @@
         <full_name>__call</full_name>
         <argument line="13">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="13">
           <name>$args</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
