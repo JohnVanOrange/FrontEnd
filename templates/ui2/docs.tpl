@@ -2,15 +2,10 @@
 
 <h1>API Docs for {$class.name}</h1>
 
-<div id='classes'>
-    <h2>Classes</h2>
-    {foreach $classes as $classname}
-     <p><a href='/docs/{$classname}'>{$classname}</a></p>
-    {/foreach}
-</div>
 
 
-<div class='apidocs'>
+
+<div id='apidocs'>
 {foreach from=$class.method item=method}
  <div class='method'>
  <h2 id='{$method.name}'>{$class.name}/{$method.name}</h2>
@@ -30,6 +25,13 @@
  
  </div>
 {/foreach}
+</div>
+
+<div id='classes'>
+    <h2>Methods</h2>
+    {foreach $classes as $classname}
+     <p><a href='/docs/{$classname}'>{$classname}</a></p>
+    {/foreach}
 </div>
 
 {include file='foot.tpl'}

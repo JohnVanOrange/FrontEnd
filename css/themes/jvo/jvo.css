@@ -334,7 +334,7 @@ nav a:hover {
   top: 2px;
   text-shadow: none;
 }
-.apidocs {
+#apidocs {
   text-align: left;
   float: right;
   width: 89%;
@@ -367,6 +367,9 @@ nav a:hover {
 #classes p {
   text-align: left;
   padding-left: 10%;
+}
+#classes h2 {
+  font-size: 90%;
 }
 ul,
 li {

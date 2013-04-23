@@ -60,3 +60,8 @@ nav > ul li ul li:last-child {
 	-webkit-transform: scale(0.6);
 	-o-transform: translate(50%) scale(2);
 }
+
+#apidocs, #classes {
+	float: none;
+	width: 100%;
+}
