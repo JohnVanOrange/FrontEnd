@@ -7,7 +7,7 @@ $template = 'docs.tpl';
 
 $class = $route->get_data(0);
 
-$xml = file_get_contents('docs/structure.xml');
+$xml = file_get_contents('structure.xml');
 $docs = new \SimpleXMLElement($xml);
 $docs = json_decode(json_encode($docs), TRUE);
 
