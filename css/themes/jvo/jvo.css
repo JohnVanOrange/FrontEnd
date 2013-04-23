@@ -339,7 +339,8 @@ nav a:hover {
   float: right;
   width: 89%;
 }
-.method {
+.method,
+pre {
   background: rgba(0, 31, 32, 0.8);
   padding: 0.5em 1em;
   margin: 1em;
@@ -348,7 +349,8 @@ nav a:hover {
   border-radius: 20px 20px 20px 20px;
 }
 .endpoint a,
-.variable {
+.variable,
+code {
   font-family: 'PT Mono';
 }
 .variable {

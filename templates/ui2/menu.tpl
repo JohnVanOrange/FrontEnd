@@ -41,6 +41,7 @@
 				{if isset($app_link)}<li><a id='android_menu' href='{$app_link}' class='icon-android'>Android App</a></li>{/if}
                 <li><a href='https://github.com/cbulock/JohnVanOrange/issues/new' class='icon-github'>Suggestions/Bugs</a></li>
                 <li><a href='/form/keyboard' id='keyboard' class='icon-keyboard'>Keyboard Shortcuts</a></li>
+				<li><a href='/docs/' id='api_docs' class='icon-doc-alt'>API Docs</a></li>
                 {if isset($user.username)}<li><a href='' id='logout' class='icon-logout'>Logout</a></li>{/if}
 			</ul>
 		</li>

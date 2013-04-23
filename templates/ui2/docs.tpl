@@ -1,9 +1,6 @@
 {include file='head.tpl'}
 
-<h1>API Docs for {$class.name}</h1>
-
-
-
+<a href='/docs/'><h1>API Docs for {$class.name}</h1></a>
 
 <div id='apidocs'>
 {foreach from=$class.method item=method}

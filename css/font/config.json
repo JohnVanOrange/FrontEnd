@@ -1,5 +1,7 @@
 {
   "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
   "glyphs": [
     {
       "search": [
@@ -99,7 +101,8 @@
     },
     {
       "search": [
-        "tools"
+        "tools",
+        "params"
       ],
       "code": 9874,
       "uid": "6a7b9d4863bb7e6c79e9457a72d689b6",
@@ -113,7 +116,8 @@
       "search": [
         "settings",
         "cog",
-        "gear"
+        "gear",
+        "params"
       ],
       "code": 9881,
       "from": 9881,
@@ -342,6 +346,19 @@
       "orig_code": 61664,
       "src": "fontawesome",
       "from": 61664
+    },
+    {
+      "search": [
+        "doc",
+        "article"
+      ],
+      "code": 61686,
+      "uid": "5408be43f7c42bccee419c6be53fdef5",
+      "css": "doc-alt",
+      "orig_css": "doc-alt",
+      "orig_code": 61686,
+      "src": "fontawesome",
+      "from": 61686
     },
     {
       "search": [

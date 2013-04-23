@@ -7,14 +7,27 @@ $template = 'docs.tpl';
 
 $class = $route->get_data(0);
 
+if (!$class) $template = 'docs_index.tpl';
+
 $xml = file_get_contents('structure.xml');
 $docs = new \SimpleXMLElement($xml);
 $docs = json_decode(json_encode($docs), TRUE);
 
 foreach ($docs['file'] as $obj) {
- $classes[] = strtolower($obj['class']['name']);
+ //$classes[] = strtolower($obj['class']['name']);
  if (strtolower($obj['class']['name']) == $class) $tpl->assign('class', process_docdata($obj['class']));
 }
+
+//Need to rework this to be auto-generated.
+$classes = [
+ 'tag',
+ 'theme',
+ 'refresh',
+ 'image',
+ 'user',
+ 'report'   
+];
+
 $tpl->assign('classes', $classes);
 
 require_once('common.php');
