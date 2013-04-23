@@ -9,6 +9,7 @@ if (!isset($user['id'])) $user['id'] = 0;
 $tpl->assign('ga',GOOGLE_ANALYTICS);
 $tpl->assign('site_name',SITE_NAME);
 $tpl->assign('web_root',WEB_ROOT);
+$tpl->assign('hostname', parse_url(WEB_ROOT)['host']);
 $tpl->assign('show_scorn',SHOW_SCORN);
 $tpl->assign('show_social',SHOW_SOCIAL);
 $tpl->assign('icon_set',ICON_SET);

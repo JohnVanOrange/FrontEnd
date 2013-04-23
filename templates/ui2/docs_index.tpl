@@ -31,9 +31,9 @@
    "approved":"0",
    "tags":[],
    "page_title":"{$site_name}",
-   "image_url":"http:\/\/media.{$web_root}\/media\/f8e796dc9b2bb54843d24babbc98f6f0.jpeg",
-   "thumb_url":"http:\/\/thumbs.{$web_root}\/media\/thumbs\/f8e796dc9b2bb54843d24babbc98f6f0.jpeg",
-   "page_url":"http:\/\/{$web_root}\/PINhTS",
+   "image_url":"http:\/\/media.{$hostname}\/media\/f8e796dc9b2bb54843d24babbc98f6f0.jpeg",
+   "thumb_url":"http:\/\/thumbs.{$hostname}\/media\/thumbs\/f8e796dc9b2bb54843d24babbc98f6f0.jpeg",
+   "page_url":"http:\/\/{$hostname}\/PINhTS",
    "response":"PINhTS"
  }
  </code></pre>
