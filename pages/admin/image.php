@@ -1,12 +1,16 @@
 <?php
+namespace JohnVanOrange\jvo;
+
 require_once('smarty.php');
+
+$api = new API();
 
 $template = 'image.tpl';
 
 $uid = $route->get_data(1);
 
-$image = call('image/get',array('image'=>$uid));
-$stats = call('image/stats');
+$image = $api->call('image/get',array('image'=>$uid));
+$stats = $api->call('image/stats');
 $stats['approved_percent'] = round(($stats['approved']/$stats['images']) * 100, 2);
 
 $tpl->assign('image',$image);
