@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-
+ 
 .icon-android:before { content: '\26'; } /* '&amp;' */
 .icon-reddit:before { content: '\3e'; } /* '&gt;' */
 .icon-google:before { content: '\47'; } /* 'G' */
@@ -27,6 +27,7 @@
 .icon-blank:before { content: '\f0c8'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
+.icon-doc-alt:before { content: '\f0f6'; } /* '' */
 .icon-github:before { content: '\f300'; } /* '' */
 .icon-facebook-rect:before { content: '\f301'; } /* '' */
 .icon-twitter-bird:before { content: '\f303'; } /* '' */
