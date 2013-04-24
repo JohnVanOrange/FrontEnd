@@ -243,6 +243,8 @@ nav a:hover {
 }
 #facebook_like span {
   height: 20px!important;
+  width: 260px!important;
+  margin-left: -128px;
 }
 #pintrest {
   display: inline-block;
