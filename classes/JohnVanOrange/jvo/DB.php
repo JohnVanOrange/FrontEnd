@@ -14,9 +14,9 @@ class DB extends PDO {
  public function __destruct() {
  }
 
- public function fetch($query, $values=NULL) {
-  $s = $this->prepare($query);
-  $s->execute($values);
+ public function fetch(\Peyote\Query $query) {
+  $s = $this->prepare($query->compile());
+  $s->execute($query->getParams());
   return $s->fetchAll();
  }
 }
