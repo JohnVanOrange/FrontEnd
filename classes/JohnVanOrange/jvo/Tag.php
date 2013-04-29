@@ -26,23 +26,21 @@ class Tag extends Base {
   foreach ($tags as $tag) {
    $tag = htmlspecialchars(trim(stripslashes($tag)));
    $slug = $this->text2slug($tag);
-   $sql = 'SELECT id from tag_list WHERE basename = :name;';
-   $val = array(
-    ':name' => $slug
-   );
-   $result = $this->db->fetch($sql,$val);
+   $query = new \Peyote\Select('tag_list');
+   $query->columns('id')
+         ->where('basename', '=', $slug);
+   $result = $this->db->fetch($query);
    $tag_id = NULL;
    if (isset($result[0]['id'])) $tag_id = $result[0]['id'];
    if(!isset($tag_id)) {
     $tag_id = $this->addtoList($tag);
    }
-   $val = array(
-    ':image' => $image,
-    ':tag_id' => $tag_id
-   );
    //check for dupe
-   $sql = 'SELECT * FROM resources WHERE (image = :image AND value = :tag_id AND type = "tag")';
-   $result = $this->db->fetch($sql,$val);
+   $query = new \Peyote\Select('resources');
+   $query->where('image', '=', $image)
+         ->where('value', '=', $tag_id)
+         ->where('type', '=', 'tag');
+   $result = $this->db->fetch($query);
    if ($result) throw new \Exception('Tag already exists');
    $this->res->add('tag', $image, $tag_id);
   }
@@ -81,11 +79,17 @@ class Tag extends Base {
     $search_by = 'image';
   break;
   }
-  $sql = 'SELECT l.name, basename, uid FROM resources r INNER JOIN tag_list l ON l.id = r.value INNER JOIN images i ON i.uid = r.image WHERE ('.$search_by.' = :value AND r.type = "tag")';
-  $val = array(
-   ':value' => $value
-  );
-  $results = $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('resources');
+  $query->columns('tag_list.name, basename, uid')
+        ->join('tag_list', 'inner')
+        ->on('tag_list.id', '=', 'resources.value')
+        ->join('images', 'inner')
+        ->on('images.uid', '=', 'resources.image')
+        ->where($search_by, '=', $value)
+        ->where('resources.type', '=', 'tag');
+  //echo $query->compile()."\n";
+  //print_r($query->getParams());
+  $results = $this->db->fetch($query);
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
    $results[$i]['url'] = '/t/'.$r['basename'];
@@ -131,11 +135,11 @@ class Tag extends Base {
   */
  
  public function suggest($term) {
-  $sql = "SELECT name FROM tag_list WHERE name LIKE :name LIMIT 10;";
-  $val = array(
-   ':name' => '%'.$term.'%'
-  );
-  $results = $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('tag_list');
+  $query->columns('name')
+        ->where('name', 'LIKE', '%'.$term.'%')
+        ->limit(10);
+  $results = $this->db->fetch($query);
   foreach ($results as $r) {
    $return[] = stripslashes($r['name']);
   }
@@ -151,26 +155,30 @@ class Tag extends Base {
   */
  
  public function top() {
-  $sql = 'SELECT t.name, t.basename, COUNT(*) AS count FROM resources r INNER JOIN tag_list t ON t.id = r.value WHERE r.type = "tag" GROUP BY r.value ORDER BY COUNT(*) DESC LIMIT 200;';
-  $results = $this->db->fetch($sql);
+  $query = new \Peyote\Select('resources');
+  $query->columns('tag_list.name, tag_list.basename, COUNT(*) as count')
+        ->join('tag_list', 'inner')
+        ->on('tag_list.id', '=', 'resources.value')
+        ->where('resources.type', '=', 'tag')
+        ->groupBy('resources.value')
+        ->orderBy('COUNT(*)', 'DESC')
+        ->limit(200);
+  $results = $this->db->fetch($query);
   return $results;
  }
  
  private function addtoList($name) {
   $basename = $this->text2slug($name);
-  $sql = 'SELECT id FROM tag_list WHERE basename = :basename';
-  $val = array(
-   ':basename' => $basename
-  );
-  $result = $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('tag_list');
+  $query->columns('id')
+        ->where('basename', '=', $basename);
+  $result = $this->db->fetch($query);
   if ($result) return $result[0]['id'];  
-  $sql = 'INSERT INTO tag_list (name,basename) VALUES(:name,:basename);';
-  $val = array(
-   ':name' => $name,
-   ':basename' => $basename
-  );
-  $s = $this->db->prepare($sql);
-  $s->execute($val);
+  $query = new \Peyote\Insert('tag_list');
+  $query->columns(['name','basename'])
+        ->values([$name, $basename]);
+  $s = $this->db->prepare($query->compile());
+  $s->execute($query->getParams);
   return $this->db->lastInsertId();
  }
  

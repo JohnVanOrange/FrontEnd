@@ -14,25 +14,18 @@ class Resource extends Base {
   $current = $this->user->current($sid);
   $user_id = NULL;
   if (isset($current['id'])) $user_id = $current['id'];
-  $sql = 'INSERT INTO resources (ip, image, user_id, value, type) VALUES(:ip, :image, :user_id, :value, :type)';
-  $val = array(
-   ':ip' => $_SERVER['REMOTE_ADDR'],
-   ':image' => $image,
-   ':user_id' => $user_id,
-   ':value' => $value,
-   ':type' => $type
-  );
-  return $this->db->fetch($sql,$val);
+  $query = new \Peyote\Insert('resources');
+  $query->columns(['ip', 'image', 'user_id', 'value', 'type'])
+        ->values([$_SERVER['REMOTE_ADDR'], $image, $user_id, $value, $type]);
+  return $this->db->fetch($query);
  }
  
  public function merge($to, $from) {
   if (!$this->user->isAdmin()) throw new \Exception('Must be an admin to access method', 401);
-  $sql = 'UPDATE resources SET image = :to WHERE image = :from';
-  $val = array(
-   ':to' => $to,
-   ':from' => $from
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Update('resources');
+  $query->set(['image' => $to])
+        ->where('image', '=', $from);
+  $this->db->fetch($query);
   return TRUE;
  }
  
