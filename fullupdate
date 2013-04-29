@@ -8,6 +8,6 @@ fi
 
 git checkout $BRANCH
 git pull
-composer update
+composer update --prefer-source
 composer install
 bower install

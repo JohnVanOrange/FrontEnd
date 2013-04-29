@@ -5,7 +5,7 @@ php:
 before_script:
  - pear config-set preferred_state beta
  - printf "\n" | pecl install imagick
- - composer install
+ - composer install --prefer-source
  - cp tests/settings.inc.travis settings.inc
  - mysql -e 'create database jvo_test;'
  - cd tools
