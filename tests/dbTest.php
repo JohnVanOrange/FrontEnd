@@ -16,14 +16,16 @@ class dbTest extends PHPUnit_Framework_TestCase {
  
  /**** fetch ****/
  public function test_fetch_success() {
-  $query = "SELECT * FROM report_types";
+  $query = new \Peyote\Select('report_types');
   $result = $this->db->fetch($query);
   $this->assertInternalType('array',$result);
   $query = "SELECT * FROM report_types WHERE value = :value";
   $val = array(
    ':value' => 'NSFW'
   );
-  $result = $this->db->fetch($query, $val);
+  $query = new \Peyote\Select('report_types');
+  $query->where('value', '=', 'NSFW');
+  $result = $this->db->fetch($query);
   $this->assertInternalType('array',$result);
  }
  

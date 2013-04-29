@@ -87,8 +87,6 @@ class Tag extends Base {
         ->on('images.uid', '=', 'resources.image')
         ->where($search_by, '=', $value)
         ->where('resources.type', '=', 'tag');
-  //echo $query->compile()."\n";
-  //print_r($query->getParams());
   $results = $this->db->fetch($query);
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
