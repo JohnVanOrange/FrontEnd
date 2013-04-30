@@ -33,8 +33,41 @@ class userTest extends PHPUnit_Framework_TestCase {
  }
  
  /**** current ****/
+ public function test_current_loggedin() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $current = $this->user->current($sid);
+  $this->assertEquals($current['username'], 'testuser', 'Username unexpected');
+ }
+ public function test_current_nouser() {
+  $current = $this->user->current();
+  $this->assertArrayNotHasKey('username', $current, 'Username shouldn\'t be present');
+ }
+ 
  /**** login ****/
+ public function test_login_success() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $this->assertEquals(strlen($sid), 16, 'Invalid sid');
+ }
+ public function test_login_fail() {
+  try {
+   $response = $this->user->login('testuser', 'badpass');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ 
  /**** logout ****/
+ public function test_logout() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $current = $this->user->current($sid);
+  $this->assertArrayHasKey('username', $current, 'Unable to verify login worked');
+  $this->user->logout($sid);
+  $current = $this->user->current($sid);
+  $this->assertArrayNotHasKey('username', $current, 'Logout failed');
+ }
+ 
  /**** add ****/
  /**** saved ****/
  /**** uploaded ****/
