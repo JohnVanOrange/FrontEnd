@@ -158,6 +158,9 @@ class User extends Base {
   */
 
  public function add($username, $password, $email) {
+  if (!isset($username)) throw new \Exception('No username specified');
+  if (!isset($password)) throw new \Exception('No password specified');
+  if (!isset($email)) throw new \Exception('No email specified');
   $salt = $this->getSecureID();
   $query = new \Peyote\Insert('users');
   $query->columns(['username', 'password', 'salt', 'email'])

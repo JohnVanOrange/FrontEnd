@@ -267,6 +267,8 @@ class Image extends Base {
   */
  
  public function report($image, $type) {
+  if (!isset($image)) throw new \Exception('No image specified');
+  if (!isset($type)) throw new \Exception('No report type specified');
   //Add report
   $this->res->add('report', $image, $type);
   //Hide image

@@ -69,7 +69,54 @@ class userTest extends PHPUnit_Framework_TestCase {
  }
  
  /**** add ****/
+ public function test_add_success() {
+  $uid = new Uid;
+  $uid = $uid->generate(10);
+  $create = $this->user->add('test_'.$uid, 'testpass_'.$uid, 'test@example.com');
+  $this->assertEquals($create['message'], 'User added.');
+ }
+ public function test_add_no_username() {
+  try {
+   $uid = new Uid;
+   $uid = $uid->generate(10);
+   $this->user->add(NULL, 'testpass_'.$uid, 'test@example.com');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_add_no_password() {
+  try {
+   $uid = new Uid;
+   $uid = $uid->generate(10);
+   $this->user->add('test_'.$uid, NULL, 'test@example.com');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_add_no_email() {
+  try {
+   $uid = new Uid;
+   $uid = $uid->generate(10);
+   $this->user->add('test_'.$uid, 'testpass_'.$uid);
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ 
+ 
  /**** saved ****/
  /**** uploaded ****/
  
+}
+
+class Uid extends JohnVanOrange\jvo\Base{
+ public function generate($length = 10) {
+  return $this->generateUID($length);
+ }
 }
