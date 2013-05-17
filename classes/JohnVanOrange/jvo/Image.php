@@ -225,6 +225,7 @@ class Image extends Base {
    $this->res->add('upload', $uid);
    return array(
     'url' => WEB_ROOT.$uid,
+    'uid' => $uid,
     'image' => WEB_ROOT.'media/'.$filename,
     'thumb' => WEB_ROOT.'media/thumbs/'.$filename,
     'message' => 'Image added.'
