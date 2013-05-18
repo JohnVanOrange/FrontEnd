@@ -3,7 +3,6 @@ namespace JohnVanOrange\jvo;
 
 require_once('../../vendor/autoload.php');
 require_once('../../settings.inc');
-require_once('../../common/exceptions.php');
 
 require_once('simple_html_dom.php');
 
@@ -39,7 +38,7 @@ $no_result_counter = 0;
 $tag_added = 0;
 foreach ($results as $result) {
  $counter++;
- $imagedata = $image->get(['image'=>$result['uid']]);
+ $imagedata = $image->get($result['uid']);
  if (!isset($imagedata['tags'])) {
   $no_result_counter++;
   $html = str_get_html($remote->fetch('http://www.google.com/searchbyimage?image_url='.$imagedata['image_url']));
