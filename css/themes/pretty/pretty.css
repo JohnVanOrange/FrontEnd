@@ -44,6 +44,7 @@ body a:hover {
 button {
   color: #ffffff;
   font-size: 12px;
+  font-weight: bold;
   padding: 5px;
   text-decoration: none;
   -webkit-border-radius: 8px;
@@ -207,6 +208,9 @@ nav a:hover {
   background-size: 60% 60%;
   background-position: bottom left,  top left, top right, bottom right;
   background-repeat: no-repeat;
+}
+#tags em {
+  font-size: 80%;
 }
 .addthis_toolbox {
   display: inline-block;

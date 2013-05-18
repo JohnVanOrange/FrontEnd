@@ -109,8 +109,10 @@ class Reddit extends Base {
  }
 
  private function getImageData($data) {
-  $sql = 'SELECT id from imgur_history WHERE id = "'.$data.'"';
-  if ($this->db->fetch($sql)) throw new \Exception('Previously retrieved image ('.$data.')',200);
+  $query = new \Peyote\Select('imgur_history');
+  $query->columns('id')
+	->where('id', '=', $data);
+  if ($this->db->fetch($query)) throw new \Exception('Previously retrieved image ('.$data.')',200);
   $imagedata = json_decode($this->remoteFetch(
    'https://api.imgur.com/3/image/'.$data.'.json',
    array('Authorization: Client-ID '.IMGUR_CID)
@@ -121,8 +123,10 @@ class Reddit extends Base {
    if ($imagedata['error'] == 'User request limit exceeded') throw new \Exception('Imgur API limits exceeded',999);
    throw new \Exception('Imgur error: '.$imagedata['error'].' '.$data,200);
   }
-  $sql = 'INSERT INTO imgur_history(id) VALUES("'.$data.'")';
-  $this->db->fetch($sql);
+  $query = new \Peyote\Insert('imgur_history');
+  $query->columns(['id'])
+	->values([$data]);
+  $this->db->fetch($query);
   return $imagedata['link'];
  }
 

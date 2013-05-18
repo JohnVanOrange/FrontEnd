@@ -43,19 +43,18 @@ class User extends Base {
   */
 
  public function get($value, $search_by='id') {
+  $query = new \Peyote\Select('users');
+  $query->columns('id,username,type,email,theme,refresh');
   switch ($search_by) {
    case 'username':
-    $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE username = :value';
+    $query->where('username', '=', $value);
    break;
    case 'id':
    default:
-    $sql = 'SELECT id,username,type,email,theme, refresh FROM users WHERE id = :value';
+    $query->where('id', '=', $value);
    break;
   }
-  $val = array(
-   ':value' => $value
-  );
-  $user = $this->db->fetch($sql,$val);
+  $user = $this->db->fetch($query);
   if (isset($user[0])) $user = $user[0];
   if (isset($user['email'])) $user['email_hash'] = md5($user['email']);
   unset($user['email']);
@@ -74,11 +73,11 @@ class User extends Base {
 
  public function current($sid=NULL) {
   if (!isset($sid)) $sid = $this->getSID();
-  $sql = 'SELECT user_id FROM sessions WHERE sid = :sid LIMIT 1';
-  $val = array(
-   ':sid' => $sid
-  );
-  $user = $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('sessions');
+  $query->columns('user_id')
+        ->where('sid', '=', $sid)
+        ->limit(1);
+  $user = $this->db->fetch($query);
   $user_id = NULL;
   if (isset($user[0]['user_id'])) $user_id = $user[0]['user_id'];
   return $this->get($user_id);
@@ -104,11 +103,10 @@ class User extends Base {
   */
  
  public function login($username, $password) {
-  $sql = 'SELECT * FROM users WHERE username = :username LIMIT 1';
-  $val = array(
-   ':username' => $username
-  );
-  $userdata = $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('users');
+  $query->where('username', '=', $username)
+        ->limit(1);
+  $userdata = $this->db->fetch($query);
   if (!isset($userdata[0])) throw new \Exception('User not found');
   $userdata = $userdata[0];
   $pwhash = $this->passhash($password,$userdata['salt']);
@@ -116,8 +114,10 @@ class User extends Base {
   //succesfully login
   $sid = $this->getSecureID();
   $this->setCookie('sid', $sid);
-  $sql = 'INSERT INTO sessions(user_id, sid) VALUES("'.$userdata['id'].'","'.$sid.'");';
-  $this->db->fetch($sql);
+  $query = new \Peyote\Insert('sessions');
+  $query->columns(['user_id', 'sid'])
+        ->values([$userdata['id'],$sid]);
+  $this->db->fetch($query);
   return array(
    'message' => 'Login successful.',
    'sid' => $sid
@@ -136,11 +136,9 @@ class User extends Base {
 
  public function logout($sid=NULL) {
   if (!isset($sid)) $sid = $this->getSID();
-  $sql = 'DELETE FROM sessions WHERE sid = :sid';
-  $val = array(
-   ':sid' => $sid
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('sessions');
+  $query->where('sid', '=', $sid);
+  $this->db->fetch($query);
   $this->setCookie('sid','', 1);
   return array(
    'message' => 'Logged out.'
@@ -160,15 +158,14 @@ class User extends Base {
   */
 
  public function add($username, $password, $email) {
+  if (!isset($username)) throw new \Exception('No username specified');
+  if (!isset($password)) throw new \Exception('No password specified');
+  if (!isset($email)) throw new \Exception('No email specified');
   $salt = $this->getSecureID();
-  $sql = 'INSERT INTO users(username, password, salt, email) VALUES(:username, :password, :salt, :email)';
-  $val = array(
-   ':username' => $username,
-   ':password' => $this->passhash($password,$salt),
-   ':salt' => $salt,
-   ':email' => $email
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Insert('users');
+  $query->columns(['username', 'password', 'salt', 'email'])
+        ->values([$username, $this->passhash($password, $salt), $salt, $email]);
+  $this->db->fetch($query);
   return array(
    'message' => 'User added.'
   );
@@ -189,8 +186,10 @@ class User extends Base {
   $current = $this->current($sid);
   $user = $this->get($username, 'username');
   if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
-  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "save"';
-  $results = $this->db->fetch($sql);
+  $query = new \Peyote\Select('resources');
+  $query->where('user_id', '=', $user['id'])
+        ->where('type', '=', 'save');
+  $results = $this->db->fetch($query);
   $image = new Image();
   foreach ($results as $result) {
    try {
@@ -220,8 +219,10 @@ class User extends Base {
   $current = $this->current($sid);
   $user = $this->get($username, 'username');
   if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
-  $sql = 'SELECT image FROM resources WHERE user_id = '.$user['id'].' AND type = "upload"';
-  $results = $this->db->fetch($sql);
+  $query = new \Peyote\Select('resources');
+  $query->where('user_id', '=', $user['id'])
+        ->where('type', '=', 'upload');
+  $results = $this->db->fetch($query);
   $image = new Image();
   foreach ($results as $result) {
    try {

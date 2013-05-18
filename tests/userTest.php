@@ -33,10 +33,90 @@ class userTest extends PHPUnit_Framework_TestCase {
  }
  
  /**** current ****/
+ public function test_current_loggedin() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $current = $this->user->current($sid);
+  $this->assertEquals($current['username'], 'testuser', 'Username unexpected');
+ }
+ public function test_current_nouser() {
+  $current = $this->user->current();
+  $this->assertArrayNotHasKey('username', $current, 'Username shouldn\'t be present');
+ }
+ 
  /**** login ****/
+ public function test_login_success() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $this->assertEquals(strlen($sid), 16, 'Invalid sid');
+ }
+ public function test_login_fail() {
+  try {
+   $response = $this->user->login('testuser', 'badpass');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ 
  /**** logout ****/
+ public function test_logout() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $current = $this->user->current($sid);
+  $this->assertArrayHasKey('username', $current, 'Unable to verify login worked');
+  $this->user->logout($sid);
+  $current = $this->user->current($sid);
+  $this->assertArrayNotHasKey('username', $current, 'Logout failed');
+ }
+ 
  /**** add ****/
+ public function test_add_success() {
+  $uid = new Uid;
+  $uid = $uid->generate(10);
+  $create = $this->user->add('test_'.$uid, 'testpass_'.$uid, 'test@example.com');
+  $this->assertEquals($create['message'], 'User added.');
+ }
+ public function test_add_no_username() {
+  try {
+   $uid = new Uid;
+   $uid = $uid->generate(10);
+   $this->user->add(NULL, 'testpass_'.$uid, 'test@example.com');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_add_no_password() {
+  try {
+   $uid = new Uid;
+   $uid = $uid->generate(10);
+   $this->user->add('test_'.$uid, NULL, 'test@example.com');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_add_no_email() {
+  try {
+   $uid = new Uid;
+   $uid = $uid->generate(10);
+   $this->user->add('test_'.$uid, 'testpass_'.$uid);
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ 
+ 
  /**** saved ****/
  /**** uploaded ****/
  
+}
+
+class Uid extends JohnVanOrange\jvo\Base{
+ public function generate($length = 10) {
+  return $this->generateUID($length);
+ }
 }

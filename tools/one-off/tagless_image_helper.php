@@ -30,8 +30,10 @@ $db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 $image = new Image;
 $tag = new Tag;
 $remote = new remote;
-$sql = 'SELECT filename,uid FROM images WHERE display=1';
-$results = $db->fetch($sql);
+$query = new \Peyote\Select('images');
+$query->columns('filename, uid')
+      ->where('display', '=', 1);
+$results = $db->fetch($query);
 $counter = 0;
 $no_result_counter = 0;
 $tag_added = 0;

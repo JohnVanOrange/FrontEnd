@@ -26,12 +26,10 @@ class Refresh extends Base {
   if ($value < 0) $value = 0;
   $user = $this->user->current($sid);
   if (!$user) throw new \Exception('Must be logged in to set refresh time');
-  $sql = 'UPDATE users SET refresh = :refresh WHERE id = :user';
-  $val = array(
-   ':refresh' => $value,
-   ':user' => $user['id']
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Update('users');
+  $query->set(['refresh' => $value])
+        ->where('id', '=', $user['id']);
+  $this->db->fetch($query);
   $message = 'Automatic refresh removed';
   if ($value) $message = 'Automatic refresh time updated to '.$value.' seconds';
   return array(

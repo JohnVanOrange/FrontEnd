@@ -32,12 +32,10 @@ class Theme extends Base {
   }
   $user = $this->user->current($sid);
   if ($user) {
-   $sql = 'UPDATE users SET theme = :theme WHERE id = :user';
-   $val = array(
-    ':theme' => $theme,
-    ':user' => $user['id']
-   );
-   $this->db->fetch($sql,$val);
+   $query = new \Peyote\Update('users');
+   $query->set(['theme' => $theme])
+         ->where('id', '=', $user['id']);
+   $this->db->fetch($query);
   }
   else {
    $this->setCookie('theme',$theme);

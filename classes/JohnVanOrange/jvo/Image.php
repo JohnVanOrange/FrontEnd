@@ -27,12 +27,11 @@ class Image extends Base {
  public function like($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to rate images',1022);
-  $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "dislike")';
-  $val = array(
-   ':image' => $image,
-   ':user_id' => $current['id']
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('resources');
+  $query->where('image', '=', $image)
+        ->where('user_id', '=', $current['id'])
+        ->where('type', '=', 'dislike');
+  $this->db->fetch($query);
   $this->res->add('like', $image);
   return array(
    'message' => 'Image liked.',
@@ -54,12 +53,11 @@ class Image extends Base {
  public function dislike($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to rate images',1023);
-  $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "like")';
-  $val = array(
-   ':image' => $image,
-   ':user_id' => $current['id']
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('resources');
+  $query->where('image', '=', $image)
+        ->where('user_id', '=', $current['id'])
+        ->where('type', '=', 'like');
+  $this->db->fetch($query);
   $this->res->add('dislike', $image);
   return array(
    'message' => 'Image disliked.',
@@ -102,12 +100,11 @@ class Image extends Base {
  public function unsave($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to unsave images',1021);
-  $sql = 'DELETE FROM resources WHERE (image = :image AND user_id = :user_id AND type = "save")';
-  $val = array(
-   ':image' => $image,
-   ':user_id' => $current['id']
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('resources');
+  $query->where('image', '=', $image)
+        ->where('user_id', '=', $current['id'])
+        ->where('type', '=', 'save');
+  $this->db->fetch($query);
   return array(
    'message' => 'Image unsaved.',
    'saved' => 0
@@ -131,13 +128,18 @@ class Image extends Base {
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
   $nsfw = 0;
   if (isset($nsfw)) $nsfw = 1;
-  $sql = 'DELETE FROM resources WHERE image = :image AND type = "report";';
-  $val = array(
-   ':image' => $image
-  );
-  $this->db->fetch($sql,$val);
-  $sql = 'UPDATE images SET display = 1, approved = 1, nsfw = '. $nsfw.' WHERE uid = :image';
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('resources');
+  $query->where('image', '=', $image)
+        ->where('type', '=', 'report');
+  $this->db->fetch($query);
+  $query = new \Peyote\Update('images');
+  $query->set([
+               'display' => 1,
+               'approved' => 1,
+               'nsfw' => $nsfw
+              ])
+        ->where('uid', '=', $image);
+  $this->db->fetch($query);
   return array(
    'message' => 'Image approved.'
   );
@@ -157,18 +159,19 @@ class Image extends Base {
  public function remove($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
-  $sql = 'SELECT filename FROM images WHERE uid = :image';
-  $val = array(
-   ':image' => $image
-  );
-  $result = $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('image');
+  $query->columns('filename')
+        ->where('uid', '=', $image);
+  $result = $this->db->fetch($query);
   $filename = $result[0]['filename'];
   //clean up resources
-  $sql = 'DELETE FROM resources WHERE image = :image';
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('resources');
+  $query->where('image', '=', $image);
+  $this->db->fetch($query);
   //remove image in db
-  $sql = 'DELETE FROM images WHERE uid = :image';
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Delete('images');
+  $query->where('uid', '=', $image);
+  $this->db->fetch($query);
   //remove image
   unlink(ROOT_DIR.'/media/'.$filename);
   unlink(ROOT_DIR.'/media/thumbs/'.$filename);
@@ -194,9 +197,11 @@ class Image extends Base {
   $filename = end($filenamepart);
   $namepart = explode('.',$filename);
   $name = $namepart[0];
-  $dupsql = "SELECT * FROM images WHERE hash ='".$hash."' LIMIT 1";
   $uid = $this->getUID();
-  $result = $this->db->fetch($dupsql);
+  $query = new \Peyote\Select('images');
+  $query->where('hash', '=', $hash)
+        ->limit(1);
+  $result = $this->db->fetch($query);
   if ($result) {
    unlink($fullfilename);
    return array(
@@ -207,19 +212,11 @@ class Image extends Base {
    );
   }
   else {
-   $sql = "INSERT INTO images(name, filename, uid, hash, type, width, height, c_link) VALUES(:name, :filename, :uid, :hash, :type, :width, :height, :c_link)";
-   $val = array(
-    ':name' => $name,
-    ':filename' => $filename,
-    ':uid' => $uid,
-    ':hash' => $hash,
-    ':type' => $type,
-    ':width' => $width,
-    ':height' => $height,
-    ':c_link' => $c_link
-   );
-   $s = $this->db->prepare($sql);
-   $s->execute($val);//need to verify this was successful
+   $query = new \Peyote\Insert('images');
+   $query->columns(['name', 'filename', 'uid', 'hash', 'type', 'width', 'height', 'c_link'])
+         ->values([$name, $filename, $uid, $hash, $type, $width, $height, $c_link]);
+   $s = $this->db->prepare($query->compile());
+   $s->execute($query->getParams());//need to verify this was successful
    $thumb = $this->scale($uid);
    file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
    $this->res->add('upload', $uid);
@@ -271,14 +268,15 @@ class Image extends Base {
   */
  
  public function report($image, $type) {
+  if (!isset($image)) throw new \Exception('No image specified');
+  if (!isset($type)) throw new \Exception('No report type specified');
   //Add report
   $this->res->add('report', $image, $type);
   //Hide image
-  $sql = 'UPDATE images SET display=0 WHERE uid = :uid';
-  $val = array (
-   ':uid' => $image
-  );
-  $this->db->fetch($sql,$val);
+  $query = new \Peyote\Update('images');
+  $query->set(['display' => 0])
+        ->where('uid', '=', $image);
+  $this->db->fetch($query);
   $message = 'A new image was reported on '. SITE_NAME . ".\n\n";
   $message .= "View Reported Image:\n";
   $message .= WEB_ROOT.'admin/image/'.$image."\n\n";
@@ -307,8 +305,11 @@ class Image extends Base {
  public function reported($sid=NULL) {
   $current = $this->user->current($sid);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
-  $sql = 'SELECT * FROM resources WHERE type = "report" ORDER BY RAND() LIMIT 1;';
-  $report_result = $this->db->fetch($sql);
+  $query = new \Peyote\Select('resources');
+  $query->where('type', '=', 'report')
+        ->orderBy('RAND()')
+        ->limit(1);
+  $report_result = $this->db->fetch($query);
   $image_result = $this->get($report_result[0]['image']);
   if (!$image_result) throw new \Exception('No image result', 404);
   return $image_result;
@@ -327,8 +328,12 @@ class Image extends Base {
  public function unapproved($sid=NULL) {
   $current = $this->user->current($sid);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
-  $sql = 'SELECT uid FROM images WHERE approved = 0 ORDER BY RAND() LIMIT 1;';
-  $image = $this->db->fetch($sql);
+  $query = new \Peyote\Select('images');
+  $query->columns('uid')
+        ->where('approved', '=', 0)
+        ->orderBy('RAND()')
+        ->limit(1);
+  $image = $this->db->fetch($query);
   $image_result = $this->get($image[0]['uid']);
   if (!$image_result) throw new \Exception('No image result', 404);
   return $image_result;
@@ -343,8 +348,12 @@ class Image extends Base {
   */
  
  public function random() {
-  $sql = 'SELECT uid FROM images WHERE display = "1" ORDER BY RAND() LIMIT 1';
-  $result = $this->db->fetch($sql);
+  $query = new \Peyote\Select('images');
+  $query->columns('uid')
+        ->where('display', '=', 1)
+        ->orderBy('RAND()')
+        ->limit(1);
+  $result = $this->db->fetch($query);
   if (!$result) throw new \Exception('No image results', 404);
   $image = $this->get($result[0]['uid']);
   $image['response'] = $image['uid']; //backwards compatibility
@@ -352,7 +361,9 @@ class Image extends Base {
  }
  
  public function recent() {
-  $sql = 'SELECT * FROM `resources` WHERE type = "upload" ORDER BY created DESC';
+  $query = new \Peyote\Select('resources');
+  $query->where('type', '=', 'upload')
+        ->orderBy('created', 'DESC');
   //this doesn't do anything yet
  }
  
@@ -371,18 +382,18 @@ class Image extends Base {
   $tag = new Tag;
   $current = $this->user->current($sid);
   #Get image data
+  $query = new \Peyote\Select('images');
   switch (strlen($image)) {
    case 6:	
-    $sql = 'SELECT * from images WHERE uid = :image LIMIT 1;'; 	
+    $query->where('uid', '=', $image)
+          ->limit(1);
    break;	
    default:
-    $sql = 'SELECT * from images WHERE filename = :image LIMIT 1;';
+    $query->where('filename', '=', $image)
+          ->limit(1);
    break;	
   }
-  $val = array(
-   ':image' => $image
-  );
-  $result = $this->db->fetch($sql,$val);
+  $result = $this->db->fetch($query);
   //See if there was a result
   if (!$result) throw new \Exception('Image not found', 404);
   $result = $result[0];
@@ -392,15 +403,20 @@ class Image extends Base {
   $tag_result = $tag->get($result['uid']);
   if (isset($tag_result)) $result['tags'] = $tag_result;
   //Get uploader
-  $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND type = "upload" AND user_id IS NOT NULL)';
-  $uploader = $this->db->fetch($sql);
+  $query = new \Peyote\Select('resources');
+  $query->where('image', '=', $result['uid'])
+        ->where('type', '=', 'upload')
+        ->where('user_id', 'IS NOT', NULL);
+  $uploader = $this->db->fetch($query);
   if (isset($uploader[0])) {
    $result['uploader'] = $this->user->get($uploader[0]['user_id']);
   }
   //Get resources
   if ($current) {
-   $sql = 'SELECT * FROM resources WHERE (image = "'.$result['uid'].'" AND user_id = "'.$current['id'].'")';
-   $resources = $this->db->fetch($sql);
+   $query = new \Peyote\Select('resources');
+   $query->where('image' ,'=', $result['uid'])
+         ->where('user_id', '=', $current['id']);
+   $resources = $this->db->fetch($query);
    $data = NULL;
    foreach ($resources as $r) {
     $data[$r['type']] = $r;
@@ -424,8 +440,11 @@ class Image extends Base {
   $result['page_url'] = WEB_ROOT . $result['uid'];
   if ($this->user->isAdmin($sid)) {
    //Get report data
-   $sql = 'SELECT * FROM resources WHERE type = "report" AND image = "' . $result['uid'] . '" LIMIT 1;';
-   $report_result = $this->db->fetch($sql);
+   $query = new \Peyote\Select('resources');
+   $query->where('type', '=', 'report')
+         ->where('image', '=', $result['uid'])
+         ->limit(1);
+   $report_result = $this->db->fetch($query);
    if ($report_result) {
     $report = new Report;
     $report_type = $report->get($report_result[0]['value']);
@@ -439,8 +458,11 @@ class Image extends Base {
  private function getUID($length = 6) {
   do {
    $uid = $this->generateUID($length);
-   $sql = 'SELECT uid FROM images WHERE uid = "'.$uid.'" LIMIT 1';
-   $not_unique = $this->db->fetch($sql);
+   $query = new \Peyote\Select('images');
+   $query->columns('uid')
+         ->where('uid', '=', $uid)
+         ->limit(1);
+   $not_unique = $this->db->fetch($query);
   } while (count($not_unique));
   return $uid;
  }
@@ -454,9 +476,19 @@ class Image extends Base {
   */
  
  public function stats() {
-  $sql = 'SELECT (SELECT COUNT(*) from images) AS images,(SELECT COUNT(*) from resources WHERE type = "report") AS reports,(SELECT COUNT(*) from images WHERE approved = 1) AS approved';
-  $result = $this->db->fetch($sql);
-  return $result[0];
+  $result = [];
+  $query = new \Peyote\Select('images');
+  $query->columns('COUNT(*)');
+  $result['images'] = $this->db->fetch($query)[0]['COUNT(*)'];
+  $query = new \Peyote\Select('resources');
+  $query->columns('COUNT(*)')
+        ->where('type', '=', 'report');
+  $result['reports'] = $this->db->fetch($query)[0]['COUNT(*)'];
+  $query = new \Peyote\Select('images');
+  $query->columns('COUNT(*)')
+        ->where('approved', '=', 1);
+  $result['approved'] = $this->db->fetch($query)[0]['COUNT(*)'];
+  return $result;
  }
  
  public function scale($image, $width = 240, $height = 160) {

@@ -16,8 +16,10 @@ class Report extends Base {
   */
  
  public function all() {
-  $sql = 'SELECT id, value FROM report_types WHERE public = "1";';
-  return $this->db->fetch($sql);
+  $query = new \Peyote\Select('report_types');
+  $query->columns('id, value')
+        ->where('public', '=', 1);
+  return $this->db->fetch($query);
  }
  
  /**
@@ -32,11 +34,10 @@ class Report extends Base {
  
  public function get($id=NULL) {
   if (!isset($id)) return $this->all();
-  $sql = 'SELECT id, value FROM report_types WHERE id = :id;';
-  $val = array(
-   ':id' => $id
-  );
-  return $this->db->fetch($sql,$val);
+  $query = new \Peyote\Select('report_types');
+  $query->columns('id, value')
+        ->where('id', '=', $id);
+  return $this->db->fetch($query);
  }
  
 }

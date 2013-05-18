@@ -1,5 +1,4 @@
 vendor
-composer.lock
 templates_c
 error_log
 settings.inc
