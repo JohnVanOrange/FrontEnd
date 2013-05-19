@@ -176,7 +176,7 @@ class Tag extends Base {
   $query->columns(['name','basename'])
         ->values([$name, $basename]);
   $s = $this->db->prepare($query->compile());
-  $s->execute($query->getParams);
+  $s->execute($query->getParams());
   return $this->db->lastInsertId();
  }
  
