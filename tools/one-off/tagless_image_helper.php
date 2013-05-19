@@ -46,6 +46,7 @@ foreach ($results as $result) {
   if (array_search('debug', $argv) !== FALSE) echo $html;
   $data = $html->find('a[style]',0);
   $taginfo = @$data->nodes[0]->_[4];
+  $html->clear();
   if (isset($taginfo)) {
    $tag->add($taginfo,$result['uid']);
    echo 'Tag added for '.$result['uid'].': '.$taginfo."\n";
