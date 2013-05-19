@@ -31,7 +31,8 @@ $tag = new Tag;
 $remote = new remote;
 $query = new \Peyote\Select('images');
 $query->columns('filename, uid')
-      ->where('display', '=', 1);
+      ->where('display', '=', 1)
+      ->orderBy('RAND()');
 $results = $db->fetch($query);
 $counter = 0;
 $no_result_counter = 0;
@@ -39,15 +40,19 @@ $tag_added = 0;
 foreach ($results as $result) {
  $counter++;
  $imagedata = $image->get($result['uid']);
- if (!isset($imagedata['tags'])) {
+ if (!isset($imagedata['tags'][0])) {
   $no_result_counter++;
   $html = str_get_html($remote->fetch('http://www.google.com/searchbyimage?image_url='.$imagedata['image_url']));
+  if (array_search('debug', $argv) !== FALSE) echo $html;
   $data = $html->find('a[style]',0);
-  $taginfo = $data->nodes[0]->_[4];
-  if ($taginfo) {
-   $tag->add(array('name'=>$taginfo,'image'=>$result['uid']));
-   echo 'Tag added: '.$taginfo."\n";
+  $taginfo = @$data->nodes[0]->_[4];
+  if (isset($taginfo)) {
+   $tag->add($taginfo,$result['uid']);
+   echo 'Tag added for '.$result['uid'].': '.$taginfo."\n";
    $tag_added++;
+  }
+  else {
+   echo 'No tag found for ' . $result['uid'] . "\n";
   }
  }
 }
