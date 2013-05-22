@@ -10,7 +10,7 @@ class Resource extends Base {
   $this->user = new User;
  }
 
- public function add($type, $image = NULL, $value = NULL, $sid = NULL) {
+ public function add($type, $image = NULL, $sid = NULL, $value = NULL) {
   $current = $this->user->current($sid);
   $user_id = NULL;
   if (isset($current['id'])) $user_id = $current['id'];
