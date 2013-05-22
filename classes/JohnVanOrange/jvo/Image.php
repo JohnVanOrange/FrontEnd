@@ -32,7 +32,7 @@ class Image extends Base {
         ->where('user_id', '=', $current['id'])
         ->where('type', '=', 'dislike');
   $this->db->fetch($query);
-  $this->res->add('like', $image);
+  $this->res->add('like', $image, $sid);
   return array(
    'message' => 'Image liked.',
    'liked' => 1
@@ -58,7 +58,7 @@ class Image extends Base {
         ->where('user_id', '=', $current['id'])
         ->where('type', '=', 'like');
   $this->db->fetch($query);
-  $this->res->add('dislike', $image);
+  $this->res->add('dislike', $image, $sid);
   return array(
    'message' => 'Image disliked.',
    'liked' => 0
@@ -79,7 +79,7 @@ class Image extends Base {
  public function save($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if (!$current) throw new \Exception('Must be logged in to save images',1020);
-  $this->res->add('save', $image);
+  $this->res->add('save', $image, $sid);
   return array(
    'message' => 'Image saved.',
    'saved' => 1
@@ -180,7 +180,7 @@ class Image extends Base {
   );
  }
 
- private function add($path, $c_link=NULL) {
+ private function add($path, $c_link=NULL, $sid = NULL) {
   $info = getimagesize($path);
   if (!$info) {
    unlink($path);
@@ -219,7 +219,7 @@ class Image extends Base {
    $s->execute($query->getParams());//need to verify this was successful
    $thumb = $this->scale($uid);
    file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
-   $this->res->add('upload', $uid);
+   $this->res->add('upload', $uid, $sid);
    return array(
     'url' => WEB_ROOT.$uid,
     'uid' => $uid,
@@ -230,11 +230,11 @@ class Image extends Base {
   }
  }
  
- public function addFromUpload($path) {
+ public function addFromUpload($path, $sid = NULL) {
   $filename = md5(mt_rand().$path);
   $newpath = ROOT_DIR.'/media/'.$filename;
   rename($path,$newpath);
-  return $this->add($newpath);
+  return $this->add($newpath, NULL, $sid);
  }
 
  /**
@@ -246,14 +246,15 @@ class Image extends Base {
   * 
   * @param string $url Full URL to an image to be added to the site. Must be JPEG, PNG, or GIF format.
   * @param string $c_link An optional external link to comments for the image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
   */
  
- public function addFromURL($url, $c_link=NULL) {
+ public function addFromURL($url, $c_link=NULL, $sid = NULL) {
   $image = $this->remoteFetch($url);
   $filename = md5(mt_rand().$url);
   $newpath = ROOT_DIR.'/media/'.$filename;
   file_put_contents($newpath,$image);
-  return $this->add($newpath, $c_link);
+  return $this->add($newpath, $c_link, $sid);
  }
 
  /**
@@ -265,13 +266,14 @@ class Image extends Base {
   * 
   * @param string $image The 6-digit id of an image.
   * @param int $type Number value representing the reason type which can be found in report/all
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
   */
  
- public function report($image, $type) {
+ public function report($image, $type, $sid = NULL) {
   if (!isset($image)) throw new \Exception('No image specified');
   if (!isset($type)) throw new \Exception('No report type specified');
   //Add report
-  $this->res->add('report', $image, $type);
+  $this->res->add('report', $image, $sid, $type);
   //Hide image
   $query = new \Peyote\Update('images');
   $query->set(['display' => 0])

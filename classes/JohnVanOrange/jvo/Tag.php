@@ -19,9 +19,10 @@ class Tag extends Base {
   * 
   * @param string $name The tag value to be added to the image. Multiple tags can be added if comma separated.
   * @param string $image 6-digit image ID.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
   */
  
- public function add($name, $image) {
+ public function add($name, $image, $sid = NULL) {
   $tags = explode(',',$name);
   foreach ($tags as $tag) {
    $tag = htmlspecialchars(trim(stripslashes($tag)));
@@ -42,7 +43,7 @@ class Tag extends Base {
          ->where('type', '=', 'tag');
    $result = $this->db->fetch($query);
    if ($result) throw new \Exception('Tag already exists');
-   $this->res->add('tag', $image, $tag_id);
+   $this->res->add('tag', $image, $sid, $tag_id);
   }
   switch (count($tags)) {
    case 1:
