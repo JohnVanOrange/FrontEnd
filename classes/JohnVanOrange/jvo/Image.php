@@ -158,7 +158,7 @@ class Image extends Base {
  public function remove($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
-  $query = new \Peyote\Select('image');
+  $query = new \Peyote\Select('images');
   $query->columns('filename')
         ->where('uid', '=', $image);
   $result = $this->db->fetch($query);

@@ -108,9 +108,10 @@ button {
 	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
 	display:inline-block;
-}
-button:hover {
-	background: @button_hover;
+	&:hover {
+		background: @button_hover;
+		cursor: pointer;
+	}
 }
 
 header a, header a:visited, header a:visited:hover, header a:hover {

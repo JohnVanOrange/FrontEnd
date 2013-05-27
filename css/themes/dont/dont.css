@@ -60,6 +60,7 @@ button {
 }
 button:hover {
   background: #664f0b;
+  cursor: pointer;
 }
 header a,
 header a:visited,
