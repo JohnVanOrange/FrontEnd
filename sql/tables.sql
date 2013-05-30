@@ -77,4 +77,4 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `value` int(8) default NULL,
   `type` varchar(8) collate utf8_unicode_ci NOT NULL,
   KEY `image` (`image`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
