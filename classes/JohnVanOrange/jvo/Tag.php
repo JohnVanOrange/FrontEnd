@@ -23,6 +23,8 @@ class Tag extends Base {
   */
  
  public function add($name, $image, $sid = NULL) {
+  if (strlen($name) < 1) throw new \Exception('Tag name cannot be empty');
+  if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
   $tags = explode(',',$name);
   foreach ($tags as $tag) {
    $tag = htmlspecialchars(trim(stripslashes($tag)));
