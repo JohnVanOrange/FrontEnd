@@ -24,7 +24,7 @@ class Reddit extends Base {
     $image = $this->addImage($url,$post);
     $this->log($image['message'].' '.$image['url'],$this->logfile);
    }
-   catch(exception $e) {
+   catch(\Exception $e) {
     switch ($e->getCode()) {
 	 case '1100':
      case '200':
