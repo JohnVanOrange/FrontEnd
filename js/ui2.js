@@ -188,18 +188,12 @@ $(document).ready(function() {
     exception_handler(e);
    } else {
     call('user/add',function(response){
-	 if (!response.error) {
-      call('user/login', function(){	  
-	   $('#account_dialog').dialog('close');
-       window.location.reload();
-	  },
-	  {
-       'username': $('#create_username').val(),
-       'password': $('#create_password').val()
-      });
-	 }
-	},
-	{
+     if (!response.error) {  
+      $('#account_dialog').dialog('close');
+      window.location.reload();
+     }
+    },
+    {
      'username': $('#create_username').val(),
      'password': $('#create_password').val(),
      'email': $('#create_email').val()

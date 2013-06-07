@@ -148,7 +148,7 @@ class User extends Base {
  /**
   * Add user
   *
-  * Create new user account.
+  * Create new user account and login as that user.
   *
   * @api
   * 
@@ -166,8 +166,10 @@ class User extends Base {
   $query->columns(['username', 'password', 'salt', 'email'])
         ->values([$username, $this->passhash($password, $salt), $salt, $email]);
   $this->db->fetch($query);
+  $login = $this->login($username, $password);
   return array(
-   'message' => 'User added.'
+   'message' => 'User added.',
+   'sid' => $login['sid']
   );
  }
  
