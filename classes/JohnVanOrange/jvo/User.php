@@ -161,6 +161,11 @@ class User extends Base {
   if (!isset($username)) throw new \Exception('No username specified');
   if (!isset($password)) throw new \Exception('No password specified');
   if (!isset($email)) throw new \Exception('No email specified');
+  $query = new \Peyote\Select('users');
+  $query->where('username', '=', $username)
+        ->limit(1);
+  $result = $this->db->fetch($query);
+  if ($result) throw new \Exception('Username already exists');
   $salt = $this->getSecureID();
   $query = new \Peyote\Insert('users');
   $query->columns(['username', 'password', 'salt', 'email'])
