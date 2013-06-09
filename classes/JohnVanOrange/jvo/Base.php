@@ -34,7 +34,7 @@ class Base {
   $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   $uid = '';
   for($i=0;$i<$length;$i++) {
-   $uid .= $chars[rand(0,strlen($chars)-1)];
+   $uid .= $chars[mt_rand(0,strlen($chars)-1)];
   }
   return $uid;
  }
