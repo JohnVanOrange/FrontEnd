@@ -1,0 +1,398 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+header,
+#skin {
+  padding-left: 62px;
+  font-family: 'Poiret One', sans-serif;
+}
+header:before,
+#skin {
+  background: url('/img/lips_46.png') left no-repeat;
+  height: 38px;
+}
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000;
+}
+body {
+  color: #ffffff;
+  background: #000000;
+  background: linear-gradient(left, rgba(0, 0, 0, 0.15) 0%, rgba(158, 158, 158, 0.15) 30%, rgba(158, 158, 158, 0.15) 70%, rgba(0, 0, 0, 0.15) 100%), #000000;
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.15) 0%, rgba(158, 158, 158, 0.15) 30%, rgba(158, 158, 158, 0.15) 70%, rgba(0, 0, 0, 0.15) 100%), #000000;
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.15) 0%, rgba(158, 158, 158, 0.15) 30%, rgba(158, 158, 158, 0.15) 70%, rgba(0, 0, 0, 0.15) 100%), #000000;
+  background: -o-linear-gradient(left, rgba(0, 0, 0, 0.15) 0%, rgba(158, 158, 158, 0.15) 30%, rgba(158, 158, 158, 0.15) 70%, rgba(0, 0, 0, 0.15) 100%), #000000;
+  background: -ms-linear-gradient(left, rgba(0, 0, 0, 0.15) 0%, rgba(158, 158, 158, 0.15) 30%, rgba(158, 158, 158, 0.15) 70%, rgba(0, 0, 0, 0.15) 100%), #000000;
+}
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+}
+a :hover {
+  text-decoration: none;
+}
+body a,
+body a:visited,
+body a:visited:hover,
+body a:hover {
+  color: #ff9900;
+}
+button {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-shadow: 1px 1px 3px #666666;
+  border: solid #050505 1px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#3d3b3c), to(#575456));
+  background: -moz-linear-gradient(top, #3d3b3c, #575456);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#575456);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#3d3b3c, endColorStr=#575456);
+  display: inline-block;
+}
+button:hover {
+  background: #664f0b;
+  cursor: pointer;
+}
+header a,
+header a:visited,
+header a:visited:hover,
+header a:hover {
+  color: #ffffff;
+}
+h1 {
+  margin: 0;
+  font-size: 30px;
+}
+header {
+  text-align: left;
+  text-shadow: 2px 2px 4px #000;
+  background-color: rgba(82, 82, 77, 0.52);
+  width: 100%;
+  height: 30px;
+  position: fixed;
+}
+header::before {
+  content: ' ';
+  position: absolute;
+  width: 100px;
+  left: 5px;
+}
+footer {
+  font-size: 75%;
+  position: relative;
+  text-align: left;
+  padding-left: 4px;
+}
+#menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 24px;
+  padding: 6px 6px 6px 12px;
+  font-size: 80%;
+  border-radius: 0 0 0 8px;
+  background: #354468;
+  z-index: 10;
+  background: linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
+  background: -webkit-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
+  background: -moz-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
+  background: -o-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
+  background: -ms-linear-gradient(top, #4f659b 20%, #354468 100%), #354468;
+}
+#tag_search {
+  padding-left: 5px;
+  border-radius: 8px;
+}
+#menu a,
+#menu a:visited,
+#menu a:visited:hover,
+#menu a:hover,
+#menu a:active,
+#menu a:focus {
+  color: #fff;
+  text-decoration: none;
+}
+.image {
+  box-shadow: 4px 4px 20px #000;
+  max-width: 100%;
+  height: auto;
+}
+#content {
+  padding: 35px 0 25px 0;
+  width: 85%;
+  margin: auto;
+}
+#tos,
+#privacy {
+  text-align: left;
+  font-size: 90%;
+}
+#tos p,
+#privacy {
+  margin: 1em;
+}
+.ui-menu-item,
+.ui-dialog-title {
+  text-shadow: none;
+}
+#url {
+  width: 450px;
+}
+.dialog {
+  text-align: left;
+  display: none;
+  text-shadow: none;
+}
+.dialog .submit {
+  display: none;
+}
+#keyboard_dialog table {
+  border-collapse: collapse;
+}
+#keyboard_dialog td {
+  border: 1px solid #CCC;
+  padding: 5px;
+}
+#keyboard_dialog table tr:nth-child(2n) {
+  background-color: #DDD;
+}
+.key {
+  color: white;
+  font-family: monospace;
+  border-radius: 4px;
+  padding: 3px 5px;
+  background-color: #667C26;
+}
+#search {
+  margin-top: 1px;
+}
+.tag {
+  position: relative;
+  font-weight: bold;
+  font-size: 10px;
+  color: black;
+  background-color: #F0EAD6;
+  text-shadow: none;
+  text-decoration: none;
+  padding: 4px 4px 4px 10px;
+  margin: 3px;
+  background: linear-gradient(45deg, transparent 4px, #f3e5ab 4px), linear-gradient(315deg, transparent 4px, #f3e5ab 4px), linear-gradient(0, transparent 4px, #f3e5ab 4px), linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -webkit-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -webkit-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -webkit-linear-gradient(0, transparent 4px, #f3e5ab 4px), -webkit-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -moz-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(0, transparent 4px, #f3e5ab 4px), -moz-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -o-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -o-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -o-linear-gradient(0, transparent 4px, #f3e5ab 4px), -o-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  background: -ms-linear-gradient(45deg, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(315deg, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(0, transparent 4px, #f3e5ab 4px), -ms-linear-gradient(0, transparent 4px, #f3e5ab 4px);
+  -webkit-background-size: 60% 60%;
+  -moz-background-size: 60% 60%;
+  -o-background-size: 60% 60%;
+  background-size: 60% 60%;
+  background-position: bottom left, top left, top right, bottom right;
+  background-repeat: no-repeat;
+  box-shadow: 4px 4px 20px #000;
+  transition: all 0.3s;
+}
+.tag:visited {
+  color: black;
+}
+.tag:hover {
+  position: relative;
+  font-weight: bold;
+  font-size: 12px;
+  color: black;
+  background-color: #F0EAD6;
+  text-shadow: none;
+  text-decoration: none;
+  padding: 4px;
+  padding-left: 10px;
+  background: linear-gradient(45deg, transparent 4px, #f0ead6 4px), linear-gradient(315deg, transparent 4px, #f0ead6 4px), linear-gradient(0, transparent 4px, #f0ead6 4px), linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -webkit-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -webkit-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -webkit-linear-gradient(0, transparent 4px, #f0ead6 4px), -webkit-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -moz-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -moz-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -moz-linear-gradient(0, transparent 4px, #f0ead6 4px), -moz-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -o-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -o-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -o-linear-gradient(0, transparent 4px, #f0ead6 4px), -o-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  background: -ms-linear-gradient(45deg, transparent 4px, #f0ead6 4px), -ms-linear-gradient(315deg, transparent 4px, #f0ead6 4px), -ms-linear-gradient(0, transparent 4px, #f0ead6 4px), -ms-linear-gradient(0, transparent 4px, #f0ead6 4px);
+  -webkit-background-size: 60% 60%;
+  -moz-background-size: 60% 60%;
+  -o-background-size: 60% 60%;
+  background-size: 60% 60%;
+  background-position: bottom left,  top left, top right, bottom right;
+  background-repeat: no-repeat;
+}
+#tags em {
+  font-size: 80%;
+}
+.addthis_toolbox {
+  display: inline-block;
+  margin: 10px;
+}
+#img_container p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 60%;
+  height: 0;
+}
+#profile_image {
+  float: left;
+  padding-left: 10em;
+}
+#profile_image img {
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border-radius: 8px 8px 8px 8px;
+}
+#profile_image p {
+  font-size: 80%;
+}
+.tag_cloud_name {
+  padding: 10px;
+}
+#social {
+  font-size: 1px;
+  padding: 5px;
+}
+#facebook_like {
+  padding-right: 8px;
+}
+#facebook_like span {
+  height: 20px!important;
+}
+#pintrest {
+  display: inline-block;
+  padding-right: 8px;
+}
+#info h1 {
+  margin-bottom: 1em;
+}
+#info img {
+  float: right;
+  margin-right: 20%;
+}
+#info ul {
+  text-align: left;
+  margin-left: 20%;
+  width: 30%;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border-radius: 8px 8px 8px 8px;
+}
+#info ul li ul {
+  margin-left: 0;
+  width: 100%;
+  padding: 0;
+  background: 0;
+}
+#info ul li ul li {
+  list-style: none;
+  margin-left: 1em;
+}
+#info .data {
+  font-family: monospace, serif;
+}
+#info_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: blur(10px) contrast(60%);
+  -ms-filter: blur(10px) contrast(60%);
+  filter: url(/css/gecko-filter.svg#info);
+}
+#form div {
+  text-align: center;
+  display: block;
+}
+#form div .submit {
+  display: block;
+}
+#jvon div.site {
+  margin: 0 auto;
+  margin-top: 2em;
+  font-size: 20px;
+  text-align: center;
+  max-width: 20em;
+}
+#jvon div.site p {
+  font-family: 'Carme', sans-serif;
+  font-size: 12px;
+  text-align: left;
+}
+#jvon div.site a {
+  color: white;
+}
+.thumb_wrap {
+  display: inline-block;
+  height: 164px;
+  width: 244px;
+}
+.thumb_wrap a img {
+  margin: 0 auto;
+  display: block;
+}
+#like_image.highlight {
+  color: #6aca4c;
+}
+#dislike_image.highlight {
+  color: #fa241b;
+}
+#save_image.highlight {
+  color: yellow;
+}
+.pressed {
+  position: relative;
+  top: 2px;
+  text-shadow: none;
+}
+#apidocs {
+  text-align: left;
+  float: right;
+  width: 89%;
+}
+.method,
+pre {
+  background: rgba(0, 31, 32, 0.8);
+  padding: 0.5em 1em;
+  margin: 1em;
+  -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
+}
+.endpoint a,
+.variable,
+code {
+  font-family: 'PT Mono';
+}
+.variable {
+  font-weight: bold;
+}
+.desc {
+  display: block;
+  padding-left: 2em;
+  font-size: 85%;
+}
+#classes {
+  float: left;
+  border: 1px dotted white;
+  width: 10%;
+}
+#classes p {
+  text-align: left;
+  padding-left: 10%;
+}
+#classes h2 {
+  font-size: 90%;
+}

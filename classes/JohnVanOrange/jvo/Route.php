@@ -6,6 +6,7 @@ class Route {
     private $page;
     private $data;
     private $map;
+    private $page_dir;
     
     /*
      * Route constructor
@@ -14,11 +15,13 @@ class Route {
      *
      * @param string $url URL to route.
      * @param mixed[] $map Array making URL requests to pages.
+     * @param string $page_dir Location of the pages to route to.
      */
 
-    public function __construct($url=NULL, $map=[]) {
+    public function __construct($url=NULL, $map=[], $page_dir = '/pages/') {
        $this->process_data($this->process_URL($url));
        $this->map = $map;
+       $this->page_dir = $page_dir;
     }
     
     /*
@@ -60,18 +63,18 @@ class Route {
     public function get() {
         switch($this->page) {
             case '':
-                return ROOT_DIR.'/pages/random.php';
+                return ROOT_DIR . $this->page_dir . 'random.php';
                 break;
             case 'admin':
-                return ROOT_DIR.'/pages/admin/'.$this->get_data(0).'.php';
+                return ROOT_DIR . $this->page_dir . 'admin/'.$this->get_data(0).'.php';
                 break;
             default:
-                $location = ROOT_DIR.'/pages/'.$this->map->{$this->page}.'.php';
+                $location = ROOT_DIR . $this->page_dir . $this->map->{$this->page}.'.php';
                 if(file_exists($location)) {
                     return $location;
                 }
                 else {
-                    return ROOT_DIR.'/pages/random.php';
+                    return ROOT_DIR . $this->page_dir . 'random.php';
                 } 
                 break;
         }
