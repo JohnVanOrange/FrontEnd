@@ -55,7 +55,7 @@ class Route {
     }
     
     /*
-     * Get page
+     * Get full page
      *
      * Get the page that needs to be routed to based on the URL given.
      */
@@ -78,6 +78,16 @@ class Route {
                 } 
                 break;
         }
+    }
+    
+    /*
+     * Get page
+     *
+     * Get the literal page that was parsed from the URL.
+     */
+    
+    public function get_page() {
+        return $this->page;
     }
     
     /*
