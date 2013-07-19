@@ -4,10 +4,11 @@
     <title>{% block title_prepend %}{% endblock %}{{ site_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel='shortcut icon' type='image/png' href='{{ web_root }}icons/{{ icon_set }}/16.png' />
-    <link href="css3/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ web_root }}css3/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css3/themes/{{ site_theme }}/{{ site_theme }}.css' />
 		<link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello.css?20130423' />
     <link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello-codes.css?20130423' />
+		{% block stylesheets %}{% endblock %}
 		{% block meta_data %}{% endblock %}
   </head>
   <body>
@@ -72,7 +73,7 @@
 			<a href="/privacy">Privacy</a>
 		</footer>
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js3/bootstrap/bootstrap.min.js"></script>
-		<script src="js3/base.js"></script>
+    <script src="{{ web_root }}js3/bootstrap/bootstrap.min.js"></script>
+		<script src="{{ web_root }}js3/base.js"></script>
   </body>
 </html>
