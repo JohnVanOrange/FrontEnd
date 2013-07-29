@@ -1,11 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<section id='content'>
-		<a href='/?{{ rand }}'>
-			<img src='{{ image.image_url }}'>
-		</a>
-	</section>
+	<a href='/?{{ rand }}'>
+		<img src='{{ image.image_url }}'>
+	</a>
 {% endblock %}
 
 {% block meta_data %}

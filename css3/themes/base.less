@@ -121,6 +121,11 @@ header a, header a:visited, header a:visited:hover, header a:hover {
 h1 {
 		margin: 0;
 		font-size: 30px;
+		a {
+				&:hover {
+						text-decoration: none;
+				}
+		}
 }
 
 header {
@@ -147,6 +152,13 @@ footer {
 }
 
 #menu {
+		position: absolute;
+		top: 1px;
+		right: 70px;
+}
+
+/*
+#menu {
     position: fixed;
     top: 0;
     right: 0;
@@ -159,9 +171,23 @@ footer {
 		.linear_gradient_2(top, lighten(@menu_color, 15%), 20%, @menu_color, 100%, @menu_color);
 }
 
+*/
+
 #tag_search {
-    padding-left: 5px;
-    border-radius: 8px;
+		margin-top: 4px;
+		height: 10px;
+		width: 10em;
+}
+
+#menu {
+		li {
+				cursor: pointer;
+		}
+		#user_avatar {
+				img {
+						margin-top: -4px;
+				}
+		}
 }
 
 #menu a, #menu a:visited, #menu a:visited:hover, #menu a:hover, #menu a:active, #menu a:focus {
@@ -228,8 +254,13 @@ footer {
 	background-color: #667C26;    
 }
 
+/*
 #search {
-	margin-top: 1px;
+		margin-top: 1px;
+}*/
+
+#search button {
+		display: none; //might want to either remove this element, or hide it through JS eventually
 }
 
 .tag {
