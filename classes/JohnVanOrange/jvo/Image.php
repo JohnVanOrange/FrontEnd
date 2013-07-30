@@ -376,7 +376,19 @@ class Image extends Base {
   $query->where('type', '=', 'upload')
         ->orderBy('created', 'DESC')
         ->limit($count);
-  return $this->db->fetch($query);
+  $results = $this->db->fetch($query);
+  $image = new Image();
+  foreach ($results as $result) {
+   try {
+    $return[] = $image->get($result['image']);
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() != 403) {
+     throw new \Exception($e);
+    }
+   }
+  }
+  return $return;
  }
  
   /**
@@ -395,7 +407,19 @@ class Image extends Base {
         ->where('type', '=', 'like')
         ->orderBy('created', 'DESC')
         ->limit($count);
-  return $this->db->fetch($query);
+  $results = $this->db->fetch($query);
+  $image = new Image();
+  foreach ($results as $result) {
+   try {
+    $return[] = $image->get($result['image']);
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() != 403) {
+     throw new \Exception($e);
+    }
+   }
+  }
+  return $return;
  }
  
  /**
