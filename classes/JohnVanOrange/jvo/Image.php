@@ -403,9 +403,10 @@ class Image extends Base {
  
  public function recentLikes($count = 25) {
   $query = new \Peyote\Select('resources');
-  $query->columns('created', 'image', 'type')
+  $query->columns('image')
         ->where('type', '=', 'like')
         ->orderBy('created', 'DESC')
+        ->groupBy('image')
         ->limit($count);
   $results = $this->db->fetch($query);
   $image = new Image();
