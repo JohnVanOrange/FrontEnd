@@ -28,12 +28,12 @@
         </docblock>
         <argument line="25">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="25">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="25">
@@ -58,7 +58,7 @@
         </docblock>
         <argument line="73">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="73">
@@ -80,7 +80,7 @@
         </docblock>
         <argument line="111">
           <name>$tag</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -97,7 +97,7 @@
         </docblock>
         <argument line="138">
           <name>$term</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -144,7 +144,7 @@
         </docblock>
         <argument line="24">
           <name>$theme</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="24">
@@ -192,7 +192,7 @@
         <full_name>get</full_name>
         <argument line="14">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -201,7 +201,7 @@
         <full_name>scale</full_name>
         <argument line="20">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="20">
@@ -220,7 +220,7 @@
         <full_name>watermark</full_name>
         <argument line="31">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -331,7 +331,7 @@
         <full_name>page</full_name>
         <argument line="17">
           <name>$e</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -340,7 +340,7 @@
         <full_name>js</full_name>
         <argument line="55">
           <name>$e</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -367,7 +367,7 @@
         <full_name>call</full_name>
         <argument line="19">
           <name>$method</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="19">
@@ -417,7 +417,7 @@
         <full_name>get_data</full_name>
         <argument line="88">
           <name>$index</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -426,12 +426,12 @@
         <full_name>set_data</full_name>
         <argument line="93">
           <name>$index</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="93">
           <name>$data</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -460,17 +460,17 @@
         <full_name>__construct</full_name>
         <argument line="8">
           <name>$dsn</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="8">
           <name>$user</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="8">
           <name>$pass</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="8">
@@ -488,7 +488,7 @@
         <full_name>fetch</full_name>
         <argument line="17">
           <name>$query</name>
-          <default></default>
+          <default/>
           <type>\Peyote\Query</type>
         </argument>
       </method>
@@ -515,7 +515,7 @@
         <full_name>add</full_name>
         <argument line="13">
           <name>$type</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="13">
@@ -539,12 +539,12 @@
         <full_name>merge</full_name>
         <argument line="23">
           <name>$to</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="23">
           <name>$from</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -558,7 +558,7 @@
       <error line="23" code="50010">No DocBlock was found for method merge()</error>
     </parse_markers>
   </file>
-  <file path="Image.php" hash="23ee15be2c6ebb165e935dfa2383b915" package="Default">
+  <file path="Image.php" hash="1ad5eb0f6694f7b2ca1c5c33e61e1ae4" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="5" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Image</name>
@@ -865,87 +865,104 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="393" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="392" package="Default">
+        <name>recentLikes</name>
+        <full_name>recentLikes</full_name>
+        <docblock line="382">
+          <description>Recently liked images</description>
+          <long-description>&lt;p&gt;Displays a list of images recently liked&lt;/p&gt;</long-description>
+          <tag line="382" name="api" description=""/>
+          <tag line="382" name="param" description="Number of results to display" type="int" variable="$count">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="392">
+          <name>$count</name>
+          <default>25</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="412" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="382">
+        <docblock line="401">
           <description>Get image</description>
           <long-description>&lt;p&gt;Retrieve information about an image.&lt;/p&gt;</long-description>
-          <tag line="382" name="api" description=""/>
-          <tag line="382" name="param" description="The 6-digit id of an image, or the filename of the image." type="string" variable="$image">
+          <tag line="401" name="api" description=""/>
+          <tag line="401" name="param" description="The 6-digit id of an image, or the filename of the image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="382" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="401" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="393">
+        <argument line="412">
           <name>$image</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="393">
+        <argument line="412">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="490" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="509" package="Default">
         <name>stats</name>
         <full_name>stats</full_name>
-        <docblock line="482">
+        <docblock line="501">
           <description>Get stats</description>
           <long-description>&lt;p&gt;Returns the total number of images, reported images and approved images.&lt;/p&gt;</long-description>
-          <tag line="482" name="api" description=""/>
+          <tag line="501" name="api" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="506" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="525" package="Default">
         <name>scale</name>
         <full_name>scale</full_name>
-        <argument line="506">
+        <argument line="525">
           <name>$image</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="506">
+        <argument line="525">
           <name>$width</name>
           <default>240</default>
           <type/>
         </argument>
-        <argument line="506">
+        <argument line="525">
           <name>$height</name>
           <default>160</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="529" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="548" package="Default">
         <name>merge</name>
         <full_name>merge</full_name>
-        <docblock line="517">
+        <docblock line="536">
           <description>Merge images</description>
           <long-description>&lt;p&gt;Merge two images into one, merging any assoicated resources. Must be logged in as admin to use this method.&lt;/p&gt;</long-description>
-          <tag line="517" name="api" description=""/>
-          <tag line="517" name="param" description="The 6-digit id of an image." type="string" variable="$image1">
+          <tag line="536" name="api" description=""/>
+          <tag line="536" name="param" description="The 6-digit id of an image." type="string" variable="$image1">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="517" name="param" description="The 6-digit id of an image." type="string" variable="$image2">
+          <tag line="536" name="param" description="The 6-digit id of an image." type="string" variable="$image2">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="517" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="536" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="529">
+        <argument line="548">
           <name>$image1</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="529">
+        <argument line="548">
           <name>$image2</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="529">
+        <argument line="548">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
@@ -960,8 +977,8 @@
       <error line="10" code="50010">No DocBlock was found for method __construct()</error>
       <error line="182" code="50010">No DocBlock was found for method add()</error>
       <error line="232" code="50010">No DocBlock was found for method addFromUpload()</error>
-      <error line="470" code="50010">No DocBlock was found for method getUID()</error>
-      <error line="506" code="50010">No DocBlock was found for method scale()</error>
+      <error line="489" code="50010">No DocBlock was found for method getUID()</error>
+      <error line="525" code="50010">No DocBlock was found for method scale()</error>
     </parse_markers>
   </file>
   <file path="Reddit.php" hash="2562e6ebfdb9a53c722c9763249a5915" package="Default">
@@ -978,7 +995,7 @@
         <full_name>process</full_name>
         <argument line="16">
           <name>$subreddit</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1040,7 +1057,7 @@
         </docblock>
         <argument line="45">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="45">
@@ -1082,12 +1099,12 @@
         </docblock>
         <argument line="105">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="105">
           <name>$password</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1127,17 +1144,17 @@
         </docblock>
         <argument line="160">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="160">
           <name>$password</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="160">
           <name>$email</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1157,7 +1174,7 @@
         </docblock>
         <argument line="192">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="192">
@@ -1182,7 +1199,7 @@
         </docblock>
         <argument line="225">
           <name>$username</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="225">
@@ -1219,12 +1236,12 @@
         <full_name>__call</full_name>
         <argument line="13">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="13">
           <name>$args</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>

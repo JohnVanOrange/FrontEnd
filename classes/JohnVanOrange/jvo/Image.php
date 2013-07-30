@@ -379,6 +379,25 @@ class Image extends Base {
   return $this->db->fetch($query);
  }
  
+  /**
+  * Recently liked images
+  *
+  * Displays a list of images recently liked
+  *
+  * @api
+  * 
+  * @param int $count Number of results to display
+  */
+ 
+ public function recentLikes($count = 25) {
+  $query = new \Peyote\Select('resources');
+  $query->columns('created', 'image', 'type')
+        ->where('type', '=', 'like')
+        ->orderBy('created', 'DESC')
+        ->limit($count);
+  return $this->db->fetch($query);
+ }
+ 
  /**
   * Get image
   *
