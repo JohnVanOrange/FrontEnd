@@ -1,0 +1,3 @@
+#! /bin/bash
+
+phpdoc project:parse -d ../classes -t .. --visibility public

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a12" title="">
-  <file path="Tag.php" hash="9d793cd3ab76510f25ac2293a32672d7" package="Default">
+  <file path="Tag.php" hash="b0e9cb3e363cb807f1393e4d278ec641" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Tag</name>
@@ -9,7 +9,7 @@
         <name>__construct</name>
         <full_name>__construct</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="24" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="25" package="Default">
         <name>add</name>
         <full_name>add</full_name>
         <docblock line="13">
@@ -22,84 +22,92 @@
           <tag line="13" name="param" description="6-digit image ID." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
+          <tag line="13" name="param" description="Session ID that is provided when logged in. This is also set as a cookie." type="string" variable="$sid">
+            <type by_reference="false">string</type>
+          </tag>
         </docblock>
-        <argument line="24">
+        <argument line="25">
           <name>$name</name>
           <default/>
           <type/>
         </argument>
-        <argument line="24">
+        <argument line="25">
           <name>$image</name>
           <default/>
           <type/>
         </argument>
+        <argument line="25">
+          <name>$sid</name>
+          <default>NULL</default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="72" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="73" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="61">
+        <docblock line="62">
           <description>Get tags</description>
           <long-description>&lt;p&gt;List the tags for an image&lt;/p&gt;</long-description>
-          <tag line="61" name="api" description=""/>
-          <tag line="61" name="param" description="The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename." type="string" variable="$value">
+          <tag line="62" name="api" description=""/>
+          <tag line="62" name="param" description="The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename." type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="61" name="param" description="Valid values are 'image' or 'basename'." type="string" variable="$search_by">
+          <tag line="62" name="param" description="Valid values are 'image' or 'basename'." type="string" variable="$search_by">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="72">
+        <argument line="73">
           <name>$value</name>
           <default/>
           <type/>
         </argument>
-        <argument line="72">
+        <argument line="73">
           <name>$search_by</name>
           <default>'image'</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="106" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="111" package="Default">
         <name>all</name>
         <full_name>all</full_name>
-        <docblock line="96">
+        <docblock line="101">
           <description>All images with tag</description>
           <long-description>&lt;p&gt;Get all images that have a certain tag.&lt;/p&gt;</long-description>
-          <tag line="96" name="api" description=""/>
-          <tag line="96" name="param" description="The basename value for a particular tag." type="string" variable="$tag">
+          <tag line="101" name="api" description=""/>
+          <tag line="101" name="param" description="The basename value for a particular tag." type="string" variable="$tag">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="106">
+        <argument line="111">
           <name>$tag</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="133" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="138" package="Default">
         <name>suggest</name>
         <full_name>suggest</full_name>
-        <docblock line="123">
+        <docblock line="128">
           <description>Tag suggest</description>
           <long-description>&lt;p&gt;This is used to find suggested tags by giving it parts of text, and it will return the 10 closest matches for existing tags.&lt;/p&gt;</long-description>
-          <tag line="123" name="api" description=""/>
-          <tag line="123" name="param" description="Partial text that is used to query for existing tag names." type="string" variable="$term">
+          <tag line="128" name="api" description=""/>
+          <tag line="128" name="param" description="Partial text that is used to query for existing tag names." type="string" variable="$term">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="133">
+        <argument line="138">
           <name>$term</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="153" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="158" package="Default">
         <name>top</name>
         <full_name>top</full_name>
-        <docblock line="145">
+        <docblock line="150">
           <description>Top tags</description>
           <long-description>&lt;p&gt;Returns the top 200 used tags and a count of the number of times they are used.&lt;/p&gt;</long-description>
-          <tag line="145" name="api" description=""/>
+          <tag line="150" name="api" description=""/>
         </docblock>
       </method>
     </class>
@@ -108,10 +116,10 @@
       <error line="4" code="50000">No DocBlock was found for \JohnVanOrange\jvo\Tag</error>
       <error line="6" code="50018">No DocBlock was found for property $res</error>
       <error line="8" code="50010">No DocBlock was found for method __construct()</error>
-      <error line="159" code="50010">No DocBlock was found for method addtoList()</error>
+      <error line="171" code="50010">No DocBlock was found for method addtoList()</error>
     </parse_markers>
   </file>
-  <file path="Theme.php" hash="db5a2a03d28238f5662eb347e1ad5327" package="Default">
+  <file path="Theme.php" hash="b2261c3e55131b8016c4d62c86194956" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Theme</name>
@@ -145,18 +153,18 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="60" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="58" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="50">
+        <docblock line="48">
           <description>Get theme</description>
           <long-description>&lt;p&gt;Retrieve currently set UI theme.&lt;/p&gt;</long-description>
-          <tag line="50" name="api" description=""/>
-          <tag line="50" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent and it's desired to have this data saved with a user account." type="string" variable="$sid">
+          <tag line="48" name="api" description=""/>
+          <tag line="48" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent and it's desired to have this data saved with a user account." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="60">
+        <argument line="58">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
@@ -227,7 +235,7 @@
       <error line="31" code="50010">No DocBlock was found for method watermark()</error>
     </parse_markers>
   </file>
-  <file path="Refresh.php" hash="71dfce0fa470004f53119661a79a63d0" package="Default">
+  <file path="Refresh.php" hash="4f6590c93ef80ea393735527a54e14bd" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Refresh</name>
@@ -261,35 +269,35 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="53" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="51" package="Default">
         <name>remove</name>
         <full_name>remove</full_name>
-        <docblock line="43">
+        <docblock line="41">
           <description>Remove auto-refresh</description>
           <long-description>&lt;p&gt;Removes the auto-refresh time. This is the same as setting /refresh/set to 0 seconds.&lt;/p&gt;</long-description>
-          <tag line="43" name="api" description=""/>
-          <tag line="43" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
+          <tag line="41" name="api" description=""/>
+          <tag line="41" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="53">
+        <argument line="51">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="67" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="65" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="57">
+        <docblock line="55">
           <description>Get auto-refresh</description>
           <long-description>&lt;p&gt;Retrieve current page auto-refresh time. Must be logged in to use.&lt;/p&gt;</long-description>
-          <tag line="57" name="api" description=""/>
-          <tag line="57" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
+          <tag line="55" name="api" description=""/>
+          <tag line="55" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="67">
+        <argument line="65">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
@@ -381,7 +389,7 @@
       <error line="19" code="50010">No DocBlock was found for method call()</error>
     </parse_markers>
   </file>
-  <file path="Route.php" hash="da6ca71ad630ad3bf9207f274785f925" package="Default">
+  <file path="Route.php" hash="2d325af91800ecbb79245e6661596fc3" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends/>
       <name>Route</name>
@@ -413,15 +421,15 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="92" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="93" package="Default">
         <name>set_data</name>
         <full_name>set_data</full_name>
-        <argument line="92">
+        <argument line="93">
           <name>$index</name>
           <default/>
           <type/>
         </argument>
-        <argument line="92">
+        <argument line="93">
           <name>$data</name>
           <default/>
           <type/>
@@ -439,10 +447,10 @@
       <error line="44" code="50010">No DocBlock was found for method process_data()</error>
       <error line="60" code="50010">No DocBlock was found for method get()</error>
       <error line="88" code="50010">No DocBlock was found for method get_data()</error>
-      <error line="92" code="50010">No DocBlock was found for method set_data()</error>
+      <error line="93" code="50010">No DocBlock was found for method set_data()</error>
     </parse_markers>
   </file>
-  <file path="DB.php" hash="ff0b38f3c3865775cff5632ce7c72ccb" package="Default">
+  <file path="DB.php" hash="76fc89beeb3fa1d98e756f494ca453d0" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="6" package="Default">
       <extends>\PDO</extends>
       <name>DB</name>
@@ -481,12 +489,7 @@
         <argument line="17">
           <name>$query</name>
           <default/>
-          <type/>
-        </argument>
-        <argument line="17">
-          <name>$values</name>
-          <default>NULL</default>
-          <type/>
+          <type>\Peyote\Query</type>
         </argument>
       </method>
     </class>
@@ -498,7 +501,7 @@
       <error line="17" code="50010">No DocBlock was found for method fetch()</error>
     </parse_markers>
   </file>
-  <file path="Resource.php" hash="07a335b8faf757669360d85b02a0d824" package="Default">
+  <file path="Resource.php" hash="e548baa4e422d5ec7a2818484e9d98bf" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Resource</name>
@@ -521,25 +524,25 @@
           <type/>
         </argument>
         <argument line="13">
-          <name>$value</name>
-          <default>NULL</default>
-          <type/>
-        </argument>
-        <argument line="13">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
+        <argument line="13">
+          <name>$value</name>
+          <default>NULL</default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="28" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="23" package="Default">
         <name>merge</name>
         <full_name>merge</full_name>
-        <argument line="28">
+        <argument line="23">
           <name>$to</name>
           <default/>
           <type/>
         </argument>
-        <argument line="28">
+        <argument line="23">
           <name>$from</name>
           <default/>
           <type/>
@@ -552,10 +555,10 @@
       <error line="6" code="50018">No DocBlock was found for property $user</error>
       <error line="8" code="50010">No DocBlock was found for method __construct()</error>
       <error line="13" code="50010">No DocBlock was found for method add()</error>
-      <error line="28" code="50010">No DocBlock was found for method merge()</error>
+      <error line="23" code="50010">No DocBlock was found for method merge()</error>
     </parse_markers>
   </file>
-  <file path="Image.php" hash="15be139a42f98050d90450030cfcecd9" package="Default">
+  <file path="Image.php" hash="1ad5eb0f6694f7b2ca1c5c33e61e1ae4" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="5" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Image</name>
@@ -580,7 +583,7 @@
         </docblock>
         <argument line="27">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="27">
@@ -589,195 +592,216 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="54" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="53" package="Default">
         <name>dislike</name>
         <full_name>dislike</full_name>
-        <docblock line="43">
+        <docblock line="42">
           <description>Dislike image</description>
           <long-description>&lt;p&gt;Dislike an image. Must be logged in to use this method.&lt;/p&gt;</long-description>
-          <tag line="43" name="api" description=""/>
-          <tag line="43" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+          <tag line="42" name="api" description=""/>
+          <tag line="42" name="param" description="The 6-digit id of an image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="43" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="42" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="54">
+        <argument line="53">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="54">
+        <argument line="53">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="81" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="79" package="Default">
         <name>save</name>
         <full_name>save</full_name>
-        <docblock line="70">
+        <docblock line="68">
           <description>Save image</description>
           <long-description>&lt;p&gt;Save an image for viewing later. Must be logged in to use this method.&lt;/p&gt;</long-description>
-          <tag line="70" name="api" description=""/>
-          <tag line="70" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+          <tag line="68" name="api" description=""/>
+          <tag line="68" name="param" description="The 6-digit id of an image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="70" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="68" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="81">
+        <argument line="79">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="81">
+        <argument line="79">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="102" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="100" package="Default">
         <name>unsave</name>
         <full_name>unsave</full_name>
-        <docblock line="91">
+        <docblock line="89">
           <description>Unsave image</description>
           <long-description>&lt;p&gt;Stop saving a previously saved image. Must be logged in to use this method.&lt;/p&gt;</long-description>
-          <tag line="91" name="api" description=""/>
-          <tag line="91" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+          <tag line="89" name="api" description=""/>
+          <tag line="89" name="param" description="The 6-digit id of an image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="91" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="89" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="102">
+        <argument line="100">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="102">
+        <argument line="100">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="129" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="126" package="Default">
         <name>approve</name>
         <full_name>approve</full_name>
-        <docblock line="117">
+        <docblock line="114">
           <description>Approve image</description>
           <long-description>&lt;p&gt;Approves an image. If the image was reported, it will resolve all reports. If the image was hidden, it will now be displayed. Must be logged on as admin to access this method.&lt;/p&gt;</long-description>
-          <tag line="117" name="api" description=""/>
-          <tag line="117" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+          <tag line="114" name="api" description=""/>
+          <tag line="114" name="param" description="The 6-digit id of an image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="117" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="114" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="117" name="param" description="If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way." type="bool" variable="$nsfw">
+          <tag line="114" name="param" description="If an image should be marked as approved, but NSFW, setting this to 'true' or '1' will mark the image that way." type="bool" variable="$nsfw">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="129">
+        <argument line="126">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="129">
+        <argument line="126">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
-        <argument line="129">
+        <argument line="126">
           <name>$nsfw</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="157" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="158" package="Default">
         <name>remove</name>
         <full_name>remove</full_name>
-        <docblock line="146">
+        <docblock line="147">
           <description>Remove image</description>
           <long-description>&lt;p&gt;Removes an image and everything associated with it. Must be logged on as admin to access this method.&lt;/p&gt;</long-description>
-          <tag line="146" name="api" description=""/>
-          <tag line="146" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+          <tag line="147" name="api" description=""/>
+          <tag line="147" name="param" description="The 6-digit id of an image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="146" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="147" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="157">
+        <argument line="158">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="157">
+        <argument line="158">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="235" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="232" package="Default">
         <name>addFromUpload</name>
         <full_name>addFromUpload</full_name>
-        <argument line="235">
+        <argument line="232">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="253" package="Default">
-        <name>addFromURL</name>
-        <full_name>addFromURL</full_name>
-        <docblock line="242">
-          <description>Add image from URL</description>
-          <long-description>&lt;p&gt;Allows adding images to site from remote URL's.&lt;/p&gt;</long-description>
-          <tag line="242" name="api" description=""/>
-          <tag line="242" name="param" description="Full URL to an image to be added to the site. Must be JPEG, PNG, or GIF format." type="string" variable="$url">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="242" name="param" description="An optional external link to comments for the image." type="string" variable="$c_link">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="253">
-          <name>$url</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="253">
-          <name>$c_link</name>
+        <argument line="232">
+          <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="272" package="Default">
-        <name>report</name>
-        <full_name>report</full_name>
-        <docblock line="261">
-          <description>Report image</description>
-          <long-description>&lt;p&gt;Allows reporting of problematic images so they may undergo review.&lt;/p&gt;</long-description>
-          <tag line="261" name="api" description=""/>
-          <tag line="261" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="251" package="Default">
+        <name>addFromURL</name>
+        <full_name>addFromURL</full_name>
+        <docblock line="239">
+          <description>Add image from URL</description>
+          <long-description>&lt;p&gt;Allows adding images to site from remote URL's.&lt;/p&gt;</long-description>
+          <tag line="239" name="api" description=""/>
+          <tag line="239" name="param" description="Full URL to an image to be added to the site. Must be JPEG, PNG, or GIF format." type="string" variable="$url">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="261" name="param" description="Number value representing the reason type which can be found in report/all" type="int" variable="$type">
-            <type by_reference="false">int</type>
+          <tag line="239" name="param" description="An optional external link to comments for the image." type="string" variable="$c_link">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="239" name="param" description="Session ID that is provided when logged in. This is also set as a cookie." type="string" variable="$sid">
+            <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="272">
-          <name>$image</name>
-          <default/>
+        <argument line="251">
+          <name>$url</name>
+          <default></default>
           <type/>
         </argument>
-        <argument line="272">
+        <argument line="251">
+          <name>$c_link</name>
+          <default>NULL</default>
+          <type/>
+        </argument>
+        <argument line="251">
+          <name>$sid</name>
+          <default>NULL</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="271" package="Default">
+        <name>report</name>
+        <full_name>report</full_name>
+        <docblock line="259">
+          <description>Report image</description>
+          <long-description>&lt;p&gt;Allows reporting of problematic images so they may undergo review.&lt;/p&gt;</long-description>
+          <tag line="259" name="api" description=""/>
+          <tag line="259" name="param" description="The 6-digit id of an image." type="string" variable="$image">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="259" name="param" description="Number value representing the reason type which can be found in report/all" type="int" variable="$type">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="259" name="param" description="Session ID that is provided when logged in. This is also set as a cookie." type="string" variable="$sid">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="271">
+          <name>$image</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="271">
           <name>$type</name>
-          <default/>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="271">
+          <name>$sid</name>
+          <default>NULL</default>
           <type/>
         </argument>
       </method>
@@ -798,117 +822,147 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="326" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="329" package="Default">
         <name>unapproved</name>
         <full_name>unapproved</full_name>
-        <docblock line="316">
+        <docblock line="319">
           <description>Random unapproved image</description>
           <long-description>&lt;p&gt;Retrieves a random unapproved image. Must be logged in as admin to access this method.&lt;/p&gt;</long-description>
-          <tag line="316" name="api" description=""/>
-          <tag line="316" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="319" name="api" description=""/>
+          <tag line="319" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="326">
+        <argument line="329">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="344" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="351" package="Default">
         <name>random</name>
         <full_name>random</full_name>
-        <docblock line="336">
+        <docblock line="343">
           <description>Random image</description>
           <long-description>&lt;p&gt;Retrieves a random image.&lt;/p&gt;</long-description>
-          <tag line="336" name="api" description=""/>
+          <tag line="343" name="api" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="353" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="374" package="Default">
         <name>recent</name>
         <full_name>recent</full_name>
+        <docblock line="364">
+          <description>Recently added images</description>
+          <long-description>&lt;p&gt;Displays a list of images recently added&lt;/p&gt;</long-description>
+          <tag line="364" name="api" description=""/>
+          <tag line="364" name="param" description="Number of results to display" type="int" variable="$count">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="374">
+          <name>$count</name>
+          <default>25</default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="369" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="392" package="Default">
+        <name>recentLikes</name>
+        <full_name>recentLikes</full_name>
+        <docblock line="382">
+          <description>Recently liked images</description>
+          <long-description>&lt;p&gt;Displays a list of images recently liked&lt;/p&gt;</long-description>
+          <tag line="382" name="api" description=""/>
+          <tag line="382" name="param" description="Number of results to display" type="int" variable="$count">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="392">
+          <name>$count</name>
+          <default>25</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="412" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="358">
+        <docblock line="401">
           <description>Get image</description>
           <long-description>&lt;p&gt;Retrieve information about an image.&lt;/p&gt;</long-description>
-          <tag line="358" name="api" description=""/>
-          <tag line="358" name="param" description="The 6-digit id of an image, or the filename of the image." type="string" variable="$image">
+          <tag line="401" name="api" description=""/>
+          <tag line="401" name="param" description="The 6-digit id of an image, or the filename of the image." type="string" variable="$image">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="358" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="401" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="369">
+        <argument line="412">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="369">
+        <argument line="412">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="455" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="509" package="Default">
         <name>stats</name>
         <full_name>stats</full_name>
-        <docblock line="447">
+        <docblock line="501">
           <description>Get stats</description>
           <long-description>&lt;p&gt;Returns the total number of images, reported images and approved images.&lt;/p&gt;</long-description>
-          <tag line="447" name="api" description=""/>
+          <tag line="501" name="api" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="461" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="525" package="Default">
         <name>scale</name>
         <full_name>scale</full_name>
-        <argument line="461">
+        <argument line="525">
           <name>$image</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="461">
+        <argument line="525">
           <name>$width</name>
           <default>240</default>
           <type/>
         </argument>
-        <argument line="461">
+        <argument line="525">
           <name>$height</name>
           <default>160</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="484" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="548" package="Default">
         <name>merge</name>
         <full_name>merge</full_name>
-        <docblock line="472">
+        <docblock line="536">
           <description>Merge images</description>
           <long-description>&lt;p&gt;Merge two images into one, merging any assoicated resources. Must be logged in as admin to use this method.&lt;/p&gt;</long-description>
-          <tag line="472" name="api" description=""/>
-          <tag line="472" name="param" description="The 6-digit id of an image." type="string" variable="$image1">
+          <tag line="536" name="api" description=""/>
+          <tag line="536" name="param" description="The 6-digit id of an image." type="string" variable="$image1">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="472" name="param" description="The 6-digit id of an image." type="string" variable="$image2">
+          <tag line="536" name="param" description="The 6-digit id of an image." type="string" variable="$image2">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="472" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="536" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="484">
+        <argument line="548">
           <name>$image1</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="484">
+        <argument line="548">
           <name>$image2</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="484">
+        <argument line="548">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
@@ -921,14 +975,13 @@
       <error line="7" code="50018">No DocBlock was found for property $user</error>
       <error line="8" code="50018">No DocBlock was found for property $res</error>
       <error line="10" code="50010">No DocBlock was found for method __construct()</error>
-      <error line="180" code="50010">No DocBlock was found for method add()</error>
-      <error line="235" code="50010">No DocBlock was found for method addFromUpload()</error>
-      <error line="353" code="50010">No DocBlock was found for method recent()</error>
-      <error line="438" code="50010">No DocBlock was found for method getUID()</error>
-      <error line="461" code="50010">No DocBlock was found for method scale()</error>
+      <error line="182" code="50010">No DocBlock was found for method add()</error>
+      <error line="232" code="50010">No DocBlock was found for method addFromUpload()</error>
+      <error line="489" code="50010">No DocBlock was found for method getUID()</error>
+      <error line="525" code="50010">No DocBlock was found for method scale()</error>
     </parse_markers>
   </file>
-  <file path="Reddit.php" hash="af6c340dd2c6bf0e4e1dbf74e03dba9e" package="Default">
+  <file path="Reddit.php" hash="2562e6ebfdb9a53c722c9763249a5915" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Reddit</name>
@@ -967,10 +1020,10 @@
       <error line="97" code="50010">No DocBlock was found for method checkScore()</error>
       <error line="102" code="50010">No DocBlock was found for method getImgurID()</error>
       <error line="111" code="50010">No DocBlock was found for method getImageData()</error>
-      <error line="129" code="50010">No DocBlock was found for method addImage()</error>
+      <error line="133" code="50010">No DocBlock was found for method addImage()</error>
     </parse_markers>
   </file>
-  <file path="User.php" hash="ef022146c9c551fbe373cf23b320eca9" package="Default">
+  <file path="User.php" hash="c09f0eef808f019c90f2fa7c73091bcb" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>User</name>
@@ -1013,43 +1066,43 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="75" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="74" package="Default">
         <name>current</name>
         <full_name>current</full_name>
-        <docblock line="65">
+        <docblock line="64">
           <description>Current user</description>
           <long-description>&lt;p&gt;Retrieve user details of currently logged in account.&lt;/p&gt;</long-description>
-          <tag line="65" name="api" description=""/>
-          <tag line="65" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="64" name="api" description=""/>
+          <tag line="64" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="75">
+        <argument line="74">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="106" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="105" package="Default">
         <name>login</name>
         <full_name>login</full_name>
-        <docblock line="95">
+        <docblock line="94">
           <description>Account login</description>
           <long-description>&lt;p&gt;Login to an account.&lt;/p&gt;</long-description>
-          <tag line="95" name="api" description=""/>
-          <tag line="95" name="param" description="Valid username." type="string" variable="$username">
+          <tag line="94" name="api" description=""/>
+          <tag line="94" name="param" description="Valid username." type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="95" name="param" description="Valid password." type="string" variable="$password">
+          <tag line="94" name="param" description="Valid password." type="string" variable="$password">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="106">
+        <argument line="105">
           <name>$username</name>
           <default/>
           <type/>
         </argument>
-        <argument line="106">
+        <argument line="105">
           <name>$password</name>
           <default/>
           <type/>
@@ -1072,84 +1125,84 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="162" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="160" package="Default">
         <name>add</name>
         <full_name>add</full_name>
-        <docblock line="150">
+        <docblock line="148">
           <description>Add user</description>
-          <long-description>&lt;p&gt;Create new user account.&lt;/p&gt;</long-description>
-          <tag line="150" name="api" description=""/>
-          <tag line="150" name="param" description="Any unique string used to login to an account" type="string" variable="$username">
+          <long-description>&lt;p&gt;Create new user account and login as that user.&lt;/p&gt;</long-description>
+          <tag line="148" name="api" description=""/>
+          <tag line="148" name="param" description="Any unique string used to login to an account" type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="150" name="param" description="Any string" type="string" variable="$password">
+          <tag line="148" name="param" description="Any string" type="string" variable="$password">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="150" name="param" description="This can also be any string, but a valid email address would be required to do any password recovery." type="string" variable="$email">
+          <tag line="148" name="param" description="This can also be any string, but a valid email address would be required to do any password recovery." type="string" variable="$email">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="162">
+        <argument line="160">
           <name>$username</name>
           <default/>
           <type/>
         </argument>
-        <argument line="162">
+        <argument line="160">
           <name>$password</name>
           <default/>
           <type/>
         </argument>
-        <argument line="162">
+        <argument line="160">
           <name>$email</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="188" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="192" package="Default">
         <name>saved</name>
         <full_name>saved</full_name>
-        <docblock line="177">
+        <docblock line="181">
           <description>User's saved images</description>
           <long-description>&lt;p&gt;Load all saved images for a user account.&lt;/p&gt;</long-description>
-          <tag line="177" name="api" description=""/>
-          <tag line="177" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in." type="string" variable="$username">
+          <tag line="181" name="api" description=""/>
+          <tag line="181" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in." type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="177" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
+          <tag line="181" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="188">
+        <argument line="192">
           <name>$username</name>
           <default/>
           <type/>
         </argument>
-        <argument line="188">
+        <argument line="192">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="219" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="225" package="Default">
         <name>uploaded</name>
         <full_name>uploaded</full_name>
-        <docblock line="208">
+        <docblock line="214">
           <description>User's uploaded images</description>
           <long-description>&lt;p&gt;Load all uploaded images for a user account.&lt;/p&gt;</long-description>
-          <tag line="208" name="api" description=""/>
-          <tag line="208" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in." type="string" variable="$username">
+          <tag line="214" name="api" description=""/>
+          <tag line="214" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in." type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="208" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
+          <tag line="214" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="219">
+        <argument line="225">
           <name>$username</name>
           <default/>
           <type/>
         </argument>
-        <argument line="219">
+        <argument line="225">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
@@ -1165,11 +1218,11 @@
       <error line="17" code="50010">No DocBlock was found for method passhash()</error>
       <error line="21" code="50010">No DocBlock was found for method isAdmin()</error>
       <error line="28" code="50010">No DocBlock was found for method isLoggedIn()</error>
-      <error line="87" code="50010">No DocBlock was found for method getSID()</error>
-      <error line="91" code="50010">No DocBlock was found for method setSID()</error>
+      <error line="86" code="50010">No DocBlock was found for method getSID()</error>
+      <error line="90" code="50010">No DocBlock was found for method setSID()</error>
     </parse_markers>
   </file>
-  <file path="Base.php" hash="aa90e879f76bc58a7531fb4730f5db12" package="Default">
+  <file path="Base.php" hash="d592a94573ed2a34a3c4460fc4aade57" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends/>
       <name>Base</name>
@@ -1209,7 +1262,7 @@
       <error line="72" code="50010">No DocBlock was found for method siteURL()</error>
     </parse_markers>
   </file>
-  <file path="Report.php" hash="4ad7f0a9c298db8b8fce821356f28842" package="Default">
+  <file path="Report.php" hash="6fa9be024f89b9843f0ad7b65b0111d6" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Report</name>
@@ -1227,18 +1280,18 @@
           <tag line="10" name="api" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="33" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="35" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="23">
+        <docblock line="25">
           <description>Get report type</description>
           <long-description>&lt;p&gt;Retrieve a specific report type&lt;/p&gt;</long-description>
-          <tag line="23" name="api" description=""/>
-          <tag line="23" name="param" description="If given, will return just the specific type of report that is specified by the id. If no id given, will return return all the results, same as report/all." type="int" variable="$id">
+          <tag line="25" name="api" description=""/>
+          <tag line="25" name="param" description="If given, will return just the specific type of report that is specified by the id. If no id given, will return return all the results, same as report/all." type="int" variable="$id">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="33">
+        <argument line="35">
           <name>$id</name>
           <default>NULL</default>
           <type/>
