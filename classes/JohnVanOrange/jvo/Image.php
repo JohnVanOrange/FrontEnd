@@ -179,7 +179,26 @@ class Image extends Base {
   );
  }
 
- private function add($path, $c_link=NULL, $sid = NULL) {
+ /**
+  * Add image from upload
+  *
+  * Allows uploading images.
+  *
+  * @api
+  * 
+  * @param string $image An image uploaded as multi-part form data. Must be JPEG, PNG, or GIF format.
+  * @param string $c_link An optional external link to comments for the image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
+  */
+ 
+ public function add($image, $c_link = NULL, $sid= NULL) {
+  $filename = md5(mt_rand());
+  $path = ROOT_DIR.'/media/'.$filename;
+  if (isset($image['tmp_name'])) move_uploaded_file($image['tmp_name'], $path);
+  return $this->processAdd($path, $c_link, $sid);
+ }
+ 
+ private function processAdd($path, $c_link=NULL, $sid = NULL) {
   $info = getimagesize($path);
   if (!$info) {
    unlink($path);
@@ -233,7 +252,7 @@ class Image extends Base {
   $filename = md5(mt_rand().$path);
   $newpath = ROOT_DIR.'/media/'.$filename;
   rename($path,$newpath);
-  return $this->add($newpath, NULL, $sid);
+  return $this->processAdd($newpath, NULL, $sid);
  }
 
  /**
@@ -253,7 +272,7 @@ class Image extends Base {
   $filename = md5(mt_rand().$url);
   $newpath = ROOT_DIR.'/media/'.$filename;
   file_put_contents($newpath,$image);
-  return $this->add($newpath, $c_link, $sid);
+  return $this->processAdd($newpath, $c_link, $sid);
  }
 
  /**
