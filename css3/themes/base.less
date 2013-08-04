@@ -153,33 +153,8 @@ footer {
 
 #menu {
 		position: absolute;
-		top: 1px;
-		right: 70px;
-}
-
-/*
-#menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 24px;
-    padding: 6px 6px 6px 12px;
-    font-size: 80%;
-    border-radius: 0 0 0 8px;
-    background: @menu_color;
-		z-index: 10;
-		.linear_gradient_2(top, lighten(@menu_color, 15%), 20%, @menu_color, 100%, @menu_color);
-}
-
-*/
-
-#tag_search {
-		margin-top: 4px;
-		height: 10px;
-		width: 10em;
-}
-
-#menu {
+		top: 5px;
+		right: 5px;
 		li {
 				cursor: pointer;
 		}
@@ -187,6 +162,15 @@ footer {
 				img {
 						margin-top: -4px;
 				}
+		}
+		#tag_search {
+				height: 20px;
+				width: 10em;
+		}
+		.icon-search {
+				height: 18px;
+				padding-top: 0;
+				margin-left: 3px;
 		}
 }
 
@@ -252,15 +236,6 @@ footer {
 	border-radius: 4px;
 	padding: 3px 5px;
 	background-color: #667C26;    
-}
-
-/*
-#search {
-		margin-top: 1px;
-}*/
-
-#search button {
-		display: none; //might want to either remove this element, or hide it through JS eventually
 }
 
 .tag {

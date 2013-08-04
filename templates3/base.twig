@@ -4,7 +4,7 @@
     <title>{% block title_prepend %}{% endblock %}{{ site_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel='shortcut icon' type='image/png' href='{{ web_root }}icons/{{ icon_set }}/16.png' />
-    <link href="{{ web_root }}css3/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ web_root }}bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css3/themes/{{ site_theme }}/{{ site_theme }}.css' />
 		<link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello.css?20130423' />
     <link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello-codes.css?20130423' />
@@ -14,7 +14,7 @@
   <body>
     <header>
 			<h1><a href='/'>{{ site_name }}</a></h1>
-				<ul id='menu' class='inline'>
+				<ul id='menu' class='list-inline'>
 					{% if user.username %}<li id='user_avatar'><a href='/u/{{ user.username }}'><img src='http://www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='User avatar' height='24' width='24'></a></li>
 					<li id="username" class='nomobile' title="View Profile"><a href='/u/{{ user.username }}'>{{ user.username }}</a></li>{% endif %}
 					{% if image %}
@@ -63,7 +63,7 @@
 						{% if user.username %}<li><a href='' id='logout' class='icon-logout'>Logout</a></li>{% endif %}
 					</ul>
 				</li>
-				<li class='nomobile'><form action='' id='search'><input id='tag_search' type='search' results="0" placeholder='View by tag'><button type='submit'>Search</button></form></li>
+				<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit' title='Search' class='icon-search'></button></form></li>
 			</ul>
 		</header>
 		<section id='content'>
@@ -74,8 +74,9 @@
 			<a href="/tos">Legal</a> | 
 			<a href="/privacy">Privacy</a>
 		</footer>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="{{ web_root }}js3/bootstrap/bootstrap.min.js"></script>
+    <script src="{{ web_root }}bower_components/jquery/jquery.min.js"></script>
+    <script src="{{ web_root }}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="{{ web_root }}js3/base.js"></script>
+		{% block javascript %}{% endblock %}
   </body>
 </html>
