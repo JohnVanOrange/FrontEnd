@@ -22,7 +22,7 @@
 					<li id='like_image' class='like icon-thumbs-up icon{% if image.data.like %} highlight{% endif %}' title='Like Image'></li>
 					<li id='add_image' class='dropdown'>
 						<a href='#' class='icon-plus-circled' data-toggle="dropdown"></a>
-						<ul class="dropdown-menu" role="menu">
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 							<li><a href='/add' class='icon-upload'>Upload Image</a></li>
 							<li><a href='/form/add_internet' id='addInternet' class='icon-link'>Add Image from URL</a></li>
 						</ul>

@@ -75,6 +75,7 @@ header a:hover {
 h1 {
   margin: 0;
   font-size: 30px;
+  font-weight: bold;
 }
 h1 a:hover {
   text-decoration: none;
@@ -106,6 +107,7 @@ footer {
 }
 #menu li {
   cursor: pointer;
+  position: relative;
 }
 #menu #user_avatar img {
   margin-top: -4px;
@@ -128,10 +130,8 @@ footer {
   color: #fff;
   text-decoration: none;
 }
-.image {
+.main {
   box-shadow: 4px 4px 20px #000;
-  max-width: 100%;
-  height: auto;
 }
 #content {
   padding: 35px 0 25px 0;
