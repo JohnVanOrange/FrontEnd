@@ -186,7 +186,7 @@ class Image extends Base {
   *
   * @api
   * 
-  * @param string $image An image uploaded as multi-part form data. Must be JPEG, PNG, or GIF format.
+  * @param mixed $image An image uploaded as multi-part form data. Must be JPEG, PNG, or GIF format.
   * @param string $c_link An optional external link to comments for the image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
   */
@@ -197,6 +197,16 @@ class Image extends Base {
   if (isset($image['tmp_name'])) move_uploaded_file($image['tmp_name'], $path);
   return $this->processAdd($path, $c_link, $sid);
  }
+ 
+ /**
+  * Process added image
+  *
+  * Once add() or addFromURL() have stored the image, this method completes adding it to the system
+  * 
+  * @param string $path Location the image is stored. Must be JPEG, PNG, or GIF format.
+  * @param string $c_link An optional external link to comments for the image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
+  */
  
  private function processAdd($path, $c_link=NULL, $sid = NULL) {
   $info = getimagesize($path);
@@ -246,13 +256,6 @@ class Image extends Base {
     'message' => 'Image added.'
    );
   }
- }
- 
- public function addFromUpload($path, $sid = NULL) {
-  $filename = md5(mt_rand().$path);
-  $newpath = ROOT_DIR.'/media/'.$filename;
-  rename($path,$newpath);
-  return $this->processAdd($newpath, NULL, $sid);
  }
 
  /**
