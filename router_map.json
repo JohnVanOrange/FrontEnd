@@ -1,5 +1,5 @@
 {
-	"add":							"add",
+	"add":							"basic",
 	"api":							"api",
 	"bot":							"basic",
 	"display":					"display",
@@ -11,6 +11,8 @@
 	"jvon":							"basic",
 	"manifest.webapp":	"webapp",
 	"privacy":					"basic",
+	"recent_likes":			"recentlikes",
+	"recent_uploads":		"recent",
 	"s":								"saved",
 	"t":								"tag",
 	"tags":							"cloud",
