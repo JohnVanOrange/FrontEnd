@@ -9,5 +9,5 @@ fi
 git checkout $BRANCH
 git pull
 /usr/local/bin/composer update --prefer-source
-/usr/local/bin/composer install
+/usr/local/bin/composer install --working-dir .
 /usr/local/bin/bower install
