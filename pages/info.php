@@ -1,21 +1,19 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require_once('twig.php');
+require_once('smarty.php');
 
 $api = new API();
+
+$template = 'info.tpl';
 
 $uid = $route->get_data(0);
 
 $image = $api->call('image/get',array('image'=>$uid));
 
-$data = [
- 'image'	=>	$image
-];
+$tpl->assign('image',$image);
 
 require_once('common.php');
 
 header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('info.twig');
-echo $template->render($data);
+$tpl->display($template);

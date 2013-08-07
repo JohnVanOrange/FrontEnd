@@ -1,10 +1,9 @@
 <?php
-namespace JohnVanOrange\jvo;
+require_once('smarty.php');
 
-require_once(__DIR__ . '/../twig.php');
+$template = 'merge.tpl';
 
-require_once(__DIR__ . '/../common.php');
 require_once('common.php');
 
-$template = $twig->loadTemplate('admin_merge.twig');
-echo $template->render($data);
+header("Content-type: text/html; charset=UTF-8");
+$tpl->display($template);

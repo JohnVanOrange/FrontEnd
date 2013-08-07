@@ -1,10 +1,11 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require_once(__DIR__ . '/../twig.php');
+require_once('smarty.php');
 
-require_once(__DIR__ . '/../common.php');
+$template = 'mass.tpl';
+
 require_once('common.php');
 
-$template = $twig->loadTemplate('admin_mass.twig');
-echo $template->render($data);
+header("Content-type: text/html; charset=UTF-8");
+$tpl->display($template);
