@@ -17,6 +17,6 @@ else {
  mail(
   ADMIN_EMAIL,
   BRANCH . ' branch did not deploy on '. SITE_NAME,
-  print_r($_POST);
+  print_r($_POST)
  );
 }
