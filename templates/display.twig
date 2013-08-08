@@ -1,9 +1,11 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<a href='/?{{ rand }}'>
-		<img class='main' src='{{ image.image_url }}'>
-	</a>
+	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
+		<a href='/?{{ rand }}' rel='nofollow'>
+			<img id="{{ image.uid }}" class="main" alt='Main Image' src='{{ image.image_url }} height='{{ image.height }}' width='{{ image.width }}' itemprop='contentUrl' />
+		</a>
+	</section>
 {% endblock %}
 
 {% block meta_data %}
