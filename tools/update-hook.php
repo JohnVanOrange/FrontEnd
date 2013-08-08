@@ -3,7 +3,7 @@ require_once(__DIR__.'/../settings.inc');
 
 $payload = json_decode($_POST['payload']);
 
-if ($payload->ref == '/refs/heads/'. BRANCH) {
+if ($payload->ref == 'refs/heads/'. BRANCH) {
   echo '<pre>';
   $results = shell_exec('sudo -u ' . SERVER_USER . ' env PATH=$PATH ./fullupdate ' . BRANCH);
   echo $results;
@@ -19,6 +19,6 @@ else {
  mail(
   ADMIN_EMAIL,
   BRANCH . ' branch did not deploy on '. SITE_NAME,
-  print_r($_POST, 1)
+ $payload->ref
  );
 }
