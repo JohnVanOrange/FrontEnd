@@ -15,12 +15,3 @@ if ($payload->ref == 'refs/heads/'. BRANCH) {
    $results
   );
 }
-else {
- echo "An error has occurred.\n\n";
- print_r($_POST);
- mail(
-  ADMIN_EMAIL,
-  BRANCH . ' branch did not deploy on '. SITE_NAME,
- $payload->ref
- );
-}
