@@ -454,9 +454,10 @@ class Image extends Base {
   * 
   * @param string $image The 6-digit id of an image, or the filename of the image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  * @param bool $brazzify Should Brazzzify.me url be returned
   */
  
- public function get($image, $sid=NULL) {
+ public function get($image, $sid=NULL, $brazzify = FALSE) {
   $tag = new Tag;
   $current = $this->user->current($sid);
   #Get image data
@@ -529,6 +530,10 @@ class Image extends Base {
     $report_result[0]['value'] = $report_type[0]['value'];
     $result['report'] = $report_result[0];
    }
+  }
+  //Brazzify.me
+  if ($brazzify) {
+   $result['brazzify_url'] = json_decode($this->remoteFetch('http://i.brazzify.me/api.php?logo=brazzers&remote_url='.$result['image_url']),1)['url'];
   }
   return $result;
  }
