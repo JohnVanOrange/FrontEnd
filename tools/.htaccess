@@ -1,14 +1,9 @@
-<FilesMatch "docview.php">
- Order Allow,Deny
- Allow from all
-</FilesMatch>
-
-<FilesMatch "update-hook.php">
- Order Allow,Deny
- Allow from 204.232.175.64/27
- Allow from 192.30.252.0/22
- Deny from all
-</FilesMatch>
+<Files update-hook.php>
+ order deny,allow
+ deny from all
+ allow from 204.232.175.64/27
+ allow from 192.30.252.0/22
+</Files>
 
 Options -Indexes
-Deny from all
+Allow from all
