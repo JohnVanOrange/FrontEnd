@@ -3,5 +3,12 @@
  Allow from all
 </FilesMatch>
 
+<FilesMatch "update-hook.php">
+ Order Allow,Deny
+ Allow from 204.232.175.64/27
+ Allow from 192.30.252.0/22
+ Deny from all
+</FilesMatch>
+
 Options -Indexes
 Deny from all
