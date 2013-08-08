@@ -10,6 +10,8 @@ if ($payload->ref == 'refs/heads/'. BRANCH) {
   mail(
    ADMIN_EMAIL,
    BRANCH . ' branch deployed on '. SITE_NAME,
+   'User: ' . SERVER_USER . "\n" .
+   'Branch: ' . BRANCH . "\n" .
    $results
   );
 }
