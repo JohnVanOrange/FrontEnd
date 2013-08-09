@@ -112,7 +112,8 @@ footer {
 #menu #user_avatar img {
   margin-top: -2px;
 }
-#menu #tag_search {
+#menu #tag_search,
+#menu .tt-hint {
   height: 20px;
   width: 10em;
 }
@@ -130,9 +131,27 @@ footer {
   color: #fff;
   text-decoration: none;
 }
+#menu .dropdown-menu li a,
+#menu .tt-dropdown-menu a,
+#menu .dropdown-menu li a:visited,
+#menu .tt-dropdown-menu a:visited,
+#menu .dropdown-menu li a:visited:hover,
+#menu .tt-dropdown-menu a:visited:hover,
+#menu .dropdown-menu li a:hover,
+#menu .tt-dropdown-menu a:hover,
+#menu .dropdown-menu li a:active,
+#menu .tt-dropdown-menu a:active,
+#menu .dropdown-menu li a:focus,
+#menu .tt-dropdown-menu a:focus,
+#menu .dropdown-menu li p,
+#menu .tt-dropdown-menu p {
+  color: #ff8300;
+  text-shadow: none;
+}
 .main {
   box-shadow: 4px 4px 20px #000;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 #content {
   padding: 35px 0 25px 0;

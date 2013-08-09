@@ -165,7 +165,7 @@ footer {
 						margin-top: -2px;
 				}
 		}
-		#tag_search {
+		#tag_search, .tt-hint {
 				height: 20px;
 				width: 10em;
 		}
@@ -181,9 +181,17 @@ footer {
 		text-decoration: none;
 }
 
+#menu .dropdown-menu li, #menu .tt-dropdown-menu {
+		a, a:visited, a:visited:hover, a:hover, a:active, a:focus, p {
+				color: rgb(255, 131, 0);
+				text-shadow: none;
+		}
+}
+
 .main {
 		box-shadow: 4px 4px 20px #000;
-		width: 100%;
+		max-width: 100%;
+		height: auto;
 }
 
 #content {
