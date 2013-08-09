@@ -2,6 +2,7 @@
 	"add":							"basic",
 	"api":							"api",
 	"bot":							"basic",
+	"brazzify":					"display",
 	"display":					"display",
 	"docs":							"docs",
 	"error":						"error",

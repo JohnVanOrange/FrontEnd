@@ -5,10 +5,19 @@ require_once('twig.php');
 
 $api = new API();
 
+$is_brazz = FALSE;
+$request = $route->get_page();
+if ($request == 'brazzify') $is_brazz = TRUE;
+
 $image_name = $route->get_data(0);
 
 $data = [
-	'image'	=>	$api->call('image/get',array('image'=>$image_name)),
+	'image'	=>	$api->call('image/get',
+	  [
+	   'image'	=>	$image_name,
+	   'sid'	=>	'', //this needs to be fixed later
+	   'brazzify'	=>	$is_brazz
+	  ]),
 	'rand'	=>	md5(uniqid(rand(), true)),
 	'report_types'	=>	$api->call('report/all')
 ];
