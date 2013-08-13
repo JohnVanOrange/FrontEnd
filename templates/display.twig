@@ -6,6 +6,29 @@
 			<img id="{{ image.uid }}" class="main" alt='Main Image' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.image_url }}{% endif %}' height='{{ image.height }}' width='{{ image.width }}' itemprop='contentUrl' />
 		</a>
 	</section>
+	
+	<span id='tags'>
+	{% if image.tags.0 %}
+		{% for tag  in image.tags %}
+			<a class='tag' href='{{ tag.url }}'>{{ tag.name }}</a>
+		{% endfor %}
+	{% else %}
+		<em>no current tags</em>
+	{% endif %}
+	</span>
+	<!-- TODO: Remove class btn-small once Bootstrap3 is released.
+		RC1 used btn-small, but the later release changes to btn-sm.
+		May even consider using btn-xs, but that isn't in RC1 at all.
+	-->
+	<button class='icon-tag btn btn-default btn-sm btn-small' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">Add Tag</button>
+	
+	{%if show_social == 1%}
+		<div id='social'>
+		<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
+		<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={{ image.page_url|url_encode }}&amp;media={{ image.image_url|url_encode }}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="Pin It" alt='Pin It' /></a></div>
+		<div class="g-plusone" data-size="medium"></div>
+		</div>
+	{% endif %}
 	{% include 'dialogs/add_tag.twig' %}
 {% endblock %}
 
@@ -27,4 +50,8 @@
 	<meta name='twitter:image' content='{{ image.image_url }}'>
 	<meta name='twitter:image:width' content='{{ image.width }}'>
 	<meta name='twitter:image:height' content='{{ image.height }}'>
+{% endblock %}
+
+{% block javascript %}
+	<script src="{{ web_root }}js3/display.js"></script>
 {% endblock %}
