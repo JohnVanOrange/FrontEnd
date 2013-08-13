@@ -18,8 +18,7 @@ $data = [
 	   'sid'	=>	'', //this needs to be fixed later
 	   'brazzify'	=>	$is_brazz
 	  ]),
-	'rand'	=>	md5(uniqid(rand(), true)),
-	'report_types'	=>	$api->call('report/all')
+	'rand'	=>	md5(uniqid(rand(), true))
 ];
 
 require_once('common.php');
