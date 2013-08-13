@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
-header,
+header h1,
 #pretty {
   padding-left: 52px;
   font-family: 'Boogaloo', sans-serif;
@@ -30,48 +30,20 @@ body {
   background: -o-linear-gradient(left, rgba(168, 205, 27, 0.15) 0%, rgba(0, 39, 21, 0.3) 30%, rgba(0, 39, 21, 0.3) 70%, rgba(168, 205, 27, 0.15) 100%), #005a31;
   background: -ms-linear-gradient(left, rgba(168, 205, 27, 0.15) 0%, rgba(0, 39, 21, 0.3) 30%, rgba(0, 39, 21, 0.3) 70%, rgba(168, 205, 27, 0.15) 100%), #005a31;
 }
-img {
-  border: 0;
-}
-a {
-  text-decoration: none;
-}
-a :hover {
-  text-decoration: none;
-}
 body a,
 body a:visited,
 body a:visited:hover,
 body a:hover {
   color: #ff9900;
 }
-/*
-button {
-	color: #ffffff;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 5px;
-	text-decoration: none;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	text-shadow: 1px 1px 3px #666666;
-	border: solid @button_border 1px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(@button_start), to(@button_end));
-	background: -moz-linear-gradient(top, @button_start, @button_end);
-	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
-	display:inline-block;
-	&:hover {
-		background: @button_hover;
-		cursor: pointer;
-	}
-}*/
-header a,
-header a:visited,
-header a:visited:hover,
-header a:hover {
-  color: #ffffff;
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
 }
 h1 {
   margin: 0;
@@ -89,7 +61,13 @@ header {
   height: 30px;
   position: fixed;
 }
-header::before {
+header a,
+header a:visited,
+header a:visited:hover,
+header a:hover {
+  color: #ffffff;
+}
+header:before {
   content: ' ';
   position: absolute;
   width: 100px;
@@ -109,6 +87,8 @@ footer {
 #menu li {
   cursor: pointer;
   position: relative;
+  padding-left: 0;
+  padding-right: 0;
 }
 #menu #user_avatar img {
   margin-top: -2px;
@@ -149,10 +129,40 @@ footer {
   color: #ff8300;
   text-shadow: none;
 }
+.btn-primary {
+  background-color: #ff8300;
+  border-color: #eb7900;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #d66e00;
+  border-color: #c26400;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #ff8300;
+  border-color: #eb7900;
+}
 .main {
   box-shadow: 4px 4px 20px #000;
   max-width: 100%;
   height: auto;
+  margin-bottom: 5px;
 }
 #content {
   padding: 35px 0 25px 0;
@@ -417,4 +427,16 @@ code {
 }
 #classes h2 {
   font-size: 90%;
+}
+.modal-dialog {
+  color: #ff8300;
+  text-shadow: none;
+}
+body.modal-open {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
 }

@@ -75,6 +75,9 @@ body {
 		color: @text_color;
 		background: @bg_color;
 		.linear_gradient_4(left, @body_grad_edge, 0%, @body_grad_center, 30%, @body_grad_center, 70%, @body_grad_edge, 100%, @bg_color);
+		a, a:visited, a:visited:hover, a:hover {
+				color: #ff9900;
+		}
 }
 
 img {
@@ -83,39 +86,9 @@ img {
 
 a {
 		text-decoration: none;
-		:hover {
+		&:hover {
 				text-decoration: none;
 		}
-}
-
-body a, body a:visited, body a:visited:hover, body a:hover {
-    color: #ff9900;
-}
-/*
-button {
-	color: #ffffff;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 5px;
-	text-decoration: none;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	text-shadow: 1px 1px 3px #666666;
-	border: solid @button_border 1px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(@button_start), to(@button_end));
-	background: -moz-linear-gradient(top, @button_start, @button_end);
-	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@button_start, endColorStr=@button_end);
-	display:inline-block;
-	&:hover {
-		background: @button_hover;
-		cursor: pointer;
-	}
-}*/
-
-header a, header a:visited, header a:visited:hover, header a:hover {
-	color: @text_color;
 }
 
 h1 {
@@ -136,13 +109,15 @@ header {
 		width: 100%;
 		height: 30px;
 		position: fixed;
-}
-
-header::before {
-		content: ' ';
-		position: absolute;
-		width: 100px;
-		left: 5px;
+		a, a:visited, a:visited:hover, a:hover {
+				color: @text_color;
+		}
+		&:before {
+				content: ' ';
+				position: absolute;
+				width: 100px;
+				left: 5px;
+		}
 }
 
 footer {
@@ -159,6 +134,8 @@ footer {
 		li {
 				cursor: pointer;
 				position: relative;
+				padding-left: 0;
+				padding-right: 0;
 		}
 		#user_avatar {
 				img {
@@ -174,17 +151,39 @@ footer {
 				padding-top: 0;
 				margin-left: 3px;
 		}
+		a, a:visited, a:visited:hover, a:hover, a:active, a:focus {
+				color: #fff;
+				text-decoration: none;
+		}
+		.dropdown-menu li, .tt-dropdown-menu {
+				a, a:visited, a:visited:hover, a:hover, a:active, a:focus, p {
+						color: @sec_text_color;
+						text-shadow: none;
+				}
+		}
 }
 
-#menu a, #menu a:visited, #menu a:visited:hover, #menu a:hover, #menu a:active, #menu a:focus {
-    color: #fff;
-		text-decoration: none;
-}
-
-#menu .dropdown-menu li, #menu .tt-dropdown-menu {
-		a, a:visited, a:visited:hover, a:hover, a:active, a:focus, p {
-				color: rgb(255, 131, 0);
-				text-shadow: none;
+.btn-primary {
+		background-color: @sec_text_color;
+		border-color: darken(@sec_text_color, 4%);
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+				background-color: darken(@sec_text_color, 8%);
+				border-color: darken(@sec_text_color, 12%);
+		}
+		&.disabled,
+		&[disabled],
+		fieldset[disabled] & {
+				&,
+				&:hover,
+				&:focus,
+				&:active,
+				&.active {
+						background-color: @sec_text_color;
+						border-color: darken(@sec_text_color, 4%);
+				}
 		}
 }
 
@@ -192,6 +191,7 @@ footer {
 		box-shadow: 4px 4px 20px #000;
 		max-width: 100%;
 		height: auto;
+		margin-bottom: 5px;
 }
 
 #content {
@@ -476,4 +476,9 @@ footer {
     h2 {
 	font-size: 90%;
     }
+}
+
+.modal-dialog {
+		color: @sec_text_color;
+		text-shadow: none;
 }
