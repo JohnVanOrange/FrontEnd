@@ -27,6 +27,7 @@ class Tag extends Base {
   foreach ($tags as $tag) {
    $tag = htmlspecialchars(trim(stripslashes($tag)));
    $slug = $this->text2slug($tag);
+   if ($slug == '') throw new \Exception('Invalid tag name');
    $query = new \Peyote\Select('tag_list');
    $query->columns('id')
          ->where('basename', '=', $slug);
