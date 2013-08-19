@@ -183,5 +183,79 @@ $('document').ready(function(){
       });
 		});
   });
+
+ /*Logout*/
+ $('#logout').click(function () {
+  event.preventDefault();
+  call('user/logout', function(response){
+   if (!response.error) window.location.reload();
+  })
+ });
+ 
+ /*Login dialog*/
+ $('#login').click(function (event) {
+  event.preventDefault();
+  var login = function () {
+   call('user/login', function(response){
+    if (response.sid) {
+     $('#loginDialog').modal('hide');
+     window.location.reload();
+    }
+   },
+   {
+    'username': $('#loginUsername').val(),
+    'password': $('#loginPassword').val()
+   });
+
+  };
+  $('#loginPassword').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    login();
+   }
+  });
+  $('#loginUsername').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    login();
+   }
+  });
+  $('#loginSubmit').click(function(){
+		login();	
+	});
+ });
+ 
+ /*Create Account dialog*/
+ $('.create_acct').click(function (event) {
+  event.preventDefault();
+  $('#loginDialog').modal('hide');
+  var create = function () {
+   if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
+    var e = {message: "Passwords don't match"};
+    exception_handler(e);
+   } else {
+    call('user/add',function(response){
+     if (!response.error) {  
+      $('#accountDialog').modal('hide');
+      window.location.reload();
+     }
+    },
+    {
+     'username': $('#createUsername').val(),
+     'password': $('#createPassword').val(),
+     'email': $('#createEmail').val()
+    });
+   };
+  }
+  $('#createEmail').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    create();
+   }
+  });
+	$('#createSubmit').click(function(){
+		create();	
+	});
+ });
 	
 });
