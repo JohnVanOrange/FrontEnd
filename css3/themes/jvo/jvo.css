@@ -5,7 +5,7 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
 header h1,
 #jvo {
-  padding-left: 56px;
+  padding-left: 60px;
   font-family: 'Oswald', sans-serif;
 }
 header:before,
@@ -95,13 +95,17 @@ footer {
 }
 #menu #tag_search,
 #menu .tt-hint {
-  height: 20px;
-  width: 10em;
+  height: 22px;
+  width: 8em;
+  padding-left: 4px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
 }
 #menu .icon-search {
-  height: 18px;
-  padding-top: 0;
   margin-left: 3px;
+  margin-top: -1px;
 }
 #menu a,
 #menu a:visited,
@@ -384,6 +388,9 @@ fieldset[disabled] .btn-primary.active {
 #save_image.highlight {
   color: yellow;
 }
+#dislike_image {
+  margin-left: 6px;
+}
 .pressed {
   position: relative;
   top: 2px;
@@ -431,12 +438,4 @@ code {
 .modal-dialog {
   color: #ff8300;
   text-shadow: none;
-}
-body.modal-open {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-y: scroll;
 }

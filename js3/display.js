@@ -44,5 +44,26 @@ $('document').ready(function(){
 			addtag();
 		});
 	});
+	
+ $('#save_image').click(function () {
+  $('#save_image').toggleClass('highlight');
+  if ($('#save_image').hasClass('highlight')) {
+   call('image/save',function(){},{image:$('.main').attr('id')});
+  } else {
+   call('image/unsave',function(){},{image:$('.main').attr('id')});
+  }
+ });
+
+ $('#like_image').click(function () {
+  $('#like_image').addClass('highlight');
+  $('#dislike_image').removeClass('highlight');
+  call('image/like',function(){},{image:$('.main').attr('id')});
+ });
+ 
+  $('#dislike_image').click(function () {
+  $('#dislike_image').addClass('highlight');
+  $('#like_image').removeClass('highlight');
+  call('image/dislike',function(){},{image:$('.main').attr('id')});
+ });
 
 });

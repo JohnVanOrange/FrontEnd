@@ -16,11 +16,7 @@
 		<em>no current tags</em>
 	{% endif %}
 	</span>
-	<!-- TODO: Remove class btn-small once Bootstrap3 is released.
-		RC1 used btn-small, but the later release changes to btn-sm.
-		May even consider using btn-xs, but that isn't in RC1 at all.
-	-->
-	<button class='icon-tag btn btn-default btn-sm btn-small' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">Add Tag</button>
+	<button class='icon-tag btn btn-default btn-xs' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">Add Tag</button>
 	
 	{%if show_social == 1%}
 		<div id='social'>

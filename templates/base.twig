@@ -30,6 +30,8 @@
 							<li><a href='/uploads/{{ user.username }}' class='icon-blank'>Uploads</a></li></li>
 							<li><a href='' id='logout' class='icon-logout'>Logout</a></li>
 						</ul>
+					{% else %}
+					<li><a id='login' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">Login</a></li>
 					{% endif %}
 					{% if image %}
 					<li id='dislike_image' class='like icon-thumbs-down icon{% if image.data.dislike %} highlight{% endif %}' title='Dislike Image'></li>
@@ -64,7 +66,7 @@
 						</ul>
 					</li>
 				{% endif %}
-				<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='View by tag'><button type='submit' title='Search' class='icon-search btn btn-default btn-xs'></button></form></li>
+				<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='Search tags'><button type='submit' title='Search' class='icon-search btn btn-default btn-xs'></button></form></li>
 				<li id='other_menu' class='dropdown'>
 					<a href='#' class='icon-menu' data-toggle="dropdown"></a>
 					<ul class="dropdown-menu pull-right" role="menu">
