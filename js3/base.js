@@ -97,9 +97,6 @@ $('document').ready(function(){
   });
  } catch(err) {}
  
- /*Display hacks*/
- //display_mods()
- 
  /*Options for Notifications*/
  $.noty.defaults.layout = 'topLeft';
  $.noty.defaults.type = 'information';
@@ -255,6 +252,26 @@ $('document').ready(function(){
   });
 	$('#createSubmit').click(function(){
 		create();	
+	});
+ });
+ 
+ /*Add from URL dialog*/
+ $('#addImage').click(function (event) {
+  event.preventDefault();
+  upload = function() {
+   call('image/addFromURL', function(){}, {
+    'url': $('#addImageURL').val()
+   });
+   $('#addImageDialog').modal('hide');
+  };
+  $('#addImageURL').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    upload();
+   }
+  });
+	$('#addImageSubmit').click(function(){
+		upload();	
 	});
  });
 	
