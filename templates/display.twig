@@ -2,7 +2,7 @@
 
 {% block content %}
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
-		<a href='/?{{ rand }}' rel='nofollow'>
+		<a id='main' href='/?{{ rand }}' rel='nofollow'>
 			<img id="{{ image.uid }}" class="main" alt='Main Image' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.image_url }}{% endif %}' height='{{ image.height }}' width='{{ image.width }}' itemprop='contentUrl' />
 		</a>
 	</section>
