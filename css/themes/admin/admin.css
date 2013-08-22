@@ -1,0 +1,46 @@
+#image_data {
+  border: 1px dotted white;
+  float: left;
+  font-size: 80%;
+  text-align: left;
+  width: 15%;
+  padding: 5px;
+}
+#image_data p {
+  padding: 3px;
+  margin: 0;
+}
+#image_data .tag {
+  margin-left: 10px;
+  display: inline-block;
+}
+#content.image_admin {
+  float: right;
+  padding: 0 2%;
+}
+#content.merge {
+  width: 700px;
+  position: relative;
+  min-height: 200px;
+}
+.image1 {
+  position: absolute;
+  left: 0;
+}
+.image2 {
+  position: absolute;
+  right: 0;
+}
+.image_container {
+  top: 0;
+  width: 240px;
+}
+.image_container .preview {
+  padding-top: 10px;
+}
+.thumb_wrap {
+  height: 200px!important;
+}
+.thumb_wrap button {
+  margin: 2px;
+}
