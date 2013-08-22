@@ -31,7 +31,7 @@
 							<li><a href='' id='logout' class='icon-logout'>Logout</a></li>
 						</ul>
 					{% else %}
-					<li><a id='login' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">Login</a></li>
+						<li><a id='login' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">Login</a></li>
 					{% endif %}
 					{% if image %}
 					<li id='dislike_image' class='like icon-thumbs-down icon{% if image.data.dislike %} highlight{% endif %}' title='Dislike Image'></li>
@@ -76,7 +76,7 @@
 						{% if browser.name == 'firefox' %}<li><a id='firefox_menu' href='' class='icon-firefox'>Firefox Web App</a></li>{% endif %}
 						{% if app_link %}<li><a id='android_menu' href='{{ app_link }}' class='icon-android'>Android App</a></li>{% endif %}
 						<li><a href='https://github.com/cbulock/JohnVanOrange/issues/new' class='icon-github'>Suggestions/Bugs</a></li>
-						<li><a href='/form/keyboard' id='keyboard' class='icon-keyboard'>Keyboard Shortcuts</a></li>
+						<li><a id='keyboard' class='icon-keyboard' data-toggle="modal" href="#keyboardDialog" data-target="#keyboardDialog">Keyboard Shortcuts</a></li>
 						<li><a href='/docs/' id='api_docs' class='icon-doc-alt'>API Docs</a></li>
 					</ul>
 				</li>
@@ -94,6 +94,7 @@
 		{% include 'dialogs/create_acct.twig' %}
 		{% include 'dialogs/login.twig' %}
 		{% include 'dialogs/add_image.twig' %}
+		{% include 'dialogs/keyboard.twig' %}
 		<script type='text/javascript'>
 		 var web_root = '{{ web_root }}';
 		 var site_name = '{{ site_name }}';
