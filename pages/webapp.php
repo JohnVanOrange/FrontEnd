@@ -1,9 +1,9 @@
 <?php
-require_once('smarty.php');
-
-$template = 'webapp.tpl';
+require_once('twig.php');
 
 require_once('common.php');
 
 header("Content-type: application/x-web-app-manifest+json; charset=UTF-8");
-$tpl->display($template);
+
+$template = $twig->loadTemplate('webapp.twig');
+echo $template->render($data);

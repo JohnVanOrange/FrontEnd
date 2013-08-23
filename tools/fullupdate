@@ -1,0 +1,15 @@
+#! /bin/bash
+
+BRANCH=$1
+
+if [ "$1" == "" ]; then
+ BRANCH="stable"
+fi
+
+cd ..
+
+git checkout $BRANCH
+git pull
+composer update --prefer-source
+composer install
+bower install

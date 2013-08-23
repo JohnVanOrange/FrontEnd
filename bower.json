@@ -1,0 +1,23 @@
+{
+  "name": "JohnVanOrange",
+  "version": "1.0.0",
+  "dependencies": {
+    "history.js": "https://github.com/balupton/history.js.git",
+    "html5shiv": "git://github.com/aFarkas/html5shiv.git#~3.6.2",
+    "noty": "https://github.com/needim/noty.git#~2.0.3",
+    "dropzone": "~3.6.2",
+    "bootstrap": "~3.0.0",
+    "jquery": "~2.0.3",
+    "typeahead.js": "~0.9.3",
+    "typeahead.js-bootstrap.css": "*"
+  },
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "jquery": "~2.0.3"
+  }
+}

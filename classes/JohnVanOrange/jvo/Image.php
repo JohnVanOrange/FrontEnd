@@ -179,7 +179,36 @@ class Image extends Base {
   );
  }
 
- private function add($path, $c_link=NULL, $sid = NULL) {
+ /**
+  * Add image from upload
+  *
+  * Allows uploading images.
+  *
+  * @api
+  * 
+  * @param mixed $image An image uploaded as multi-part form data. Must be JPEG, PNG, or GIF format.
+  * @param string $c_link An optional external link to comments for the image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
+  */
+ 
+ public function add($image, $c_link = NULL, $sid= NULL) {
+  $filename = md5(mt_rand());
+  $path = ROOT_DIR.'/media/'.$filename;
+  if (isset($image['tmp_name'])) move_uploaded_file($image['tmp_name'], $path);
+  return $this->processAdd($path, $c_link, $sid);
+ }
+ 
+ /**
+  * Process added image
+  *
+  * Once add() or addFromURL() have stored the image, this method completes adding it to the system
+  * 
+  * @param string $path Location the image is stored. Must be JPEG, PNG, or GIF format.
+  * @param string $c_link An optional external link to comments for the image.
+  * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
+  */
+ 
+ private function processAdd($path, $c_link=NULL, $sid = NULL) {
   $info = getimagesize($path);
   if (!$info) {
    unlink($path);
@@ -228,13 +257,6 @@ class Image extends Base {
    );
   }
  }
- 
- public function addFromUpload($path, $sid = NULL) {
-  $filename = md5(mt_rand().$path);
-  $newpath = ROOT_DIR.'/media/'.$filename;
-  rename($path,$newpath);
-  return $this->add($newpath, NULL, $sid);
- }
 
  /**
   * Add image from URL
@@ -253,7 +275,7 @@ class Image extends Base {
   $filename = md5(mt_rand().$url);
   $newpath = ROOT_DIR.'/media/'.$filename;
   file_put_contents($newpath,$image);
-  return $this->add($newpath, $c_link, $sid);
+  return $this->processAdd($newpath, $c_link, $sid);
  }
 
  /**
@@ -403,9 +425,10 @@ class Image extends Base {
  
  public function recentLikes($count = 25) {
   $query = new \Peyote\Select('resources');
-  $query->columns('created', 'image', 'type')
+  $query->columns('image')
         ->where('type', '=', 'like')
         ->orderBy('created', 'DESC')
+        ->groupBy('image')
         ->limit($count);
   $results = $this->db->fetch($query);
   $image = new Image();
@@ -431,9 +454,10 @@ class Image extends Base {
   * 
   * @param string $image The 6-digit id of an image, or the filename of the image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
+  * @param bool $brazzify Should Brazzzify.me url be returned
   */
  
- public function get($image, $sid=NULL) {
+ public function get($image, $sid=NULL, $brazzify = FALSE) {
   $tag = new Tag;
   $current = $this->user->current($sid);
   #Get image data
@@ -506,6 +530,10 @@ class Image extends Base {
     $report_result[0]['value'] = $report_type[0]['value'];
     $result['report'] = $report_result[0];
    }
+  }
+  //Brazzify.me
+  if ($brazzify) {
+   $result['brazzify_url'] = json_decode($this->remoteFetch('http://i.brazzify.me/api.php?logo=brazzers&remote_url='.$result['image_url']),1)['url'];
   }
   return $result;
  }

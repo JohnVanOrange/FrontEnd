@@ -6,12 +6,13 @@ There are three software requirements to setup the repo:
  * Bower - http://twitter.github.com/bower/
 
 To setup this repo, do the following:
- * Run "composer install" to install PHP dependencies
- * Run "bower install" to install Javascript dependencies
- * /templates_c directory needs to be created in the webroot.
- * /templates_c/, /media/, /media/thumbs/, /upload-handler/files/, and /upload-handler/thumbnails/ must be writable by apache.
- * A MySQL database needs to be created.  The sql directory contains the query to create the required structure
+ * A MySQL database needs to be setup.
  * The settings.inc.default file needs to be renamed to settings.inc and the correct database and various settings input
+ * In the tools directory run "php dbimport.php ../sql/tables.sql" to setup the database
+ * Install ImageMagick: "pear config-set preferred_state beta" and then "pecl install imagick"
+ * Run "composer install --prefer-source" to install PHP dependencies
+ * Run "bower install" to install Javascript dependencies
+ * /media/ and /media/thumbs/ must be writable by apache.
 
 **Automated Testing Status**
 
