@@ -25,9 +25,9 @@
 					<li id="username" class='nomobile' class='dropdown'>
 					<a href='#' data-toggle="dropdown">{{ user.username }}</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><a href='/u/{{ user.username }}' class='icon-blank'>User Profile</a></li></li>
-							<li><a href='/s/{{ user.username }}' class='icon-blank'>Saved Images</a></li></li>
-							<li><a href='/uploads/{{ user.username }}' class='icon-blank'>Uploads</a></li></li>
+							<li><a href='/u/{{ user.username }}' class='icon-user-1'>User Profile</a></li></li>
+							<li><a href='/s/{{ user.username }}' class='icon-floppy'>Saved Images</a></li></li>
+							<li><a href='/uploads/{{ user.username }}' class='icon-upload'>Uploads</a></li></li>
 							<li><a href='' id='logout' class='icon-logout'>Logout</a></li>
 						</ul>
 					{% else %}
@@ -57,7 +57,7 @@
 					<li id='search_image' class='nomobile dropdown'>
 						<a href='#' class='icon-picture' data-toggle="dropdown"></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a class='icon-blank' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>
+							<li><a class='icon-b' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>
 							<li><a id='googlesearch' class='icon-google' href='http://www.google.com/searchbyimage?image_url={{ image.image_url }}'>Search using Google</a></li>
 							<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={{ image.image_url }}'>Search using Tineye</a></li>
 							<li><a class='icon-info-circle' href='/info/{{ image.uid }}'>Details</a></li>
