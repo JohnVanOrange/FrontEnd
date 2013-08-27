@@ -10,6 +10,5 @@ cd ..
 
 git checkout $BRANCH
 git pull
-composer update --prefer-source
 composer install
 bower install

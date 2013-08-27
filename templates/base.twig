@@ -57,7 +57,7 @@
 					<li id='search_image' class='nomobile dropdown'>
 						<a href='#' class='icon-picture' data-toggle="dropdown"></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a class='icon-b' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>
+							{% if image.type != 'gif' %}<li><a class='icon-b' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>{% endif %}
 							<li><a id='googlesearch' class='icon-google' href='http://www.google.com/searchbyimage?image_url={{ image.image_url }}'>Search using Google</a></li>
 							<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={{ image.image_url }}'>Search using Tineye</a></li>
 							<li><a class='icon-info-circle' href='/info/{{ image.uid }}'>Details</a></li>

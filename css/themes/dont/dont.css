@@ -273,18 +273,6 @@ fieldset[disabled] .btn-primary.active {
   font-size: 60%;
   height: 0;
 }
-#profile_image {
-  float: left;
-  padding-left: 10em;
-}
-#profile_image img {
-  -moz-border-radius: 8px 8px 8px 8px;
-  -webkit-border-radius: 8px 8px 8px 8px;
-  border-radius: 8px 8px 8px 8px;
-}
-#profile_image p {
-  font-size: 80%;
-}
 .tag_cloud_name {
   padding: 10px;
 }
@@ -305,9 +293,14 @@ fieldset[disabled] .btn-primary.active {
 #info h1 {
   margin-bottom: 1em;
 }
-#info img {
+#info .image {
   float: right;
-  margin-right: 20%;
+  margin-right: 10%;
+}
+#info img {
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 6px 6px;
 }
 #info ul {
   text-align: left;
