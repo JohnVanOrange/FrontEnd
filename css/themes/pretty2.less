@@ -2,6 +2,7 @@
 
 @bg_color: #005A31;
 @text_color: white;
+@sec_text_color: rgb(255, 131, 0);
 
 @body_grad_edge: rgba(168,205,27,.15);
 @body_grad_center: rgba(0,39,21,.3);
@@ -13,10 +14,19 @@
 
 @menu_color: #DD7308;
 
-header, #pretty {
-    padding-left: 52px;
-    background: url('/img/cute_bear_title.svg') left no-repeat;
-	font-family: 'Boogaloo', sans-serif;
+header h1, #pretty {
+    padding-left: 60px;
+		font-family: 'Boogaloo', sans-serif;
+}
+
+header:before, #pretty {
+		background: url('/img/cute_bear_title.svg') left no-repeat;
+		height: 48px;
+		z-index: -1;
+}
+
+header {
+		background-color: rgba(28, 60, 28, 0.52)
 }
 
 @import 'base';

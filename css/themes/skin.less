@@ -2,6 +2,7 @@
 
 @bg_color: black;
 @text_color: white;
+@sec_text_color: rgb(255, 131, 0);
 
 @body_grad_edge: rgba(0, 0, 0, 0.15);
 @body_grad_center: rgba(158,158,158,.15);
@@ -13,10 +14,19 @@
 
 @menu_color: #354468;
 
-header, #skin {
+header h1, #skin {
     padding-left: 62px;
-    background: url('/img/lips_46.png') left no-repeat;
-	font-family: 'Poiret One', sans-serif;
+		font-family: 'Poiret One', sans-serif;
+}
+
+header:before, #skin {
+		background: url('/img/lips_46.png') left no-repeat;
+		height: 38px;
+		z-index: -1;
+}
+
+header {
+		background-color: rgba(82, 82, 77, 0.52);
 }
 
 @import 'base';

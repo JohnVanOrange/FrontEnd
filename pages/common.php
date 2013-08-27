@@ -1,27 +1,27 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-$api = new API();
-
+if (!isset($api)) {
+	$api = new API();
+}
+	
 $user = $api->call('user/current');
 if (!isset($user['id'])) $user['id'] = 0;
 
-$tpl->assign('ga',GOOGLE_ANALYTICS);
-$tpl->assign('site_name',SITE_NAME);
-$tpl->assign('web_root',WEB_ROOT);
-$tpl->assign('hostname', parse_url(WEB_ROOT)['host']);
-$tpl->assign('show_scorn',SHOW_SCORN);
-$tpl->assign('show_social',SHOW_SOCIAL);
-$tpl->assign('icon_set',ICON_SET);
-if (defined('APP_LINK')) $tpl->assign('app_link',APP_LINK);
-if (defined('SHOW_JVON')) $tpl->assign('show_jvon',SHOW_JVON);
-if (defined('FB_APP_ID')) $tpl->assign('fb_app_id',FB_APP_ID);
-$tpl->assign('user', $user);
-if ($api->call('user/isAdmin')) $tpl->assign('is_admin', TRUE);
-$tpl->assign('site_theme', THEME);
-$tpl->assign('current_url', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
-
-$tpl->assign('browser', browser_info());
+$data['user'] = $user;
+$data['ga'] = GOOGLE_ANALYTICS;
+$data['site_name'] = SITE_NAME;
+$data['web_root'] = WEB_ROOT;
+$data['hostname'] = parse_url(WEB_ROOT)['host'];
+$data['show_social'] = SHOW_SOCIAL;
+$data['icon_set'] = ICON_SET;
+$data['site_theme'] = THEME;
+$data['current_url'] = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+$data['browser'] = browser_info();
+if (defined('APP_LINK')) $data['app_link'] = APP_LINK;
+if (defined('SHOW_JVON')) $data['show_jvon'] = SHOW_JVON;
+if (defined('FB_APP_ID')) $data['fb_app_id'] = FB_APP_ID;
+if ($api->call('user/isAdmin')) $data['is_admin'] = TRUE;
 
 function browser_info($agent=null) {
   // Declare known browsers to look for
