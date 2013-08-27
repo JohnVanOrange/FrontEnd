@@ -14,6 +14,9 @@ header:before,
   height: 46px;
   z-index: -1;
 }
+header {
+  background-color: rgba(0, 0, 0, 0.52) !important;
+}
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;

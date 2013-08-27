@@ -22,7 +22,7 @@
 				<ul id='menu' class='list-inline'>
 					{% if user.username %}
 					<li id='user_avatar'><a href='/u/{{ user.username }}'><img src='http://www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='User avatar' height='24' width='24'></a></li>
-					<li id="username" class='nomobile' class='dropdown'>
+					<li id="username" class='nomobile dropdown'>
 					<a href='#' data-toggle="dropdown">{{ user.username }}</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 							<li><a href='/u/{{ user.username }}' class='icon-user-1'>User Profile</a></li></li>
