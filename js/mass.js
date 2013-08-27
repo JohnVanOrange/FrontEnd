@@ -4,10 +4,10 @@ var add_image = function() {
 		content = '<div class="thumb_wrap" id="' + data.uid + '">' + 
 							 '<a href="/' + data.uid + '"><img src="' + data.thumb_url + '"></a>' +
 							 '<div>' +
-							  '<button class="approve icon-thumbs-up" value="' + data.uid + '"></button>' +
-								'<button class="nsfw" value="' + data.uid + '">!</button>' +
-								'<button class="skip" value="' + data.uid + '">X</button>' +
-								'<button class="reject icon-thumbs-down" value="' + data.uid + '"></button>' +
+							  '<button class="btn btn-success btn-xs approve icon-thumbs-up" value="' + data.uid + '"></button>' +
+								'<button class="btn btn-warning btn-xs nsfw" value="' + data.uid + '">!</button>' +
+								'<button class="btn btn-default btn-xs skip" value="' + data.uid + '">X</button>' +
+								'<button class="btn btn-danger btn-xs reject icon-thumbs-down" value="' + data.uid + '"></button>' +
 							 '</div>' +
 							'</div>';
 		$('#content').append(content);

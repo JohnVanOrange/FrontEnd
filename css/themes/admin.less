@@ -45,47 +45,8 @@
 }
 
 .thumb_wrap {
-  height: 200px;
-  button {
-    padding: 5px 10px;
-  }
-}
-
-@approve_start: rgb(75, 255, 5);
-@approve_end: rgb(17, 151, 55);
-@nsfw_start: rgb(250, 220, 60);
-@nsfw_end: rgb(160, 124, 9);
-@reject_start: rgb(233, 9, 9);
-@reject_end: rgb(112, 6, 31);
-button {
-  &.approve {
-  	background: -webkit-gradient(linear, 0 0, 0 100%, from(@approve_start), to(@approve_end));
-  	background: -moz-linear-gradient(top, @approve_start, @approve_end);
-  	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@approve_start, endColorStr=@approve_end);
-  	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@approve_start, endColorStr=@approve_end);
-  	display:inline-block;
-    &:hover {
-      background: @approve_start;
-    }
-  }
-  &.nsfw {
-  	background: -webkit-gradient(linear, 0 0, 0 100%, from(@nsfw_start), to(@nsfw_end));
-  	background: -moz-linear-gradient(top, @nsfw_start, @nsfw_end);
-  	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@nsfw_start, endColorStr=@nsfw_end);
-  	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@nsfw_start, endColorStr=@nsfw_end);
-  	display:inline-block;
-    &:hover {
-      background: @nsfw_start;
-    }
-  }
-  &.reject {
-  	background: -webkit-gradient(linear, 0 0, 0 100%, from(@reject_start), to(@reject_end));
-  	background: -moz-linear-gradient(top, @reject_start, @reject_end);
-  	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@reject_start, endColorStr=@reject_end);
-  	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=@reject_start, endColorStr=@reject_end);
-  	display:inline-block;
-    &:hover {
-      background: @reject_start;
-    }
-  } 
+				height: 200px!important;
+				button {
+								margin: 2px;
+				}
 }

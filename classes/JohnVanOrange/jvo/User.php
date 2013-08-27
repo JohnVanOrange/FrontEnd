@@ -148,7 +148,7 @@ class User extends Base {
  /**
   * Add user
   *
-  * Create new user account.
+  * Create new user account and login as that user.
   *
   * @api
   * 
@@ -161,13 +161,20 @@ class User extends Base {
   if (!isset($username)) throw new \Exception('No username specified');
   if (!isset($password)) throw new \Exception('No password specified');
   if (!isset($email)) throw new \Exception('No email specified');
+  $query = new \Peyote\Select('users');
+  $query->where('username', '=', $username)
+        ->limit(1);
+  $result = $this->db->fetch($query);
+  if ($result) throw new \Exception('Username already exists');
   $salt = $this->getSecureID();
   $query = new \Peyote\Insert('users');
   $query->columns(['username', 'password', 'salt', 'email'])
         ->values([$username, $this->passhash($password, $salt), $salt, $email]);
   $this->db->fetch($query);
+  $login = $this->login($username, $password);
   return array(
-   'message' => 'User added.'
+   'message' => 'User added.',
+   'sid' => $login['sid']
   );
  }
  

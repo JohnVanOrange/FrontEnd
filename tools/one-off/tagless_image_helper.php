@@ -32,7 +32,8 @@ $remote = new remote;
 $query = new \Peyote\Select('images');
 $query->columns('filename, uid')
       ->where('display', '=', 1)
-      ->orderBy('RAND()');
+      ->orderBy('RAND()')
+      ->limit('50000');
 $results = $db->fetch($query);
 $counter = 0;
 $no_result_counter = 0;

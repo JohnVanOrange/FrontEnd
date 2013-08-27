@@ -1,12 +1,14 @@
 <?php
-require('smarty.php');
+require('twig.php');
 
-$template = 'exception.tpl';
-
-$tpl->assign('code',$e->getCode());
-$tpl->assign('message',$e->getMessage());
+$data = [
+ 'code'	=>	$e->getCode(),
+ 'message'	=>	$e->getMessage()
+];
 
 require_once('common.php');
 
 header("Content-type: text/html; charset=UTF-8");
-$tpl->display($template);
+
+$template = $twig->loadTemplate('exception.twig');
+echo $template->render($data);

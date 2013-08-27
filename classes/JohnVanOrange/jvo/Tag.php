@@ -17,45 +17,40 @@ class Tag extends Base {
   *
   * @api
   * 
-  * @param string $name The tag value to be added to the image. Multiple tags can be added if comma separated.
+  * @param string $name The tag value to be added to the image.
   * @param string $image 6-digit image ID.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie.
   */
  
  public function add($name, $image, $sid = NULL) {
-  $tags = explode(',',$name);
-  foreach ($tags as $tag) {
-   $tag = htmlspecialchars(trim(stripslashes($tag)));
-   $slug = $this->text2slug($tag);
-   if ($slug == '') throw new \Exception('Invalid tag name');
-   $query = new \Peyote\Select('tag_list');
-   $query->columns('id')
-         ->where('basename', '=', $slug);
-   $result = $this->db->fetch($query);
-   $tag_id = NULL;
-   if (isset($result[0]['id'])) $tag_id = $result[0]['id'];
-   if(!isset($tag_id)) {
-    $tag_id = $this->addtoList($tag);
-   }
-   //check for dupe
-   $query = new \Peyote\Select('resources');
-   $query->where('image', '=', $image)
-         ->where('value', '=', $tag_id)
-         ->where('type', '=', 'tag');
-   $result = $this->db->fetch($query);
-   if ($result) throw new \Exception('Tag already exists');
-   $this->res->add('tag', $image, $sid, $tag_id);
+  if (strlen($name) < 1) throw new \Exception('Tag name cannot be empty');
+  if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
+  $tag = htmlspecialchars(trim(stripslashes($name)));
+  $slug = $this->text2slug($tag);
+  if ($slug == '') throw new \Exception('Invalid tag name');
+  $query = new \Peyote\Select('tag_list');
+  $query->columns('id')
+        ->where('basename', '=', $slug);
+  $result = $this->db->fetch($query);
+  $tag_id = NULL;
+  if (isset($result[0]['id'])) $tag_id = $result[0]['id'];
+  if(!isset($tag_id)) {
+   $tag_id = $this->addtoList($tag);
+>>>>>>> master
   }
-  switch (count($tags)) {
-   case 1:
-    $return['message'] = 'Tag added';
-   break;
-   default:
-    $return['message'] = 'Tags added';
-   break;
-  }
-  $return['tags'] = $this->get($image);
-  return $return;
+  //check for dupe
+  $query = new \Peyote\Select('resources');
+  $query->where('image', '=', $image)
+        ->where('value', '=', $tag_id)
+        ->where('type', '=', 'tag');
+  $result = $this->db->fetch($query);
+  if ($result) throw new \Exception('Tag already exists');
+  $this->res->add('tag', $image, $sid, $tag_id);
+  
+  return [
+   'message' => 'Tag added',
+   'tags' => $this->get($image)
+  ];
  }
  
  /**

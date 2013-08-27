@@ -1,22 +1,12 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require_once('smarty.php');
-
-$template = 'docs.tpl';
+require_once('twig.php');
 
 $class = $route->get_data(0);
 
-if (!$class) $template = 'docs_index.tpl';
-
-$xml = file_get_contents('structure.xml');
-$docs = new \SimpleXMLElement($xml);
-$docs = json_decode(json_encode($docs), TRUE);
-
-foreach ($docs['file'] as $obj) {
- //$classes[] = strtolower($obj['class']['name']);
- if (strtolower($obj['class']['name']) == $class) $tpl->assign('class', process_docdata($obj['class']));
-}
+$template = 'docs.twig';
+if (!$class) $template = 'docs_index.twig';
 
 //Need to rework this to be auto-generated.
 $classes = [
@@ -28,13 +18,25 @@ $classes = [
  'report'   
 ];
 
-$tpl->assign('classes', $classes);
+$data = [
+	'classes'	=>	$classes
+];
+
+//does any of this need to happen if there is already no $class?
+$xml = file_get_contents('structure.xml');
+$docs = new \SimpleXMLElement($xml);
+$docs = json_decode(json_encode($docs), TRUE);
+
+foreach ($docs['file'] as $obj) {
+ if (strtolower($obj['class']['name']) == $class) $data['class'] = process_docdata($obj['class']);
+}
 
 require_once('common.php');
 
 header("Content-type: text/html; charset=UTF-8");
-$tpl->display($template);
 
+$template = $twig->loadTemplate($template);
+echo $template->render($data);
 
 function process_docdata($data) {
  $output = [];
