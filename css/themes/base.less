@@ -76,7 +76,10 @@ body {
 		background: @bg_color;
 		.linear_gradient_4(left, @body_grad_edge, 0%, @body_grad_center, 30%, @body_grad_center, 70%, @body_grad_edge, 100%, @bg_color);
 		a, a:visited, a:visited:hover, a:hover {
-				color: #ff9900;
+				color: @sec_text_color;
+		}
+		a:hover {
+				text-decoration: underline;
 		}
 }
 

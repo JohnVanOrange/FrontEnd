@@ -38,7 +38,10 @@ body a,
 body a:visited,
 body a:visited:hover,
 body a:hover {
-  color: #ff9900;
+  color: #d60b15;
+}
+body a:hover {
+  text-decoration: underline;
 }
 img {
   border: 0;
@@ -136,19 +139,19 @@ footer {
 #menu .tt-dropdown-menu a:focus,
 #menu .dropdown-menu li p,
 #menu .tt-dropdown-menu p {
-  color: #3d3b3c;
+  color: #d60b15;
   text-shadow: none;
 }
 .btn-primary {
-  background-color: #3d3b3c;
-  border-color: #333132;
+  background-color: #d60b15;
+  border-color: #c30a13;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #282728;
-  border-color: #1e1d1d;
+  background-color: #af0911;
+  border-color: #9c080f;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -165,8 +168,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #3d3b3c;
-  border-color: #333132;
+  background-color: #d60b15;
+  border-color: #c30a13;
 }
 .main {
   box-shadow: 4px 4px 20px #000;
@@ -424,6 +427,6 @@ code {
   font-size: 90%;
 }
 .modal-dialog {
-  color: #3d3b3c;
+  color: #d60b15;
   text-shadow: none;
 }
