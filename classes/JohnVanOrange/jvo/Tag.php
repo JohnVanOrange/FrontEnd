@@ -36,7 +36,6 @@ class Tag extends Base {
   if (isset($result[0]['id'])) $tag_id = $result[0]['id'];
   if(!isset($tag_id)) {
    $tag_id = $this->addtoList($tag);
->>>>>>> master
   }
   //check for dupe
   $query = new \Peyote\Select('resources');
