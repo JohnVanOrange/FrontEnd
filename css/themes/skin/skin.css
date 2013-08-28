@@ -136,19 +136,19 @@ footer {
 #menu .tt-dropdown-menu a:focus,
 #menu .dropdown-menu li p,
 #menu .tt-dropdown-menu p {
-  color: #ff8300;
+  color: #3d3b3c;
   text-shadow: none;
 }
 .btn-primary {
-  background-color: #ff8300;
-  border-color: #eb7900;
+  background-color: #3d3b3c;
+  border-color: #333132;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #d66e00;
-  border-color: #c26400;
+  background-color: #282728;
+  border-color: #1e1d1d;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -165,8 +165,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #ff8300;
-  border-color: #eb7900;
+  background-color: #3d3b3c;
+  border-color: #333132;
 }
 .main {
   box-shadow: 4px 4px 20px #000;
@@ -424,6 +424,6 @@ code {
   font-size: 90%;
 }
 .modal-dialog {
-  color: #ff8300;
+  color: #3d3b3c;
   text-shadow: none;
 }
