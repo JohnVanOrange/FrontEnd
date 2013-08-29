@@ -44,7 +44,7 @@ class Tag extends Base {
         ->where('type', '=', 'tag');
   $result = $this->db->fetch($query);
   if ($result) throw new \Exception('Tag already exists');
-  $this->res->add('tag', $image, $sid, $tag_id);
+  $this->res->add('tag', $image, $sid, $tag_id, TRUE);
   
   return [
    'message' => 'Tag added',

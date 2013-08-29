@@ -247,7 +247,7 @@ class Image extends Base {
    $s->execute($query->getParams());//need to verify this was successful
    $thumb = $this->scale($uid);
    file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
-   $this->res->add('upload', $uid, $sid);
+   $this->res->add('upload', $uid, $sid, NULL, TRUE);
    return array(
     'url' => WEB_ROOT.$uid,
     'uid' => $uid,
