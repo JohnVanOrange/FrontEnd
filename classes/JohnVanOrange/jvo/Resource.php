@@ -10,13 +10,21 @@ class Resource extends Base {
   $this->user = new User;
  }
 
- public function add($type, $image = NULL, $sid = NULL, $value = NULL) {
+ public function add($type, $image = NULL, $sid = NULL, $value = NULL, $public = FALSE) {
   $current = $this->user->current($sid);
   $user_id = NULL;
   if (isset($current['id'])) $user_id = $current['id'];
+  $data = [
+   'ip' => $_SERVER['REMOTE_ADDR'],
+   'image' => $image,
+   'user_id' => $user_id,
+   'value' => $value,
+   'type' => $type
+  ];
+  if ($public) $data['public'] = 1;
   $query = new \Peyote\Insert('resources');
-  $query->columns(['ip', 'image', 'user_id', 'value', 'type'])
-        ->values([$_SERVER['REMOTE_ADDR'], $image, $user_id, $value, $type]);
+  $query->columns(array_keys($data))
+        ->values(array_values($data));
   return $this->db->fetch($query);
  }
  
