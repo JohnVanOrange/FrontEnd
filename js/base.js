@@ -282,4 +282,9 @@ $('document').ready(function(){
 		$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
 	});
 	
+	$('.icon').click(function() {
+		$(this).addClass('pressed');
+		setTimeout(function(){$('.icon').removeClass('pressed')},80);
+	});
+		
 });

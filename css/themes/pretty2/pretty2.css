@@ -386,6 +386,7 @@ fieldset[disabled] .btn-primary.active {
   position: relative;
   top: 2px;
   text-shadow: none;
+  transition: all 0.2s;
 }
 #apidocs {
   text-align: left;
