@@ -76,5 +76,6 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `user_id` int(8) unsigned default NULL,
   `value` int(8) default NULL,
   `type` varchar(8) collate utf8_unicode_ci NOT NULL,
+  `public` tinyint(1) NOT NULL default '0',
   KEY `image` (`image`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
