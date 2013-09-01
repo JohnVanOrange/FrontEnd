@@ -14,8 +14,4 @@ if ($payload->ref == 'refs/heads/'. BRANCH) {
    'Branch: ' . BRANCH . "\n" .
    $results
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ui3-stable
