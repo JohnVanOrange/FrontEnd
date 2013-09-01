@@ -577,9 +577,13 @@ class Image extends Base {
  public function scale($image, $width = 240, $height = 160) {
   $imagedata = $this->get($image);
   $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
+  
+  $image = $image->coalesceImages();
 
   foreach ($image as $frame) {
+   //$frame->setImagePage($width, $height, 0, 0);
    $frame->thumbnailImage($width,$height,TRUE);
+   $frame->setImagePage($width, $height, 0, 0);
   }
   //header('Content-type: '.$image->getImageMimeType());
   return $image->getImagesBlob(); 
