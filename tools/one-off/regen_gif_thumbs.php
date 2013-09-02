@@ -19,7 +19,7 @@ foreach ($results as $result) {
   file_put_contents(ROOT_DIR.'/media/thumbs/'.$result['filename'],$thumb);
   echo 'Thumb created for '.$result['filename']."\n";
  }
- catch(ImagickException $e) {
+ catch(\ImagickException $e) {
   $log = $result['filename'].' '.$e->getMessage()."\n";
   file_put_contents('thumb.log',$log,FILE_APPEND);
   echo 'Error saving thumb for '.$result['filename']."\n";
