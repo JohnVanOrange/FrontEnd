@@ -581,7 +581,6 @@ class Image extends Base {
   $image = $image->coalesceImages();
 
   foreach ($image as $frame) {
-   //$frame->setImagePage($width, $height, 0, 0);
    $frame->thumbnailImage($width,$height,TRUE);
    $frame->setImagePage($width, $height, 0, 0);
   }
