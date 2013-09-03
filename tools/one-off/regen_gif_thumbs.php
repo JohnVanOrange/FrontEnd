@@ -9,11 +9,13 @@ $image = new Image;
 $query = new \Peyote\Select('images');
 $query->columns('filename, uid')
       ->where('display', '=', 1)
-			->where('type', '=', 'gif');
+	  ->where('type', '=', 'gif');
 $results = $db->fetch($query);
+$count = 0;
 foreach ($results as $result) {
- set_time_limit(360);
- echo 'Preparing image '.$result['uid']."\n";
+ $count++;
+ set_time_limit(1000);
+ echo 'Preparing image '.$result['uid']. ' ' . $count .' of '. count($results) . "\n";
  try {
   $thumb = @$image->scale($result['uid']);
   file_put_contents(ROOT_DIR.'/media/thumbs/'.$result['filename'],$thumb);
@@ -25,4 +27,5 @@ foreach ($results as $result) {
   echo 'Error saving thumb for '.$result['filename']."\n";
  }
 }
+echo "Processing complete.\n"
 ?>
