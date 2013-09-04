@@ -401,11 +401,13 @@ pre {
   -moz-border-radius: 20px 20px 20px 20px;
   -webkit-border-radius: 20px 20px 20px 20px;
   border-radius: 20px 20px 20px 20px;
+  border: none;
 }
 .endpoint a,
 .variable,
 code {
   font-family: 'PT Mono';
+  color: white!important;
 }
 .variable {
   font-weight: bold;
@@ -416,7 +418,6 @@ code {
   font-size: 85%;
 }
 #classes {
-  float: left;
   border: 1px dotted white;
   width: 10%;
 }
