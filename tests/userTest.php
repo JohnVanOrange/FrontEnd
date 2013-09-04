@@ -109,9 +109,57 @@ class userTest extends PHPUnit_Framework_TestCase {
   $this->fail('An expected exception has not been raised.');
  }
  
- 
  /**** saved ****/
+ public function test_saved_loggedin() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $results = $this->user->saved(NULL, $sid);
+  //TODO: figure out how to assert results here, but there should at least not be an error
+ }
+ public function test_saved_loggedin_otheruser() {
+  try {
+   $sid = $this->user->login('testuser', 'testpass')['sid'];
+   $results = $this->user->saved('adminuser', $sid);
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_saved_loggedout() {
+  try {
+   $results = $this->user->saved('adminuser');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ 
  /**** uploaded ****/
+ public function test_uploaded_loggedin() {
+  $sid = $this->user->login('testuser', 'testpass')['sid'];
+  $results = $this->user->uploaded(NULL, $sid);
+  //TODO: figure out how to assert results here, but there should at least not be an error
+ }
+ public function test_uploaded_loggedin_otheruser() {
+  try {
+   $sid = $this->user->login('testuser', 'testpass')['sid'];
+   $results = $this->user->uploaded('adminuser', $sid);
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_uploaded_loggedout() {
+  try {
+   $results = $this->user->uploaded('adminuser');
+  }
+  catch (Exception $e) {
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
  
 }
 
