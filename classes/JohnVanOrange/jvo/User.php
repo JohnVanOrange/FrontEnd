@@ -185,19 +185,24 @@ class User extends Base {
   *
   * @api
   * 
-  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
+  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in. If not set, the currently logged in user will be used.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */
  
- public function saved($username, $sid=NULL) {
+ public function saved($username = NULL, $sid=NULL) {
   $current = $this->current($sid);
-  $user = $this->get($username, 'username');
-  if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
+  if ($username) {
+   $user = $this->get($username, 'username');
+   if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
+  } else {
+   $user = $current;
+  }
   $query = new \Peyote\Select('resources');
   $query->where('user_id', '=', $user['id'])
         ->where('type', '=', 'save');
   $results = $this->db->fetch($query);
   $image = new Image();
+  $return = [];
   foreach ($results as $result) {
    try {
     $return[] = $image->get($result['image']);
@@ -218,19 +223,24 @@ class User extends Base {
   *
   * @api
   * 
-  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in.
+  * @param string $username Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in. If not set, the currently logged in user will be used.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent.
   */
  
- public function uploaded($username, $sid=NULL) {
+ public function uploaded($username = NULL, $sid=NULL) {
   $current = $this->current($sid);
-  $user = $this->get($username, 'username');
-  if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
+  if ($username) {
+   $user = $this->get($username, 'username');
+   if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
+  } else {
+   $user = $current;
+  }
   $query = new \Peyote\Select('resources');
   $query->where('user_id', '=', $user['id'])
         ->where('type', '=', 'upload');
   $results = $this->db->fetch($query);
   $image = new Image();
+  $return = [];
   foreach ($results as $result) {
    try {
     $return[] = $image->get($result['image']);
