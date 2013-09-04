@@ -55,7 +55,11 @@ class API {
      $indexed_params = [];
      
      foreach($reflectParams as $param) {
-      if (isset($params[$param->getName()])) $indexed_params[] = $params[$param->getName()];
+      if (isset($params[$param->getName()])) {
+       $indexed_params[] = $params[$param->getName()];
+      } else {
+       $indexed_params[] = NULL;
+      }
      }
      
      $class_obj = new $class_name;
