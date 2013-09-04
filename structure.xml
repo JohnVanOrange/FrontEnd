@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a12" title="">
-  <file path="Tag.php" hash="b0e9cb3e363cb807f1393e4d278ec641" package="Default">
+  <file path="Tag.php" hash="3fd28f042ea4e000debca8d05b843dd5" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Tag</name>
@@ -16,7 +16,7 @@
           <description>Add tag</description>
           <long-description>&lt;p&gt;Add tags to images&lt;/p&gt;</long-description>
           <tag line="13" name="api" description=""/>
-          <tag line="13" name="param" description="The tag value to be added to the image. Multiple tags can be added if comma separated." type="string" variable="$name">
+          <tag line="13" name="param" description="The tag value to be added to the image." type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
           <tag line="13" name="param" description="6-digit image ID." type="string" variable="$image">
@@ -42,72 +42,72 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="73" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="66" package="Default">
         <name>get</name>
         <full_name>get</full_name>
-        <docblock line="62">
+        <docblock line="55">
           <description>Get tags</description>
           <long-description>&lt;p&gt;List the tags for an image&lt;/p&gt;</long-description>
-          <tag line="62" name="api" description=""/>
-          <tag line="62" name="param" description="The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename." type="string" variable="$value">
+          <tag line="55" name="api" description=""/>
+          <tag line="55" name="param" description="The 6-digit UID for an image. Also can accept a tag basename if the search_by parameter is set to basename." type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="62" name="param" description="Valid values are 'image' or 'basename'." type="string" variable="$search_by">
+          <tag line="55" name="param" description="Valid values are 'image' or 'basename'." type="string" variable="$search_by">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="73">
+        <argument line="66">
           <name>$value</name>
           <default/>
           <type/>
         </argument>
-        <argument line="73">
+        <argument line="66">
           <name>$search_by</name>
           <default>'image'</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="111" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="104" package="Default">
         <name>all</name>
         <full_name>all</full_name>
-        <docblock line="101">
+        <docblock line="94">
           <description>All images with tag</description>
           <long-description>&lt;p&gt;Get all images that have a certain tag.&lt;/p&gt;</long-description>
-          <tag line="101" name="api" description=""/>
-          <tag line="101" name="param" description="The basename value for a particular tag." type="string" variable="$tag">
+          <tag line="94" name="api" description=""/>
+          <tag line="94" name="param" description="The basename value for a particular tag." type="string" variable="$tag">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="111">
+        <argument line="104">
           <name>$tag</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="138" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="131" package="Default">
         <name>suggest</name>
         <full_name>suggest</full_name>
-        <docblock line="128">
+        <docblock line="121">
           <description>Tag suggest</description>
           <long-description>&lt;p&gt;This is used to find suggested tags by giving it parts of text, and it will return the 10 closest matches for existing tags.&lt;/p&gt;</long-description>
-          <tag line="128" name="api" description=""/>
-          <tag line="128" name="param" description="Partial text that is used to query for existing tag names." type="string" variable="$term">
+          <tag line="121" name="api" description=""/>
+          <tag line="121" name="param" description="Partial text that is used to query for existing tag names." type="string" variable="$term">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="138">
+        <argument line="131">
           <name>$term</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="158" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="151" package="Default">
         <name>top</name>
         <full_name>top</full_name>
-        <docblock line="150">
+        <docblock line="143">
           <description>Top tags</description>
           <long-description>&lt;p&gt;Returns the top 200 used tags and a count of the number of times they are used.&lt;/p&gt;</long-description>
-          <tag line="150" name="api" description=""/>
+          <tag line="143" name="api" description=""/>
         </docblock>
       </method>
     </class>
@@ -116,7 +116,7 @@
       <error line="4" code="50000">No DocBlock was found for \JohnVanOrange\jvo\Tag</error>
       <error line="6" code="50018">No DocBlock was found for property $res</error>
       <error line="8" code="50010">No DocBlock was found for method __construct()</error>
-      <error line="171" code="50010">No DocBlock was found for method addtoList()</error>
+      <error line="164" code="50010">No DocBlock was found for method addtoList()</error>
     </parse_markers>
   </file>
   <file path="Theme.php" hash="b2261c3e55131b8016c4d62c86194956" package="Default">
@@ -353,7 +353,7 @@
       <error line="55" code="50010">No DocBlock was found for method js()</error>
     </parse_markers>
   </file>
-  <file path="API.php" hash="24b6e6f0567d3f96c650f038415e5bcb" package="Default">
+  <file path="API.php" hash="aca74bee16c23a92d862e9ed62d25daf" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends/>
       <name>API</name>
@@ -367,7 +367,7 @@
         <full_name>call</full_name>
         <argument line="19">
           <name>$method</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="19">
@@ -512,7 +512,7 @@
       <error line="17" code="50010">No DocBlock was found for method fetch()</error>
     </parse_markers>
   </file>
-  <file path="Resource.php" hash="e548baa4e422d5ec7a2818484e9d98bf" package="Default">
+  <file path="Resource.php" hash="48401afc0213ee8bef3c199ac8429a9b" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Resource</name>
@@ -544,16 +544,21 @@
           <default>NULL</default>
           <type/>
         </argument>
+        <argument line="13">
+          <name>$public</name>
+          <default>FALSE</default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="23" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="31" package="Default">
         <name>merge</name>
         <full_name>merge</full_name>
-        <argument line="23">
+        <argument line="31">
           <name>$to</name>
           <default/>
           <type/>
         </argument>
-        <argument line="23">
+        <argument line="31">
           <name>$from</name>
           <default/>
           <type/>
@@ -566,10 +571,10 @@
       <error line="6" code="50018">No DocBlock was found for property $user</error>
       <error line="8" code="50010">No DocBlock was found for method __construct()</error>
       <error line="13" code="50010">No DocBlock was found for method add()</error>
-      <error line="23" code="50010">No DocBlock was found for method merge()</error>
+      <error line="31" code="50010">No DocBlock was found for method merge()</error>
     </parse_markers>
   </file>
-  <file path="Image.php" hash="4b5d046819d910d3eec10ffa15089107" package="Default">
+  <file path="Image.php" hash="9058849e1e8b47921f7a484c2982f2e1" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="5" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Image</name>
@@ -594,7 +599,7 @@
         </docblock>
         <argument line="27">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="27">
@@ -619,7 +624,7 @@
         </docblock>
         <argument line="53">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="53">
@@ -644,7 +649,7 @@
         </docblock>
         <argument line="79">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="79">
@@ -669,7 +674,7 @@
         </docblock>
         <argument line="100">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="100">
@@ -697,7 +702,7 @@
         </docblock>
         <argument line="126">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="126">
@@ -727,7 +732,7 @@
         </docblock>
         <argument line="158">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="158">
@@ -755,7 +760,7 @@
         </docblock>
         <argument line="194">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="194">
@@ -788,7 +793,7 @@
         </docblock>
         <argument line="273">
           <name>$url</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="273">
@@ -821,12 +826,12 @@
         </docblock>
         <argument line="293">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="293">
           <name>$type</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="293">
@@ -931,7 +936,7 @@
         </docblock>
         <argument line="460">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="460">
@@ -959,7 +964,7 @@
         <full_name>scale</full_name>
         <argument line="577">
           <name>$image</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="577">
@@ -973,34 +978,34 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="600" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="603" package="Default">
         <name>merge</name>
         <full_name>merge</full_name>
-        <docblock line="588">
+        <docblock line="591">
           <description>Merge images</description>
           <long-description>&lt;p&gt;Merge two images into one, merging any assoicated resources. Must be logged in as admin to use this method.&lt;/p&gt;</long-description>
-          <tag line="588" name="api" description=""/>
-          <tag line="588" name="param" description="The 6-digit id of an image." type="string" variable="$image1">
+          <tag line="591" name="api" description=""/>
+          <tag line="591" name="param" description="The 6-digit id of an image." type="string" variable="$image1">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="588" name="param" description="The 6-digit id of an image." type="string" variable="$image2">
+          <tag line="591" name="param" description="The 6-digit id of an image." type="string" variable="$image2">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="588" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
+          <tag line="591" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="600">
+        <argument line="603">
           <name>$image1</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
-        <argument line="600">
+        <argument line="603">
           <name>$image2</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
-        <argument line="600">
+        <argument line="603">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
@@ -1059,7 +1064,7 @@
       <error line="133" code="50010">No DocBlock was found for method addImage()</error>
     </parse_markers>
   </file>
-  <file path="User.php" hash="c09f0eef808f019c90f2fa7c73091bcb" package="Default">
+  <file path="User.php" hash="397da000cf08e44eb130e505a5f4025c" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>User</name>
@@ -1093,7 +1098,7 @@
         </docblock>
         <argument line="45">
           <name>$value</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="45">
@@ -1135,12 +1140,12 @@
         </docblock>
         <argument line="105">
           <name>$username</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="105">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -1180,17 +1185,17 @@
         </docblock>
         <argument line="160">
           <name>$username</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="160">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="160">
           <name>$email</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -1201,7 +1206,7 @@
           <description>User's saved images</description>
           <long-description>&lt;p&gt;Load all saved images for a user account.&lt;/p&gt;</long-description>
           <tag line="181" name="api" description=""/>
-          <tag line="181" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in." type="string" variable="$username">
+          <tag line="181" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in. If not set, the currently logged in user will be used." type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
           <tag line="181" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
@@ -1210,7 +1215,7 @@
         </docblock>
         <argument line="192">
           <name>$username</name>
-          <default/>
+          <default>NULL</default>
           <type/>
         </argument>
         <argument line="192">
@@ -1219,26 +1224,26 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="225" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="229" package="Default">
         <name>uploaded</name>
         <full_name>uploaded</full_name>
-        <docblock line="214">
+        <docblock line="218">
           <description>User's uploaded images</description>
           <long-description>&lt;p&gt;Load all uploaded images for a user account.&lt;/p&gt;</long-description>
-          <tag line="214" name="api" description=""/>
-          <tag line="214" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in." type="string" variable="$username">
+          <tag line="218" name="api" description=""/>
+          <tag line="218" name="param" description="Provide the username of the user to view their saved images. Currently can only view your own saved images when logged in. If not set, the currently logged in user will be used." type="string" variable="$username">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="214" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
+          <tag line="218" name="param" description="Session ID that is provided when logged in. This is also set as a cookie. Only required if the cookie sid header is not sent." type="string" variable="$sid">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="225">
+        <argument line="229">
           <name>$username</name>
-          <default/>
+          <default>NULL</default>
           <type/>
         </argument>
-        <argument line="225">
+        <argument line="229">
           <name>$sid</name>
           <default>NULL</default>
           <type/>
