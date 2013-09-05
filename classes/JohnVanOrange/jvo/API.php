@@ -58,7 +58,11 @@ class API {
       if (isset($params[$param->getName()])) {
        $indexed_params[] = $params[$param->getName()];
       } else {
-       $indexed_params[] = NULL;
+       if ($param->getDefaultValue()) {
+        $indexed_params[] = $param->getDefaultValue();
+       } else {
+        $indexed_params[] = NULL;
+       }
       }
      }
      
