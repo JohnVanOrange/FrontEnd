@@ -23,7 +23,7 @@ class Tag extends Base {
   */
  
  public function add($name, $image, $sid = NULL) {
-  if (strlen($name) < 1) throw new \Exception('Tag name cannot be empty');
+  if (strlen($name) < 1 OR $name == NULL) throw new \Exception('Tag name cannot be empty');
   if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
   $tag = htmlspecialchars(trim(stripslashes($name)));
   $slug = $this->text2slug($tag);
@@ -64,6 +64,7 @@ class Tag extends Base {
   */
  
  public function get($value, $search_by='image') {
+  if (!$value) throw new \Exception('Tag value not set.', 404);
   switch ($search_by) {
    case 'name':
     $search_by = 'basename';
