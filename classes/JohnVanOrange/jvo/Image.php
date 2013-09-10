@@ -234,6 +234,7 @@ class Image extends Base {
    unlink($fullfilename);
    return array(
     'url' => WEB_ROOT.$result[0]['uid'],
+    'uid' => $result[0]['uid'],
     'image' => WEB_ROOT.'media/'.$result[0]['filename'],
     'thumb' => WEB_ROOT.'media/thumbs/'.$result[0]['filename'],
     'message' => 'Duplicate image.'
