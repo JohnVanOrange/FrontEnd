@@ -20,6 +20,7 @@ $data['current_url'] = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]
 $data['browser'] = browser_info();
 if (defined('APP_LINK')) $data['app_link'] = APP_LINK;
 if (defined('SHOW_JVON')) $data['show_jvon'] = SHOW_JVON;
+if (defined('SHOW_BRAZZ')) $data['show_brazz'] = SHOW_BRAZZ;
 if (defined('FB_APP_ID')) $data['fb_app_id'] = FB_APP_ID;
 if ($api->call('user/isAdmin')) $data['is_admin'] = TRUE;
 
