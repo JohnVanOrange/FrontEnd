@@ -131,7 +131,7 @@ $('document').ready(function(){
     break;
    case 82://r
     $('#report_image').click();
-	break;
+		break;
    case 83://s
     $('#save_image').click();
     break;
@@ -139,6 +139,12 @@ $('document').ready(function(){
     event.preventDefault();
     $('#add_tag').click();
     break;
+	 case 107://+
+		$('#like_image').click();
+		break;
+	 case 109://-
+		$('#dislike_image').click();
+		break;
    case 124:
     window.location.href = 'http://johnvanorange.com/joJpMJ';
     break;
