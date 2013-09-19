@@ -1,0 +1,1 @@
+ALTER TABLE  `images` ADD  `ahash` BINARY( 8 ) NOT NULL AFTER  `hash` ;
