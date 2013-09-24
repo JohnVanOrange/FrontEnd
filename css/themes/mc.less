@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+
+@bg_color: black;
+@text_color: white;
+@sec_text_color: #D60B15;
+
+@body_grad_edge: rgba(0, 0, 0, 0.15);
+@body_grad_center: rgba(158,158,158,.15);
+
+@button_start: #3d3b3c;
+@button_end: lighten(@button_start, 10%);
+@button_border: #050505;
+@button_hover: #664f0b;
+
+@menu_color: #D60B15;
+
+header h1, #mc {
+    padding-left: 60px;
+		font-family: 'Permanent Marker', sans-serif;
+}
+
+header:before, #mc {
+		background: url('/img/candy.svg') left no-repeat;
+		height: 40px;
+		z-index: -1;
+}
+
+header {
+		background-color: rgba(255, 0, 0, 0.7);
+}
+
+@import 'base';
