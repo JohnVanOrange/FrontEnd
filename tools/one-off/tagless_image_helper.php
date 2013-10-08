@@ -49,8 +49,19 @@ foreach ($results as $result) {
   $taginfo = @$data->nodes[0]->_[4];
   $html->clear();
   if (isset($taginfo)) {
-   $tag->add($taginfo,$result['uid']);
-   echo 'Tag added for '.$result['uid'].': '.$taginfo."\n";
+   try {
+    $tag->add($taginfo,$result['uid']);
+    echo 'Tag added for '.$result['uid'].': '.$taginfo."\n";
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() != 1030) {
+     throw new \Exception($e);
+    }
+    else {
+     echo 'Blank tag was attempted for ' . $result['uid'];
+    }
+   }
+   
    $tag_added++;
   }
   else {

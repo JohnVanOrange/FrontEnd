@@ -23,7 +23,7 @@ class Tag extends Base {
   */
  
  public function add($name, $image, $sid = NULL) {
-  if (strlen($name) < 1 OR $name == NULL) throw new \Exception('Tag name cannot be empty');
+  if (strlen($name) < 1 OR $name == NULL) throw new \Exception('Tag name cannot be empty', 1030);
   if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
   $tag = htmlspecialchars(trim(stripslashes($name)));
   $slug = $this->text2slug($tag);
