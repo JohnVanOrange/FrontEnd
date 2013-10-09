@@ -23,11 +23,11 @@ class Tag extends Base {
   */
  
  public function add($name, $image, $sid = NULL) {
-  if (strlen($name) < 1 OR $name == NULL) throw new \Exception('Tag name cannot be empty', 1030);
+  if (strlen($name) < 1 OR $name == NULL) throw new \Exception('Tag name cannot be empty');
   if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
   $tag = htmlspecialchars(trim(stripslashes($name)));
   $slug = $this->text2slug($tag);
-  if ($slug == '') throw new \Exception('Invalid tag name');
+  if ($slug == '') throw new \Exception('Invalid tag name', 1030);
   $query = new \Peyote\Select('tag_list');
   $query->columns('id')
         ->where('basename', '=', $slug);
