@@ -21,6 +21,11 @@ class DB extends PDO {
   $s->execute($query->getParams());
   return $s->fetchAll();
  }
+ 
+ public function exec($sql) {
+  if (!$this->setup) $this->setup();
+  return parent::exec($sql);
+ }
 
  private function setup() {
   $this->setup = TRUE;
