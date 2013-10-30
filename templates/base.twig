@@ -15,6 +15,7 @@
 		{% block stylesheets %}{% endblock %}
 		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/themes/{{ site_theme }}/{{ site_theme }}.css' />
 		{% block meta_data %}{% endblock %}
+		<link rel='stylesheet' type='text/css' media='handheld, only screen and (max-width: 625px), only screen and (max-device-width: 625px)' href='{{ web_root }}css/mobile.css' />
   </head>
   <body>
     <header>
@@ -22,7 +23,7 @@
 				<ul id='menu' class='list-inline'>
 					{% if user.username %}
 					<li id='user_avatar'><a href='/u/{{ user.username }}'><img src='http://www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='User avatar' height='24' width='24'></a></li>
-					<li id="username" class='nomobile dropdown'>
+					<li id="username" class='dropdown'>
 					<a href='#' data-toggle="dropdown">{{ user.username }}</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 							<li><a href='/u/{{ user.username }}' class='icon-user-1'>User Profile</a></li></li>
