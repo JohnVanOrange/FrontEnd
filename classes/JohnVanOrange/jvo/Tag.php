@@ -85,7 +85,7 @@ class Tag extends Base {
         ->where($search_by, '=', $value)
         ->where('resources.type', '=', 'tag');
   $results = $this->db->fetch($query);
-  if (!$results && $search_by == 'basename') throw new \Exception('No images with specified tag');
+  if (!$results && $search_by == 'basename') throw new \Exception('No images with specified tag', 404);
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
    $results[$i]['url'] = '/t/'.$r['basename'];
