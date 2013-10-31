@@ -27,7 +27,7 @@ class Tag extends Base {
   if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
   $tag = htmlspecialchars(trim(stripslashes($name)));
   $slug = $this->text2slug($tag);
-  if ($slug == '') throw new \Exception('Invalid tag name');
+  if ($slug == '') throw new \Exception('Invalid tag name', 1030);
   $query = new \Peyote\Select('tag_list');
   $query->columns('id')
         ->where('basename', '=', $slug);
@@ -85,6 +85,7 @@ class Tag extends Base {
         ->where($search_by, '=', $value)
         ->where('resources.type', '=', 'tag');
   $results = $this->db->fetch($query);
+  if (!$results && $search_by == 'basename') throw new \Exception('No images with specified tag', 404);
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
    $results[$i]['url'] = '/t/'.$r['basename'];
