@@ -104,7 +104,8 @@ $('document').ready(function(){
  
  /*Tag search autosuggest*/
  $('#tag_search').typeahead({
-	remote: '/api/tag/suggest?term=%QUERY'
+	remote: '/api/tag/suggest?term=%QUERY',
+	limit: 10
  });
  
  /*Keyboard controls*/
