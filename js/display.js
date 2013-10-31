@@ -22,7 +22,6 @@ $('document').ready(function(){
 	
 	$('#addTagDialog').on('shown.bs.modal', function(){
 		$('#addTag').focus();
-		console.log('test');
 	});
 
 	$('#add_tag').one('click', function(event){

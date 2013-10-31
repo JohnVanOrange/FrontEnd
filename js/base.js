@@ -171,7 +171,6 @@ $('document').ready(function(){
  
 	/*Load report types*/
   $('#report_image').one('click', function() {
-		console.log('test');
     api.call('report/all', function(data) {
       for (i in data) {
         report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
