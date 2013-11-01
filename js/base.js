@@ -231,7 +231,7 @@ $('document').ready(function(){
  /*Create Account dialog*/
  $('.create_acct').click(function (event) {
   event.preventDefault();
-  $('#loginDialog').modal('hide');
+  //$('#loginDialog').modal('hide');
   var create = function () {
    if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
     var e = {message: "Passwords don't match"};
@@ -278,6 +278,28 @@ $('document').ready(function(){
   });
 	$('#addImageSubmit').click(function(){
 		upload();	
+	});
+ });
+ 
+  /*Password Reset dialog*/
+ $('#pwreset').click(function (event) {
+  event.preventDefault();
+  var pwreset = function () {
+   call('user/requestPwReset', function(response){
+    $('#pwresetDialog').modal('hide');
+   },
+   {
+    'username': $('#pwresetUsername').val()
+   });
+  };
+  $('#pwresetUsername').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    pwreset();
+   }
+  });
+  $('#pwresetSubmit').click(function(){
+		pwreset();	
 	});
  });
 	
