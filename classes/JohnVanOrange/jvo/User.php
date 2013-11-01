@@ -252,7 +252,54 @@ class User extends Base {
    }
   }
   return $return;
- } 
+ }
+ 
+ /**
+  * Request a reset of the users password
+  *
+  * Sends a password reset email to the user.
+  *
+  * @api
+  *
+  * @param string $username Provide the username of the user to send the password reset email to.
+  */
+ 
+ public function requestPwReset($username) {
+  $user = $this->get($username, 'username');
+  $uid = $this->getSecureID();
+  // This has to manually add the resource as Resource/add doesn't have a way to specifiy a userID, it has to be derived from a SID.
+  $data = [
+   'ip' => $_SERVER['REMOTE_ADDR'],
+   'user_id' => $user['id'],
+   'value' => $uid,
+   'type' => 'pwreset',
+   'public' => 0
+  ];
+  $query = new \Peyote\Insert('resources');
+  $query->columns(array_keys($data))
+        ->values(array_values($data));
+  $this->db->fetch($query);
+  //TODO: why is there no base method to send email?
+  $message = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
+  $message .= "Username:\n";
+  $message .= $user['username']."\n\n";
+  $message .= "Follow link to provide new password:\n";
+  $message .= WEB_ROOT.'password_reset/'.$uid."\n\n";
+  //need to get email address from db as $user->get doesn't return it for security reasons
+  $query = new \Peyote\Select('users');
+  $query->columns('email')
+        ->where('username', '=', $username);
+  $email = $this->db->fetch($query);
+  mail(
+   $email[0]['email'],
+   'Password reset request for '. SITE_NAME,
+   $message,
+   'From: ' . SITE_EMAIL
+  );
+  return array(
+   'message' => 'Reset email sent.'
+  );
+ }
  
  
 }
