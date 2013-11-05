@@ -290,6 +290,7 @@ class User extends Base {
   $query->columns('email')
         ->where('username', '=', $username);
   $email = $this->db->fetch($query);
+  //TODO: need to handle usernames that don't exist.  Throw an exception.
   mail(
    $email[0]['email'],
    'Password reset request for '. SITE_NAME,
