@@ -147,7 +147,7 @@ $('document').ready(function(){
 		$('#dislike_image').click();
 		break;
    case 124:
-    window.location.href = 'http://johnvanorange.com/joJpMJ';
+    window.location.href = 'http://jvo.io/joJpMJ';
     break;
    }
   }
