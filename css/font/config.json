@@ -193,6 +193,12 @@
       "src": "entypo"
     },
     {
+      "uid": "8beac4a5fd5bed9f82ca7a96cc8ba218",
+      "css": "key",
+      "code": 59397,
+      "src": "entypo"
+    },
+    {
       "uid": "d94334f23acba022bfd68e49d76b31bb",
       "css": "github",
       "code": 62208,
@@ -200,7 +206,7 @@
     },
     {
       "uid": "c9a7eca58474311926922ff8c2c1d256",
-      "css": "vkontakte",
+      "css": "b",
       "code": 59396,
       "src": "entypo"
     },
