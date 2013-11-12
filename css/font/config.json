@@ -97,6 +97,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "f4445feb55521283572ee88bc304f928",
+      "css": "floppy",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
       "uid": "2c2ca8a96b31781c9c8056d05c0a8980",
       "css": "blank",
       "code": 61640,
@@ -187,15 +193,15 @@
       "src": "entypo"
     },
     {
-      "uid": "8beac4a5fd5bed9f82ca7a96cc8ba218",
-      "css": "key",
-      "code": 59395,
-      "src": "entypo"
-    },
-    {
       "uid": "d94334f23acba022bfd68e49d76b31bb",
       "css": "github",
       "code": 62208,
+      "src": "entypo"
+    },
+    {
+      "uid": "c9a7eca58474311926922ff8c2c1d256",
+      "css": "vkontakte",
+      "code": 59396,
       "src": "entypo"
     },
     {
