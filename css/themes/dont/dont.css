@@ -432,3 +432,6 @@ code {
   color: #d60b15;
   text-shadow: none;
 }
+.alert {
+  text-shadow: none;
+}

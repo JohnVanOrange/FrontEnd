@@ -9,7 +9,8 @@ $('document').ready(function(){
 	
 	/*Add tag autosuggest*/
 	$('#addTag').typeahead({
-		remote: '/api/tag/suggest?term=%QUERY'
+		remote: '/api/tag/suggest?term=%QUERY',
+		limit: 10
 	});
 	$('#addTagDialog .tt-hint').addClass('form-control');
 	
@@ -21,7 +22,6 @@ $('document').ready(function(){
 	
 	$('#addTagDialog').on('shown.bs.modal', function(){
 		$('#addTag').focus();
-		console.log('test');
 	});
 
 	$('#add_tag').one('click', function(event){
