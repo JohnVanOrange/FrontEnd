@@ -252,7 +252,104 @@ class User extends Base {
    }
   }
   return $return;
- } 
+ }
+ 
+ /**
+  * Request a reset of the users password
+  *
+  * Sends a password reset email to the user.
+  *
+  * @api
+  *
+  * @param string $username Provide the username of the user to send the password reset email to.
+  */
+ 
+ public function requestPwReset($username) {
+  $user = $this->get($username, 'username');
+  $uid = $this->getSecureID();
+  // This has to manually add the resource as Resource/add doesn't have a way to specifiy a userID, it has to be derived from a SID.
+  $data = [
+   'ip' => $_SERVER['REMOTE_ADDR'],
+   'user_id' => $user['id'],
+   'value' => $uid,
+   'type' => 'pwreset',
+   'public' => 0
+  ];
+  $query = new \Peyote\Insert('resources');
+  $query->columns(array_keys($data))
+        ->values(array_values($data));
+  $this->db->fetch($query);
+  //TODO: why is there no base method to send email?
+  $message = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
+  $message .= "Username:\n";
+  $message .= $user['username']."\n\n";
+  $message .= "Follow link to provide new password:\n";
+  $message .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
+  //need to get email address from db as $user->get doesn't return it for security reasons
+  $query = new \Peyote\Select('users');
+  $query->columns('email')
+        ->where('username', '=', $username);
+  $email = $this->db->fetch($query);
+  //TODO: need to handle usernames that don't exist.  Throw an exception.
+  mail(
+   $email[0]['email'],
+   'Password reset request for '. SITE_NAME,
+   $message,
+   'From: ' . SITE_EMAIL
+  );
+  return array(
+   'message' => 'Reset email sent.'
+  );
+ }
+ 
+ /**
+  * Change password
+  *
+  * Change password for account
+  *
+  * @api
+  *
+  * @param string $password New password
+  * @param string $auth This is either a valid SID of a logged in user, or a password reset ID
+  * @param string $type Valid values are "sid" or "pwreset"
+  */
+ 
+ public function changepw($password, $auth, $type = 'sid') {
+  if (!$password) throw new \Exception('Password is blank');
+  switch ($type) {
+   case 'pwreset':
+    $query = new \Peyote\Select('resources');
+    $query->columns('user_id')
+          ->where('value', '=', $auth)
+          ->limit(1);
+    $user_id = $this->db->fetch($query)[0]['user_id'];
+    if (!$user_id) throw new \Exception('Password reset key not found');
+    $query = new \Peyote\Delete('resources');
+    $query->where('value', '=', $auth)
+          ->limit(1);
+    $this->db->fetch($query);
+    break;
+   default:
+    $query = new \Peyote\Select('sessions');
+    $query->columns('user_id')
+          ->where('sid', '=', $auth)
+          ->limit(1);
+    $user_id = $this->db->fetch($query)[0]['user_id'];
+    if (!$user_id) throw new \Exception('User session error');
+    break;
+  }
+  $salt = $this->getSecureID();
+  $query = new \Peyote\Update('users');
+  $query->set([
+               'password' => $this->passhash($password, $salt),
+               'salt' => $salt
+              ])
+        ->where('id', '=', $user_id);
+  $this->db->fetch($query);
+  return [
+   'message' => 'Password changed'
+  ];
+ }
  
  
 }

@@ -147,7 +147,7 @@ $('document').ready(function(){
 		$('#dislike_image').click();
 		break;
    case 124:
-    window.location.href = 'http://johnvanorange.com/joJpMJ';
+    window.location.href = 'http://jvo.io/joJpMJ';
     break;
    }
   }
@@ -171,7 +171,6 @@ $('document').ready(function(){
  
 	/*Load report types*/
   $('#report_image').one('click', function() {
-		console.log('test');
     api.call('report/all', function(data) {
       for (i in data) {
         report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
@@ -232,7 +231,7 @@ $('document').ready(function(){
  /*Create Account dialog*/
  $('.create_acct').click(function (event) {
   event.preventDefault();
-  $('#loginDialog').modal('hide');
+  //$('#loginDialog').modal('hide');
   var create = function () {
    if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
     var e = {message: "Passwords don't match"};
@@ -279,6 +278,28 @@ $('document').ready(function(){
   });
 	$('#addImageSubmit').click(function(){
 		upload();	
+	});
+ });
+ 
+  /*Password Reset Request dialog*/
+ $('#pwresetRequest').click(function (event) {
+  event.preventDefault();
+  var pwresetreq = function () {
+   call('user/requestPwReset', function(response){
+    $('#pwresetRequestDialog').modal('hide');
+   },
+   {
+    'username': $('#pwresetRequestUsername').val()
+   });
+  };
+  $('#pwresetRequestUsername').bind('keydown', function (event) {
+   if (event.keyCode === 13) {
+    event.preventDefault();
+    pwresetreq();
+   }
+  });
+  $('#pwresetRequestSubmit').click(function(){
+		pwresetreq();	
 	});
  });
 	

@@ -1,0 +1,6 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% if result.message %}<p class='alert alert-info'>{{ result.message }}</p>{% endif %}
+{% if result.error %}<p class='alert alert-danger'>{{ result.error }}</p>{% endif %}
+{% endblock %}
