@@ -15,8 +15,9 @@
 		
 		{% if profile.id == user.id %}
 			<ul>
-				<li><a href='/s/{{ profile.username }}'>View your saved images</a></li>
-				<li><a href='/uploads/{{ profile.username }}'>View your uploaded images</a></li>
+				<li class='icon-floppy'><a href='/s/{{ profile.username }}'>View your saved images</a></li>
+				<li class='icon-upload'><a href='/uploads/{{ profile.username }}'>View your uploaded images</a></li>
+				<li class='icon-key'><a href='/changepw'>Change your password</a></li>
 			</ul>
 		{% endif %}
 	
