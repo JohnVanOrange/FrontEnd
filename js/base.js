@@ -281,25 +281,25 @@ $('document').ready(function(){
 	});
  });
  
-  /*Password Reset dialog*/
- $('#pwreset').click(function (event) {
+  /*Password Reset Request dialog*/
+ $('#pwresetRequest').click(function (event) {
   event.preventDefault();
-  var pwreset = function () {
+  var pwresetreq = function () {
    call('user/requestPwReset', function(response){
-    $('#pwresetDialog').modal('hide');
+    $('#pwresetRequestDialog').modal('hide');
    },
    {
-    'username': $('#pwresetUsername').val()
+    'username': $('#pwresetRequestUsername').val()
    });
   };
-  $('#pwresetUsername').bind('keydown', function (event) {
+  $('#pwresetRequestUsername').bind('keydown', function (event) {
    if (event.keyCode === 13) {
     event.preventDefault();
-    pwreset();
+    pwresetreq();
    }
   });
-  $('#pwresetSubmit').click(function(){
-		pwreset();	
+  $('#pwresetRequestSubmit').click(function(){
+		pwresetreq();	
 	});
  });
 	

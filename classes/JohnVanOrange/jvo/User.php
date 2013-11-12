@@ -284,7 +284,7 @@ class User extends Base {
   $message .= "Username:\n";
   $message .= $user['username']."\n\n";
   $message .= "Follow link to provide new password:\n";
-  $message .= WEB_ROOT.'password_reset/'.$uid."\n\n";
+  $message .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
   //need to get email address from db as $user->get doesn't return it for security reasons
   $query = new \Peyote\Select('users');
   $query->columns('email')
@@ -300,6 +300,55 @@ class User extends Base {
   return array(
    'message' => 'Reset email sent.'
   );
+ }
+ 
+ /**
+  * Change password
+  *
+  * Change password for account
+  *
+  * @api
+  *
+  * @param string $password New password
+  * @param string $auth This is either a valid SID of a logged in user, or a password reset ID
+  * @param string $type Valid values are "sid" or "pwreset"
+  */
+ 
+ public function changepw($password, $auth, $type = 'sid') {
+  if (!$password) throw new \Exception('Password is blank');
+  switch ($type) {
+   case 'pwreset':
+    $query = new \Peyote\Select('resources');
+    $query->columns('user_id')
+          ->where('value', '=', $auth)
+          ->limit(1);
+    $user_id = $this->db->fetch($query)[0]['user_id'];
+    if (!$user_id) throw new \Exception('Password reset key not found');
+    $query = new \Peyote\Delete('resources');
+    $query->where('value', '=', $auth)
+          ->limit(1);
+    $this->db->fetch($query);
+    break;
+   default:
+    $query = new \Peyote\Select('sessions');
+    $query->columns('user_id')
+          ->where('sid', '=', $auth)
+          ->limit(1);
+    $user_id = $this->db->fetch($query)[0]['user_id'];
+    if (!$user_id) throw new \Exception('User session error');
+    break;
+  }
+  $salt = $this->getSecureID();
+  $query = new \Peyote\Update('users');
+  $query->set([
+               'password' => $this->passhash($password, $salt),
+               'salt' => $salt
+              ])
+        ->where('id', '=', $user_id);
+  $this->db->fetch($query);
+  return [
+   'message' => 'Password changed'
+  ];
  }
  
  

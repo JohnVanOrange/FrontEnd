@@ -26,9 +26,10 @@
 					<li id="username" class='dropdown'>
 					<a href='#' data-toggle="dropdown">{{ user.username }}</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><a href='/u/{{ user.username }}' class='icon-user-1'>User Profile</a></li></li>
-							<li><a href='/s/{{ user.username }}' class='icon-floppy'>Saved Images</a></li></li>
-							<li><a href='/uploads/{{ user.username }}' class='icon-upload'>Uploads</a></li></li>
+							<li><a href='/u/{{ user.username }}' class='icon-user-1'>User Profile</a></li>
+							<li><a href='/s/{{ user.username }}' class='icon-floppy'>Saved Images</a></li>
+							<li><a href='/uploads/{{ user.username }}' class='icon-upload'>Uploads</a></li>
+							<li><a href='/changepw' class='icon-blank'>Change Password</a></li>
 							<li><a href='' id='logout' class='icon-logout'>Logout</a></li>
 						</ul>
 					{% else %}
@@ -94,7 +95,7 @@
 		{% include 'dialogs/report.twig' %}
 		{% include 'dialogs/create_acct.twig' %}
 		{% include 'dialogs/login.twig' %}
-		{% include 'dialogs/pwreset.twig' %}
+		{% include 'dialogs/pwreset_request.twig' %}
 		{% include 'dialogs/add_image.twig' %}
 		{% include 'dialogs/keyboard.twig' %}
 		<script type='text/javascript'>
