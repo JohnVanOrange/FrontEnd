@@ -12,10 +12,12 @@ header:before,
 #jvo {
   background: url('/img/orange_slice_title.svg') left no-repeat;
   height: 54px;
-  z-index: -1;
 }
 header {
   background-color: rgba(82, 82, 77, 0.52);
+}
+header:before {
+  max-width: 54px;
 }
 html {
   font-size: 15px;

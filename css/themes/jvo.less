@@ -22,11 +22,13 @@ header h1, #jvo {
 header:before, #jvo {
 		background: url('/img/orange_slice_title.svg') left no-repeat;
 		height: 54px;
-		z-index: -1;
 }
 
 header {
 		background-color: rgba(82, 82, 77, 0.52);
+		&:before {
+				max-width: 54px;
+		}
 }
 
 @import 'base';

@@ -12,10 +12,12 @@ header:before,
 #mc {
   background: url('/img/candy.svg') left no-repeat;
   height: 40px;
-  z-index: -1;
 }
 header {
   background-color: rgba(255, 0, 0, 0.7);
+}
+header:before {
+  max-width: 50px;
 }
 html {
   font-size: 15px;
