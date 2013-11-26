@@ -12,10 +12,12 @@ header:before,
 #dont {
   background: url('/img/room.jpg') left no-repeat;
   height: 46px;
-  z-index: -1;
 }
 header {
   background-color: rgba(0, 0, 0, 0.52);
+}
+header:before {
+  max-width: 64px;
 }
 html {
   font-size: 15px;

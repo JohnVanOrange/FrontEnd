@@ -22,11 +22,13 @@ header h1, #pretty {
 header:before, #pretty {
 		background: url('/img/cute_bear_title.svg') left no-repeat;
 		height: 48px;
-		z-index: -1;
 }
 
 header {
-		background-color: rgba(28, 60, 28, 0.52)
+		background-color: rgba(28, 60, 28, 0.52);
+    &:before {
+				max-width: 48px;
+		}
 }
 
 @import 'base';
