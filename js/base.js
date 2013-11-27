@@ -314,5 +314,26 @@ $('document').ready(function(){
 		$(this).addClass('pressed');
 		setTimeout(function(){$('.icon').removeClass('pressed')},80);
 	});
-		
+	
+	/*Firefox Open Web App integration*/
+	$('#firefox_menu').click(function (event) {
+		event.preventDefault();
+		console.log('this is happening');
+		var apps = window.navigator.mozApps.getInstalled();
+		apps.onsuccess = function() {
+			if (!apps.result.length) {
+				var request = window.navigator.mozApps.install(web_root+'manifest.webapp');
+				request.onsuccess = function () {
+					// Save the App object that is returned
+					var appRecord = this.result;
+					noty({text: 'Web App Installed', dismissQueue: true});
+				};
+				request.onerror = function () {
+					// Display the error information from the DOMError object
+					noty({text: 'Install failed, error: ' + this.error.name, type: 'error', dismissQueue:true});
+				};
+			};
+		};
+	});
+	
 });
