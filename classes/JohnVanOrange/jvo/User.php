@@ -55,6 +55,7 @@ class User extends Base {
    break;
   }
   $user = $this->db->fetch($query);
+  if (!$user) throw new \Exception('User not found', 1200);
   if (isset($user[0])) $user = $user[0];
   if (isset($user['email'])) $user['email_hash'] = md5($user['email']);
   unset($user['email']);
@@ -79,8 +80,24 @@ class User extends Base {
         ->limit(1);
   $user = $this->db->fetch($query);
   $user_id = NULL;
-  if (isset($user[0]['user_id'])) $user_id = $user[0]['user_id'];
-  return $this->get($user_id);
+  if (isset($user[0]['user_id'])) {
+   $user_id = $user[0]['user_id'];
+   try {
+    $current = $this->get($user_id);
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() == 1200) {
+     $current = FALSE;
+    }
+    else {
+     throw new \Exception($e);
+    }
+   }
+  }
+  else {
+   $current = FALSE;
+  }
+ return $current;
  }
 
  private function getSID() {
@@ -289,7 +306,6 @@ class User extends Base {
   $query->columns('email')
         ->where('username', '=', $username);
   $email = $this->db->fetch($query);
-  //TODO: need to handle usernames that don't exist.  Throw an exception.
   $message = new Mail();
   $message->setTo([$email[0]['email']])
           ->setFrom(SITE_EMAIL, SITE_NAME)

@@ -39,8 +39,14 @@ class userTest extends PHPUnit_Framework_TestCase {
   $this->assertEquals($current['username'], 'testuser', 'Username unexpected');
  }
  public function test_current_nouser() {
-  $current = $this->user->current();
-  $this->assertArrayNotHasKey('username', $current, 'Username shouldn\'t be present');
+  try {
+   $current = $this->user->current();
+  }
+  catch (Exception $e) {
+   if ($e->getCode() != '1200') $this->fail('An exception was raised, but not the expected one. '.$e->getMessage());
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
  }
  
  /**** login ****/
@@ -64,8 +70,14 @@ class userTest extends PHPUnit_Framework_TestCase {
   $current = $this->user->current($sid);
   $this->assertArrayHasKey('username', $current, 'Unable to verify login worked');
   $this->user->logout($sid);
-  $current = $this->user->current($sid);
-  $this->assertArrayNotHasKey('username', $current, 'Logout failed');
+  try {
+   $current = $this->user->current($sid);
+  }
+  catch (Exception $e) {
+   if ($e->getCode() != '1200') $this->fail('An exception was raised, but not the expected one. '.$e->getMessage());
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
  }
  
  /**** add ****/
