@@ -279,24 +279,23 @@ class User extends Base {
   $query->columns(array_keys($data))
         ->values(array_values($data));
   $this->db->fetch($query);
-  //TODO: why is there no base method to send email?
-  $message = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
-  $message .= "Username:\n";
-  $message .= $user['username']."\n\n";
-  $message .= "Follow link to provide new password:\n";
-  $message .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
+  $body = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
+  $body .= "Username:\n";
+  $body .= $user['username']."\n\n";
+  $body .= "Follow link to provide new password:\n";
+  $body .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
   //need to get email address from db as $user->get doesn't return it for security reasons
   $query = new \Peyote\Select('users');
   $query->columns('email')
         ->where('username', '=', $username);
   $email = $this->db->fetch($query);
   //TODO: need to handle usernames that don't exist.  Throw an exception.
-  mail(
-   $email[0]['email'],
-   'Password reset request for '. SITE_NAME,
-   $message,
-   'From: ' . SITE_EMAIL
-  );
+  $message = new Mail();
+  $message->setTo([$email[0]['email']])
+          ->setFrom(SITE_EMAIL, SITE_NAME)
+          ->setSubject('Password reset request for '. SITE_NAME)
+          ->setBody($body);
+  $message->send();
   return array(
    'message' => 'Reset email sent.'
   );

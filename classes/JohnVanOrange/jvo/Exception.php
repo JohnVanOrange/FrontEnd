@@ -24,20 +24,21 @@ class Exception {
       die();
       break;
       default:
-       $message = 'An error occured for site '. SITE_NAME . ".\n\n";
-       $message .= "Error:\n";
-       $message .= $e->getMessage()."\n\n";
-       $message .= "Code:\n";
-       $message .= $e->getCode()."\n\n";
-       $message .= "Page requested:\n";
-       $message .= $_SERVER['REQUEST_URI']."\n\n";    
-       $message .= "IP:\n";
-       $message .= $_SERVER['REMOTE_ADDR'];
-       mail(
-        ADMIN_EMAIL,
-        'Error Occured for '. SITE_NAME,
-        $message
-       );
+       $body = 'An error occured for site '. SITE_NAME . ".\n\n";
+       $body .= "Error:\n";
+       $body .= $e->getMessage()."\n\n";
+       $body .= "Code:\n";
+       $body .= $e->getCode()."\n\n";
+       $body .= "Page requested:\n";
+       $body .= $_SERVER['REQUEST_URI']."\n\n";    
+       $body .= "IP:\n";
+       $body .= $_SERVER['REMOTE_ADDR'];
+       $message = new Mail();
+       $message->setTo([ADMIN_EMAIL])
+               ->setFrom(SITE_EMAIL, SITE_NAME)
+               ->setSubject('Error Occured for '. SITE_NAME)
+               ->setBody($body);
+       $message->send();
        include(ROOT_DIR.'/pages/exception.php');
        die();
       break;

@@ -301,16 +301,17 @@ class Image extends Base {
   $query->set(['display' => 0])
         ->where('uid', '=', $image);
   $this->db->fetch($query);
-  $message = 'A new image was reported on '. SITE_NAME . ".\n\n";
-  $message .= "View Reported Image:\n";
-  $message .= WEB_ROOT.'admin/image/'.$image."\n\n";
-  $message .= "IP:\n";
-  $message .= $_SERVER['REMOTE_ADDR'];
-  mail(
-   ADMIN_EMAIL,
-   'New Reported Image for '. SITE_NAME,
-   $message
-  );
+  $body = 'A new image was reported on '. SITE_NAME . ".\n\n";
+  $body .= "View Reported Image:\n";
+  $body .= WEB_ROOT.'admin/image/'.$image."\n\n";
+  $body .= "IP:\n";
+  $body .= $_SERVER['REMOTE_ADDR'];
+  $message = new Mail();
+  $message->setTo([ADMIN_EMAIL])
+          ->setFrom(SITE_EMAIL, SITE_NAME)
+          ->setSubject('New Reported Image for '. SITE_NAME)
+          ->setBody($body);
+  $message->send();
   return array(
    'message' => 'Image Reported.'
   );
