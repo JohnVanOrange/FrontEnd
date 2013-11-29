@@ -307,11 +307,7 @@ class Image extends Base {
   $body .= "IP:\n";
   $body .= $_SERVER['REMOTE_ADDR'];
   $message = new Mail();
-  $message->setTo([ADMIN_EMAIL])
-          ->setFrom(SITE_EMAIL, SITE_NAME)
-          ->setSubject('New Reported Image for '. SITE_NAME)
-          ->setBody($body);
-  $message->send();
+  $message->sendAdminMessage('New Reported Image for '. SITE_NAME, $body);
   return array(
    'message' => 'Image Reported.'
   );

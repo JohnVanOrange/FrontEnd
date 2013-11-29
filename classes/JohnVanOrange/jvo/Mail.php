@@ -14,6 +14,25 @@ class Mail extends \Swift_Message {
  public function __destruct() {
  }
  
+ public function sendMessage($to, $subject, $body) {
+  $toEmail = $to[0];
+  $toName = NULL;
+  if (isset($to[1])) $toName = $to[1];
+  $this->message->setFrom(SITE_EMAIL, SITE_NAME)
+                ->setTo($toEmail, $toName)
+                ->setSubject($subject)
+                ->setBody($body);
+  return $this->send();
+ }
+ 
+ public function sendAdminMessage($subject, $body) {
+  $this->message->setFrom(SITE_EMAIL, SITE_NAME)
+                ->setTo(ADMIN_EMAIL, SITE_NAME . ' Admin')
+                ->setSubject($subject)
+                ->setBody($body);
+  return $this->send();
+ }
+ 
  public function setTo($to, $name = NULL) {
   return $this->message->setTo($to, $name);
  }

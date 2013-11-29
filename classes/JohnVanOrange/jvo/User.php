@@ -307,11 +307,7 @@ class User extends Base {
         ->where('username', '=', $username);
   $email = $this->db->fetch($query);
   $message = new Mail();
-  $message->setTo([$email[0]['email']])
-          ->setFrom(SITE_EMAIL, SITE_NAME)
-          ->setSubject('Password reset request for '. SITE_NAME)
-          ->setBody($body);
-  $message->send();
+  $message->sendMessage([$email[0]['email']], 'Password reset request for '. SITE_NAME, $body);
   return array(
    'message' => 'Reset email sent.'
   );

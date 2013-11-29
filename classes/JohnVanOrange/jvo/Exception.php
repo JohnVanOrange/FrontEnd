@@ -34,11 +34,7 @@ class Exception {
        $body .= "IP:\n";
        $body .= $_SERVER['REMOTE_ADDR'];
        $message = new Mail();
-       $message->setTo([ADMIN_EMAIL])
-               ->setFrom(SITE_EMAIL, SITE_NAME)
-               ->setSubject('Error Occured for '. SITE_NAME)
-               ->setBody($body);
-       $message->send();
+       $message->sendAdminMessage('Error Occured for '. SITE_NAME, $body);
        include(ROOT_DIR.'/pages/exception.php');
        die();
       break;
