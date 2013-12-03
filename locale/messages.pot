@@ -1,0 +1,89 @@
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:124
+msgid "User Profile"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:130
+msgid "Saved Images"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:136
+msgid "Uploads"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:140
+msgid "Change Password"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:144
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:279
+msgid "Logout"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:151
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:270
+msgid "Login"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:175
+msgid "Upload Image"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:179
+msgid "Add Image from URL"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:208
+msgid "Email"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:227
+msgid "Search using Google"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:233
+msgid "Search using Tineye"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:239
+msgid "Details"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:245
+msgid "View Fullscreen"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:253
+msgid "Image Admin"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:274
+msgid "Create Account"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:285
+msgid "Firefox Web App"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:295
+msgid "Android App"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:300
+msgid "Suggestions/Bugs"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:304
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:308
+msgid "API Docs"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:335
+msgid "Legal"
+msgstr ""
+
+#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:339
+msgid "Privacy"
+msgstr ""
