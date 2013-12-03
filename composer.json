@@ -22,6 +22,9 @@
   "swiftmailer/swiftmailer": "5.*",
   "ext-imagick" : "*"
  },
+ "require-dev" : {
+  "umpirsky/twig-gettext-extractor": "1.1.*"
+ },
  "autoload" : {
   "psr-0" : {
    "JohnVanOrange\\jvo" : "classes"
