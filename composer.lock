@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9bc1e518ba7986ef5c033953b442ff0e",
+    "hash": "d37893308e72bea92def17acb2942c74",
     "packages": [
         {
             "name": "davewid/peyote",
@@ -48,6 +48,54 @@
                 "query builder"
             ],
             "time": "2013-08-16 18:05:39"
+        },
+        {
+            "name": "gavroche/browser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gavroche/php-browser.git",
+                "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Browser": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriel Bull",
+                    "email": "gavroche.bull@gmail.com"
+                },
+                {
+                    "name": "Chris Schuld",
+                    "email": "contact@chrisschuld.com"
+                }
+            ],
+            "description": "Detecting the user's browser, operating system and language.",
+            "homepage": "https://github.com/gavroche/php-browser",
+            "keywords": [
+                "browser",
+                "detection",
+                "language",
+                "operating system",
+                "os"
+            ],
+            "time": "2013-12-03 20:34:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -202,9 +250,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "gavroche/browser": 20
+    },
     "platform": {
         "php": ">=5.4",
         "ext-imagick": "*"
