@@ -3,22 +3,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Forgot Password</h4>
+        <h4 class="modal-title">{% trans 'Forgot Password' %}</h4>
       </div>
       <div class="modal-body">
-        <p>Enter your username and an email will be sent with a link to reset the password on your account.</p>
+        <p>{% trans 'Enter your username and an email will be sent with a link to reset the password on your account.' %}</p>
         <form class="form-horizontal">
           <div class="form-group">
-            <label for="pwresetRequestUsername" class="col-lg-2 control-label">Username</label>
+            <label for="pwresetRequestUsername" class="col-lg-2 control-label">{% trans 'Username' %}</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="pwresetRequestUsername" placeholder="Username" required>
+              <input type="text" class="form-control" id="pwresetRequestUsername" placeholder="{% trans 'Username' %}" required>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id='pwresetRequestSubmit'>Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-primary" id='pwresetRequestSubmit'>{% trans 'Submit' %}</button>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<a href='/docs/'><h1>API Docs for {{ class.name }}</h1></a>
+	<a href='/docs/'><h1>{% trans 'API Docs for' %} {{ class.name }}</h1></a>
 	
 	<div id='apidocs'>
 	{% for method in class.method %}
@@ -12,11 +12,11 @@
 	 <!--<p>{{ method.docblock.description }}</p>-->
 	 
 	 {% if method.params %}
-	 <h3>Parameters</h3>
+	 <h3>{% trans 'Parameters' %}</h3>
 	 {% for param in method.params %}
 		<p>
 			<span class='type'>{{ param.type }}</span> <span class='variable'>{{ param.variable }}</span>
-			<span class='desc'>{% if param.default %}Defaults to <span class='variable'>{{ param.default }}</span>. {% endif %}{{ param.description }}</span> 
+			<span class='desc'>{% if param.default %}{% trans 'Defaults to' %} <span class='variable'>{{ param.default }}</span>. {% endif %}{{ param.description }}</span> 
 		</p>
 	 {% endfor %}
 	 {% endif %}
@@ -26,7 +26,7 @@
 	</div>
 	
 	<div id='classes'>
-			<h2>Methods</h2>
+			<h2>{% trans 'Methods' %}</h2>
 			{% for classname in classes %}
 			 <p><a href='/docs/{{ classname }}'>{{ classname }}</a></p>
 			{% endfor %}
