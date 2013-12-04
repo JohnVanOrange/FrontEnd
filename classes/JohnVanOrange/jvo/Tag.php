@@ -23,11 +23,11 @@ class Tag extends Base {
   */
  
  public function add($name, $image, $sid = NULL) {
-  if (strlen($name) < 1 OR $name == NULL) throw new \Exception('Tag name cannot be empty');
-  if (strlen($image) !== 6) throw new \Exception('Invalid image UID');
+  if (strlen($name) < 1 OR $name == NULL) throw new \Exception(_('Tag name cannot be empty'));
+  if (strlen($image) !== 6) throw new \Exception(_('Invalid image UID'));
   $tag = htmlspecialchars(trim(stripslashes($name)));
   $slug = $this->text2slug($tag);
-  if ($slug == '') throw new \Exception('Invalid tag name', 1030);
+  if ($slug == '') throw new \Exception(_('Invalid tag name'), 1030);
   $query = new \Peyote\Select('tag_list');
   $query->columns('id')
         ->where('basename', '=', $slug);
@@ -43,11 +43,11 @@ class Tag extends Base {
         ->where('value', '=', $tag_id)
         ->where('type', '=', 'tag');
   $result = $this->db->fetch($query);
-  if ($result) throw new \Exception('Tag already exists');
+  if ($result) throw new \Exception(_('Tag already exists'));
   $this->res->add('tag', $image, $sid, $tag_id, TRUE);
   
   return [
-   'message' => 'Tag added',
+   'message' => _('Tag added'),
    'tags' => $this->get($image)
   ];
  }
@@ -64,7 +64,7 @@ class Tag extends Base {
   */
  
  public function get($value, $search_by='image') {
-  if (!$value) throw new \Exception('Tag value not set.', 404);
+  if (!$value) throw new \Exception(_('Tag value not set'), 404);
   switch ($search_by) {
    case 'name':
     $search_by = 'basename';
@@ -85,7 +85,7 @@ class Tag extends Base {
         ->where($search_by, '=', $value)
         ->where('resources.type', '=', 'tag');
   $results = $this->db->fetch($query);
-  if (!$results && $search_by == 'basename') throw new \Exception('No images with specified tag', 404);
+  if (!$results && $search_by == 'basename') throw new \Exception(_('No images with specified tag'), 404);
   foreach ($results as $i => $r) {
    $url = parse_url(WEB_ROOT);
    $results[$i]['url'] = '/t/'.$r['basename'];

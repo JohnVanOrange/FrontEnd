@@ -439,3 +439,216 @@ msgstr "Pin It"
 #: /tmp/twig/f9/40/b7d49f50e71c744584e153fbc74732a1593e78dfd77814a3013d71bffef3.php:34
 msgid "Image Mass Approval"
 msgstr "Bild Messe Zulassung"
+
+#: ../classes/JohnVanOrange/jvo/API.php:47
+msgid "Invalid class/URL"
+msgstr "Ungültige Klassen / URL"
+
+#: ../classes/JohnVanOrange/jvo/Base.php:14
+msgid "Invalid method"
+msgstr "Ungültige Methode"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:29
+#: ../classes/JohnVanOrange/jvo/Image.php:55
+msgid "Must be logged in to rate images"
+msgstr "Müssen eingeloggt sein, um Bilder bewerten"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:37
+msgid "Image liked"
+msgstr "Bild gefallen"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:63
+msgid "Image disliked"
+msgstr "Bild unbeliebt"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:81
+msgid "Must be logged in to save images"
+msgstr "Müssen eingeloggt sein, um Bilder zu speichern"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:84
+msgid "Image saved"
+msgstr "Bild gespeichert"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:102
+msgid "Must be logged in to unsave images"
+msgstr "Müssen zu unsave Bilder eingeloggt sein"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:109
+msgid "Image unsaved"
+msgstr "Bild nicht gespeicherte"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:128
+#: ../classes/JohnVanOrange/jvo/Image.php:160
+#: ../classes/JohnVanOrange/jvo/Image.php:328
+#: ../classes/JohnVanOrange/jvo/Image.php:351
+#: ../classes/JohnVanOrange/jvo/Image.php:603
+#: ../classes/JohnVanOrange/jvo/Resource.php:32
+msgid "Must be an admin to access method"
+msgstr "Muss ein Admin Methode zugreifen"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:143
+msgid "Image approved"
+msgstr "Bild genehmigt"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:178
+#: ../classes/JohnVanOrange/jvo/Image.php:478
+msgid "Image removed"
+msgstr "Bild entfernt"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:215
+msgid "Not a valid image"
+msgstr "Keine gültige Bild"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:240
+msgid "Duplicate image"
+msgstr "Bild Duplizieren"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:257
+msgid "Image added"
+msgstr "Bild hinzugefügt"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:295
+msgid "No image specified"
+msgstr "Kein Bild angegeben"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:296
+msgid "No report type specified"
+msgstr "Kein angegebenen Berichtstyp"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:312
+msgid "Image Reported"
+msgstr "Bild gemeldet"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:335
+#: ../classes/JohnVanOrange/jvo/Image.php:359
+msgid "No image result"
+msgstr "Keine Bildergebnis"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:378
+msgid "No image results"
+msgstr "Keine Bildergebnisse"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:475
+msgid "Image not found"
+msgstr "Bild nicht gefunden"
+
+#: ../classes/JohnVanOrange/jvo/Image.php:615
+msgid "Images merged"
+msgstr "Bilder verschmolzen"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:28
+msgid "Must be logged in to set refresh time"
+msgstr "Müssen eingeloggt sein, um Aktualisierungszeit eingestellt"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:33
+msgid "Automatic refresh removed"
+msgstr "Automatische Aktualisierung entfernt"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:34
+msgid "Automatic refresh time updated"
+msgstr "Automatische Aktualisierung Zeit aktualisiert"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:67
+msgid "Must be logged in to get refresh time"
+msgstr "Müssen eingeloggt sein, um Refresh-Zeit erhalten"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:26
+msgid "Tag name cannot be empty"
+msgstr "Tag-Name darf nicht leer sein"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:27
+msgid "Invalid image UID"
+msgstr "Falsches Bild UID"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:30
+msgid "Invalid tag name"
+msgstr "Ungültige Tag-Namen"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:46
+msgid "Tag already exists"
+msgstr "Tag existiert bereits"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:50
+msgid "Tag added"
+msgstr "Tag hinzugefügt"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:67
+msgid "Tag value not set"
+msgstr "Tag-Wert nicht festgelegt"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:88
+msgid "No images with specified tag"
+msgstr "Keine Bilder mit bestimmten Tags"
+
+#: ../classes/JohnVanOrange/jvo/Theme.php:30
+msgid "Not a valid theme"
+msgstr "Kein gültiges Thema"
+
+#: ../classes/JohnVanOrange/jvo/Theme.php:44
+msgid "Theme updated"
+msgstr "Theme aktualisiert"
+
+#: ../classes/JohnVanOrange/jvo/User.php:58
+#: ../classes/JohnVanOrange/jvo/User.php:127
+msgid "User not found"
+msgstr "Benutzer nicht gefunden"
+
+#: ../classes/JohnVanOrange/jvo/User.php:130
+msgid "Invalid password"
+msgstr "Ungültige vergessen"
+
+#: ../classes/JohnVanOrange/jvo/User.php:139
+msgid "Login successful"
+msgstr "Anmeldung erfolgreich"
+
+#: ../classes/JohnVanOrange/jvo/User.php:161
+msgid "Logged out"
+msgstr "abgemeldet"
+
+#: ../classes/JohnVanOrange/jvo/User.php:178
+msgid "No username specified"
+msgstr "Kein Benutzername angegeben"
+
+#: ../classes/JohnVanOrange/jvo/User.php:179
+msgid "No password specified"
+msgstr "Kein Passwort angegeben"
+
+#: ../classes/JohnVanOrange/jvo/User.php:180
+msgid "No email specified"
+msgstr "Keine E-Mail angegeben"
+
+#: ../classes/JohnVanOrange/jvo/User.php:185
+msgid "Username already exists"
+msgstr "Benutzername ist bereits vorhanden"
+
+#: ../classes/JohnVanOrange/jvo/User.php:193
+msgid "User added"
+msgstr "Benutzer hinzugefügt"
+
+#: ../classes/JohnVanOrange/jvo/User.php:213
+msgid "This users saved images are not publicly shared"
+msgstr "Dieser Benutzer gespeicherten Bilder werden nicht öffentlich geteilt"
+
+#: ../classes/JohnVanOrange/jvo/User.php:251
+msgid "This users uploaded images are not publicly shared"
+msgstr "Diese Nutzer hochgeladenen Bilder nicht öffentlich geteilt"
+
+#: ../classes/JohnVanOrange/jvo/User.php:312
+msgid "Reset email sent"
+msgstr "Zurück E-Mail verschickt"
+
+#: ../classes/JohnVanOrange/jvo/User.php:329
+msgid "Password is blank"
+msgstr "Passwort leer"
+
+#: ../classes/JohnVanOrange/jvo/User.php:337
+msgid "Password reset key not found"
+msgstr "Passwort Reset-Taste nicht gefunden"
+
+#: ../classes/JohnVanOrange/jvo/User.php:349
+msgid "User session error"
+msgstr "Benutzersitzung Fehler"
+
+#: ../classes/JohnVanOrange/jvo/User.php:361
+msgid "Password changed"
+msgstr "Das Passwort wurde geändert"

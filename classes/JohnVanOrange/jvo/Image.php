@@ -26,7 +26,7 @@ class Image extends Base {
  
  public function like($image, $sid=NULL) {
   $current = $this->user->current($sid);
-  if (!$current) throw new \Exception('Must be logged in to rate images',1022);
+  if (!$current) throw new \Exception(_('Must be logged in to rate images'),1022);
   $query = new \Peyote\Delete('resources');
   $query->where('image', '=', $image)
         ->where('user_id', '=', $current['id'])
@@ -34,7 +34,7 @@ class Image extends Base {
   $this->db->fetch($query);
   $this->res->add('like', $image, $sid);
   return array(
-   'message' => 'Image liked.',
+   'message' => _('Image liked'),
    'liked' => 1
   );
  }
@@ -52,7 +52,7 @@ class Image extends Base {
  
  public function dislike($image, $sid=NULL) {
   $current = $this->user->current($sid);
-  if (!$current) throw new \Exception('Must be logged in to rate images',1023);
+  if (!$current) throw new \Exception(_('Must be logged in to rate images'),1023);
   $query = new \Peyote\Delete('resources');
   $query->where('image', '=', $image)
         ->where('user_id', '=', $current['id'])
@@ -60,7 +60,7 @@ class Image extends Base {
   $this->db->fetch($query);
   $this->res->add('dislike', $image, $sid);
   return array(
-   'message' => 'Image disliked.',
+   'message' => _('Image disliked'),
    'liked' => 0
   );
  } 
@@ -78,10 +78,10 @@ class Image extends Base {
  
  public function save($image, $sid=NULL) {
   $current = $this->user->current($sid);
-  if (!$current) throw new \Exception('Must be logged in to save images',1020);
+  if (!$current) throw new \Exception(_('Must be logged in to save images'),1020);
   $this->res->add('save', $image, $sid);
   return array(
-   'message' => 'Image saved.',
+   'message' => _('Image saved'),
    'saved' => 1
   );
  }
@@ -99,14 +99,14 @@ class Image extends Base {
  
  public function unsave($image, $sid=NULL) {
   $current = $this->user->current($sid);
-  if (!$current) throw new \Exception('Must be logged in to unsave images',1021);
+  if (!$current) throw new \Exception(_('Must be logged in to unsave images'),1021);
   $query = new \Peyote\Delete('resources');
   $query->where('image', '=', $image)
         ->where('user_id', '=', $current['id'])
         ->where('type', '=', 'save');
   $this->db->fetch($query);
   return array(
-   'message' => 'Image unsaved.',
+   'message' => _('Image unsaved'),
    'saved' => 0
   );
  }
@@ -125,7 +125,7 @@ class Image extends Base {
  
  public function approve($image, $sid=NULL, $nsfw=NULL) {
   $current = $this->user->current($sid);
-  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
+  if ($current['type'] < 2) throw new \Exception(_('Must be an admin to access method'), 401);
   if ($nsfw == TRUE) $nsfw = 1;
   $query = new \Peyote\Delete('resources');
   $query->where('image', '=', $image)
@@ -140,7 +140,7 @@ class Image extends Base {
         ->where('uid', '=', $image);
   $this->db->fetch($query);
   return array(
-   'message' => 'Image approved.'
+   'message' => _('Image approved')
   );
  }
  
@@ -157,7 +157,7 @@ class Image extends Base {
  
  public function remove($image, $sid=NULL) {
   $current = $this->user->current($sid);
-  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401);
+  if ($current['type'] < 2) throw new \Exception(_('Must be an admin to access method'), 401);
   $query = new \Peyote\Select('images');
   $query->columns('filename')
         ->where('uid', '=', $image);
@@ -175,7 +175,7 @@ class Image extends Base {
   unlink(ROOT_DIR.'/media/'.$filename);
   unlink(ROOT_DIR.'/media/thumbs/'.$filename);
   return array(
-   'message' => 'Image removed.'
+   'message' => _('Image removed')
   );
  }
 
@@ -212,7 +212,7 @@ class Image extends Base {
   $info = getimagesize($path);
   if (!$info) {
    unlink($path);
-   throw new \Exception('Not a valid image',1100);
+   throw new \Exception(_('Not a valid image'),1100);
   }
   $filetypepart = explode('/',$info['mime']);
   $type = end($filetypepart);
@@ -237,7 +237,7 @@ class Image extends Base {
     'uid' => $result[0]['uid'],
     'image' => WEB_ROOT.'media/'.$result[0]['filename'],
     'thumb' => WEB_ROOT.'media/thumbs/'.$result[0]['filename'],
-    'message' => 'Duplicate image.'
+    'message' => _('Duplicate image')
    );
   }
   else {
@@ -254,7 +254,7 @@ class Image extends Base {
     'uid' => $uid,
     'image' => WEB_ROOT.'media/'.$filename,
     'thumb' => WEB_ROOT.'media/thumbs/'.$filename,
-    'message' => 'Image added.'
+    'message' => _('Image added')
    );
   }
  }
@@ -292,8 +292,8 @@ class Image extends Base {
   */
  
  public function report($image, $type, $sid = NULL) {
-  if (!isset($image)) throw new \Exception('No image specified');
-  if (!isset($type)) throw new \Exception('No report type specified');
+  if (!isset($image)) throw new \Exception(_('No image specified'));
+  if (!isset($type)) throw new \Exception(_('No report type specified'));
   //Add report
   $this->res->add('report', $image, $sid, $type);
   //Hide image
@@ -309,7 +309,7 @@ class Image extends Base {
   $message = new Mail();
   $message->sendAdminMessage('New Reported Image for '. SITE_NAME, $body);
   return array(
-   'message' => 'Image Reported.'
+   'message' => _('Image Reported')
   );
  }
  
@@ -325,14 +325,14 @@ class Image extends Base {
  
  public function reported($sid=NULL) {
   $current = $this->user->current($sid);
-  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
+  if ($current['type'] < 2) throw new \Exception(_('Must be an admin to access method'), 401); 
   $query = new \Peyote\Select('resources');
   $query->where('type', '=', 'report')
         ->orderBy('RAND()')
         ->limit(1);
   $report_result = $this->db->fetch($query);
   $image_result = $this->get($report_result[0]['image']);
-  if (!$image_result) throw new \Exception('No image result', 404);
+  if (!$image_result) throw new \Exception(_('No image result'), 404);
   return $image_result;
  }
  
@@ -348,7 +348,7 @@ class Image extends Base {
  
  public function unapproved($sid=NULL) {
   $current = $this->user->current($sid);
-  if ($current['type'] < 2) throw new \Exception('Must be an admin to access method', 401); 
+  if ($current['type'] < 2) throw new \Exception(_('Must be an admin to access method'), 401); 
   $query = new \Peyote\Select('images');
   $query->columns('uid')
         ->where('approved', '=', 0)
@@ -356,7 +356,7 @@ class Image extends Base {
         ->limit(1);
   $image = $this->db->fetch($query);
   $image_result = $this->get($image[0]['uid']);
-  if (!$image_result) throw new \Exception('No image result', 404);
+  if (!$image_result) throw new \Exception(_('No image result'), 404);
   return $image_result;
  }
 
@@ -375,7 +375,7 @@ class Image extends Base {
         ->orderBy('RAND()')
         ->limit(1);
   $result = $this->db->fetch($query);
-  if (!$result) throw new \Exception('No image results', 404);
+  if (!$result) throw new \Exception(_('No image results'), 404);
   $image = $this->get($result[0]['uid']);
   $image['response'] = $image['uid']; //backwards compatibility
   return $image;
@@ -472,10 +472,10 @@ class Image extends Base {
   }
   $result = $this->db->fetch($query);
   //See if there was a result
-  if (!$result) throw new \Exception('Image not found', 404);
+  if (!$result) throw new \Exception(_('Image not found'), 404);
   $result = $result[0];
   //Verify image isn't supposed to be hidden
-  if (!$result['display'] AND !$this->user->isAdmin($sid)) throw new \Exception('Image removed', 403);
+  if (!$result['display'] AND !$this->user->isAdmin($sid)) throw new \Exception(_('Image removed'), 403);
   //Get tags
   $tag_result = $tag->get($result['uid']);
   if (isset($tag_result)) $result['tags'] = $tag_result;
@@ -600,7 +600,7 @@ class Image extends Base {
  
  public function merge($image1, $image2, $sid=NULL) {
   $image = new Image();
-  if (!$this->user->isAdmin($sid)) throw new \Exception('Must be an admin to access method', 401);
+  if (!$this->user->isAdmin($sid)) throw new \Exception(_('Must be an admin to access method'), 401);
   $image1 = $image->get($image1);
   $image2 = $image->get($image2);
   $primary = $image1; $sec = $image2;
@@ -612,7 +612,7 @@ class Image extends Base {
   $this->res->merge($primary['uid'], $sec['uid']);
   $this->remove($sec['uid']);
   return [
-   'message' => 'Images merged.',
+   'message' => _('Images merged'),
    'image' => $primary['uid'],
    'url' => $primary['page_url'],
    'thumb' => $primary['thumb_url']

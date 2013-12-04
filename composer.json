@@ -22,7 +22,8 @@
   "davewid/peyote": "0.6.*",
   "swiftmailer/swiftmailer": "5.*",
   "gavroche/browser": "dev-master#f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
-  "ext-imagick" : "*"
+  "ext-imagick" : "*",
+  "ext-gettext" : "*"
  },
  "autoload" : {
   "psr-0" : {

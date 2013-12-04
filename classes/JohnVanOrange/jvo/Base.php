@@ -11,7 +11,7 @@ class Base {
  }
  
  public function __call($name, $args) {
-  throw new \Exception('Invalid method '.$name);
+  throw new \Exception(_('Invalid method') . ' ' . $name);
  }
 
  protected function remoteFetch($url, $headers=NULL) {

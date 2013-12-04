@@ -27,7 +27,7 @@ class Theme extends Base {
    case 'dark':
    break;
    default:
-    throw new \Exception('Not a valid theme');
+    throw new \Exception(_('Not a valid theme'));
    break;
   }
   $user = $this->user->current($sid);
@@ -41,7 +41,7 @@ class Theme extends Base {
    $this->setCookie('theme',$theme);
   }
   return array(
-   'message' => 'Theme updated.'
+   'message' => _('Theme updated')
   );
  }
  

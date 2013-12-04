@@ -423,3 +423,216 @@ msgstr ""
 #: /tmp/twig/f9/40/b7d49f50e71c744584e153fbc74732a1593e78dfd77814a3013d71bffef3.php:34
 msgid "Image Mass Approval"
 msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/API.php:47
+msgid "Invalid class/URL"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Base.php:14
+msgid "Invalid method"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:29
+#: ../classes/JohnVanOrange/jvo/Image.php:55
+msgid "Must be logged in to rate images"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:37
+msgid "Image liked"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:63
+msgid "Image disliked"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:81
+msgid "Must be logged in to save images"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:84
+msgid "Image saved"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:102
+msgid "Must be logged in to unsave images"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:109
+msgid "Image unsaved"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:128
+#: ../classes/JohnVanOrange/jvo/Image.php:160
+#: ../classes/JohnVanOrange/jvo/Image.php:328
+#: ../classes/JohnVanOrange/jvo/Image.php:351
+#: ../classes/JohnVanOrange/jvo/Image.php:603
+#: ../classes/JohnVanOrange/jvo/Resource.php:32
+msgid "Must be an admin to access method"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:143
+msgid "Image approved"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:178
+#: ../classes/JohnVanOrange/jvo/Image.php:478
+msgid "Image removed"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:215
+msgid "Not a valid image"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:240
+msgid "Duplicate image"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:257
+msgid "Image added"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:295
+msgid "No image specified"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:296
+msgid "No report type specified"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:312
+msgid "Image Reported"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:335
+#: ../classes/JohnVanOrange/jvo/Image.php:359
+msgid "No image result"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:378
+msgid "No image results"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:475
+msgid "Image not found"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Image.php:615
+msgid "Images merged"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:28
+msgid "Must be logged in to set refresh time"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:33
+msgid "Automatic refresh removed"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:34
+msgid "Automatic refresh time updated"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:67
+msgid "Must be logged in to get refresh time"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:26
+msgid "Tag name cannot be empty"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:27
+msgid "Invalid image UID"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:30
+msgid "Invalid tag name"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:46
+msgid "Tag already exists"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:50
+msgid "Tag added"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:67
+msgid "Tag value not set"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:88
+msgid "No images with specified tag"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Theme.php:30
+msgid "Not a valid theme"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/Theme.php:44
+msgid "Theme updated"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:58
+#: ../classes/JohnVanOrange/jvo/User.php:127
+msgid "User not found"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:130
+msgid "Invalid password"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:139
+msgid "Login successful"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:161
+msgid "Logged out"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:178
+msgid "No username specified"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:179
+msgid "No password specified"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:180
+msgid "No email specified"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:185
+msgid "Username already exists"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:193
+msgid "User added"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:213
+msgid "This users saved images are not publicly shared"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:251
+msgid "This users uploaded images are not publicly shared"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:312
+msgid "Reset email sent"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:329
+msgid "Password is blank"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:337
+msgid "Password reset key not found"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:349
+msgid "User session error"
+msgstr ""
+
+#: ../classes/JohnVanOrange/jvo/User.php:361
+msgid "Password changed"
+msgstr ""
