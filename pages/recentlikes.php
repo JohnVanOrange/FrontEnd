@@ -7,7 +7,7 @@ $api = new API();
 
 $data = [
 	'images'	=>	$api->call('image/recentLikes'),
-	'title_text'	=>	'Recently Liked Images'
+	'title_text'	=>	_('Recently Liked Images')
 ];
 
 require_once('common.php');

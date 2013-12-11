@@ -9,7 +9,7 @@ $username = $route->get_data(0);
 
 $data = [
 	'profile'	=>	$api->call('user/get',array('value'=>$username,'search_by'=>'username')),
-	'title_text'	=>	'Profile for ' . $username
+	'title_text'	=>	_('Profile for') . ' ' . $username
 ];
 
 require_once('common.php');

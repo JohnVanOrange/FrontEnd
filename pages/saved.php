@@ -9,7 +9,7 @@ $username = $route->get_data(0);
 
 $data = [
 	'images'	=>	$api->call('user/saved',array('username'=>$username)),
-	'title_text'	=>	'Saved Images'
+	'title_text'	=>	_('Saved Images')
 ];
 
 require_once('common.php');

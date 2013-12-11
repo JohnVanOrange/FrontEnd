@@ -6,18 +6,18 @@
 
 	<div id='info'>
 	
-		<h1>Profile for {{ profile.username }}</h1>
+		<h1>{% trans 'Profile for' %} {{ profile.username }}</h1>
 		
 		<div class='image'>
 			<img src='http://www.gravatar.com/avatar/{{ profile.email_hash }}?s=180&d=retro&r=pg' alt='Profile image for {{ profile.username }}'>
-			{% if profile.id == user.id %}<p><a href='http://gravatar.com'>Update Profile Image with Gravatar</a></p>{% endif %}
+			{% if profile.id == user.id %}<p><a href='http://gravatar.com'>{% trans 'Update Profile Image with Gravatar' %}</a></p>{% endif %}
 		</div>
 		
 		{% if profile.id == user.id %}
 			<ul>
-				<li class='icon-floppy'><a href='/s/{{ profile.username }}'>View your saved images</a></li>
-				<li class='icon-upload'><a href='/uploads/{{ profile.username }}'>View your uploaded images</a></li>
-				<li class='icon-key'><a href='/changepw'>Change your password</a></li>
+				<li class='icon-floppy'><a href='/s/{{ profile.username }}'>{% trans 'View your saved images' %}</a></li>
+				<li class='icon-upload'><a href='/uploads/{{ profile.username }}'>{% trans 'View your uploaded images' %}</a></li>
+				<li class='icon-key'><a href='/changepw'>{% trans 'Change your password' %}</a></li>
 			</ul>
 		{% endif %}
 	

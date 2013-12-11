@@ -1,0 +1,4 @@
+#! /bin/bash
+
+php twig_extract.php
+find /tmp/twig ../classes/JohnVanOrange/jvo ../pages -iname "*.php" | xargs xgettext --default-domain=messages -p ../locale --from-code=UTF-8 -n --omit-header -L PHP -o messages.pot
