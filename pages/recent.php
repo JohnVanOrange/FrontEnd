@@ -7,7 +7,7 @@ $api = new API();
 
 $data = [
 	'images'	=>	$api->call('image/recent'),
-	'title_text'	=>	'Recently Added Images'
+	'title_text'	=>	_('Recently Added Images')
 ];
 
 require_once('common.php');
