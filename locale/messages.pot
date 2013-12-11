@@ -89,6 +89,7 @@ msgid "Error code"
 msgstr ""
 
 #: /tmp/twig/dd/b1/52ee2aa9c26cadcc17f2864bc92ebe9e5fb5151514173d9151867b195425.php:44
+#: ../pages/user.php:12
 msgid "Profile for"
 msgstr ""
 
@@ -348,6 +349,7 @@ msgid "User Profile"
 msgstr ""
 
 #: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:132
+#: ../pages/saved.php:12
 msgid "Saved Images"
 msgstr ""
 
@@ -635,4 +637,20 @@ msgstr ""
 
 #: ../classes/JohnVanOrange/jvo/Base.php:14
 msgid "Invalid method"
+msgstr ""
+
+#: ../pages/tag.php:14
+msgid "Images tagged"
+msgstr ""
+
+#: ../pages/recentlikes.php:10
+msgid "Recently Liked Images"
+msgstr ""
+
+#: ../pages/recent.php:10
+msgid "Recently Added Images"
+msgstr ""
+
+#: ../pages/uploads.php:12
+msgid "Uploaded Images"
 msgstr ""
