@@ -55,6 +55,7 @@ class User extends Base {
    break;
   }
   $user = $this->db->fetch($query);
+  if (!$user) throw new \Exception(_('User not found'), 1200);
   if (isset($user[0])) $user = $user[0];
   if (isset($user['email'])) $user['email_hash'] = md5($user['email']);
   unset($user['email']);
@@ -79,8 +80,24 @@ class User extends Base {
         ->limit(1);
   $user = $this->db->fetch($query);
   $user_id = NULL;
-  if (isset($user[0]['user_id'])) $user_id = $user[0]['user_id'];
-  return $this->get($user_id);
+  if (isset($user[0]['user_id'])) {
+   $user_id = $user[0]['user_id'];
+   try {
+    $current = $this->get($user_id);
+   }
+   catch(\Exception $e) {
+    if ($e->getCode() == 1200) {
+     $current = FALSE;
+    }
+    else {
+     throw new \Exception($e);
+    }
+   }
+  }
+  else {
+   $current = FALSE;
+  }
+ return $current;
  }
 
  private function getSID() {
@@ -107,10 +124,10 @@ class User extends Base {
   $query->where('username', '=', $username)
         ->limit(1);
   $userdata = $this->db->fetch($query);
-  if (!isset($userdata[0])) throw new \Exception('User not found');
+  if (!isset($userdata[0])) throw new \Exception(_('User not found'));
   $userdata = $userdata[0];
   $pwhash = $this->passhash($password,$userdata['salt']);
-  if ($pwhash != $userdata['password']) throw new \Exception('Invalid password');
+  if ($pwhash != $userdata['password']) throw new \Exception(_('Invalid password'));
   //succesfully login
   $sid = $this->getSecureID();
   $this->setCookie('sid', $sid);
@@ -119,7 +136,7 @@ class User extends Base {
         ->values([$userdata['id'],$sid]);
   $this->db->fetch($query);
   return array(
-   'message' => 'Login successful.',
+   'message' => _('Login successful'),
    'sid' => $sid
   );
  }
@@ -141,7 +158,7 @@ class User extends Base {
   $this->db->fetch($query);
   $this->setCookie('sid','', 1);
   return array(
-   'message' => 'Logged out.'
+   'message' => _('Logged out')
   );
  }
  
@@ -158,14 +175,14 @@ class User extends Base {
   */
 
  public function add($username, $password, $email) {
-  if (!isset($username)) throw new \Exception('No username specified');
-  if (!isset($password)) throw new \Exception('No password specified');
-  if (!isset($email)) throw new \Exception('No email specified');
+  if (!isset($username)) throw new \Exception(_('No username specified'));
+  if (!isset($password)) throw new \Exception(_('No password specified'));
+  if (!isset($email)) throw new \Exception(_('No email specified'));
   $query = new \Peyote\Select('users');
   $query->where('username', '=', $username)
         ->limit(1);
   $result = $this->db->fetch($query);
-  if ($result) throw new \Exception('Username already exists');
+  if ($result) throw new \Exception(_('Username already exists'));
   $salt = $this->getSecureID();
   $query = new \Peyote\Insert('users');
   $query->columns(['username', 'password', 'salt', 'email'])
@@ -173,7 +190,7 @@ class User extends Base {
   $this->db->fetch($query);
   $login = $this->login($username, $password);
   return array(
-   'message' => 'User added.',
+   'message' => _('User added'),
    'sid' => $login['sid']
   );
  }
@@ -193,7 +210,7 @@ class User extends Base {
   $current = $this->current($sid);
   if ($username) {
    $user = $this->get($username, 'username');
-   if ($current['id'] != $user['id']) throw new \Exception('This users saved images are not publicly shared');
+   if ($current['id'] != $user['id']) throw new \Exception(_('This users saved images are not publicly shared'));
   } else {
    $user = $current;
   }
@@ -231,7 +248,7 @@ class User extends Base {
   $current = $this->current($sid);
   if ($username) {
    $user = $this->get($username, 'username');
-   if ($current['id'] != $user['id']) throw new \Exception('This users uploaded images are not publicly shared');
+   if ($current['id'] != $user['id']) throw new \Exception(_('This users uploaded images are not publicly shared'));
   } else {
    $user = $current;
   }
@@ -279,26 +296,20 @@ class User extends Base {
   $query->columns(array_keys($data))
         ->values(array_values($data));
   $this->db->fetch($query);
-  //TODO: why is there no base method to send email?
-  $message = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
-  $message .= "Username:\n";
-  $message .= $user['username']."\n\n";
-  $message .= "Follow link to provide new password:\n";
-  $message .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
+  $body = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
+  $body .= "Username:\n";
+  $body .= $user['username']."\n\n";
+  $body .= "Follow link to provide new password:\n";
+  $body .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
   //need to get email address from db as $user->get doesn't return it for security reasons
   $query = new \Peyote\Select('users');
   $query->columns('email')
         ->where('username', '=', $username);
   $email = $this->db->fetch($query);
-  //TODO: need to handle usernames that don't exist.  Throw an exception.
-  mail(
-   $email[0]['email'],
-   'Password reset request for '. SITE_NAME,
-   $message,
-   'From: ' . SITE_EMAIL
-  );
+  $message = new Mail();
+  $message->sendMessage([$email[0]['email']], 'Password reset request for '. SITE_NAME, $body);
   return array(
-   'message' => 'Reset email sent.'
+   'message' => _('Reset email sent')
   );
  }
  
@@ -315,7 +326,7 @@ class User extends Base {
   */
  
  public function changepw($password, $auth, $type = 'sid') {
-  if (!$password) throw new \Exception('Password is blank');
+  if (!$password) throw new \Exception(_('Password is blank'));
   switch ($type) {
    case 'pwreset':
     $query = new \Peyote\Select('resources');
@@ -323,7 +334,7 @@ class User extends Base {
           ->where('value', '=', $auth)
           ->limit(1);
     $user_id = $this->db->fetch($query)[0]['user_id'];
-    if (!$user_id) throw new \Exception('Password reset key not found');
+    if (!$user_id) throw new \Exception(_('Password reset key not found'));
     $query = new \Peyote\Delete('resources');
     $query->where('value', '=', $auth)
           ->limit(1);
@@ -335,7 +346,7 @@ class User extends Base {
           ->where('sid', '=', $auth)
           ->limit(1);
     $user_id = $this->db->fetch($query)[0]['user_id'];
-    if (!$user_id) throw new \Exception('User session error');
+    if (!$user_id) throw new \Exception(_('User session error'));
     break;
   }
   $salt = $this->getSecureID();
@@ -347,7 +358,7 @@ class User extends Base {
         ->where('id', '=', $user_id);
   $this->db->fetch($query);
   return [
-   'message' => 'Password changed'
+   'message' => _('Password changed')
   ];
  }
  

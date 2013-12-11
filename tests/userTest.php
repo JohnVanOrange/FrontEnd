@@ -40,7 +40,7 @@ class userTest extends PHPUnit_Framework_TestCase {
  }
  public function test_current_nouser() {
   $current = $this->user->current();
-  $this->assertArrayNotHasKey('username', $current, 'Username shouldn\'t be present');
+  $this->assertFalse($current, 'Current user should return false');
  }
  
  /**** login ****/
@@ -65,7 +65,7 @@ class userTest extends PHPUnit_Framework_TestCase {
   $this->assertArrayHasKey('username', $current, 'Unable to verify login worked');
   $this->user->logout($sid);
   $current = $this->user->current($sid);
-  $this->assertArrayNotHasKey('username', $current, 'Logout failed');
+  $this->assertFalse($current, 'Current user should return false');
  }
  
  /**** add ****/

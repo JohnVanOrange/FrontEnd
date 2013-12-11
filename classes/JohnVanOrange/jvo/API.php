@@ -44,7 +44,7 @@ class API {
        $class_name =  $valid_classes[$class];
        break;
       default:
-       throw new \Exception('Invalid class/URL');
+       throw new \Exception(_('Invalid class/URL'));
       break;
      }
    

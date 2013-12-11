@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h1>{{ site_name }} API Docs</h1>
+	<h1>{{ site_name }} {% trans 'API Docs' %}</h1>
 	
 	<div id='apidocs'>
 	 <p>{{ site_name }} provides an API to interact with all the features available through the general website.
@@ -69,7 +69,7 @@ $.post('{{ web_root }}api/tag/add',{
 	</div>
 	
 	<div id='classes'>
-			<h2>Methods</h2>
+			<h2>{% trans 'Methods' %}</h2>
 			{% for classname in classes %}
 			 <p><a href='/docs/{{ classname }}'>{{ classname }}</a></p>
 			{% endfor %}
