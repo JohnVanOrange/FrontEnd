@@ -12,89 +12,284 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: /tmp/twig/04/cc/d3a41bdc9b9ef9c9ee6a45c929dd0adaeffb8d76443fba6aeada74cad45f.php:26
-msgid "Add Image"
-msgstr "Bild hinzufügen"
+#: /tmp/twig/db/8e/b574d486ecd1459a66ce48ea9b9405994dddb817616e837631e9c92fca3e.php:26
+#: /tmp/twig/e3/0f/1cf9731abf10698b6331a1a001af50218dc4041d00c5c0dd578000157a0c.php:90
+msgid "Add Tag"
+msgstr "Tag hinzufügen"
 
-#: /tmp/twig/04/cc/d3a41bdc9b9ef9c9ee6a45c929dd0adaeffb8d76443fba6aeada74cad45f.php:34
-msgid "Image URL"
-msgstr "Bild-URL"
+#: /tmp/twig/db/8e/b574d486ecd1459a66ce48ea9b9405994dddb817616e837631e9c92fca3e.php:34
+#: /tmp/twig/db/8e/b574d486ecd1459a66ce48ea9b9405994dddb817616e837631e9c92fca3e.php:39
+msgid "Tag"
+msgstr "Etikett"
 
-#: /tmp/twig/04/cc/d3a41bdc9b9ef9c9ee6a45c929dd0adaeffb8d76443fba6aeada74cad45f.php:45
-#: /tmp/twig/22/e2/2887292fe96002b36015a9202e7dab180d8e3be4e332bdd5c2a12fe4d144.php:36
-#: /tmp/twig/29/50/6fbd6eb710668ead15874135db76ac3ef2cadb43e27bf3dc31562beef6fb.php:52
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:116
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:69
-#: /tmp/twig/be/30/389776507115249529ae442305af9d2ea4762166cae82495bddc4e4f84b4.php:48
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:84
+#: /tmp/twig/db/8e/b574d486ecd1459a66ce48ea9b9405994dddb817616e837631e9c92fca3e.php:48
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:84
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:116
+#: /tmp/twig/1a/20/c2bc0c8ac6d39848cfc405a48dfb72b84225047103ec05fb44da4b0c4fb6.php:36
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:69
+#: /tmp/twig/b5/c3/77352d85e114a924448296fe85a3731306a6c8e75f9de132dedb0bd52bc0.php:52
+#: /tmp/twig/5c/e3/9133fa05ea265524ca89c1526816d44bec5db60acb939f42bd4b2144cf80.php:45
 msgid "Close"
 msgstr "schließen"
 
-#: /tmp/twig/04/cc/d3a41bdc9b9ef9c9ee6a45c929dd0adaeffb8d76443fba6aeada74cad45f.php:49
-#: /tmp/twig/be/30/389776507115249529ae442305af9d2ea4762166cae82495bddc4e4f84b4.php:52
+#: /tmp/twig/db/8e/b574d486ecd1459a66ce48ea9b9405994dddb817616e837631e9c92fca3e.php:52
+#: /tmp/twig/5c/e3/9133fa05ea265524ca89c1526816d44bec5db60acb939f42bd4b2144cf80.php:49
 msgid "Add"
 msgstr "hinzufügen"
 
-#: /tmp/twig/09/51/94e008fce2736f28fd72af5a208ad629eabe6ab60816cbaa26c653c2aa88.php:32
-msgid "An unexpected error occured."
-msgstr "Ein unerwarteter Fehler ist aufgetreten."
+#: /tmp/twig/e5/d0/1b3b3de4ef2452b5fa45004ddc3d39720e659830a100ae9ecc676799879d.php:34
+msgid "Merge Admin"
+msgstr "Merge Admin"
 
-#: /tmp/twig/09/51/94e008fce2736f28fd72af5a208ad629eabe6ab60816cbaa26c653c2aa88.php:34
-msgid "Error code"
-msgstr "Fehlercode"
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:26
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:289
+msgid "Create Account"
+msgstr "Konto erstellen"
 
-#: /tmp/twig/09/51/94e008fce2736f28fd72af5a208ad629eabe6ab60816cbaa26c653c2aa88.php:40
-#: /tmp/twig/27/ea/a9ae66dac9e6455236a80de41f0572f6261cb21b4c46ce307558f3e90542.php:42
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:34
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:39
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:34
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:39
+#: /tmp/twig/b5/c3/77352d85e114a924448296fe85a3731306a6c8e75f9de132dedb0bd52bc0.php:38
+#: /tmp/twig/b5/c3/77352d85e114a924448296fe85a3731306a6c8e75f9de132dedb0bd52bc0.php:43
+msgid "Username"
+msgstr "Benutzername"
+
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:46
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:51
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:216
+msgid "Email"
+msgstr "Email"
+
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:58
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:63
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:46
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:51
+#: /tmp/twig/65/4d/1a8b7a810bd070166904c6253550e3b30ddc556c4a23e5b2f57fc86e7fc8.php:49
+#: /tmp/twig/65/4d/1a8b7a810bd070166904c6253550e3b30ddc556c4a23e5b2f57fc86e7fc8.php:54
+msgid "Password"
+msgstr "Passwort"
+
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:70
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:75
+#: /tmp/twig/65/4d/1a8b7a810bd070166904c6253550e3b30ddc556c4a23e5b2f57fc86e7fc8.php:61
+#: /tmp/twig/65/4d/1a8b7a810bd070166904c6253550e3b30ddc556c4a23e5b2f57fc86e7fc8.php:66
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
+
+#: /tmp/twig/69/bb/1eeee20663a86bd7df6b2e9bfda8f7087926656d3995a5128e1c90853f90.php:88
+msgid "Create"
+msgstr "schaffen"
+
+#: /tmp/twig/95/77/772bcd1be743344096b09d26eb8656068f27f988ed9aadfaf1fbddc23575.php:50
+msgid "Return to Main Page"
+msgstr "Zurück zur Seite"
+
+#: /tmp/twig/15/28/c273e938251356b5cdd569b93990b36dca4dac2a76f668d8756f667fcfc0.php:34
+msgid "Privacy Policy"
+msgstr "Datenschutz"
+
+#: /tmp/twig/1d/ba/caf6567a2b2837e20817cd568f6f4412a4599ef032bc8477df509bfe22e1.php:42
+#: /tmp/twig/d3/41/ea08d48deea78a8a89b43fad6ca0a1642ae517ea49126ddc02f4d58c1712.php:40
 msgid "Error"
 msgstr "Fehler"
 
-#: /tmp/twig/0d/60/86f6a1fade6045d9bacbfcd8c6e67508d945dce6ef9c5dc67d0129017a32.php:32
-msgid "API Docs for"
-msgstr "API-Dokumentation für"
+#: /tmp/twig/d3/41/ea08d48deea78a8a89b43fad6ca0a1642ae517ea49126ddc02f4d58c1712.php:32
+msgid "An unexpected error occured."
+msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
-#: /tmp/twig/0d/60/86f6a1fade6045d9bacbfcd8c6e67508d945dce6ef9c5dc67d0129017a32.php:73
-msgid "Parameters"
-msgstr "Parameter"
+#: /tmp/twig/d3/41/ea08d48deea78a8a89b43fad6ca0a1642ae517ea49126ddc02f4d58c1712.php:34
+msgid "Error code"
+msgstr "Fehlercode"
 
-#: /tmp/twig/0d/60/86f6a1fade6045d9bacbfcd8c6e67508d945dce6ef9c5dc67d0129017a32.php:91
-msgid "Defaults to"
-msgstr "Der Standardwert ist"
-
-#: /tmp/twig/0d/60/86f6a1fade6045d9bacbfcd8c6e67508d945dce6ef9c5dc67d0129017a32.php:121
-#: /tmp/twig/c7/5f/305a934ac7c765ee85d5463b037a51912e5a9101d84949c21635fe5cf08d.php:126
-msgid "Methods"
-msgstr "Methoden"
-
-#: /tmp/twig/18/a7/0432b5a72d30a4bb13df3b8ed0063079dfb3247fd83df0b68a2937bb2880.php:44
+#: /tmp/twig/dd/b1/52ee2aa9c26cadcc17f2864bc92ebe9e5fb5151514173d9151867b195425.php:44
+#: ../pages/user.php:12
 msgid "Profile for"
 msgstr "Profil für"
 
-#: /tmp/twig/18/a7/0432b5a72d30a4bb13df3b8ed0063079dfb3247fd83df0b68a2937bb2880.php:60
+#: /tmp/twig/dd/b1/52ee2aa9c26cadcc17f2864bc92ebe9e5fb5151514173d9151867b195425.php:60
 msgid "Update Profile Image with Gravatar"
 msgstr "Aktualisieren Profilbild mit Gravatar"
 
-#: /tmp/twig/18/a7/0432b5a72d30a4bb13df3b8ed0063079dfb3247fd83df0b68a2937bb2880.php:75
+#: /tmp/twig/dd/b1/52ee2aa9c26cadcc17f2864bc92ebe9e5fb5151514173d9151867b195425.php:75
 msgid "View your saved images"
 msgstr "Sehen Sie Ihre gespeicherten Bilder"
 
-#: /tmp/twig/18/a7/0432b5a72d30a4bb13df3b8ed0063079dfb3247fd83df0b68a2937bb2880.php:81
+#: /tmp/twig/dd/b1/52ee2aa9c26cadcc17f2864bc92ebe9e5fb5151514173d9151867b195425.php:81
 msgid "View your uploaded images"
 msgstr "Sehen Sie Ihre hochgeladenen Bilder"
 
-#: /tmp/twig/18/a7/0432b5a72d30a4bb13df3b8ed0063079dfb3247fd83df0b68a2937bb2880.php:85
+#: /tmp/twig/dd/b1/52ee2aa9c26cadcc17f2864bc92ebe9e5fb5151514173d9151867b195425.php:85
 msgid "Change your password"
 msgstr "Ändern Sie Ihr Passwort"
 
-#: /tmp/twig/22/e2/2887292fe96002b36015a9202e7dab180d8e3be4e332bdd5c2a12fe4d144.php:26
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:222
+#: /tmp/twig/e3/0f/1cf9731abf10698b6331a1a001af50218dc4041d00c5c0dd578000157a0c.php:42
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:48
+#: /tmp/twig/e6/a3/5a0d94b26ba8aa04a9db510846cadc07549d2e8069ff151400c869e0a589.php:58
+msgid "Main Image"
+msgstr "Main Image"
+
+#: /tmp/twig/e3/0f/1cf9731abf10698b6331a1a001af50218dc4041d00c5c0dd578000157a0c.php:82
+msgid "no current tags"
+msgstr "keine aktuellen Tags"
+
+#: /tmp/twig/e3/0f/1cf9731abf10698b6331a1a001af50218dc4041d00c5c0dd578000157a0c.php:105
+#: /tmp/twig/e3/0f/1cf9731abf10698b6331a1a001af50218dc4041d00c5c0dd578000157a0c.php:107
+msgid "Pin It"
+msgstr "Pin It"
+
+#: /tmp/twig/40/ef/52378f01e0391eaa3d1b75d7460083e4ebe8312702f2168f39175f95206f.php:34
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:323
+msgid "API Docs"
+msgstr "API Doks"
+
+#: /tmp/twig/40/ef/52378f01e0391eaa3d1b75d7460083e4ebe8312702f2168f39175f95206f.php:126
+#: /tmp/twig/c8/b8/b27842769a89e7a9e36ec40f864db66720d5ed63808d252a74bdfb0d7976.php:121
+msgid "Methods"
+msgstr "Methoden"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:26
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:319
+msgid "Keyboard Shortcuts"
+msgstr "Tastenkombinationen"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:35
+msgid "Key"
+msgstr "Taste"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:39
+msgid "action"
+msgstr "Wirkung"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:47
+msgid "space"
+msgstr "Leertaste"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:51
+msgid "Load random image"
+msgstr "Legen zufälliges Bild"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:58
+msgid "Go back in browser history"
+msgstr "Gehe zurück in die Browser-History"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:65
+msgid "Go forward in browser history"
+msgstr "Gehe vorwärts in Browser-History"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:72
+msgid "Add tag"
+msgstr "Tag hinzufügen"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:79
+msgid "Report image"
+msgstr "Bildbericht"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:90
+msgid "Save image"
+msgstr "Bild speichern"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:97
+msgid "Like image"
+msgstr "Wie Bild"
+
+#: /tmp/twig/94/c3/094b0cf3b811037932a270f35656b5876067a55b082b06c3b6fc4cf7e99b.php:104
+msgid "Dislike image"
+msgstr "Bild Dislike"
+
+#: /tmp/twig/1a/20/c2bc0c8ac6d39848cfc405a48dfb72b84225047103ec05fb44da4b0c4fb6.php:26
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:222
 msgid "Report Image"
 msgstr "Bild melden"
 
-#: /tmp/twig/29/50/6fbd6eb710668ead15874135db76ac3ef2cadb43e27bf3dc31562beef6fb.php:26
+#: /tmp/twig/20/9f/c0d09ade721c8bd5712c62eba9079b2f128a491ab156c738eb8c4eaad91f.php:34
+msgid "Image Mass Approval"
+msgstr "Bild Messe Zulassung"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:39
+msgid "Image Details"
+msgstr "Bild-Details"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:56
+msgid "Type"
+msgstr "Typ"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:62
+msgid "Width"
+msgstr "Breite"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:68
+msgid "Height"
+msgstr "Höhe"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:76
+msgid "Added on"
+msgstr "Hinzugefügt am"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:85
+msgid "Uploaded by"
+msgstr "hochgeladen von"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:99
+msgid "Flagged NSFW"
+msgstr "Gekennzeichnete NSFW"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:109
+msgid "Saved"
+msgstr "speichern"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:112
+msgid "on"
+msgstr "auf"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:125
+msgid "Tags"
+msgstr "Etikett"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:150
+msgid "External Resources"
+msgstr "Externe Ressourcen"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:156
+msgid "Additional image info (EXIF and technical data)"
+msgstr "Zusätzliche Bildinfo (EXIF und technische Daten)"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:162
+msgid "Reverse Google search"
+msgstr "Reverse-Google-Suche"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:168
+msgid "Reverse Tineye search"
+msgstr "Tineye Reverse-Suche"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:174
+msgid "Image tools"
+msgstr "Bild Tools"
+
+#: /tmp/twig/cf/42/a4a478de6b060edab4f2876710fef1a8c12f9a37f3174784f1c0922f1b94.php:182
+msgid "Comments"
+msgstr "Kommentare"
+
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:26
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:73
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:153
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:285
+msgid "Login"
+msgstr "Anmelden"
+
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:59
+msgid "Don't have an account?"
+msgstr "Sie haben noch kein Konto?"
+
+#: /tmp/twig/35/a8/fd133b4c2dd6a10abd7e5eea596cbef41e4cf78370479fe8157b9ffe221f.php:64
+msgid "Forgot Password?"
+msgstr "Passwort vergessen?"
+
+#: /tmp/twig/b5/c3/77352d85e114a924448296fe85a3731306a6c8e75f9de132dedb0bd52bc0.php:26
 msgid "Forgot Password"
 msgstr "Passwort vergessen"
 
-#: /tmp/twig/29/50/6fbd6eb710668ead15874135db76ac3ef2cadb43e27bf3dc31562beef6fb.php:32
+#: /tmp/twig/b5/c3/77352d85e114a924448296fe85a3731306a6c8e75f9de132dedb0bd52bc0.php:32
 msgid ""
 "Enter your username and an email will be sent with a link to reset the "
 "password on your account."
@@ -102,351 +297,215 @@ msgstr ""
 "Geben Sie Ihren Benutzernamen und eine E-Mail mit einem Link geschickt, um "
 "das Passwort für Ihr Konto zurückgesetzt werden."
 
-#: /tmp/twig/29/50/6fbd6eb710668ead15874135db76ac3ef2cadb43e27bf3dc31562beef6fb.php:38
-#: /tmp/twig/29/50/6fbd6eb710668ead15874135db76ac3ef2cadb43e27bf3dc31562beef6fb.php:43
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:34
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:39
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:34
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:39
-msgid "Username"
-msgstr "Benutzername"
-
-#: /tmp/twig/29/50/6fbd6eb710668ead15874135db76ac3ef2cadb43e27bf3dc31562beef6fb.php:56
+#: /tmp/twig/b5/c3/77352d85e114a924448296fe85a3731306a6c8e75f9de132dedb0bd52bc0.php:56
 msgid "Submit"
 msgstr "einreichen"
 
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:26
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:319
-msgid "Keyboard Shortcuts"
-msgstr "Tastenkombinationen"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:35
-msgid "Key"
-msgstr "Taste"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:39
-msgid "action"
-msgstr "Wirkung"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:47
-msgid "space"
-msgstr "Leertaste"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:51
-msgid "Load random image"
-msgstr "Legen zufälliges Bild"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:58
-msgid "Go back in browser history"
-msgstr "Gehe zurück in die Browser-History"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:65
-msgid "Go forward in browser history"
-msgstr "Gehe vorwärts in Browser-History"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:72
-msgid "Add tag"
-msgstr "Tag hinzufügen"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:79
-msgid "Report image"
-msgstr "Bildbericht"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:90
-msgid "Save image"
-msgstr "Bild speichern"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:97
-msgid "Like image"
-msgstr "Wie Bild"
-
-#: /tmp/twig/2b/af/bf12f4821a4183ae1a925cfa2ed45402eab7c881f0e1b2d88c478472f5d1.php:104
-msgid "Dislike image"
-msgstr "Bild Dislike"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:114
-msgid "User avatar"
-msgstr "Benutzeravatar"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:126
-msgid "User Profile"
-msgstr "Benutzerprofil"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:132
-msgid "Saved Images"
-msgstr "gespeicherte Bilder"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:138
-msgid "Uploads"
-msgstr "Uploads"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:142
-#: /tmp/twig/f9/21/dd79ae0058fe3129d4be5a1aea2246f651031b2841c5a9aa94bf91f5fff1.php:33
-#: /tmp/twig/f9/21/dd79ae0058fe3129d4be5a1aea2246f651031b2841c5a9aa94bf91f5fff1.php:72
+#: /tmp/twig/65/4d/1a8b7a810bd070166904c6253550e3b30ddc556c4a23e5b2f57fc86e7fc8.php:33
+#: /tmp/twig/65/4d/1a8b7a810bd070166904c6253550e3b30ddc556c4a23e5b2f57fc86e7fc8.php:72
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:142
 msgid "Change Password"
 msgstr "Kennwort ändern"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:146
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:294
-msgid "Logout"
-msgstr "Abmelden"
+#: /tmp/twig/5c/e3/9133fa05ea265524ca89c1526816d44bec5db60acb939f42bd4b2144cf80.php:26
+msgid "Add Image"
+msgstr "Bild hinzufügen"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:153
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:285
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:26
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:73
-msgid "Login"
-msgstr "Anmelden"
+#: /tmp/twig/5c/e3/9133fa05ea265524ca89c1526816d44bec5db60acb939f42bd4b2144cf80.php:34
+msgid "Image URL"
+msgstr "Bild-URL"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:166
-msgid "Dislike Image"
-msgstr "Dislike Bild"
+#: /tmp/twig/c8/b8/b27842769a89e7a9e36ec40f864db66720d5ed63808d252a74bdfb0d7976.php:32
+msgid "API Docs for"
+msgstr "API-Dokumentation für"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:174
-msgid "Like Image"
-msgstr "Ähnliches Bild"
+#: /tmp/twig/c8/b8/b27842769a89e7a9e36ec40f864db66720d5ed63808d252a74bdfb0d7976.php:73
+msgid "Parameters"
+msgstr "Parameter"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:181
-msgid "Upload Image"
-msgstr "Bildgalerie"
+#: /tmp/twig/c8/b8/b27842769a89e7a9e36ec40f864db66720d5ed63808d252a74bdfb0d7976.php:91
+msgid "Defaults to"
+msgstr "Der Standardwert ist"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:185
-msgid "Add Image from URL"
-msgstr "In Bild aus URL"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:195
-msgid "Save Image"
-msgstr "Bild speichern"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:216
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:46
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:51
-msgid "Email"
-msgstr "Email"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:238
-msgid "Search using Google"
-msgstr "Suchen mit Google"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:244
-msgid "Search using Tineye"
-msgstr "Suche mit Tineye"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:250
-msgid "Details"
-msgstr "Details"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:256
-msgid "View Fullscreen"
-msgstr "Vollbild anzeigen"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:264
-#: /tmp/twig/9c/9e/3e80a6f2a79baa3bea38f3a29cbb57e55ef2ae88654a061b9c3e8c572830.php:34
+#: /tmp/twig/e6/a3/5a0d94b26ba8aa04a9db510846cadc07549d2e8069ff151400c869e0a589.php:34
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:264
 msgid "Image Admin"
 msgstr "Bild Admin"
 
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:274
-msgid "Search tags"
-msgstr "Suche nach Tags"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:276
-msgid "Search"
-msgstr "Suche"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:289
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:26
-msgid "Create Account"
-msgstr "Konto erstellen"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:300
-msgid "Firefox Web App"
-msgstr "Firefox Web App"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:310
-msgid "Android App"
-msgstr "Android App"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:315
-msgid "Suggestions/Bugs"
-msgstr "Anregungen/Bugs"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:323
-#: /tmp/twig/c7/5f/305a934ac7c765ee85d5463b037a51912e5a9101d84949c21635fe5cf08d.php:34
-msgid "API Docs"
-msgstr "API Doks"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:350
-msgid "Legal"
-msgstr "Legal"
-
-#: /tmp/twig/39/df/de9c1f7357c2666a23420f6b7c3a2addb87d04f8a585ef890f6a5a7cb7c4.php:354
-msgid "Privacy"
-msgstr "Privatleben"
-
-#: /tmp/twig/53/c9/caea3c06182b59a18f95854f1ec09908c29eef4438acff62094b48add735.php:34
-msgid "Privacy Policy"
-msgstr "Datenschutz"
-
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:46
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:51
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:58
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:63
-#: /tmp/twig/f9/21/dd79ae0058fe3129d4be5a1aea2246f651031b2841c5a9aa94bf91f5fff1.php:49
-#: /tmp/twig/f9/21/dd79ae0058fe3129d4be5a1aea2246f651031b2841c5a9aa94bf91f5fff1.php:54
-msgid "Password"
-msgstr "Passwort"
-
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:59
-msgid "Don't have an account?"
-msgstr "Sie haben noch kein Konto?"
-
-#: /tmp/twig/58/a5/82d94b3601d8ee430fc165c8521a93149386886a79598a998fc38c8685f6.php:64
-msgid "Forgot Password?"
-msgstr "Passwort vergessen?"
-
-#: /tmp/twig/8c/a8/ade6bfb1efa93de565a0a710b774a63f9f253e7d807306d0a469ce494384.php:50
-msgid "Return to Main Page"
-msgstr "Zurück zur Seite"
-
-#: /tmp/twig/94/2f/5dbc3aa0fba88ff55cd89c29df449b1b4faf046cb847562a940d7fa50a32.php:34
-msgid "Site Terms and Conditions of Use"
-msgstr "Website-Nutzungsbedingungen und AGB"
-
-#: /tmp/twig/9c/9e/3e80a6f2a79baa3bea38f3a29cbb57e55ef2ae88654a061b9c3e8c572830.php:41
+#: /tmp/twig/e6/a3/5a0d94b26ba8aa04a9db510846cadc07549d2e8069ff151400c869e0a589.php:41
 msgid "Approve"
 msgstr "genehmigen"
 
-#: /tmp/twig/9c/9e/3e80a6f2a79baa3bea38f3a29cbb57e55ef2ae88654a061b9c3e8c572830.php:43
+#: /tmp/twig/e6/a3/5a0d94b26ba8aa04a9db510846cadc07549d2e8069ff151400c869e0a589.php:43
 msgid "Approve as NSFW"
 msgstr "Genehmigen als NSFW"
 
-#: /tmp/twig/9c/9e/3e80a6f2a79baa3bea38f3a29cbb57e55ef2ae88654a061b9c3e8c572830.php:45
+#: /tmp/twig/e6/a3/5a0d94b26ba8aa04a9db510846cadc07549d2e8069ff151400c869e0a589.php:45
 msgid "Reject"
 msgstr "ablehnen"
 
-#: /tmp/twig/9c/9e/3e80a6f2a79baa3bea38f3a29cbb57e55ef2ae88654a061b9c3e8c572830.php:47
+#: /tmp/twig/e6/a3/5a0d94b26ba8aa04a9db510846cadc07549d2e8069ff151400c869e0a589.php:47
 msgid "Skip"
 msgstr "überspringen"
 
-#: /tmp/twig/9c/9e/3e80a6f2a79baa3bea38f3a29cbb57e55ef2ae88654a061b9c3e8c572830.php:58
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:48
-#: /tmp/twig/f6/09/76d7ad6ad9c2ef0eb22eb58751179f6bdf7eefe0f90780cc4612dec593ff.php:42
-msgid "Main Image"
-msgstr "Main Image"
-
-#: /tmp/twig/b5/ac/e1047f9eea139238cdea48fe8c0ad958526035ada1737d690d4d362f40b8.php:32
+#: /tmp/twig/12/4f/010d4daa418a9a0491ea0c8104e22d0243ddd68acb3851c4d8bccea7c78a.php:32
 msgid "Tag Cloud"
 msgstr "Tag Cloud"
 
-#: /tmp/twig/be/30/389776507115249529ae442305af9d2ea4762166cae82495bddc4e4f84b4.php:26
-#: /tmp/twig/f6/09/76d7ad6ad9c2ef0eb22eb58751179f6bdf7eefe0f90780cc4612dec593ff.php:90
-msgid "Add Tag"
-msgstr "Tag hinzufügen"
+#: /tmp/twig/12/30/714f15b8ecc5f188e96cd3db6b0fb07ee56484e202917319373107b66fcc.php:34
+msgid "Site Terms and Conditions of Use"
+msgstr "Website-Nutzungsbedingungen und AGB"
 
-#: /tmp/twig/be/30/389776507115249529ae442305af9d2ea4762166cae82495bddc4e4f84b4.php:34
-#: /tmp/twig/be/30/389776507115249529ae442305af9d2ea4762166cae82495bddc4e4f84b4.php:39
-msgid "Tag"
-msgstr "Etikett"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:114
+msgid "User avatar"
+msgstr "Benutzeravatar"
 
-#: /tmp/twig/bf/51/aca2486cd87a002722949eb0969ca0c36b647c0bec107ddb2497d2764d1e.php:34
-msgid "Merge Admin"
-msgstr "Merge Admin"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:126
+msgid "User Profile"
+msgstr "Benutzerprofil"
 
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:70
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:75
-#: /tmp/twig/f9/21/dd79ae0058fe3129d4be5a1aea2246f651031b2841c5a9aa94bf91f5fff1.php:61
-#: /tmp/twig/f9/21/dd79ae0058fe3129d4be5a1aea2246f651031b2841c5a9aa94bf91f5fff1.php:66
-msgid "Confirm Password"
-msgstr "Passwort bestätigen"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:132
+#: ../pages/saved.php:12
+msgid "Saved Images"
+msgstr "gespeicherte Bilder"
 
-#: /tmp/twig/d7/aa/6074c3e75c2804eaf361bab224b6fa5b1d3e5153ae56501c44f18e807658.php:88
-msgid "Create"
-msgstr "schaffen"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:138
+msgid "Uploads"
+msgstr "Uploads"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:39
-msgid "Image Details"
-msgstr "Bild-Details"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:146
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:294
+msgid "Logout"
+msgstr "Abmelden"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:56
-msgid "Type"
-msgstr "Typ"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:166
+msgid "Dislike Image"
+msgstr "Dislike Bild"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:62
-msgid "Width"
-msgstr "Breite"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:174
+msgid "Like Image"
+msgstr "Ähnliches Bild"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:68
-msgid "Height"
-msgstr "Höhe"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:181
+msgid "Upload Image"
+msgstr "Bildgalerie"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:76
-msgid "Added on"
-msgstr "Hinzugefügt am"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:185
+msgid "Add Image from URL"
+msgstr "In Bild aus URL"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:85
-msgid "Uploaded by"
-msgstr "hochgeladen von"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:195
+msgid "Save Image"
+msgstr "Bild speichern"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:99
-msgid "Flagged NSFW"
-msgstr "Gekennzeichnete NSFW"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:238
+msgid "Search using Google"
+msgstr "Suchen mit Google"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:109
-msgid "Saved"
-msgstr "speichern"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:244
+msgid "Search using Tineye"
+msgstr "Suche mit Tineye"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:112
-msgid "on"
-msgstr "auf"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:250
+msgid "Details"
+msgstr "Details"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:125
-msgid "Tags"
-msgstr "Etikett"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:256
+msgid "View Fullscreen"
+msgstr "Vollbild anzeigen"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:150
-msgid "External Resources"
-msgstr "Externe Ressourcen"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:274
+msgid "Search tags"
+msgstr "Suche nach Tags"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:156
-msgid "Additional image info (EXIF and technical data)"
-msgstr "Zusätzliche Bildinfo (EXIF und technische Daten)"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:276
+msgid "Search"
+msgstr "Suche"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:162
-msgid "Reverse Google search"
-msgstr "Reverse-Google-Suche"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:300
+msgid "Firefox Web App"
+msgstr "Firefox Web App"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:168
-msgid "Reverse Tineye search"
-msgstr "Tineye Reverse-Suche"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:310
+msgid "Android App"
+msgstr "Android App"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:174
-msgid "Image tools"
-msgstr "Bild Tools"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:315
+msgid "Suggestions/Bugs"
+msgstr "Anregungen/Bugs"
 
-#: /tmp/twig/da/8d/efa821ea46b0caec987411f06dd61f04c9575318560fcc34d67f2e0f4ce7.php:182
-msgid "Comments"
-msgstr "Kommentare"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:350
+msgid "Legal"
+msgstr "Legal"
 
-#: /tmp/twig/f6/09/76d7ad6ad9c2ef0eb22eb58751179f6bdf7eefe0f90780cc4612dec593ff.php:82
-msgid "no current tags"
-msgstr "keine aktuellen Tags"
+#: /tmp/twig/8f/f1/a489799fee390db474514dd1c4aadb84599a05571c4c24c42e796c8192cb.php:354
+msgid "Privacy"
+msgstr "Privatleben"
 
-#: /tmp/twig/f6/09/76d7ad6ad9c2ef0eb22eb58751179f6bdf7eefe0f90780cc4612dec593ff.php:105
-#: /tmp/twig/f6/09/76d7ad6ad9c2ef0eb22eb58751179f6bdf7eefe0f90780cc4612dec593ff.php:107
-msgid "Pin It"
-msgstr "Pin It"
+#: ../classes/JohnVanOrange/jvo/Tag.php:26
+msgid "Tag name cannot be empty"
+msgstr "Tag-Name darf nicht leer sein"
 
-#: /tmp/twig/f9/40/b7d49f50e71c744584e153fbc74732a1593e78dfd77814a3013d71bffef3.php:34
-msgid "Image Mass Approval"
-msgstr "Bild Messe Zulassung"
+#: ../classes/JohnVanOrange/jvo/Tag.php:27
+msgid "Invalid image UID"
+msgstr "Falsches Bild UID"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:30
+msgid "Invalid tag name"
+msgstr "Ungültige Tag-Namen"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:46
+msgid "Tag already exists"
+msgstr "Tag existiert bereits"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:50
+msgid "Tag added"
+msgstr "Tag hinzugefügt"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:67
+msgid "Tag value not set"
+msgstr "Tag-Wert nicht festgelegt"
+
+#: ../classes/JohnVanOrange/jvo/Tag.php:88
+msgid "No images with specified tag"
+msgstr "Keine Bilder mit bestimmten Tags"
+
+#: ../classes/JohnVanOrange/jvo/Theme.php:30
+msgid "Not a valid theme"
+msgstr "Kein gültiges Thema"
+
+#: ../classes/JohnVanOrange/jvo/Theme.php:44
+msgid "Theme updated"
+msgstr "Theme aktualisiert"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:28
+msgid "Must be logged in to set refresh time"
+msgstr "Müssen eingeloggt sein, um Aktualisierungszeit eingestellt"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:33
+msgid "Automatic refresh removed"
+msgstr "Automatische Aktualisierung entfernt"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:34
+msgid "Automatic refresh time updated"
+msgstr "Automatische Aktualisierung Zeit aktualisiert"
+
+#: ../classes/JohnVanOrange/jvo/Refresh.php:67
+msgid "Must be logged in to get refresh time"
+msgstr "Müssen eingeloggt sein, um Refresh-Zeit erhalten"
 
 #: ../classes/JohnVanOrange/jvo/API.php:47
 msgid "Invalid class/URL"
 msgstr "Ungültige Klassen / URL"
 
-#: ../classes/JohnVanOrange/jvo/Base.php:14
-msgid "Invalid method"
-msgstr "Ungültige Methode"
+#: ../classes/JohnVanOrange/jvo/Resource.php:32
+#: ../classes/JohnVanOrange/jvo/Image.php:128
+#: ../classes/JohnVanOrange/jvo/Image.php:160
+#: ../classes/JohnVanOrange/jvo/Image.php:328
+#: ../classes/JohnVanOrange/jvo/Image.php:351
+#: ../classes/JohnVanOrange/jvo/Image.php:603
+msgid "Must be an admin to access method"
+msgstr "Muss ein Admin Methode zugreifen"
 
 #: ../classes/JohnVanOrange/jvo/Image.php:29
 #: ../classes/JohnVanOrange/jvo/Image.php:55
@@ -476,15 +535,6 @@ msgstr "Müssen zu unsave Bilder eingeloggt sein"
 #: ../classes/JohnVanOrange/jvo/Image.php:109
 msgid "Image unsaved"
 msgstr "Bild nicht gespeicherte"
-
-#: ../classes/JohnVanOrange/jvo/Image.php:128
-#: ../classes/JohnVanOrange/jvo/Image.php:160
-#: ../classes/JohnVanOrange/jvo/Image.php:328
-#: ../classes/JohnVanOrange/jvo/Image.php:351
-#: ../classes/JohnVanOrange/jvo/Image.php:603
-#: ../classes/JohnVanOrange/jvo/Resource.php:32
-msgid "Must be an admin to access method"
-msgstr "Muss ein Admin Methode zugreifen"
 
 #: ../classes/JohnVanOrange/jvo/Image.php:143
 msgid "Image approved"
@@ -535,58 +585,6 @@ msgstr "Bild nicht gefunden"
 #: ../classes/JohnVanOrange/jvo/Image.php:615
 msgid "Images merged"
 msgstr "Bilder verschmolzen"
-
-#: ../classes/JohnVanOrange/jvo/Refresh.php:28
-msgid "Must be logged in to set refresh time"
-msgstr "Müssen eingeloggt sein, um Aktualisierungszeit eingestellt"
-
-#: ../classes/JohnVanOrange/jvo/Refresh.php:33
-msgid "Automatic refresh removed"
-msgstr "Automatische Aktualisierung entfernt"
-
-#: ../classes/JohnVanOrange/jvo/Refresh.php:34
-msgid "Automatic refresh time updated"
-msgstr "Automatische Aktualisierung Zeit aktualisiert"
-
-#: ../classes/JohnVanOrange/jvo/Refresh.php:67
-msgid "Must be logged in to get refresh time"
-msgstr "Müssen eingeloggt sein, um Refresh-Zeit erhalten"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:26
-msgid "Tag name cannot be empty"
-msgstr "Tag-Name darf nicht leer sein"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:27
-msgid "Invalid image UID"
-msgstr "Falsches Bild UID"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:30
-msgid "Invalid tag name"
-msgstr "Ungültige Tag-Namen"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:46
-msgid "Tag already exists"
-msgstr "Tag existiert bereits"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:50
-msgid "Tag added"
-msgstr "Tag hinzugefügt"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:67
-msgid "Tag value not set"
-msgstr "Tag-Wert nicht festgelegt"
-
-#: ../classes/JohnVanOrange/jvo/Tag.php:88
-msgid "No images with specified tag"
-msgstr "Keine Bilder mit bestimmten Tags"
-
-#: ../classes/JohnVanOrange/jvo/Theme.php:30
-msgid "Not a valid theme"
-msgstr "Kein gültiges Thema"
-
-#: ../classes/JohnVanOrange/jvo/Theme.php:44
-msgid "Theme updated"
-msgstr "Theme aktualisiert"
 
 #: ../classes/JohnVanOrange/jvo/User.php:58
 #: ../classes/JohnVanOrange/jvo/User.php:127
@@ -652,3 +650,23 @@ msgstr "Benutzersitzung Fehler"
 #: ../classes/JohnVanOrange/jvo/User.php:361
 msgid "Password changed"
 msgstr "Das Passwort wurde geändert"
+
+#: ../classes/JohnVanOrange/jvo/Base.php:14
+msgid "Invalid method"
+msgstr "Ungültige Methode"
+
+#: ../pages/tag.php:14
+msgid "Images tagged"
+msgstr "Bilder getaggt"
+
+#: ../pages/recentlikes.php:10
+msgid "Recently Liked Images"
+msgstr "Kürzlich Zufrieden Images"
+
+#: ../pages/recent.php:10
+msgid "Recently Added Images"
+msgstr "Kürzlich hinzugefügt Images"
+
+#: ../pages/uploads.php:12
+msgid "Uploaded Images"
+msgstr "Hochgeladene Bilder"
