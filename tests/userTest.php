@@ -73,7 +73,7 @@ class userTest extends PHPUnit_Framework_TestCase {
   $uid = new Uid;
   $uid = $uid->generate(10);
   $create = $this->user->add('test_'.$uid, 'testpass_'.$uid, 'test@example.com');
-  $this->assertEquals($create['message'], 'User added.');
+  $this->assertEquals($create['message'], 'User added');
  }
  public function test_add_no_username() {
   try {
