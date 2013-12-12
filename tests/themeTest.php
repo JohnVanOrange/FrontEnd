@@ -21,7 +21,7 @@ class themeTest extends PHPUnit_Framework_TestCase {
  //Not currently testing any of the cookie based functionality
  public function test_set_loggedin_success() {
   $result = $this->theme->set('dark',$this->sid);
-  $this->assertEquals('Theme updated.',$result['message']);
+  $this->assertEquals($result['message'],'Theme updated');
  }
  public function test_set_loggedin_fail() {
   try {
