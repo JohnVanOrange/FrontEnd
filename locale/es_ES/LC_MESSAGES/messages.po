@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"Language: es_ES\n"
+"Language: es\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: /tmp/twig/db/8e/b574d486ecd1459a66ce48ea9b9405994dddb817616e837631e9c92fca3e.php:26
