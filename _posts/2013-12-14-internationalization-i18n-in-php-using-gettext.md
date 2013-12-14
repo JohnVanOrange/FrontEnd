@@ -45,22 +45,23 @@ Once you have the POT file, there is a GUI tool called <a href='http://www.poedi
 With POEdit open, you can simply go to `File > New Catalog from POT file` and it will set up a new catalog.  A catalog will be the specific translation for a language.  I created a `locale` directory for the translations.  Inside that directory, there should be directories for each locale, such as `de_DE` and `fr`.  Inside those directories, there needs to be an `LC_MESSAGES` directory. Inside of that will be the catalog which should be named something like `messages.po`.  The structure will look like this:
 
     locale/
-    ... de_DE
-    .   ... LC_MESSAGES
-    .       ... messages.mo
-    .       ... messages.po
-    ... es_ES
-    .   ... LC_MESSAGES
-    .       ... messages.mo
-    .       ... messages.po
-    ... fr
-    .   ... LC_MESSAGES
-    .       ... messages.mo
-    .       ... messages.po
-    ... messages.pot
-    ... zh_CN
-        ... LC_MESSAGES
-            ... messages.mo
+    ├── de_DE
+    │   └── LC_MESSAGES
+    │       ├── messages.mo
+    │       └── messages.po
+    ├── es_ES
+    │   └── LC_MESSAGES
+    │       ├── messages.mo
+    │       └── messages.po
+    ├── fr
+    │   └── LC_MESSAGES
+    │       ├── messages.mo
+    │       └── messages.po
+    ├── messages.pot
+    └── zh_CN
+        └── LC_MESSAGES
+            ├── messages.mo
+            └── messages.po
 
 The `messages.mo` files are automatically created by POEdit.
 
