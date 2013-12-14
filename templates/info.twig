@@ -13,7 +13,7 @@
 	 <li>{% trans 'Type' %}: <span class='data'>{{ image.type|upper }}</span></li>
 	 <li>{% trans 'Width' %}: <span class='data'>{{ image.width }}px</span></li>
 	 <li>{% trans 'Height' %}: <span class='data'>{{ image.height }}px</span></li>
-	 {% if image.data.upload %}<li>{% trans 'Added on' %} {{ image.data.upload.created|date("M d, Y") }}</li>{% endif %}
+	 {% if image.added %}<li>{% trans 'Added on' %} {{ image.added|date("M d, Y") }}</li>{% endif %}
 	 {% if image.uploader.username %}<li>{% trans 'Uploaded by' %} <a href='/u/{{ image.uploader.username }}'>{{ image.uploader.username }}</a></li>{% endif %}
 	 {% if image.approved %}
 		{% if image.nsfw == '1' %}<li>{% trans 'Flagged NSFW' %}</li>{% endif %}
