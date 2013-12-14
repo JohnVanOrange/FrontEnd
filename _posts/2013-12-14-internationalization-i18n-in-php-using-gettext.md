@@ -9,7 +9,7 @@ tags: []
 
 John VanOrange doesn't currently have a large international audience, but at the same time, there has slowly been an increase in traffic from non-English speaking users. Since the site is primarily based on images, the language probably isn't a huge factor on the usability. However, I'm sure people would prefer to use an interface in their native language.  So I started on a project to add the ability to display the interface in multiple languages.  It's not as difficult as you may think, but it does require a number of pieces to make it work.
 
-For some background, here is the currently running setup that John VanOrange is running:
+For some background, here is the current setup that John VanOrange is running:
 
 * Apache 2.2
 * PHP 5.4
