@@ -3,7 +3,7 @@ layout: post
 title: "Internationalization (i18n) in PHP using Gettext"
 description: ""
 category: ""
-tags: []
+tags: ['i18n', 'gettext', 'php', 'poedit']
 ---
 {% include JB/setup %}
 
