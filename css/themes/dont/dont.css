@@ -297,22 +297,14 @@ fieldset[disabled] .btn-primary.active {
   display: inline-block;
   padding-right: 8px;
 }
-#info h1 {
-  margin-bottom: 1em;
-}
-#info .image {
-  float: right;
-  margin-right: 10%;
-}
-#info img {
+.colpage img {
   -moz-border-radius: 6px 6px 6px 6px;
   -webkit-border-radius: 6px 6px 6px 6px;
   border-radius: 6px 6px 6px 6px;
 }
-#info ul {
+.colpage ul {
   text-align: left;
   margin-left: 20%;
-  width: 35%;
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.5);
   -moz-border-radius: 8px 8px 8px 8px;
@@ -320,17 +312,17 @@ fieldset[disabled] .btn-primary.active {
   border-radius: 8px 8px 8px 8px;
   list-style: none;
 }
-#info ul li ul {
+.colpage ul li ul {
   margin-left: 0;
   width: 100%;
   padding: 0;
   background: 0;
 }
-#info ul li ul li {
+.colpage ul li ul li {
   list-style: none;
   margin-left: 1em;
 }
-#info .data {
+.colpage .data {
   font-family: monospace, serif;
 }
 #info_bg {

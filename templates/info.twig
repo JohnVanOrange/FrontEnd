@@ -1,41 +1,41 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<img src='{{ image.image_url }}' alt='Background image' id='info_bg' />
-	
-	<div id='info'>
-	
-	<h1>{% trans 'Image Details' %}</h1>
-	
-	<a href='{{ image.page_url }}'><img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.thumb_url }}' /></a>
-	
-	<ul>
-	 <li>{% trans 'Type' %}: <span class='data'>{{ image.type|upper }}</span></li>
-	 <li>{% trans 'Width' %}: <span class='data'>{{ image.width }}px</span></li>
-	 <li>{% trans 'Height' %}: <span class='data'>{{ image.height }}px</span></li>
-	 {% if image.added %}<li>{% trans 'Added on' %} {{ image.added|date("M d, Y") }}</li>{% endif %}
-	 {% if image.uploader.username %}<li>{% trans 'Uploaded by' %} <a href='/u/{{ image.uploader.username }}'>{{ image.uploader.username }}</a></li>{% endif %}
-	 {% if image.approved %}
-		{% if image.nsfw == '1' %}<li>{% trans 'Flagged NSFW' %}</li>{% endif %}
-	 {% endif %}
-	 {% if image.saved %}<li>{% trans 'Saved' %}{% if image.data.save.created %} {% trans 'on' %} {{ image.data.save.created|date("M d, Y") }}{% endif %}</li>{% endif %}
-	 {% if image.tags.0 %}
-		<li>
-		 <ul>{% trans 'Tags' %}:
-			{% for tag in image.tags %}<li class='icon-tag'><a href='/t/{{ tag.basename }}'>{{ tag.name }}</a></li>{% endfor %}
-		 </ul>
-		</li>
-	 {% endif %}
-	 <li>
-		<ul>{% trans 'External Resources' %}:
-		 <li class='icon-picture-1'><a href='http://regex.info/exif.cgi?url={{ image.image_url }}'>{% trans 'Additional image info (EXIF and technical data)' %}</a></li>
-		 <li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={{ image.image_url }}'>{% trans 'Reverse Google search' %}</a></li>
-		 <li class='icon-search'><a href='http://tineye.com/search?url={{ image.image_url }}'>{% trans 'Reverse Tineye search' %}</a></li>
-		 <li class='icon-tools'><a href='http://imgops.com/{{ image.image_url }}'>{% trans 'Image tools' %}</a></li>
-		 {% if image.c_link != '' %}<li class='icon-comment'><a href='{{ image.c_link }}'>{% trans 'Comments' %}</a></li>{% endif %}
-		</ul>
-	 </li>
-	</ul>
-	
-	</div>
+<img src='{{ image.image_url }}' alt='Background image' id='info_bg' />
+<h1>{% trans 'Image Details' %}</h1>
+
+<div class='colpage container'>
+  <div class="col-md-6">
+    <ul>
+      <li>{% trans 'Type' %}: <span class='data'>{{ image.type|upper }}</span></li>
+      <li>{% trans 'Width' %}: <span class='data'>{{ image.width }}px</span></li>
+      <li>{% trans 'Height' %}: <span class='data'>{{ image.height }}px</span></li>
+      {% if image.added %}<li>{% trans 'Added on' %} {{ image.added|date("M d, Y") }}</li>{% endif %}
+      {% if image.uploader.username %}<li>{% trans 'Uploaded by' %} <a href='/u/{{ image.uploader.username }}'>{{ image.uploader.username }}</a></li>{% endif %}
+      {% if image.approved %}
+       {% if image.nsfw == '1' %}<li>{% trans 'Flagged NSFW' %}</li>{% endif %}
+      {% endif %}
+      {% if image.saved %}<li>{% trans 'Saved' %}{% if image.data.save.created %} {% trans 'on' %} {{ image.data.save.created|date("M d, Y") }}{% endif %}</li>{% endif %}
+      {% if image.tags.0 %}
+       <li>
+        <ul>{% trans 'Tags' %}:
+         {% for tag in image.tags %}<li class='icon-tag'><a href='/t/{{ tag.basename }}'>{{ tag.name }}</a></li>{% endfor %}
+        </ul>
+       </li>
+      {% endif %}
+      <li>
+       <ul>{% trans 'External Resources' %}:
+        <li class='icon-picture-1'><a href='http://regex.info/exif.cgi?url={{ image.image_url }}'>{% trans 'Additional image info (EXIF and technical data)' %}</a></li>
+        <li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={{ image.image_url }}'>{% trans 'Reverse Google search' %}</a></li>
+        <li class='icon-search'><a href='http://tineye.com/search?url={{ image.image_url }}'>{% trans 'Reverse Tineye search' %}</a></li>
+        <li class='icon-tools'><a href='http://imgops.com/{{ image.image_url }}'>{% trans 'Image tools' %}</a></li>
+        {% if image.c_link != '' %}<li class='icon-comment'><a href='{{ image.c_link }}'>{% trans 'Comments' %}</a></li>{% endif %}
+       </ul>
+      </li>
+     </ul>
+  </div>
+  <div class="col-md-4">
+    <a href='{{ image.page_url }}'><img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.thumb_url }}' /></a>
+  </div>
+</div>
 {% endblock %}

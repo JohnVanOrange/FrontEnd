@@ -3,16 +3,10 @@
 {% block title_prepend %}{{ title_text }} {% endblock %}
 
 {% block content %}
+<h1>{% trans 'Profile for' %} {{ profile.username }}</h1>
 
-	<div id='info'>
-	
-		<h1>{% trans 'Profile for' %} {{ profile.username }}</h1>
-		
-		<div class='image'>
-			<img src='http://www.gravatar.com/avatar/{{ profile.email_hash }}?s=180&d=retro&r=pg' alt='Profile image for {{ profile.username }}'>
-			{% if profile.id == user.id %}<p><a href='http://gravatar.com'>{% trans 'Update Profile Image with Gravatar' %}</a></p>{% endif %}
-		</div>
-		
+<div class='colpage container'>
+  <div class="col-md-6">
 		{% if profile.id == user.id %}
 			<ul>
 				<li class='icon-floppy'><a href='/s/{{ profile.username }}'>{% trans 'View your saved images' %}</a></li>
@@ -20,7 +14,10 @@
 				<li class='icon-key'><a href='/changepw'>{% trans 'Change your password' %}</a></li>
 			</ul>
 		{% endif %}
-	
-	</div>
-
+  </div>
+  <div class="col-md-4 image">
+		<img src='http://www.gravatar.com/avatar/{{ profile.email_hash }}?s=180&d=retro&r=pg' alt='Profile image for {{ profile.username }}'>
+		{% if profile.id == user.id %}<p><a href='http://gravatar.com'>{% trans 'Update Profile Image with Gravatar' %}</a></p>{% endif %}
+  </div>
+</div>
 {% endblock %}
