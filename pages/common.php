@@ -23,4 +23,5 @@ if (defined('APP_LINK')) $data['app_link'] = APP_LINK;
 if (defined('SHOW_JVON')) $data['show_jvon'] = SHOW_JVON;
 if (defined('SHOW_BRAZZ')) $data['show_brazz'] = SHOW_BRAZZ;
 if (defined('FB_APP_ID')) $data['fb_app_id'] = FB_APP_ID;
+if (defined('AMAZON_AFF')) $data['amazon_aff'] = AMAZON_AFF;
 if ($api->call('user/isAdmin')) $data['is_admin'] = TRUE;

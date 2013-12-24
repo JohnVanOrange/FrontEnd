@@ -29,7 +29,8 @@ class API {
      'report' => 'JohnVanOrange\jvo\Report',
      'refresh' => 'JohnVanOrange\jvo\Refresh',
      'reddit' => 'JohnVanOrange\jvo\Reddit',
-     'media' => 'JohnVanOrange\jvo\Media'
+     'media' => 'JohnVanOrange\jvo\Media',
+     'ads' => 'JohnVanOrange\jvo\Ads'
      ];
     try {
      switch ($class) {
@@ -41,6 +42,7 @@ class API {
       case 'refresh':
       case 'reddit':
       case 'media':
+      case 'ads':
        $class_name =  $valid_classes[$class];
        break;
       default:
