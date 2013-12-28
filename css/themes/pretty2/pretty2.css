@@ -429,3 +429,19 @@ code {
 .alert {
   text-shadow: none;
 }
+#ad {
+  display: inline-block;
+  padding: 10px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border-radius: 8px 8px 8px 8px;
+  background-color: white;
+  text-shadow: none;
+}
+#ad h4 {
+  font-size: 18px;
+  display: block;
+  margin: 0;
+  text-align: left;
+  color: #000000;
+}

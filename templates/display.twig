@@ -1,11 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
 		<a id='main' href='/?{{ rand }}' rel='nofollow'>
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.image_url }}{% endif %}' height='{{ image.height }}' width='{{ image.width }}' itemprop='contentUrl' />
 		</a>
 	</section>
+	
+
 	
 	<span id='tags'>
 	{% if image.tags.0 %}
@@ -28,7 +31,13 @@
 	{% include 'dialogs/add_tag.twig' %}
 	
 	{% if amazon_aff %}
-		<a href="http://www.amazon.com/gp/product/{{ ad.ASIN }}/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN={{ ad.ASIN }}&linkCode=as2&tag={{ amazon_aff }}">{{ ad.title }}</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t={{ amazon_aff }}&l=as2&o=1&a={{ ad.ASIN }}" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+		<div id='ad'>
+			<h4>Buy Now From Amazon</h4>
+			<a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
+				{{ad.title}}
+				<img src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={{ ad.ASIN }}&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag={{ amazon_aff }}">
+			</a>
+		</div>
 	{% endif %}
 
 {% endblock %}
