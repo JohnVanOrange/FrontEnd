@@ -26,10 +26,30 @@ class userTest extends PHPUnit_Framework_TestCase {
  }
  
  /**** get ****/
- /* need to get by id as well, but that's less important */
+ /* TODO: need to get by id as well, but that's less important */
  public function test_get_user_by_username() {
   $user = $this->user->get('testuser','username');
   $this->assertEquals($user['email_hash'], '55502f40dc8b7c769880b10874abc9d0', 'Email hash was not returned as expected.');
+ }
+ public function test_get_blank_username() {
+  try {
+   $user = $this->user->get('', 'username');
+  }
+  catch (Exception $e) {
+   if ($e->getCode() != '404') $this->fail('An exception was raised, but not the expected one. '.$e->getMessage());
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
+ }
+ public function test_get_unknown_user() {
+  try {
+   $user = $this->user->get('dogewow', 'username');
+  }
+  catch (Exception $e) {
+   if ($e->getCode() != '1200') $this->fail('An exception was raised, but not the expected one. '.$e->getMessage());
+   return;
+  }
+  $this->fail('An expected exception has not been raised.');
  }
  
  /**** current ****/

@@ -43,6 +43,7 @@ class User extends Base {
   */
 
  public function get($value, $search_by='id') {
+  if (!$value) throw new \Exception('No user specified', 404);
   $query = new \Peyote\Select('users');
   $query->columns('id,username,type,email,theme,refresh');
   switch ($search_by) {
