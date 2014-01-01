@@ -482,11 +482,13 @@ class Image extends Base {
   //Get uploader
   $query = new \Peyote\Select('resources');
   $query->where('image', '=', $result['uid'])
-        ->where('type', '=', 'upload')
-        ->where('user_id', 'IS NOT', NULL);
-  $uploader = $this->db->fetch($query);
-  if (isset($uploader[0])) {
-   $result['uploader'] = $this->user->get($uploader[0]['user_id']);
+        ->where('type', '=', 'upload');
+  $upload = $this->db->fetch($query);
+  if (isset($upload[0]['user_id'])) {
+   $result['uploader'] = $this->user->get($upload[0]['user_id']);
+  }
+  if (isset($upload[0]['created'])) {
+   $result['added'] = $upload[0]['created'];
   }
   //Get resources
   if ($current) {

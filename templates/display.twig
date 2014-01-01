@@ -1,11 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
 		<a id='main' href='/?{{ rand }}' rel='nofollow'>
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.image_url }}{% endif %}' height='{{ image.height }}' width='{{ image.width }}' itemprop='contentUrl' />
 		</a>
 	</section>
+	
+
 	
 	<span id='tags'>
 	{% if image.tags.0 %}
@@ -18,7 +21,7 @@
 	</span>
 	<button class='icon-tag btn btn-default btn-xs' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">{% trans 'Add Tag' %}</button>
 	
-	{%if show_social == 1%}
+	{% if show_social == 1%}
 		<div id='social'>
 		<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
 		<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={{ image.page_url|url_encode }}&amp;media={{ image.image_url|url_encode }}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="{% trans 'Pin It' %}" alt='{% trans 'Pin It' %}' /></a></div>
@@ -26,6 +29,17 @@
 		</div>
 	{% endif %}
 	{% include 'dialogs/add_tag.twig' %}
+	
+	{% if amazon_aff %}
+		<div id='ad'>
+			<h4>Buy Now From Amazon</h4>
+			<a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
+				{{ad.title}}
+				<img src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={{ ad.ASIN }}&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag={{ amazon_aff }}">
+			</a>
+		</div>
+	{% endif %}
+
 {% endblock %}
 
 {% block meta_data %}
@@ -49,5 +63,9 @@
 {% endblock %}
 
 {% block javascript %}
+	<script type="text/javascript" src="http://wms-na.amazon-adsystem.com/20070822/US/js/link-enhancer-common.js?tag={{ amazon_aff }}"></script>
+	<noscript>
+    <img src="http://wms-na.amazon-adsystem.com/20070822/US/img/noscript.gif?tag={{ amazon_aff }}" alt="" />
+	</noscript>
 	<script src="{{ web_root }}js/display.js"></script>
 {% endblock %}
