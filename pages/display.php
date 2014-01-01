@@ -22,7 +22,8 @@ $data = [
 	   'sid'	=>	$sid, //this needs to be fixed later
 	   'brazzify'	=>	$is_brazz
 	  ]),
-	'rand'	=>	md5(uniqid(rand(), true))
+	'rand'	=>	md5(uniqid(rand(), true)),
+	'ad' => $api->call('ads/get')
 ];
 
 require_once('common.php');
