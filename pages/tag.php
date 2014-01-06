@@ -1,23 +1,17 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require('twig.php');
-
-$api = new API();
+$iface = new SiteInterface\Standard;
 
 $tag_name = $route->get_data(0);
 
-$page_tag = $api->call('tag/get',array('value'=>$tag_name,'search_by'=>'basename'));
+$page_tag = $iface->api('tag/get', ['value'=>$tag_name, 'search_by'=>'basename']);
 
-$data = [
-	'images'	=>	$api->call('tag/all',array('tag'=>$tag_name)),
+$iface->addData([
+	'images'	=>	$iface->api('tag/all', ['tag'=>$tag_name]),
 	'title_text'	=>	_('Images tagged') . ' ' . $page_tag[0]['name']
-];
+]);
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('thumbs.twig');
-echo $template->render($data);
+$iface->template('thumbs');
+echo $iface->render();
 ?>

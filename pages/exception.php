@@ -1,14 +1,12 @@
 <?php
-require('twig.php');
+namespace JohnVanOrange\jvo;
 
-$data = [
+$iface = new SiteInterface\Standard;
+
+$iface->addData([
  'code'	=>	$e->getCode(),
  'message'	=>	$e->getMessage()
-];
+]);
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('exception.twig');
-echo $template->render($data);
+$iface->template('exception');
+echo $iface->render();

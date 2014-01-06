@@ -1,14 +1,12 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require('twig.php');
-
-$api = new API();
+$iface = new SiteInterface\Standard;
 
 $maxfont = '60';
 $minfont = '10';
 
-$tags = $api->call('tag/top');
+$tags = $iface->api('tag/top');
 
 $max = current($tags);
 $min = end($tags);
@@ -25,14 +23,10 @@ foreach ($tags as $i=>$tag)  {
 
 shuffle($tags);
 
-$data = [
+$iface->addData([
 	'tags'	=>	$tags,
 	'title_text'	=>	'Tag Cloud'
-];
+]);
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('cloud.twig');
-echo $template->render($data);
+$iface->template('cloud');
+echo $iface->render();

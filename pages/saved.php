@@ -1,20 +1,14 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require('twig.php');
-
-$api = new API();
+$iface = new SiteInterface\Standard;
 
 $username = $route->get_data(0);
 
-$data = [
-	'images'	=>	$api->call('user/saved',array('username'=>$username)),
+$iface->addData([
+	'images'	=>	$iface->api('user/saved', ['username'=>$username]),
 	'title_text'	=>	_('Saved Images')
-];
+]);
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('thumbs.twig');
-echo $template->render($data);
+$iface->template('thumbs');
+echo $iface->render();
