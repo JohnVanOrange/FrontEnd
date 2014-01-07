@@ -1,19 +1,18 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require_once('twig.php');
+$iface = new SiteInterface\Standard;
 
-$data['type'] = 'sid';
-if (isset($_COOKIE['sid'])) $data['auth'] = $_COOKIE['sid'];
+$iface->addData(['type' => 'sid']);
+if (isset($_COOKIE['sid'])) $iface->addData(['auth' => $_COOKIE['sid']]);
 
 if (isset($_GET['resetkey'])) {
-	$data['auth'] = $_GET['resetkey'];
-	$data['type'] = 'pwreset';
+	$iface->addData([
+		'auth'	=>	$_GET['resetkey'],
+		'type'	=>	'pwreset'
+					 
+	]);
 }
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('changepw.twig');
-echo $template->render($data);
+$iface->template('changepw');
+echo $iface->render();

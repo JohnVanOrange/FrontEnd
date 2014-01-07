@@ -1,10 +1,7 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require_once(__DIR__ . '/../twig.php');
+$iface = new SiteInterface\Admin;
 
-require_once(__DIR__ . '/../common.php');
-require_once('common.php');
-
-$template = $twig->loadTemplate('admin_mass.twig');
-echo $template->render($data);
+$iface->template('admin_mass');
+echo $iface->render();

@@ -10,7 +10,7 @@ header h1,
 }
 header:before,
 #dont {
-  background: url('/img/room.jpg') left no-repeat;
+  background: url('/img/room.png') left no-repeat;
   height: 46px;
 }
 header {

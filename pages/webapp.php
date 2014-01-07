@@ -1,9 +1,9 @@
 <?php
-require_once('twig.php');
+namespace JohnVanOrange\jvo;
 
-require_once('common.php');
+$iface = new SiteInterface\Standard;
 
-header("Content-type: application/x-web-app-manifest+json; charset=UTF-8");
+$iface->setContentType("Content-type: application/x-web-app-manifest+json; charset=UTF-8");
 
-$template = $twig->loadTemplate('webapp.twig');
-echo $template->render($data);
+$iface->template('webapp');
+echo $iface->render();

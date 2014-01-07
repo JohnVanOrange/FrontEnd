@@ -9,14 +9,13 @@ class API {
  /*
   * Call public API methods
   *
-  * Accesses allowed methods through a common interface to assist with exception handling.
+  * Accesses allowed methods through a common interface.
   *
   * @param string $method Method name to access.
   * @param mixed[] $params Associated array of named parameters and their values.
-  * @param bool $js If true, the Javascript execption handler will be used.
   */
  
- public function call($method, $params=[], $js=FALSE) {
+ public function call($method, $params=[]) {
     $result = explode('/',$method);
     $class = $result[0];
     $method = $result[1];
@@ -32,51 +31,44 @@ class API {
      'media' => 'JohnVanOrange\jvo\Media',
      'ads' => 'JohnVanOrange\jvo\Ads'
      ];
-    try {
-     switch ($class) {
-      case 'image':
-      case 'user':
-      case 'tag':
-      case 'theme':
-      case 'report':
-      case 'refresh':
-      case 'reddit':
-      case 'media':
-      case 'ads':
-       $class_name =  $valid_classes[$class];
-       break;
-      default:
-       throw new \Exception(_('Invalid class/URL'));
+    switch ($class) {
+     case 'image':
+     case 'user':
+     case 'tag':
+     case 'theme':
+     case 'report':
+     case 'refresh':
+     case 'reddit':
+     case 'media':
+     case 'ads':
+      $class_name =  $valid_classes[$class];
       break;
-     }
+     default:
+      throw new \Exception(_('Invalid class/URL'));
+     break;
+    }
    
-     $reflectClass = new \ReflectionClass($class_name);
-     $reflectMethod = $reflectClass->getMethod($method);
-     $reflectParams = $reflectMethod->getParameters();
+    $reflectClass = new \ReflectionClass($class_name);
+    $reflectMethod = $reflectClass->getMethod($method);
+    $reflectParams = $reflectMethod->getParameters();
      
-     $indexed_params = [];
+    $indexed_params = [];
      
-     foreach($reflectParams as $param) {
-      if (isset($params[$param->getName()])) {
-       $indexed_params[] = $params[$param->getName()];
+    foreach($reflectParams as $param) {
+     if (isset($params[$param->getName()])) {
+      $indexed_params[] = $params[$param->getName()];
+     } else {
+      if ($param->isOptional()) {
+       $indexed_params[] = $param->getDefaultValue();
       } else {
-       if ($param->isOptional()) {
-        $indexed_params[] = $param->getDefaultValue();
-       } else {
-        $indexed_params[] = NULL;
-       }
+       $indexed_params[] = NULL;
       }
      }
+    }
      
-     $class_obj = new $class_name;
+    $class_obj = new $class_name;
 
-     return $reflectMethod->invokeArgs($class_obj, $indexed_params);
-    }
-    catch(\Exception $e) {
-     $exception = new Exception();
-     if ($js) $exception->js($e);
-     $exception->page($e);
-    }
+    return $reflectMethod->invokeArgs($class_obj, $indexed_params);
  }
 
 }

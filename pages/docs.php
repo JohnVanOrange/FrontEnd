@@ -1,26 +1,24 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require_once('twig.php');
+$iface = new SiteInterface\Standard;
 
 $class = $route->get_data(0);
 
-$template = 'docs.twig';
-if (!$class) $template = 'docs_index.twig';
+$template = 'docs';
+if (!$class) $template = 'docs_index';
 
 //Need to rework this to be auto-generated.
 $classes = [
  'tag',
- 'theme',
- 'refresh',
  'image',
  'user',
  'report'   
 ];
 
-$data = [
+$iface->addData([
 	'classes'	=>	$classes
-];
+]);
 
 //does any of this need to happen if there is already no $class?
 $xml = file_get_contents('structure.xml');
@@ -31,12 +29,8 @@ foreach ($docs['file'] as $obj) {
  if (strtolower($obj['class']['name']) == $class) $data['class'] = process_docdata($obj['class']);
 }
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate($template);
-echo $template->render($data);
+$iface->template($template);
+echo $iface->render();
 
 function process_docdata($data) {
  $output = [];

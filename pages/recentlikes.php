@@ -1,18 +1,12 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-require('twig.php');
+$iface = new SiteInterface\Standard;
 
-$api = new API();
-
-$data = [
-	'images'	=>	$api->call('image/recentLikes'),
+$iface->addData([
+	'images'	=>	$iface->api('image/recentLikes'),
 	'title_text'	=>	_('Recently Liked Images')
-];
+]);
 
-require_once('common.php');
-
-header("Content-type: text/html; charset=UTF-8");
-
-$template = $twig->loadTemplate('thumbs.twig');
-echo $template->render($data);
+$iface->template('thumbs');
+echo $iface->render();
