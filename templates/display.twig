@@ -32,9 +32,13 @@
 	
 	{% if amazon_aff %}
 		<div id='ad'>
-			<h4>Buy Now From Amazon</h4>
-			<a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
+			<p><a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
 				{{ad.title}}
+			</a></p>
+			<a class="btn btn-primary" href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'><span class="glyphicon glyphicon-shopping-cart"></span>
+				Buy Now From Amazon
+			</a>
+			<a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
 				<img src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={{ ad.ASIN }}&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag={{ amazon_aff }}">
 			</a>
 		</div>
