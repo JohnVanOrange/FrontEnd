@@ -472,7 +472,18 @@ class Image extends Base {
   }
   $result = $this->db->fetch($query);
   //See if there was a result
-  if (!$result) throw new \Exception(_('Image not found'), 404);
+  if (!$result) { //check for merged image
+   $query = new \Peyote\Select('resources');
+   $query->columns('image')
+         ->where('value', '=', $image)
+         ->where('type', '=', 'merge');
+   $result = $this->db->fetch($query);
+   if ($result) {
+    return ['merged_to' => $result[0]['image']];
+   } else {
+    throw new \Exception(_('Image not found'), 404);
+   }
+  }
   $result = $result[0];
   //Verify image isn't supposed to be hidden
   if (!$result['display'] AND !$this->user->isAdmin($sid)) throw new \Exception(_('Image removed'), 403);
@@ -612,6 +623,7 @@ class Image extends Base {
    $sec = $image1;
   }
   $this->res->merge($primary['uid'], $sec['uid']);
+  $this->res->add('merge', $primary['uid'], $sid, $sec['uid'], TRUE);
   $this->remove($sec['uid']);
   return [
    'message' => _('Images merged'),
