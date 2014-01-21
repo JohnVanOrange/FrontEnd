@@ -5,23 +5,24 @@ class Route {
     
     private $page;
     private $data;
-    private $map;
-    private $page_dir;
+    private $config;
+    private $controllerNS;
+    private $controller;
     
     /*
      * Route constructor
      *
-     * Route requires a URL that will be routed, and a map to route with.
+     * Route translates URLs into controllers.
      *
      * @param string $url URL to route.
-     * @param mixed[] $map Array making URL requests to pages.
-     * @param string $page_dir Location of the pages to route to.
+     * @param mixed[] $config Array containing config data for router.
+     * @param string $controllerNS Namespace of the controllers.
      */
 
-    public function __construct($url=NULL, $map=[], $page_dir = '/pages/') {
-       $this->process_data($this->process_URL($url));
-       $this->map = $map;
-       $this->page_dir = $page_dir;
+    public function __construct($url=NULL, $config=[], $controllerNS) {
+        $this->config = $config;
+        $this->controllerNS = $controllerNS;
+        $this->process_data($this->process_URL($url));
     }
     
     /*
@@ -45,11 +46,31 @@ class Route {
      */
     
     private function process_data($data) {
-        $this->page = $data[0];
         if (strlen($data[0]) == 6 && !strstr($data[0], '/')) {
             $data[1] = $data[0];
-            $this->page = 'display';
+            $this->controller = 'Display';
         }
+        if ($data[0] == '') $this->controller = $this->config->default;
+        if (!isset($this->controller)) {
+            $controller_struct = '';
+            $target = $this->config->map;
+            $count = 0;
+            while (is_object($target)) {
+                $new = @$target->{$data[$count]};
+                if (is_object($new)) {
+                    $controller_struct = $controller_struct . key($new) . '\\';
+                    $target = $new->{key($new)};
+                }
+                else {
+                    $controller_struct = $controller_struct . $new;
+                    $this->page = $data[$count];
+                    $target = $new;
+                }
+                $count++;
+            }
+            $this->controller = $controller_struct;
+        }
+        if (!class_exists($this->controllerNS . $this->controller)) $this->controller = $this->config->not_found;
         array_shift($data);
         $this->data = $data;
     }
@@ -61,23 +82,9 @@ class Route {
      */
     
     public function get() {
-        switch($this->page) {
-            case '':
-                return ROOT_DIR . $this->page_dir . 'random.php';
-                break;
-            case 'admin':
-                return ROOT_DIR . $this->page_dir . 'admin/'.$this->get_data(0).'.php';
-                break;
-            default:
-                $location = ROOT_DIR . $this->page_dir . $this->map->{$this->page}.'.php';
-                if(file_exists($location)) {
-                    return $location;
-                }
-                else {
-                    return ROOT_DIR . $this->page_dir . 'random.php';
-                } 
-                break;
-        }
+        $controller_name = $this->controllerNS . $this->controller;
+        $controller = new $controller_name($this);
+        $controller->load();
     }
     
     /*

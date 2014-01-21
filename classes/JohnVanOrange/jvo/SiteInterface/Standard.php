@@ -75,12 +75,19 @@ class Standard {
  }
  
  protected function exceptionHandler($e) {
-  switch($e->getCode()) {
+  $code = $e->getCode();
+  switch($code) {
    case 403:
    case 404:
-    $route = new \JohnVanOrange\jvo\Route();
-    $route->set_data(0, $e->getCode());
-    include(ROOT_DIR.'/pages/error.php');
+    header("HTTP/1.0 ".$code);
+    $_SERVER['REDIRECT_STATUS'] = $code;
+    $this->addData([
+     'number'	=>	$code,
+     'error_image'	=>	constant($code.'_IMAGE'),
+     'rand'	=>	md5(uniqid(rand(), true))
+    ]);
+    $this->template('error');
+    $this->output();
     die();
     break;
    default:
@@ -88,14 +95,19 @@ class Standard {
     $body .= "Error:\n";
     $body .= $e->getMessage()."\n\n";
     $body .= "Code:\n";
-    $body .= $e->getCode()."\n\n";
+    $body .= $code."\n\n";
     $body .= "Page requested:\n";
     $body .= $_SERVER['REQUEST_URI']."\n\n";    
     $body .= "IP:\n";
     $body .= $_SERVER['REMOTE_ADDR'];
     $message = new \JohnVanOrange\jvo\Mail();
     $message->sendAdminMessage('Error Occured for '. SITE_NAME, $body);
-    include(ROOT_DIR.'/pages/exception.php');
+    $this->addData([
+     'code'	=>	$code,
+     'message'	=>	$e->getMessage()
+    ]);
+    $this->template('exception');
+    $this->output();
     die();
     break;
   }

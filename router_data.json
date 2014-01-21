@@ -1,0 +1,35 @@
+{
+	"map":	{
+		"add":							"Basic",
+		"admin":						{
+													"Admin":	{
+																			"approve":	"Approve",
+																			"image":		"Image",
+																			"mass":			"Mass",
+																			"merge":		"Merge",
+																			"reported":	"Reported"
+																		}
+												},
+		"api":							"API",
+		"bot":							"Basic",
+		"brazzify":					"Display",
+		"changepw":					"ChangePW",
+		"display":					"Display",
+		"docs":							"Docs",
+		"form2api":					"Form2API",
+		"info":							"Info",
+		"jvon":							"Basic",
+		"manifest.webapp":	"Webapp",
+		"privacy":					"Basic",
+		"recent_likes":			"RecentLikes",
+		"recent_uploads":		"RecentUploads",
+		"s":								"Saved",
+		"t":								"Tag",
+		"tags":							"Cloud",
+		"tos":							"Basic",
+		"u":								"User",
+		"uploads":					"Uploads"
+	},
+	"default":		"Random",
+	"not_found":	"NotFound"
+}
