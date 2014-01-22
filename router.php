@@ -4,8 +4,8 @@ namespace JohnVanOrange\jvo;
 require_once('vendor/autoload.php');
 require_once('settings.inc');
 
-$map = json_decode(file_get_contents('router_map.json'));
+$data = json_decode(file_get_contents('router_data.json'));
 
-$route = new Route($_SERVER['REQUEST_URI'], $map);
+$route = new Router($_SERVER['REQUEST_URI'], $data, '\JohnVanOrange\jvo\Controller\\');
 
-include($route->get());
+$route->get();
