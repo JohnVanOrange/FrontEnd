@@ -5,7 +5,7 @@ class Docs extends Standard {
  
  public function process() {
   
-	$class = $this->route->get_data(0);
+	$class = $this->route->get_data(1);
 	
 	$this->setTemplate('docs');
 	if (!$class) $this->setTemplate('docs_index');

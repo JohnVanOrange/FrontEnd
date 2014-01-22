@@ -6,6 +6,6 @@ require_once('settings.inc');
 
 $data = json_decode(file_get_contents('router_data.json'));
 
-$route = new Route($_SERVER['REQUEST_URI'], $data, '\JohnVanOrange\jvo\Controller\\');
+$route = new Router($_SERVER['REQUEST_URI'], $data, '\JohnVanOrange\jvo\Controller\\');
 
 $route->get();

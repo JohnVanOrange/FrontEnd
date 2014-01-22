@@ -7,7 +7,7 @@ class Tag extends Standard {
   
   $this->setTemplate('thumbs');
 	
-	$tag_name = $this->route->get_data(0);
+	$tag_name = $this->route->get_data(1);
 	
 	$page_tag = $this->api('tag/get', ['value'=>$tag_name, 'search_by'=>'basename']);
 	

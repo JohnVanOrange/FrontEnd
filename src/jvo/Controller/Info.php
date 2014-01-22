@@ -7,7 +7,7 @@ class Info extends Standard {
   
   $this->setTemplate('info');
 	
-	$uid = $this->route->get_data(0);
+	$uid = $this->route->get_data(1);
 	
 	$image = $this->api('image/get', ['image'=>$uid]);
 	

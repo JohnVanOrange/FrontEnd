@@ -11,7 +11,7 @@ class Display extends Standard {
 	$request = $this->route->get_page();
 	if ($request == 'brazzify') $is_brazz = TRUE;
 	
-	$image_name = $this->route->get_data(0);
+	$image_name = $this->route->get_data(1);
 	
 	$image = $this->api('image/get',
 	 [

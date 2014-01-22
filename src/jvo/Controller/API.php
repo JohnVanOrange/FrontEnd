@@ -7,8 +7,8 @@ class API extends Base {
   
 	$public = new \JohnVanOrange\jvo\PublicAPI;
 	
-	$public->setClass($this->route->get_data(0));
-	$public->setMethod($this->route->get_data(1));
+	$public->setClass($this->route->get_data(1));
+	$public->setMethod($this->route->get_data(2));
 	$public->setRequest(array_merge($_REQUEST, $_FILES));
 	
 	$public->output();

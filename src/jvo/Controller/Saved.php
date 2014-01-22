@@ -7,7 +7,7 @@ class Saved extends Standard {
   
   $this->setTemplate('thumbs');
 	
-	$username = $this->route->get_data(0);
+	$username = $this->route->get_data(1);
 	
 	$this->addData([
 		'images'	=>	$this->api('user/saved', ['username'=>$username]),

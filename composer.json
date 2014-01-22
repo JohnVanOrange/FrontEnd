@@ -26,8 +26,8 @@
   "ext-gettext" : "*"
  },
  "autoload" : {
-  "psr-0" : {
-   "JohnVanOrange\\jvo" : "classes"
+  "psr-4" : {
+    "JohnVanOrange\\" : "src/"
   }
  }
 }

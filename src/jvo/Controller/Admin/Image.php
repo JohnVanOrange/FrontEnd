@@ -7,7 +7,7 @@ class Image extends Admin {
   
   $this->setTemplate('admin_image');
   
-  $uid = $this->route->get_data(1);
+  $uid = $this->route->get_data(2);
 
   $image = $this->api('image/get', ['image'=>$uid]);
   $stats = $this->api('image/stats');

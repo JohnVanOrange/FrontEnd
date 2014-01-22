@@ -7,7 +7,7 @@ class User extends Standard {
   
   $this->setTemplate('user');
 	
-	$username = $this->route->get_data(0);
+	$username = $this->route->get_data(1);
 	
 	$this->addData([
 		'profile'	=>	$this->api('user/get', ['value'=>$username, 'search_by'=>'username']),

@@ -1,13 +1,9 @@
 <?php
-namespace JohnVanOrange\jvo;
+namespace JohnVanOrange\common;
 
-class Route {
+class SimpleRouter {
     
-    private $page;
-    private $data;
-    private $config;
-    private $controllerNS;
-    private $controller;
+    protected $page, $data, $config, $controllerNS, $controller;
     
     /*
      * Route constructor
@@ -22,7 +18,11 @@ class Route {
     public function __construct($url=NULL, $config=[], $controllerNS) {
         $this->config = $config;
         $this->controllerNS = $controllerNS;
-        $this->process_data($this->process_URL($url));
+				$data = $this->process_URL($url);
+				$this->data = $data;
+        $this->process_controller($data);
+				
+				if (!class_exists($this->controllerNS . $this->controller)) $this->controller = $this->config->not_found;
     }
     
     /*
@@ -33,23 +33,19 @@ class Route {
      * @param string $url URL to process.
      */
     
-    private function process_URL($url) {
+    protected function process_URL($url) {
        return explode('/',trim(explode('?',$url)[0],'/'));
     }
     
     /*
-     * Process data
+     * Process controller
      *
-     * Processes all the info that was extracted from the URL.
+     * Processes all the info that was extracted from the URL and determine the controller to use.
      *
      * @param string[] $data Pieces of the URL that were extracted.
      */
     
-    private function process_data($data) {
-        if (strlen($data[0]) == 6 && !strstr($data[0], '/')) {
-            $data[1] = $data[0];
-            $this->controller = 'Display';
-        }
+    protected function process_controller($data) {
         if ($data[0] == '') $this->controller = $this->config->default;
         if (!isset($this->controller)) {
             $controller_struct = '';
@@ -70,9 +66,6 @@ class Route {
             }
             $this->controller = $controller_struct;
         }
-        if (!class_exists($this->controllerNS . $this->controller)) $this->controller = $this->config->not_found;
-        array_shift($data);
-        $this->data = $data;
     }
     
     /*
@@ -110,6 +103,15 @@ class Route {
         return NULL;
     }
     
+		/*
+		 * Set data
+		 *
+		 * Sets data to in a specific index.
+		 *
+		 * @param int $index Index of data to set.
+		 * @param string $data Data to be stored.
+		 */
+		
     public function set_data($index, $data) {
         $this->data[$index] = $data;
     }
