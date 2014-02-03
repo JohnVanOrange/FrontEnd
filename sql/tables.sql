@@ -3,7 +3,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `images` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `name` varchar(256) collate utf8_unicode_ci NOT NULL,
   `filename` varchar(256) collate utf8_unicode_ci NOT NULL,
   `uid` varchar(6) character set utf8 collate utf8_bin NOT NULL,
   `hash` varchar(32) collate utf8_unicode_ci default NULL,
@@ -11,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `width` smallint(5) unsigned default NULL,
   `height` smallint(5) unsigned default NULL,
   `c_link` varchar(256) collate utf8_unicode_ci default NULL,
+  `animated` tinyint(1) NOT NULL default '0',
   `display` tinyint(1) NOT NULL default '1',
   `nsfw` tinyint(1) NOT NULL default '0',
   `approved` tinyint(1) NOT NULL default '0',
