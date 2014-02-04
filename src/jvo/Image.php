@@ -224,7 +224,6 @@ class Image extends Base {
   $filenamepart = explode('/',$fullfilename);
   $filename = end($filenamepart);
   $namepart = explode('.',$filename);
-  $name = $namepart[0];
   $uid = $this->getUID();
   $query = new \Peyote\Select('images');
   $query->where('hash', '=', $hash)
@@ -241,9 +240,16 @@ class Image extends Base {
    );
   }
   else {
+   $isAnimated = $this->isAnimated($filename, TRUE);
+   if ($isAnimated) {
+    $animated = 1;
+   }
+   else {
+    $animated = 0;
+   }
    $query = new \Peyote\Insert('images');
-   $query->columns(['name', 'filename', 'uid', 'hash', 'type', 'width', 'height', 'c_link'])
-         ->values([$name, $filename, $uid, $hash, $type, $width, $height, $c_link]);
+   $query->columns(['filename', 'uid', 'hash', 'type', 'width', 'height', 'c_link', 'animated'])
+         ->values([$filename, $uid, $hash, $type, $width, $height, $c_link, $animated]);
    $s = $this->db->prepare($query->compile());
    $s->execute($query->getParams());//need to verify this was successful
    $thumb = $this->scale($uid);
@@ -631,6 +637,32 @@ class Image extends Base {
    'url' => $primary['page_url'],
    'thumb' => $primary['thumb_url']
   ];
+ }
+ 
+  /**
+  * Is Animated
+  *
+  * Checks to see if image is animated
+  * 
+  * @param string $image The 6-digit id of an image or image filename.
+  * @param bool $search_by_filename If true, use filename instead of UID.
+  */
+ 
+ public function isAnimated($image, $search_by_filename = FALSE) {
+  if (!$search_by_filename) {
+   $imagedata = $this->get($image);
+   $image = $imagedata['filename'];
+  }
+  $image = new Imagick(ROOT_DIR.'/media/'.$image);
+  
+  $animated = FALSE;
+  $framecount = 0;
+  foreach ($image as $frame) {
+   $framecount++;
+  }
+  
+  if ($framecount > 1) $animated = TRUE;
+  return $animated;
  }
  
 }
