@@ -3,24 +3,29 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2b1ffcb9c7af7a0296ad39fe30cddf8a",
+    "hash": "34da7c520d96ddaf447f387a147dbb75",
     "packages": [
         {
             "name": "davewid/peyote",
-            "version": "0.6.3",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daveWid/Peyote.git",
-                "reference": "274ff5414b3745d33dedb3aec513cf318eacb0ae"
+                "reference": "82ec913232fe843de02f8ecd5f309dd0554d6624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daveWid/Peyote/zipball/274ff5414b3745d33dedb3aec513cf318eacb0ae",
-                "reference": "274ff5414b3745d33dedb3aec513cf318eacb0ae",
+                "url": "https://api.github.com/repos/daveWid/Peyote/zipball/82ec913232fe843de02f8ecd5f309dd0554d6624",
+                "reference": "82ec913232fe843de02f8ecd5f309dd0554d6624",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
+            },
+            "require-dev": {
+                "phing/phing": "2.6.*",
+                "phpdocumentor/phpdocumentor": "2.0.*",
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "autoload": {
@@ -47,19 +52,19 @@
                 "mysql",
                 "query builder"
             ],
-            "time": "2013-08-16 18:05:39"
+            "time": "2014-02-11 15:18:52"
         },
         {
             "name": "gavroche/browser",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gavroche/php-browser.git",
+                "url": "https://github.com/gabrielbull/php-browser.git",
                 "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gavroche/php-browser/zipball/aed2949e5ca245569380a1afdc99be5f152e3dc6",
+                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/90f1752e9f8f7aca522d383987307d7473973ef1",
                 "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
                 "shasum": ""
             },
@@ -74,12 +79,12 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0"
+                "MIT"
             ],
             "authors": [
                 {
                     "name": "Gabriel Bull",
-                    "email": "gavroche.bull@gmail.com"
+                    "email": "me@gabrielbull.com"
                 },
                 {
                     "name": "Chris Schuld",
@@ -87,7 +92,7 @@
                 }
             ],
             "description": "Detecting the user's browser, operating system and language.",
-            "homepage": "https://github.com/gavroche/php-browser",
+            "homepage": "https://github.com/gabrielbull/php-browser",
             "keywords": [
                 "browser",
                 "detection",
