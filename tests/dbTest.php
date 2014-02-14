@@ -1,7 +1,5 @@
 <?php
-//Requires PHPUnit
-require_once('../vendor/autoload.php');
-require_once('../settings.inc');
+require_once('settings.inc');
 
 use JohnVanOrange\jvo;
 class dbTest extends PHPUnit_Framework_TestCase {

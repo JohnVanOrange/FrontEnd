@@ -14,5 +14,3 @@ before_script:
  - php dbimport.php ../sql/tables.sql
  - php dbimport.php ../tests/travis.sql
  - cd ..
-script:
- - cd tests; phpunit .
