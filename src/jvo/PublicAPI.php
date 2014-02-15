@@ -25,6 +25,10 @@ class PublicAPI {
  
  public function output() {
   $api = new API;
+  
+  header ('Content-type: application/json; charset=UTF-8');
+  header ('Access-Control-Allow-Origin: *');
+  
   try {
    $result = $api->call($this->class.'/'.$this->method, $this->req);
   }
@@ -32,9 +36,6 @@ class PublicAPI {
    $this->exceptionHandler($e);
   }
   if (!is_array($result)) $result = ['response' => $result];
-  
-  header ('Content-type: application/json; charset=UTF-8');
-  header ('Access-Control-Allow-Origin: *');
   
   echo json_encode($result);
  }
