@@ -192,6 +192,7 @@ class Image extends Base {
   */
  
  public function add($image, $c_link = NULL, $sid= NULL) {
+  if (!$this->allow_upload()) throw new \Exception('Adding images is currently disabled due to site maintanence');
   $filename = md5(mt_rand());
   $path = ROOT_DIR.'/media/'.$filename;
   if (isset($image['tmp_name'])) move_uploaded_file($image['tmp_name'], $path);
@@ -278,6 +279,7 @@ class Image extends Base {
   */
  
  public function addFromURL($url, $c_link=NULL, $sid = NULL) {
+  if (!$this->allow_upload()) throw new \Exception('Adding images is currently disabled due to site maintanence');
   $image = $this->remoteFetch($url);
   $filename = md5(mt_rand().$url);
   $newpath = ROOT_DIR.'/media/'.$filename;
@@ -663,6 +665,15 @@ class Image extends Base {
   
   if ($framecount > 1) $animated = TRUE;
   return $animated;
+ }
+ 
+ private function allow_upload() {
+  if (defined('DISABLE_UPLOAD')) {
+   if (DISABLE_UPLOAD) {
+    return FALSE;
+   }
+  }
+  return TRUE;
  }
  
 }
