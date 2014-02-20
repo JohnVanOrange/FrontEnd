@@ -595,7 +595,7 @@ class Image extends Base {
  
  public function scale($image, $width = 240, $height = 160) {
   $imagedata = $this->get($image);
-  $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
+  $image = new \Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
   
   $image = $image->coalesceImages();
 
