@@ -253,8 +253,14 @@ class Image extends Base {
          ->values([$filename, $uid, $hash, $type, $width, $height, $c_link, $animated]);
    $s = $this->db->prepare($query->compile());
    $s->execute($query->getParams());//need to verify this was successful
+   //create thumbnail
    $thumb = $this->scale($uid);
    file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
+   //media resources
+   $media = new Media;
+   $media->add($uid, '/media/thumbs/' . $filename, 'thumb');
+   $media->add($uid, '/media/' . $filename);
+   //upload resource
    $this->res->add('upload', $uid, $sid, NULL, TRUE);
    return array(
     'url' => WEB_ROOT.$uid,
