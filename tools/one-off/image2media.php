@@ -12,8 +12,8 @@ $counter = $start;
 $query = new \Peyote\Select('images');
 $query->columns('uid', 'filename')
       ->where('display', '=', 1)
-      ->limit(100000, $start);
-
+      ->limit(100000, $start)
+      ->orderBy('uid');
 $results = $db->fetch($query);
 foreach ($results as $result) {
   $counter++;
