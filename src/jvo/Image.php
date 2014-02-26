@@ -464,26 +464,17 @@ class Image extends Base {
   *
   * @api
   * 
-  * @param string $image The 6-digit id of an image, or the filename of the image.
+  * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   * @param bool $brazzify Should Brazzzify.me url be returned
   */
  
  public function get($image, $sid=NULL, $brazzify = FALSE) {
-  $tag = new Tag;
   $current = $this->user->current($sid);
-  #Get image data
+  //Get image data
   $query = new \Peyote\Select('images');
-  switch (strlen($image)) {
-   case 6:	
-    $query->where('uid', '=', $image)
-          ->limit(1);
-   break;	
-   default:
-    $query->where('filename', '=', $image)
-          ->limit(1);
-   break;	
-  }
+  $query->where('uid', '=', $image)
+        ->limit(1);
   $result = $this->db->fetch($query);
   //See if there was a result
   if (!$result) { //check for merged image
@@ -501,7 +492,14 @@ class Image extends Base {
   $result = $result[0];
   //Verify image isn't supposed to be hidden
   if (!$result['display'] AND !$this->user->isAdmin($sid)) throw new \Exception(_('Image removed'), 403);
+  //Get media data
+  $media = new Media;
+  $media_results = $media->get($image);
+  foreach ($media_results as $m) {
+   $result['media'][$m['type']] = $m;
+  }
   //Get tags
+  $tag = new Tag;
   $tag_result = $tag->get($result['uid']);
   if (isset($tag_result)) $result['tags'] = $tag_result;
   //Get uploader

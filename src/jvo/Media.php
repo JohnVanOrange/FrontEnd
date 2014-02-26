@@ -7,6 +7,15 @@ class Media extends Base {
   parent::__construct();
  }
  
+ /**
+  * Add media
+  *
+  * Add media associated with an image.
+  * 
+  * @param string uid The 6-digit id of an image.
+  * @param string file Path to the image file.
+  * @param string type Specify if image is primary or thumb.
+  */
  public function add($uid, $file, $type = 'primary') {
   $image = new \Imagick(ROOT_DIR . $file);
   $width = $this->width($image);
@@ -39,6 +48,21 @@ class Media extends Base {
  
  private function format(\Imagick $image) {
   return strtolower($image->getImageFormat());
+ }
+ 
+ /**
+  * Get media
+  *
+  * Retrieve media associated with an image.
+  * 
+  * @param string uid The 6-digit id of an image.
+  */
+ 
+ public function get($uid) {
+  $query = new \Peyote\Select('media');
+  $query->where('uid', '=', $uid);
+  $result = $this->db->fetch($query);
+  return $result;
  }
  
 }
