@@ -63,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `salt` varchar(16) collate utf8_unicode_ci NOT NULL,
   `email` varchar(255) collate utf8_unicode_ci NOT NULL,
   `type` int(10) unsigned NOT NULL default '1',
-  `theme` varchar(8) collate utf8_unicode_ci NOT NULL default 'dark',
   `refresh` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `username` (`username`)
