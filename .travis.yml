@@ -8,9 +8,8 @@ before_script:
  - printf "\n" | pecl install imagick
  - composer self-update
  - composer install --prefer-source
- - cp tests/settings.inc.travis settings.inc
+ - cp tests/travis/settings.inc.travis settings.inc
  - mysql -e 'create database jvo_test;'
  - cd tools
  - php dbimport.php ../sql/tables.sql
- - php dbimport.php ../tests/travis.sql
- - cd ..
+ - php dbimport.php ../tests/travis/travis.sql
