@@ -13,3 +13,4 @@ before_script:
  - cd tools
  - php dbimport.php ../sql/tables.sql
  - php dbimport.php ../tests/travis/travis.sql
+ - cd ..
