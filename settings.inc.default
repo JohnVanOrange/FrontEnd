@@ -24,3 +24,4 @@ define('404_IMAGE','404.jpg');
 define('WATERMARK','johnvanorange.png');
 define('ICON_SET','orange_slice');
 define('AMAZON_AFF','');
+define('DISABLE_UPLOAD', 0);

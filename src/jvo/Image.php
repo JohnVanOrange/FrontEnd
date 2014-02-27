@@ -192,6 +192,7 @@ class Image extends Base {
   */
  
  public function add($image, $c_link = NULL, $sid= NULL) {
+  if (!$this->allow_upload()) throw new \Exception('Adding images is currently disabled due to site maintanence');
   $filename = md5(mt_rand());
   $path = ROOT_DIR.'/media/'.$filename;
   if (isset($image['tmp_name'])) move_uploaded_file($image['tmp_name'], $path);
@@ -252,8 +253,14 @@ class Image extends Base {
          ->values([$filename, $uid, $hash, $type, $width, $height, $c_link, $animated]);
    $s = $this->db->prepare($query->compile());
    $s->execute($query->getParams());//need to verify this was successful
+   //create thumbnail
    $thumb = $this->scale($uid);
    file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
+   //media resources
+   $media = new Media;
+   $media->add($uid, '/media/thumbs/' . $filename, 'thumb');
+   $media->add($uid, '/media/' . $filename);
+   //upload resource
    $this->res->add('upload', $uid, $sid, NULL, TRUE);
    return array(
     'url' => WEB_ROOT.$uid,
@@ -278,6 +285,7 @@ class Image extends Base {
   */
  
  public function addFromURL($url, $c_link=NULL, $sid = NULL) {
+  if (!$this->allow_upload()) throw new \Exception('Adding images is currently disabled due to site maintanence');
   $image = $this->remoteFetch($url);
   $filename = md5(mt_rand().$url);
   $newpath = ROOT_DIR.'/media/'.$filename;
@@ -456,26 +464,17 @@ class Image extends Base {
   *
   * @api
   * 
-  * @param string $image The 6-digit id of an image, or the filename of the image.
+  * @param string $image The 6-digit id of an image.
   * @param string $sid Session ID that is provided when logged in. This is also set as a cookie. If sid cookie headers are sent, this value is not required.
   * @param bool $brazzify Should Brazzzify.me url be returned
   */
  
  public function get($image, $sid=NULL, $brazzify = FALSE) {
-  $tag = new Tag;
   $current = $this->user->current($sid);
-  #Get image data
+  //Get image data
   $query = new \Peyote\Select('images');
-  switch (strlen($image)) {
-   case 6:	
-    $query->where('uid', '=', $image)
-          ->limit(1);
-   break;	
-   default:
-    $query->where('filename', '=', $image)
-          ->limit(1);
-   break;	
-  }
+  $query->where('uid', '=', $image)
+        ->limit(1);
   $result = $this->db->fetch($query);
   //See if there was a result
   if (!$result) { //check for merged image
@@ -493,7 +492,14 @@ class Image extends Base {
   $result = $result[0];
   //Verify image isn't supposed to be hidden
   if (!$result['display'] AND !$this->user->isAdmin($sid)) throw new \Exception(_('Image removed'), 403);
+  //Get media data
+  $media = new Media;
+  $media_results = $media->get($image);
+  foreach ($media_results as $m) {
+   $result['media'][$m['type']] = $m;
+  }
   //Get tags
+  $tag = new Tag;
   $tag_result = $tag->get($result['uid']);
   if (isset($tag_result)) $result['tags'] = $tag_result;
   //Get uploader
@@ -593,7 +599,7 @@ class Image extends Base {
  
  public function scale($image, $width = 240, $height = 160) {
   $imagedata = $this->get($image);
-  $image = new Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
+  $image = new \Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
   
   $image = $image->coalesceImages();
 
@@ -663,6 +669,15 @@ class Image extends Base {
   
   if ($framecount > 1) $animated = TRUE;
   return $animated;
+ }
+ 
+ private function allow_upload() {
+  if (defined('DISABLE_UPLOAD')) {
+   if (DISABLE_UPLOAD) {
+    return FALSE;
+   }
+  }
+  return TRUE;
  }
  
 }
