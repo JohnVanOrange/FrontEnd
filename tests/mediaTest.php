@@ -23,13 +23,13 @@ class mediaTest extends PHPUnit_Framework_TestCase {
  public function test_add() {
   $this->media->add($this->uid, '/media/orange_slice16.png');
   $result = $this->media->get($this->uid);
-  $this->assertEquals($result[0]['width'], '16', 'Width not correct');
-  $this->assertEquals($result[0]['height'], '16', 'Height not correct');
-  $this->assertEquals($result[0]['hash'], '26e46ffc3d711d7b801d1eb78f3cc1ff', 'Hash not correct');
-  $this->assertEquals($result[0]['size'], '3632', 'Size not correct');
-  $this->assertEquals($result[0]['format'], 'png', 'Format not correct');
-  $this->assertEquals($result[0]['file'], '/media/orange_slice16.png', 'File name not correct');
-  $this->assertEquals($result[0]['type'], 'primary', 'Image type not correct');
+  $this->assertEquals($result['primary']['width'], '16', 'Width not correct');
+  $this->assertEquals($result['primary']['height'], '16', 'Height not correct');
+  $this->assertEquals($result['primary']['hash'], '26e46ffc3d711d7b801d1eb78f3cc1ff', 'Hash not correct');
+  $this->assertEquals($result['primary']['size'], '3632', 'Size not correct');
+  $this->assertEquals($result['primary']['format'], 'png', 'Format not correct');
+  $this->assertEquals($result['primary']['file'], '/media/orange_slice16.png', 'File name not correct');
+  $this->assertEquals($result['primary']['type'], 'primary', 'Image type not correct');
  }
  public function test_add_fail() {
 

@@ -61,7 +61,13 @@ class Media extends Base {
  public function get($uid) {
   $query = new \Peyote\Select('media');
   $query->where('uid', '=', $uid);
-  $result = $this->db->fetch($query);
+  $results = $this->db->fetch($query);
+  foreach ($results as $m) {
+   $result[$m['type']] = $m;
+   $siteURL = $this->siteURL();
+   //need to have the subdomain reflect the type of image
+   $result[$m['type']]['url'] = $siteURL['scheme'] .'://media.' . $siteURL['host'] . $result[$m['type']]['file'];
+  }
   return $result;
  }
  

@@ -158,22 +158,22 @@ class Image extends Base {
  public function remove($image, $sid=NULL) {
   $current = $this->user->current($sid);
   if ($current['type'] < 2) throw new \Exception(_('Must be an admin to access method'), 401);
-  $query = new \Peyote\Select('images');
-  $query->columns('filename')
-        ->where('uid', '=', $image);
-  $result = $this->db->fetch($query);
-  $filename = $result[0]['filename'];
+  $data = $this->get($image);
   //clean up resources
   $query = new \Peyote\Delete('resources');
   $query->where('image', '=', $image);
+  $this->db->fetch($query);
+  //clean up media resources
+  $query = new \Peyote\Delete('media');
+  $query->where('uid', '=', $image);
   $this->db->fetch($query);
   //remove image in db
   $query = new \Peyote\Delete('images');
   $query->where('uid', '=', $image);
   $this->db->fetch($query);
   //remove image
-  unlink(ROOT_DIR.'/media/'.$filename);
-  unlink(ROOT_DIR.'/media/thumbs/'.$filename);
+  unlink(ROOT_DIR . $data['media']['primary']['file']);
+  unlink(ROOT_DIR . $data['media']['thumb']['file']);
   return array(
    'message' => _('Image removed')
   );
@@ -217,49 +217,58 @@ class Image extends Base {
   }
   $filetypepart = explode('/',$info['mime']);
   $type = end($filetypepart);
-  $width = $info[0];
-  $height = $info[1];
-  $hash = md5_file($path);
   $fullfilename = $path.'.'.$type;
   rename($path,$fullfilename);
   $filenamepart = explode('/',$fullfilename);
   $filename = end($filenamepart);
   $namepart = explode('.',$filename);
   $uid = $this->getUID();
-  $query = new \Peyote\Select('images');
-  $query->where('hash', '=', $hash)
+  $isAnimated = $this->isAnimated($filename, TRUE);
+  if ($isAnimated) {
+   $animated = 1;
+  }
+  else {
+   $animated = 0;
+  }
+  $query = new \Peyote\Insert('images');
+  $query->columns(['uid', 'c_link', 'animated'])
+        ->values([$uid, $c_link, $animated]);
+  $s = $this->db->prepare($query->compile());
+  $s->execute($query->getParams());//need to verify this was successful
+  //media resources
+  $media = new Media;
+  $media->add($uid, '/media/' . $filename);
+  //create thumbnail
+  $thumb = $this->scale($uid);
+  file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
+  $media->add($uid, '/media/thumbs/' . $filename, 'thumb');
+  //check for duplicates
+  $media_results = $media->get($uid);
+  $query = new \Peyote\Select('media');
+  $query->columns('uid', 'hash')
+        ->where('hash', '=', $media_results['primary']['hash'])
+        ->where('uid', '!=', $uid)
         ->limit(1);
   $result = $this->db->fetch($query);
   if ($result) {
+   echo "result happened: ".$uid."\n";
+   print_r($result);
+   //remove current image
    unlink($fullfilename);
+   //remove current media resources
+   $query = new \Peyote\Delete('media');
+   $query->where('uid', '=', $uid);
+   $this->db->fetch($query);
+   $dupimage = $this->get($result[0]['uid']);
    return array(
-    'url' => WEB_ROOT.$result[0]['uid'],
-    'uid' => $result[0]['uid'],
-    'image' => WEB_ROOT.'media/'.$result[0]['filename'],
-    'thumb' => WEB_ROOT.'media/thumbs/'.$result[0]['filename'],
+    'url' => WEB_ROOT.$dupimage['uid'],
+    'uid' => $dupimage['uid'],
+    'image' => WEB_ROOT . $dupimage['media']['primary']['file'],
+    'thumb' => WEB_ROOT . $dupimage['media']['thumb']['file'],
     'message' => _('Duplicate image')
    );
   }
   else {
-   $isAnimated = $this->isAnimated($filename, TRUE);
-   if ($isAnimated) {
-    $animated = 1;
-   }
-   else {
-    $animated = 0;
-   }
-   $query = new \Peyote\Insert('images');
-   $query->columns(['filename', 'uid', 'hash', 'type', 'width', 'height', 'c_link', 'animated'])
-         ->values([$filename, $uid, $hash, $type, $width, $height, $c_link, $animated]);
-   $s = $this->db->prepare($query->compile());
-   $s->execute($query->getParams());//need to verify this was successful
-   //create thumbnail
-   $thumb = $this->scale($uid);
-   file_put_contents(ROOT_DIR.'/media/thumbs/'.$filename,$thumb);
-   //media resources
-   $media = new Media;
-   $media->add($uid, '/media/thumbs/' . $filename, 'thumb');
-   $media->add($uid, '/media/' . $filename);
    //upload resource
    $this->res->add('upload', $uid, $sid, NULL, TRUE);
    return array(
@@ -494,10 +503,17 @@ class Image extends Base {
   if (!$result['display'] AND !$this->user->isAdmin($sid)) throw new \Exception(_('Image removed'), 403);
   //Get media data
   $media = new Media;
-  $media_results = $media->get($image);
-  foreach ($media_results as $m) {
-   $result['media'][$m['type']] = $m;
-  }
+  $result['media'] = $media->get($image);
+  //Backwards compatibilty
+  $result['hash'] = $result['media']['primary']['hash'];
+  $result['type'] = $result['media']['primary']['format'];
+  $result['width'] = $result['media']['primary']['width'];
+  $result['height'] = $result['media']['primary']['height'];
+  $siteURL = $this->siteURL();
+  $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. $result['media']['primary']['file'];
+  if (isset($result['media']['thumb']['file'])) $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. $result['media']['thumb']['file'];
+  //this can probably stay after the BC is removed
+  $result['page_url'] = WEB_ROOT . $result['uid'];
   //Get tags
   $tag = new Tag;
   $tag_result = $tag->get($result['uid']);
@@ -535,11 +551,6 @@ class Image extends Base {
    }
    $result['page_title'] .= rtrim($title_text, ', ');
   }
-  //URLs
-  $siteURL = $this->siteURL();
-  $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. '/media/'. $result['filename'];
-  $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. '/media/thumbs/'. $result['filename'];
-  $result['page_url'] = WEB_ROOT . $result['uid'];
   if ($this->user->isAdmin($sid)) {
    //Get report data
    $query = new \Peyote\Select('resources');
@@ -599,7 +610,7 @@ class Image extends Base {
  
  public function scale($image, $width = 240, $height = 160) {
   $imagedata = $this->get($image);
-  $image = new \Imagick(ROOT_DIR.'/media/'.$imagedata['filename']);
+  $image = new \Imagick(ROOT_DIR . $imagedata['media']['primary']['file']);
   
   $image = $image->coalesceImages();
 
@@ -657,7 +668,7 @@ class Image extends Base {
  public function isAnimated($image, $search_by_filename = FALSE) {
   if (!$search_by_filename) {
    $imagedata = $this->get($image);
-   $image = $imagedata['filename'];
+   $image = $imagedata['media']['primary']['file'];
   }
   $image = new Imagick(ROOT_DIR.'/media/'.$image);
   
