@@ -567,7 +567,7 @@ class Image extends Base {
   }
   //Brazzify.me
   if ($brazzify) {
-   $result['brazzify_url'] = json_decode($this->remoteFetch('http://i.brazzify.me/api.php?logo=brazzers&remote_url='.$result['image_url']),1)['url'];
+   $result['brazzify_url'] = json_decode($this->remoteFetch('http://i.brazzify.me/api.php?logo=brazzers&remote_url='.$result['media']['primary']['url']),1)['url'];
   }
   return $result;
  }
