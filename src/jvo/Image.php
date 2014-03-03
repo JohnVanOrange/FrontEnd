@@ -251,8 +251,6 @@ class Image extends Base {
         ->limit(1);
   $result = $this->db->fetch($query);
   if ($result) {
-   echo "result happened: ".$uid."\n";
-   print_r($result);
    //remove current image
    unlink($fullfilename);
    //remove current media resources
