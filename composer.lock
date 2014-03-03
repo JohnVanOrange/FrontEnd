@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "34da7c520d96ddaf447f387a147dbb75",
+    "hash": "543a99578046a8c71cce68ebc3513dae",
     "packages": [
         {
             "name": "davewid/peyote",
@@ -101,6 +101,57 @@
                 "os"
             ],
             "time": "2013-12-03 20:34:42"
+        },
+        {
+            "name": "rych/bytesize",
+            "version": "dev-master",
+            "target-dir": "Rych/ByteSize",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rchouinard/bytesize.git",
+                "reference": "38d25745980f3e2605ea49e01304f261aa6ddf15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rchouinard/bytesize/zipball/38d25745980f3e2605ea49e01304f261aa6ddf15",
+                "reference": "38d25745980f3e2605ea49e01304f261aa6ddf15",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.3.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Rych\\ByteSize": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Chouinard",
+                    "email": "rchouinard@gmail.com",
+                    "homepage": "http://ryanchouinard.com"
+                }
+            ],
+            "description": "Utility component for nicely formatted file sizes.",
+            "homepage": "https://github.com/rchouinard/bytesize",
+            "keywords": [
+                "filesize"
+            ],
+            "time": "2013-05-06 21:00:01"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -256,7 +307,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "gavroche/browser": 20
+        "gavroche/browser": 20,
+        "rych/bytesize": 20
     },
     "platform": {
         "php": ">=5.4",
