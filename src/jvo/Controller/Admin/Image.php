@@ -16,7 +16,7 @@ class Image extends Admin {
   $this->addData([
       'image'	=>	$image,
       'stats'	=>	$stats,
-      'image_loc'	=> $image['image_url'],
+      'image_loc'	=> $image['media']['primary']['url'],
       'rand'	=>	md5(uniqid(rand(), true))
   ]);
   

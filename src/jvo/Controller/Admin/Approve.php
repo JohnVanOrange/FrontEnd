@@ -6,6 +6,7 @@ class Approve extends Admin {
  public function process() {
   
   $url = parse_url(WEB_ROOT);
+  //I don't believe this next line does anything
   $tag = rtrim(str_replace($url['host'], '', $_SERVER['HTTP_HOST']),'.');
   
   $image = $this->api('image/unapproved');
