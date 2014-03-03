@@ -59,11 +59,11 @@
 					<li id='search_image' class='nomobile dropdown'>
 						<a href='#' class='icon-picture icon' data-toggle="dropdown"></a>
 						<ul class="dropdown-menu" role="menu">
-							{% if image.type != 'gif' and show_brazz %}<li><a class='icon-b' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>{% endif %}
-							<li><a id='googlesearch' class='icon-google' href='http://www.google.com/searchbyimage?image_url={{ image.image_url }}'>{% trans 'Search using Google' %}</a></li>
-							<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={{ image.image_url }}'>{% trans 'Search using Tineye' %}</a></li>
+							{% if image.media.primary.format != 'gif' and show_brazz %}<li><a class='icon-b' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>{% endif %}
+							<li><a id='googlesearch' class='icon-google' href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'>{% trans 'Search using Google' %}</a></li>
+							<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={{ image.media.primary.url }}'>{% trans 'Search using Tineye' %}</a></li>
 							<li><a class='icon-info-circle' href='/info/{{ image.uid }}'>{% trans 'Details' %}</a></li>
-							<li><a id='fullscreen' class='icon-resize-full' href='{{ image.image_url }}'>{% trans 'View Fullscreen' %}</a></li>
+							<li><a id='fullscreen' class='icon-resize-full' href='{{ image.media.primary.url }}'>{% trans 'View Fullscreen' %}</a></li>
 							{% if is_admin %}<li><a id='admin_link' class='icon-cog' href='/admin/image/{{ image.uid }}'>{% trans 'Image Admin' %}</a></li>{% endif %}
 						</ul>
 					</li>
