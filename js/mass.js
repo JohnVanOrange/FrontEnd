@@ -2,7 +2,7 @@ var add_image = function() {
 	var rand = Math.floor((Math.random()*10000)+1);
 	call('image/unapproved', function(data){
 		content = '<div class="thumb_wrap" id="' + data.uid + '">' + 
-							 '<a href="/' + data.uid + '"><img src="' + data.thumb_url + '"></a>' +
+							 '<a href="/' + data.uid + '"><img src="' + data.media.thumb.url + '"></a>' +
 							 '<div>' +
 							  '<button class="btn btn-success btn-xs approve icon-thumbs-up" value="' + data.uid + '"></button>' +
 								'<button class="btn btn-warning btn-xs nsfw" value="' + data.uid + '">!</button>' +

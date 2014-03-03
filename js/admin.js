@@ -21,7 +21,7 @@ $(document).ready(function () {
   if ($(this).val().length === 6) {
    var thumb_holder = $(this).parent().find('.preview').find('img');
    call('image/get',function(result){
-    thumb_holder.attr('src',result.thumb_url);
+    thumb_holder.attr('src',result.media.thumb.url);
    },{image: $(this).val()});
   }
  });

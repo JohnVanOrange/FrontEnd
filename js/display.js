@@ -3,7 +3,7 @@ $('document').ready(function(){
 	/*Next image preload*/
 	call('image/random', function(next_image_data){
 		next_image = new Image();
-		next_image.src = next_image_data.image_url;
+		next_image.src = next_image_data.media.primary.url;
 		$('#main').attr('href',next_image_data.page_url); 
 	});
 	
