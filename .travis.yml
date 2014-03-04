@@ -8,11 +8,10 @@ before_script:
  - printf "\n" | pecl install imagick
  - composer self-update
  - composer install --prefer-source
- - cp tests/settings.inc.travis settings.inc
+ - cp tests/travis/settings.inc.travis settings.inc
+ - cp tests/travis/orange_slice16.png media/
  - mysql -e 'create database jvo_test;'
  - cd tools
  - php dbimport.php ../sql/tables.sql
- - php dbimport.php ../tests/travis.sql
+ - php dbimport.php ../tests/travis/travis.sql
  - cd ..
-script:
- - cd tests; phpunit .

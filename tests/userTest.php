@@ -1,7 +1,5 @@
 <?php
-//Requires PHPUnit
-require_once('../vendor/autoload.php');
-require_once('../settings.inc');
+require_once('settings.inc');
 
 class userTest extends PHPUnit_Framework_TestCase {
  

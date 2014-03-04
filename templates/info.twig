@@ -1,15 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<img src='{{ image.image_url }}' alt='Background image' id='info_bg' />
+<img src='{{ image.media.primary.url }}' alt='Background image' id='info_bg' />
 <h1>{% trans 'Image Details' %}</h1>
 
 <div class='colpage container'>
   <div class="col-md-6">
     <ul>
-      <li>{% trans 'Type' %}: <span class='data'>{{ image.type|upper }}</span></li>
-      <li>{% trans 'Width' %}: <span class='data'>{{ image.width }}px</span></li>
-      <li>{% trans 'Height' %}: <span class='data'>{{ image.height }}px</span></li>
+      <li>{% trans 'Format' %}: <span class='data'>{{ image.media.primary.format|upper }}</span></li>
+      <li>{% trans 'Width' %}: <span class='data'>{{ image.media.primary.width }}px</span></li>
+      <li>{% trans 'Height' %}: <span class='data'>{{ image.media.primary.height }}px</span></li>
+			<li>{% trans 'Size' %}: <span class='data'>{{ image.media.primary.readable_size }}</span></li>
       {% if image.added %}<li>{% trans 'Added on' %} {{ image.added|date("M d, Y") }}</li>{% endif %}
       {% if image.uploader.username %}<li>{% trans 'Uploaded by' %} <a href='/u/{{ image.uploader.username }}'>{{ image.uploader.username }}</a></li>{% endif %}
       {% if image.approved %}
@@ -25,17 +26,17 @@
       {% endif %}
       <li>
        <ul>{% trans 'External Resources' %}:
-        <li class='icon-picture-1'><a href='http://regex.info/exif.cgi?url={{ image.image_url }}'>{% trans 'Additional image info (EXIF and technical data)' %}</a></li>
-        <li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={{ image.image_url }}'>{% trans 'Reverse Google search' %}</a></li>
-        <li class='icon-search'><a href='http://tineye.com/search?url={{ image.image_url }}'>{% trans 'Reverse Tineye search' %}</a></li>
-        <li class='icon-tools'><a href='http://imgops.com/{{ image.image_url }}'>{% trans 'Image tools' %}</a></li>
+        <li class='icon-picture-1'><a href='http://regex.info/exif.cgi?url={{ image.media.primary.url }}'>{% trans 'Additional image info (EXIF and technical data)' %}</a></li>
+        <li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'>{% trans 'Reverse Google search' %}</a></li>
+        <li class='icon-search'><a href='http://tineye.com/search?url={{ image.media.primary.url }}'>{% trans 'Reverse Tineye search' %}</a></li>
+        <li class='icon-tools'><a href='http://imgops.com/{{ image.media.primary.url }}'>{% trans 'Image tools' %}</a></li>
         {% if image.c_link != '' %}<li class='icon-comment'><a href='{{ image.c_link }}'>{% trans 'Comments' %}</a></li>{% endif %}
        </ul>
       </li>
      </ul>
   </div>
   <div class="col-md-4">
-    <a href='{{ image.page_url }}'><img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.thumb_url }}' /></a>
+    <a href='{{ image.page_url }}'><img id="{{ image.uid }}" class="image" alt='{% trans 'Image Thumbnail' %}' src='{{ image.media.thumb.url }}' /></a>
   </div>
 </div>
 {% endblock %}

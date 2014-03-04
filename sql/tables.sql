@@ -63,8 +63,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `salt` varchar(16) collate utf8_unicode_ci NOT NULL,
   `email` varchar(255) collate utf8_unicode_ci NOT NULL,
   `type` int(10) unsigned NOT NULL default '1',
-  `theme` varchar(8) collate utf8_unicode_ci NOT NULL default 'dark',
-  `refresh` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -87,3 +85,14 @@ CREATE TABLE IF NOT EXISTS `ads` (
   `active` tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=0 ;
+
+CREATE TABLE IF NOT EXISTS `media` (
+  `uid` varchar(6) character set utf8 collate utf8_bin NOT NULL,
+  `file` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `format` varchar(4) collate utf8_unicode_ci NOT NULL,
+  `hash` varchar(32) collate utf8_unicode_ci NOT NULL,
+  `width` smallint(5) unsigned NOT NULL,
+  `height` smallint(5) unsigned NOT NULL,
+  `size` int(10) unsigned NOT NULL,
+  `type` enum('thumb','primary') collate utf8_unicode_ci NOT NULL default 'primary'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

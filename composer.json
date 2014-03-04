@@ -17,11 +17,12 @@
  },
  "require" : {
   "php" : ">=5.4",
-  "twig/twig": "1.*",
+  "twig/twig": "1.14.*",
   "twig/extensions": "1.*",
-  "davewid/peyote": "0.6.*",
+  "davewid/peyote": "0.7.*",
   "swiftmailer/swiftmailer": "5.*",
   "gavroche/browser": "dev-master#f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
+  "rych/bytesize": "1.0.*@dev",
   "ext-imagick" : "*",
   "ext-gettext" : "*"
  },

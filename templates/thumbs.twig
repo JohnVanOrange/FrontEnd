@@ -7,7 +7,7 @@
 	<div>
 	{% for image in images %}
 	 <div class='thumb_wrap'>
-		<a href="{{ image.page_url }}"><img src="{{ image.thumb_url }}"></a>
+		<a href="{{ image.page_url }}"><img src="{{ image.media.thumb.url }}"></a>
 	 </div>
 	{% endfor %}
 	</div>
