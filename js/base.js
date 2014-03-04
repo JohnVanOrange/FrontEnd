@@ -11,12 +11,23 @@ var api = {
      if (response.hasOwnProperty('error')) {
       throw {name: response.error, message: response.message};
      }
-     callback(response);
+		 callback(response);
      process(response);
     } catch(e) {
-	 exception_handler(e);
-	}
-   }
+			exception_handler(e);
+		}
+   },
+	 error: function(xhr) {
+		var response = JSON.parse(xhr.responseText);
+		try {
+			if (response.hasOwnProperty('error')) {
+				throw {name: response.error, message: response.message};
+			}
+			process(response);
+		} catch(e) {
+			exception_handler(e);
+		}
+	 }
   });
  },
  call : function (method, callback, opt) {
