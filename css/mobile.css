@@ -30,3 +30,7 @@ header h1 {
 	float: none;
 	width: 100%;
 }
+
+.main {
+	margin-top: 15px;
+}
