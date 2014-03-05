@@ -466,3 +466,6 @@ code {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5d78e', endColorstr='#eeb933', GradientType=0);
   *zoom: 1;
 }
+.doc_anchor {
+  float: left;
+}

@@ -24,23 +24,21 @@ class API {
      'image' => 'JohnVanOrange\jvo\Image',
      'user' => 'JohnVanOrange\jvo\User',
      'tag' => 'JohnVanOrange\jvo\Tag',
-     'theme' => 'JohnVanOrange\jvo\Theme',
      'report' => 'JohnVanOrange\jvo\Report',
-     'refresh' => 'JohnVanOrange\jvo\Refresh',
      'reddit' => 'JohnVanOrange\jvo\Reddit',
      'media' => 'JohnVanOrange\jvo\Media',
-     'ads' => 'JohnVanOrange\jvo\Ads'
+     'ads' => 'JohnVanOrange\jvo\Ads',
+     'setting' => 'JohnVanOrange\jvo\Setting'
      ];
     switch ($class) {
      case 'image':
      case 'user':
      case 'tag':
-     case 'theme':
      case 'report':
-     case 'refresh':
      case 'reddit':
      case 'media':
      case 'ads':
+     case 'setting':
       $class_name =  $valid_classes[$class];
       break;
      default:
