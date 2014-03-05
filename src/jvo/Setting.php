@@ -49,4 +49,21 @@ class Setting extends Base {
   ];
  }
  
+ /**
+  * Display all settings
+  *
+  * Display a list of all available settings.
+  *
+  * @api
+  */
+ public function all() {
+  $query = new \Peyote\Select('settings');
+  $query->columns('name');
+  $result = $this->db->fetch($query);
+  foreach($result as $r) {
+   $list[] = $r['name'];
+  }
+  return $list;
+ }
+ 
 }

@@ -519,7 +519,7 @@
       <error line="31" code="50010">No DocBlock was found for method merge()</error>
     </parse_markers>
   </file>
-  <file path="Setting.php" hash="104f455fc07b230274284f3f8683a593" package="Default">
+  <file path="Setting.php" hash="58c92eaca313ee294f7e33acbc187b37" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\jvo" line="4" package="Default">
       <extends>\JohnVanOrange\jvo\Base</extends>
       <name>Setting</name>
@@ -541,7 +541,7 @@
         </docblock>
         <argument line="20">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -564,12 +564,12 @@
         </docblock>
         <argument line="39">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="39">
           <name>$value</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="39">
@@ -577,6 +577,15 @@
           <default>NULL</default>
           <type/>
         </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\jvo" line="59" package="Default">
+        <name>all</name>
+        <full_name>all</full_name>
+        <docblock line="52">
+          <description>Display all settings</description>
+          <long-description>&lt;p&gt;Display a list of all available settings.&lt;/p&gt;</long-description>
+          <tag line="52" name="api" description=""/>
+        </docblock>
       </method>
     </class>
     <parse_markers>
