@@ -40,5 +40,10 @@ class settingTest extends PHPUnit_Framework_TestCase {
   }
   $this->fail('An expected exception has not been raised.');
  }
+ 
+ public function test_all() {
+  $result = $this->setting->all();
+  $this->assertContains('branch', $result, 'List missing an item');
+ }
 
 }
