@@ -17,17 +17,17 @@ class settingTest extends PHPUnit_Framework_TestCase {
 
  public function test_get() {
   $result = $this->setting->get('theme');
-  $this->assertEquals($result['value'], 'jvo', 'Incorrect theme setting result');
+  $this->assertEquals($result, 'jvo', 'Incorrect theme setting result');
 
  }
  public function test_set() {
   $sid = $this->user->login('adminuser', 'testpass')['sid'];
   $this->setting->update('branch', 'test', $sid);
   $result = $this->setting->get('branch');
-  $this->assertEquals($result['value'], 'test', 'Incorrect initial branch setting');
+  $this->assertEquals($result, 'test', 'Incorrect initial branch setting');
   $this->setting->update('branch', 'master', $sid);
   $result = $this->setting->get('branch');
-  $this->assertEquals($result['value'], 'master', 'Incorrect secondary branch setting');
+  $this->assertEquals($result, 'master', 'Incorrect secondary branch setting');
  }
  
  public function test_set_notadmin() {
