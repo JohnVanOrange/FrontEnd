@@ -10,14 +10,16 @@
           <div class="form-group">
             <label for="addImageURL" class="col-lg-2 control-label">{% trans 'Image URL' %}</label>
             <div class="col-lg-10">
-              <input type="url" class="form-control" id="addImageURL" value='http://'>
+              <input type="url" class="form-control" id="addImageURL" placeholder='http://example.com/image.png'>
             </div>
           </div>
+          <button type="button" class="btn btn-primary" id='addImageSubmit'>{% trans 'Add' %}</button>
         </form>
+        <p>- OR -</p>
+        <div id='drop' style='background-color: white; margin-top: 15px' class='dropzone'></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
-        <button type="button" class="btn btn-primary" id='addImageSubmit'>{% trans 'Add' %}</button>
       </div>
     </div>
   </div>
