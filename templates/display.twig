@@ -68,4 +68,11 @@
 
 {% block javascript %}
 	<script src="{{ web_root }}js/display.js"></script>
+	<script src="{{ web_root }}bower_components/dropzone/downloads/dropzone.min.js"></script>
+	<script src="{{ web_root }}js/add.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel='stylesheet' type='text/css' href="{{ web_root }}bower_components/dropzone/downloads/css/basic.css" />
+	<link rel='stylesheet' type='text/css' href="{{ web_root }}bower_components/dropzone/downloads/css/dropzone.css" />
 {% endblock %}

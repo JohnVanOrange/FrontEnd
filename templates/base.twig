@@ -15,12 +15,14 @@
 		{% block stylesheets %}{% endblock %}
 		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/themes/{{ site_theme }}/{{ site_theme }}.css?20140108a' />
 		{% block meta_data %}{% endblock %}
+		<link rel='stylesheet' type='text/css' media='handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)' href='{{ web_root }}css/tablet.css' />
 		<link rel='stylesheet' type='text/css' media='handheld, only screen and (max-width: 625px), only screen and (max-device-width: 625px)' href='{{ web_root }}css/mobile.css' />
   </head>
   <body>
     <header>
 			<h1><a href='/'>{{ site_name }}</a></h1>
 				<ul id='menu' class='list-inline'>
+					<li><button class='icon-plus-circled icon action btn btn-success btn-xs' data-toggle="modal" href="#addImageDialog" data-target="#addImageDialog"><span class='notablet nomobile'>{% trans 'Add Image' %}</span></button></li>
 					{% if user.username %}
 					<li id='user_avatar'><a href='/u/{{ user.username }}'><img src='http://www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'></a></li>
 					<li id="username" class='dropdown'>
@@ -33,18 +35,11 @@
 							<li><a href='' id='logout' class='icon-logout'>{% trans 'Logout' %}</a></li>
 						</ul>
 					{% else %}
-						<li><a id='login' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">{% trans 'Login' %}</a></li>
+						<li><button id='login' class='icon-login icon action btn btn-warning btn-xs' data-toggle="modal" href="#loginDialog" data-target="#loginDialog"><span class='notablet nomobile'>{% trans 'Login' %}</span></button></li>
 					{% endif %}
 					{% if image %}
 					<li id='dislike_image' class='like icon icon-thumbs-down icon{% if image.data.dislike %} highlight{% endif %}' title='{% trans 'Dislike Image' %}'></li>
 					<li id='like_image' class='like icon icon-thumbs-up icon{% if image.data.like %} highlight{% endif %}' title='{% trans 'Like Image' %}'></li>
-					<li id='add_image' class='dropdown'>
-						<a href='#' class='icon-plus-circled icon' data-toggle="dropdown"></a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><a href='/add' class='icon-upload'>{% trans 'Upload Image' %}</a></li>
-							<li><a id='addImage' class='icon-link' data-toggle="modal" href="#addImageDialog" data-target="#addImageDialog">{% trans 'Add Image from URL' %}</a></li>
-						</ul>
-					</li>
 					<li id='save_image' class='icon-star-1 icon icon{% if image.saved %} highlight{% endif %}' title='{% trans 'Save Image' %}'></li>
 					<li id='share_image' class='dropdown'>
 						<a href='#' class='icon-share icon' data-toggle="dropdown"></a>
