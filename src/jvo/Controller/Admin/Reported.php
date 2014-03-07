@@ -5,7 +5,7 @@ class Reported extends Admin {
  
  public function process() {
   
-  $url = parse_url(WEB_ROOT);
+  $url = parse_url($this->api('setting/get', ['name' => 'web_root']));
   $tag = rtrim(str_replace($url['host'], '', $_SERVER['HTTP_HOST']),'.');
   
   $image = $this->api('image/reported');

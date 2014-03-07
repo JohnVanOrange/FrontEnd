@@ -64,6 +64,7 @@ class Tag extends Base {
   */
  
  public function get($value, $search_by='image') {
+  $setting = new Setting;
   if (!$value) throw new \Exception(_('Tag value not set'), 404);
   switch ($search_by) {
    case 'name':
@@ -87,7 +88,7 @@ class Tag extends Base {
   $results = $this->db->fetch($query);
   if (!$results && $search_by == 'basename') throw new \Exception(_('No images with specified tag'), 404);
   foreach ($results as $i => $r) {
-   $url = parse_url(WEB_ROOT);
+   $url = parse_url($setting->get('web_root'));
    $results[$i]['url'] = '/t/'.$r['basename'];
   }
   return $results;

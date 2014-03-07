@@ -15,12 +15,13 @@ class Base {
  }
 
  protected function remoteFetch($url, $headers=NULL) {
+  $setting = new Setting;
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-  curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+'.WEB_ROOT.'bot)');
+  curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 File Retrieval Bot by /u/cbulock (+' . $setting->get('web_root') . 'bot)');
   //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE); //disable for now as prod server doesn't handle properly
   curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
   curl_setopt($ch, CURLOPT_TIMEOUT, 180);
@@ -49,9 +50,10 @@ class Base {
  }
  
  protected function setCookie($name, $value, $expire=NULL, $path='/') {
+  $setting = new Setting;
   if (!headers_sent()) {
    if ($expire = NULL) $expire = time()+60*60*24*365;
-   $domain = explode('//',WEB_ROOT);
+   $domain = explode('//',$setting->get('web_root'));
    $domain = '.'.rtrim($domain[1],'/');
    return setcookie($name, $value, $expire, $path, $domain);
   }
@@ -70,7 +72,8 @@ class Base {
  }
  
  protected function siteURL() {
-   return parse_url(WEB_ROOT);
+  $setting = new Setting;
+  return parse_url($setting->get('web_root'));
  }
 
 }

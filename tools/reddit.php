@@ -13,6 +13,8 @@ $r = new Remote;
 $sr = file_get_contents('subreddits');
 $srlist = explode("\n",$sr);
 
+$setting = new JohnVanOrange\jvo\Setting;
+
 foreach ($srlist as $sr) {
- if ($sr) print_r(json_decode($r->fetch(WEB_ROOT.'api/reddit/process?subreddit='.$sr)));
+ if ($sr) print_r(json_decode($r->fetch($setting->get('web_root') . 'api/reddit/process?subreddit=' . $sr)));
 }
