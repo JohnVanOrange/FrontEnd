@@ -21,7 +21,7 @@ class Setting extends Base {
   $query = new \Peyote\Select('settings');
   $query->where('name', '=', $name);
   $result = $this->db->fetch($query)[0];
-  return $result;
+  return $result['value'];
  }
  
  /**

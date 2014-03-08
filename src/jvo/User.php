@@ -283,6 +283,8 @@ class User extends Base {
   */
  
  public function requestPwReset($username) {
+  $setting = new Setting;
+  $site_name = $setting->get('site_name');
   $user = $this->get($username, 'username');
   $uid = $this->getSecureID();
   // This has to manually add the resource as Resource/add doesn't have a way to specifiy a userID, it has to be derived from a SID.
@@ -297,18 +299,18 @@ class User extends Base {
   $query->columns(array_keys($data))
         ->values(array_values($data));
   $this->db->fetch($query);
-  $body = 'There was a password reset request sent from '. SITE_NAME . ".\n\n";
+  $body = 'There was a password reset request sent from '. $site_name . ".\n\n";
   $body .= "Username:\n";
   $body .= $user['username']."\n\n";
   $body .= "Follow link to provide new password:\n";
-  $body .= WEB_ROOT.'changepw?resetkey='.$uid."\n\n";
+  $body .= $setting->get('web_root') . 'changepw?resetkey=' . $uid . "\n\n";
   //need to get email address from db as $user->get doesn't return it for security reasons
   $query = new \Peyote\Select('users');
   $query->columns('email')
         ->where('username', '=', $username);
   $email = $this->db->fetch($query);
   $message = new Mail();
-  $message->sendMessage([$email[0]['email']], 'Password reset request for '. SITE_NAME, $body);
+  $message->sendMessage([$email[0]['email']], 'Password reset request for '. $site_name, $body);
   return array(
    'message' => _('Reset email sent')
   );

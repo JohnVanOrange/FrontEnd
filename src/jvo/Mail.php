@@ -15,10 +15,11 @@ class Mail extends \Swift_Message {
  }
  
  public function sendMessage($to, $subject, $body) {
+  $setting = new Setting;
   $toEmail = $to[0];
   $toName = NULL;
   if (isset($to[1])) $toName = $to[1];
-  $this->message->setFrom(SITE_EMAIL, SITE_NAME)
+  $this->message->setFrom(SITE_EMAIL, $setting->get('site_name'))
                 ->setTo($toEmail, $toName)
                 ->setSubject($subject)
                 ->setBody($body);
@@ -26,8 +27,10 @@ class Mail extends \Swift_Message {
  }
  
  public function sendAdminMessage($subject, $body) {
-  $this->message->setFrom(SITE_EMAIL, SITE_NAME)
-                ->setTo(ADMIN_EMAIL, SITE_NAME . ' Admin')
+  $setting = new Setting;
+  $site_name = $setting->get('site_name');
+  $this->message->setFrom(SITE_EMAIL, $site_name)
+                ->setTo(ADMIN_EMAIL, $site_name . ' Admin')
                 ->setSubject($subject)
                 ->setBody($body);
   return $this->send();

@@ -11,7 +11,7 @@ class NotFound extends Standard {
   $_SERVER['REDIRECT_STATUS'] = 404;
   $this->addData([
    'number'	=>	404,
-   'error_image'	=>	constant('404_IMAGE'),
+   'error_image'	=>	$this->api('setting/get', ['name' => '404_image']),
    'rand'	=>	md5(uniqid(rand(), true))
   ]);
 	

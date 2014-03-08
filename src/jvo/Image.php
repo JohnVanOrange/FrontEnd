@@ -210,6 +210,8 @@ class Image extends Base {
   */
  
  private function processAdd($path, $c_link=NULL, $sid = NULL) {
+  $setting = new Setting;
+  $web_root = $setting->get('web_root');
   $info = getimagesize($path);
   if (!$info) {
    unlink($path);
@@ -259,10 +261,10 @@ class Image extends Base {
    $this->db->fetch($query);
    $dupimage = $this->get($result[0]['uid']);
    return array(
-    'url' => WEB_ROOT.$dupimage['uid'],
+    'url' => $web_root . $dupimage['uid'],
     'uid' => $dupimage['uid'],
-    'image' => WEB_ROOT . $dupimage['media']['primary']['file'],
-    'thumb' => WEB_ROOT . $dupimage['media']['thumb']['file'],
+    'image' => $web_root . $dupimage['media']['primary']['file'],
+    'thumb' => $web_root . $dupimage['media']['thumb']['file'],
     'message' => _('Duplicate image')
    );
   }
@@ -270,10 +272,10 @@ class Image extends Base {
    //upload resource
    $this->res->add('upload', $uid, $sid, NULL, TRUE);
    return array(
-    'url' => WEB_ROOT.$uid,
+    'url' => $web_root . $uid,
     'uid' => $uid,
-    'image' => WEB_ROOT.'media/'.$filename,
-    'thumb' => WEB_ROOT.'media/thumbs/'.$filename,
+    'image' => $web_root . 'media/' . $filename,
+    'thumb' => $web_root . 'media/thumbs/' . $filename,
     'message' => _('Image added')
    );
   }
@@ -313,6 +315,8 @@ class Image extends Base {
   */
  
  public function report($image, $type, $sid = NULL) {
+  $setting = new Setting;
+  $site_name = $setting->get('web_root');
   if (!isset($image)) throw new \Exception(_('No image specified'));
   if (!isset($type)) throw new \Exception(_('No report type specified'));
   //Add report
@@ -322,13 +326,13 @@ class Image extends Base {
   $query->set(['display' => 0])
         ->where('uid', '=', $image);
   $this->db->fetch($query);
-  $body = 'A new image was reported on '. SITE_NAME . ".\n\n";
+  $body = 'A new image was reported on '. $site_name . ".\n\n";
   $body .= "View Reported Image:\n";
-  $body .= WEB_ROOT.'admin/image/'.$image."\n\n";
+  $body .= $setting->get('web_root') . 'admin/image/' . $image . "\n\n";
   $body .= "IP:\n";
   $body .= $_SERVER['REMOTE_ADDR'];
   $message = new Mail();
-  $message->sendAdminMessage('New Reported Image for '. SITE_NAME, $body);
+  $message->sendAdminMessage('New Reported Image for '. $site_name, $body);
   return array(
    'message' => _('Image Reported')
   );
@@ -477,6 +481,7 @@ class Image extends Base {
   */
  
  public function get($image, $sid=NULL, $brazzify = FALSE) {
+  $setting = new Setting;
   $current = $this->user->current($sid);
   //Get image data
   $query = new \Peyote\Select('images');
@@ -511,7 +516,7 @@ class Image extends Base {
   $result['image_url'] = $siteURL['scheme'] .'://media.' . $siteURL['host']. $result['media']['primary']['file'];
   if (isset($result['media']['thumb']['file'])) $result['thumb_url'] = $siteURL['scheme'] .'://thumbs.' . $siteURL['host']. $result['media']['thumb']['file'];
   //this can probably stay after the BC is removed
-  $result['page_url'] = WEB_ROOT . $result['uid'];
+  $result['page_url'] = $setting->get('web_root') . $result['uid'];
   //Get tags
   $tag = new Tag;
   $tag_result = $tag->get($result['uid']);
@@ -541,7 +546,7 @@ class Image extends Base {
    if (isset($data['save'])) $result['saved'] = 1;
   }
   //Page title
-  $result['page_title'] = SITE_NAME;
+  $result['page_title'] = $setting->get('site_name');
   if (isset($result['tags'][0])) {
    $title_text = ' - ';
    foreach ($result['tags'] as $tag) {
@@ -681,10 +686,10 @@ class Image extends Base {
  }
  
  private function allow_upload() {
-  if (defined('DISABLE_UPLOAD')) {
-   if (DISABLE_UPLOAD) {
-    return FALSE;
-   }
+  $setting = new Setting;
+  $disable_upload = $setting->get('disable_upload');
+  if ($disable_upload) {
+   return FALSE;
   }
   return TRUE;
  }
