@@ -24,7 +24,7 @@
     <header>
 			<h1><a href='/'>{{ site_name }}</a></h1>
 				<ul id='menu' class='list-inline'>
-					<li><button class='icon-plus-circled icon action btn btn-success btn-xs' data-toggle="modal" href="#addImageDialog" data-target="#addImageDialog"><span class='notablet nomobile'>{% trans 'Add Image' %}</span></button></li>
+					<li><button class='icon-plus-circled icon action btn btn-success btn-xs' data-toggle="modal" href="#addImageDialog" data-target="#addImageDialog" id='addImage'><span class='notablet nomobile'>{% trans 'Add Image' %}</span></button></li>
 					{% if user.username %}
 					<li id='user_avatar'><a href='/u/{{ user.username }}'><img src='http://www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'></a></li>
 					<li id="username" class='dropdown'>
@@ -109,8 +109,8 @@
 		<script src='{{ web_root }}bower_components/noty/js/noty/layouts/topLeft.js'></script>
 		<script src='{{ web_root }}bower_components/noty/js/noty/themes/default.js'></script>
 		<script src="{{ web_root }}bower_components/dropzone/downloads/dropzone.min.js"></script>
-		<script src="{{ web_root }}js/add.js"></script>
 		<script src="{{ web_root }}js/base.js"></script>
+		<script src="{{ web_root }}js/add.js"></script>
 		
 		<script async src="//assets.pinterest.com/js/pinit.js"></script>
 		
