@@ -31,10 +31,12 @@ class Media extends Base {
  }
  
  private function width(\Imagick $image) {
+  $image = $image->coalesceImages();
   return $image->getImageWidth();
  }
  
  private function height(\Imagick $image) {
+  $image = $image->coalesceImages();
   return $image->getImageHeight();
  }
  
