@@ -30,19 +30,25 @@
 	{% endif %}
 	{% include 'dialogs/add_tag.twig' %}
 	
-	{% if amazon_aff %}
-		<div id='ad'>
-			<p><a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
-				{{ad.title}}
-			</a></p>
-			<a class="btn btn-primary" href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'><span class="glyphicon glyphicon-shopping-cart"></span>
-				Buy Now From Amazon
-			</a>
-			<a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
-				<img src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={{ ad.ASIN }}&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag={{ amazon_aff }}">
-			</a>
-		</div>
-	{% endif %}
+	<div class="row">
+		{% if tip %}
+			<div class="alert alert-info col-md-4 col-md-offset-4"><span class="glyphicon glyphicon-info-sign"></span> {{ tip|raw }}</div>
+		{% endif %}
+		
+		{% if amazon_aff %}
+			<div id='ad' class='col-md-4 col-md-offset-4'>
+				<p><a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
+					{{ad.title}}
+				</a></p>
+				<a class="btn btn-primary" href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'><span class="glyphicon glyphicon-shopping-cart"></span>
+					Buy Now From Amazon
+				</a>
+				<a href='http://www.amazon.com/dp/{{ ad.ASIN }}/?tag={{ amazon_aff }}'>
+					<img src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={{ ad.ASIN }}&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag={{ amazon_aff }}">
+				</a>
+			</div>
+		{% endif %}
+	</div>
 
 {% endblock %}
 
