@@ -30,7 +30,7 @@ $image = new Image;
 $tag = new Tag;
 $remote = new remote;
 $query = new \Peyote\Select('images');
-$query->columns('filename, uid')
+$query->columns('uid')
       ->where('display', '=', 1)
       ->orderBy('RAND()')
       ->limit('50000');
