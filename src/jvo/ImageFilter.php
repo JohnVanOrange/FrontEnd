@@ -27,6 +27,7 @@ class ImageFilter {
       }
     }
     
+    $this->columns();
     $this->display();
     $this->sort();
     $this->limit();
@@ -40,6 +41,11 @@ class ImageFilter {
   private function join($table, $on) {
     $this->query->join($table);
     $this->query->on(key($on), '=', current($on));
+  }
+  
+  private function columns() {
+    //TODO: add override to specify columns
+    $this->query->columns('uid');
   }
   
   private function display() {
