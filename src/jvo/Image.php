@@ -391,11 +391,12 @@ class Image extends Base {
   * Retrieves a random image.
   *
   * @api
+  *
+  * @param array $filter Array of options to filter image results.  Currently available options include format, animated, nsfw, approved and uploader.
   */
  
- public function random() {
-  $query = new \Peyote\Select('images');
-  new ImageFilter\Random($query);
+ public function random($filter = NULL) {
+  $query = new ImageFilter\Random($filter);
   $result = $this->db->fetch($query);
   if (!$result) throw new \Exception(_('No image results'), 404);
   $image = $this->get($result[0]['uid']);
