@@ -395,10 +395,7 @@ class Image extends Base {
  
  public function random() {
   $query = new \Peyote\Select('images');
-  $query->columns('uid')
-        ->where('display', '=', 1)
-        ->orderBy('RAND()')
-        ->limit(1);
+  new ImageFilter\Random($query);
   $result = $this->db->fetch($query);
   if (!$result) throw new \Exception(_('No image results'), 404);
   $image = $this->get($result[0]['uid']);

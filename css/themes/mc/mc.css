@@ -430,14 +430,12 @@ code {
   text-shadow: none;
 }
 #ad {
-  display: inline-block;
   padding: 4px;
   -moz-border-radius: 8px 8px 8px 8px;
   -webkit-border-radius: 8px 8px 8px 8px;
   border-radius: 8px 8px 8px 8px;
   background-color: white;
   font-size: 90%;
-  margin-top: 2em;
 }
 #ad a {
   color: #333;
