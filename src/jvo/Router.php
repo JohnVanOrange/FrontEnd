@@ -1,7 +1,7 @@
 <?php
 namespace JohnVanOrange\jvo;
 
-class Router extends \JohnVanOrange\common\SimpleRouter {
+class Router extends \cbulock\Simple\Router {
 
     /*
      * Process data
