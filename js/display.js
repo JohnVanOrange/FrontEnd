@@ -52,25 +52,57 @@ $('document').ready(function(){
 		});
 	});
 	
- $('#save_image').click(function () {
-  $('#save_image').toggleClass('highlight');
-  if ($('#save_image').hasClass('highlight')) {
-   call('image/save',function(){},{image:$('.main').attr('id')});
-  } else {
-   call('image/unsave',function(){},{image:$('.main').attr('id')});
-  }
- });
+	$('#save_image').click(function () {
+		$('#save_image').toggleClass('highlight');
+		if ($('#save_image').hasClass('highlight')) {
+			call('image/save',function(){},{image:$('.main').attr('id')});
+		} else {
+			call('image/unsave',function(){},{image:$('.main').attr('id')});
+		}
+	});
 
- $('#like_image').click(function () {
-  $('#like_image').addClass('highlight');
-  $('#dislike_image').removeClass('highlight');
-  call('image/like',function(){},{image:$('.main').attr('id')});
- });
- 
-  $('#dislike_image').click(function () {
-  $('#dislike_image').addClass('highlight');
-  $('#like_image').removeClass('highlight');
-  call('image/dislike',function(){},{image:$('.main').attr('id')});
- });
+	$('#like_image').click(function () {
+		$('#like_image').addClass('highlight');
+		$('#dislike_image').removeClass('highlight');
+		call('image/like',function(){},{image:$('.main').attr('id')});
+	});
+	 
+	$('#dislike_image').click(function () {
+		$('#dislike_image').addClass('highlight');
+		$('#like_image').removeClass('highlight');
+		call('image/dislike',function(){},{image:$('.main').attr('id')});
+	});
+
+	$('#filter').one('click', function(event){
+		event.preventDefault();
+		var saveFilter = function () {
+			/*
+			call('tag/add', function(result){
+				$('#tags').empty();
+				for (i in result.tags) {
+					tag = $('<a>');
+					$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
+					$('#tags').append(tag);
+				}
+			}, 
+			{
+				'name': $('#addTag').val(),
+				'image' : $('.main').attr('id')
+			});
+			$('#addTagDialog').modal('hide');*/
+			$('#filterDialog').modal('hide');
+		};
+		var clearFilter = function () {
+			localStorage.removeItem('filter');
+			noty({text: 'Filters cleared', dismissQueue: true});
+			$('#filterDialog').modal('hide');
+		}
+		$('#filterSubmit').click(function(){
+			saveFilter();
+		});
+		$('#filterClear').click(function(){
+			clearFilter();
+		});
+	});
 
 });

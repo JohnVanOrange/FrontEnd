@@ -3,8 +3,44 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "543a99578046a8c71cce68ebc3513dae",
+    "hash": "f808892c5cb63fbaf19cfbb66a25f1c1",
     "packages": [
+        {
+            "name": "cbulock/simple-router",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cbulock/SimpleRouter.git",
+                "reference": "02881bb685f89adfc58e3eb46e99caa06b35d818"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cbulock/SimpleRouter/zipball/02881bb685f89adfc58e3eb46e99caa06b35d818",
+                "reference": "02881bb685f89adfc58e3eb46e99caa06b35d818",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "cbulock\\Simple\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Cameron Bulock",
+                    "email": "cameron@bulock.com",
+                    "homepage": "http://cameron.bulock.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Very basic router",
+            "homepage": "http://github.com/cbulock/SimpleRouter/",
+            "time": "2014-03-18 17:40:59"
+        },
         {
             "name": "davewid/peyote",
             "version": "0.7.2",
@@ -64,12 +100,15 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/90f1752e9f8f7aca522d383987307d7473973ef1",
+                "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/1411bd35e3812da2b8a9c8d5e3c1ccd748a635df",
                 "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "autoload": {
@@ -84,7 +123,8 @@
             "authors": [
                 {
                     "name": "Gabriel Bull",
-                    "email": "me@gabrielbull.com"
+                    "email": "me@gabrielbull.com",
+                    "homepage": "http://gabrielbull.com/"
                 },
                 {
                     "name": "Chris Schuld",
@@ -155,16 +195,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.3",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230"
+                "reference": "748c01c1144713ac0118396935d10b6ceec91b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
-                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/748c01c1144713ac0118396935d10b6ceec91b68",
+                "reference": "748c01c1144713ac0118396935d10b6ceec91b68",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +228,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Chris Corbyn"
@@ -200,7 +242,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-12-03 13:33:24"
+            "time": "2014-03-18 09:03:27"
         },
         {
             "name": "twig/extensions",
@@ -307,6 +349,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "cbulock/simple-router": 20,
         "gavroche/browser": 20,
         "rych/bytesize": 20
     },

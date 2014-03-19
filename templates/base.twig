@@ -53,6 +53,7 @@
 						</ul>
 					</li>
 					<li id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon' data-toggle="modal" href="#reportDialog" data-target="#reportDialog"></li>
+					<li id='filter' title='{% trans 'Filter Images' %}' class='icon-filter icon' data-toggle="modal" href="#filterDialog" data-target="#filterDialog"></li>
 					<li id='search_image' class='nomobile dropdown'>
 						<a href='#' class='icon-picture icon' data-toggle="dropdown"></a>
 						<ul class="dropdown-menu" role="menu">
@@ -95,6 +96,7 @@
 		{% include 'dialogs/pwreset_request.twig' %}
 		{% include 'dialogs/add_image.twig' %}
 		{% include 'dialogs/keyboard.twig' %}
+		{% include 'dialogs/filter.twig' %}
 		<script type='text/javascript'>
 		 var web_root = '{{ web_root }}';
 		 var site_name = '{{ site_name }}';

@@ -23,7 +23,9 @@ foreach ($results as $result) {
   $query->where('uid', '=', $result['uid']);
   $db->fetch($query);
   try {
-    $media->add($result['uid'], $result['file'], 'thumb');
+    $m = explode('/', $result['file']);
+    $file = '/media/thumbs/' . $m[2];
+    $media->add($result['uid'], $file, 'thumb');
   }
   catch(\ImagickException $e) {
     $message = new Mail();
