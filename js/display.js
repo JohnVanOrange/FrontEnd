@@ -1,5 +1,7 @@
 $('document').ready(function(){
 	
+	$.cookie.json = true;
+	
 	/*Next image preload*/
 	call('image/random', function(next_image_data){
 		next_image = new Image();
@@ -76,24 +78,16 @@ $('document').ready(function(){
 	$('#filter').one('click', function(event){
 		event.preventDefault();
 		var saveFilter = function () {
-			/*
-			call('tag/add', function(result){
-				$('#tags').empty();
-				for (i in result.tags) {
-					tag = $('<a>');
-					$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
-					$('#tags').append(tag);
-				}
-			}, 
-			{
-				'name': $('#addTag').val(),
-				'image' : $('.main').attr('id')
-			});
-			$('#addTagDialog').modal('hide');*/
+			var filter = {
+				'test': 1,
+				'test2': 2
+			};
+			$.cookie('filter', filter, {expires: 365});
+			noty({text: 'Filters saved', dismissQueue: true});
 			$('#filterDialog').modal('hide');
 		};
 		var clearFilter = function () {
-			localStorage.removeItem('filter');
+			$.removeCookie('filter');
 			noty({text: 'Filters cleared', dismissQueue: true});
 			$('#filterDialog').modal('hide');
 		}

@@ -9,7 +9,8 @@
     "bootstrap": "~3.0.0",
     "jquery": "~2.0.3",
     "typeahead.js": "~0.9.3",
-    "typeahead.js-bootstrap.css": "*"
+    "typeahead.js-bootstrap.css": "*",
+    "jquery-cookie": "~1.4.0"
   },
   "ignore": [
     "**/.*",

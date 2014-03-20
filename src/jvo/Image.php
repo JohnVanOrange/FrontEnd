@@ -396,6 +396,7 @@ class Image extends Base {
   */
  
  public function random($filter = NULL) {
+  if (!is_object($filter)) $filter = json_decode($filter, TRUE);
   $query = new ImageFilter\Random($filter);
   $result = $this->db->fetch($query);
   if (!$result) throw new \Exception(_('No image results'), 404);
