@@ -7,6 +7,7 @@ require_once('../../settings.inc');
 
 $db = new DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 $media = new Media;
+$image = new Image;
 $counter = 0;
 
 $query = new \Peyote\Select('media');
@@ -19,6 +20,9 @@ foreach ($results as $result) {
   try {
     $m = explode('/', $result['file']);
     $file = '/media/thumbs/' . $m[2];
+    //generate the thumbnail
+    $thumb = $image->scale($result['uid']);
+    file_put_contents(ROOT_DIR. $file, $thumb);
     $media->add($result['uid'], $file, 'thumb');
   }
   catch(\ImagickException $e) {
