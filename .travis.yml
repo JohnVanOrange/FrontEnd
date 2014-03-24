@@ -3,6 +3,8 @@ language: php
 php:
  - 5.4
  - 5.5
+ - 5.6
+ - hhvm
 before_script:
  - pear config-set preferred_state beta
  - printf "\n" | pecl install imagick
@@ -15,3 +17,7 @@ before_script:
  - php dbimport.php ../sql/tables.sql
  - php dbimport.php ../tests/travis/travis.sql
  - cd ..
+matrix:
+  allow_failures:
+    - php: hhvm
+ 
