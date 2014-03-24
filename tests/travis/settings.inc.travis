@@ -1,5 +1,5 @@
 <?php
-define('ROOT_DIR','/home/travis');
+define('ROOT_DIR','/home/travis/build/cbulock/JohnVanOrange');
 define('WEB_ROOT','http://johnvanorange.com/');
 define('SITE_NAME','John VanOrange');
 define('ADMIN_EMAIL','devnull@example.com');
