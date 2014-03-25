@@ -218,6 +218,7 @@ fieldset[disabled] .btn-primary.active {
   background-color: #667C26;
 }
 .tag {
+  display: inline-block;
   position: relative;
   font-weight: bold;
   font-size: 10px;
@@ -247,7 +248,6 @@ fieldset[disabled] .btn-primary.active {
 .tag:hover {
   position: relative;
   font-weight: bold;
-  font-size: 12px;
   color: black;
   background-color: #F0EAD6;
   text-shadow: none;
@@ -265,6 +265,9 @@ fieldset[disabled] .btn-primary.active {
   background-size: 60% 60%;
   background-position: bottom left,  top left, top right, bottom right;
   background-repeat: no-repeat;
+}
+#add_tag {
+  margin: 3px;
 }
 #tags em {
   font-size: 80%;
@@ -286,6 +289,7 @@ fieldset[disabled] .btn-primary.active {
 #social {
   font-size: 1px;
   padding: 5px;
+  max-height: 30px;
 }
 #facebook_like {
   padding-right: 8px;

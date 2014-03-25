@@ -246,6 +246,7 @@ footer {
 }
 
 .tag {
+    display: inline-block;
     position: relative;
     font-weight: bold;
     font-size: 10px;
@@ -267,7 +268,6 @@ footer {
 	&:hover {
 		position: relative;
 		font-weight: bold;
-		font-size: 12px;
 		color: black;
 		background-color: #F0EAD6;
 		text-shadow: none;
@@ -279,6 +279,10 @@ footer {
 		background-position: bottom left,  top left, top right, bottom right;
 		background-repeat: no-repeat;
 	}
+}
+
+#add_tag {
+    margin: 3px;
 }
 
 #tags em {
@@ -307,6 +311,7 @@ footer {
 #social {
 	font-size: 1px;
 	padding: 5px;
+  max-height: 30px;
 }
 
 #facebook_like {
