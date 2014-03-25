@@ -1,0 +1,44 @@
+@import url(http://fonts.googleapis.com/css?family=Bonbon);
+@import url(http://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+
+@bg_color: #0D771A;
+@text_color: white;
+@sec_text_color: rgb(255, 0, 0);
+
+@body_grad_edge: rgba(0, 0, 0, 0.15);
+@body_grad_center: #0D771A;
+
+@button_start: #3d3b3c;
+@button_end: lighten(@button_start, 10%);
+@button_border: #050505;
+@button_hover: #664f0b;
+
+@menu_color: #354468;
+
+header h1, #jvo {
+    padding-left: 55px;
+		font-family: 'Bonbon', sans-serif;
+}
+
+header:before, #jvo {
+		background: url('/img/tree.svg') left no-repeat;
+		height: 54px;
+}
+
+header {
+		background-color: rgba(255, 0, 0, 0.8);
+		&:before {
+				max-width: 54px;
+		}
+}
+
+body {
+		font-family: 'Covered By Your Grace', 'Open Sans', sans-serif!important;
+}
+
+#menu #tag_search, #menu .tt-hint {
+	margin-top: -2px;
+}
+
+
+@import 'base';

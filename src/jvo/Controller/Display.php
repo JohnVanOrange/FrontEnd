@@ -39,8 +39,8 @@ class Display extends Standard {
    'Click on <span class="icon-flag icon"></span> to report any images that shouldn\'t be on this site.',
    'Want more info about an image? More <a href="/info/' . $image['uid'] . '">details</a> are available under the <span class="icon-picture icon"></span> menu.',
    'Want to track your uploaded images? Log in first before uploading.',
-   'You a developer? A full <a href="docs">API</a> is available.',
-   'Found a bug?  <a href="https://github.com/cbulock/JohnVanOrange/issues/new">Bug reports</a> are greatly appreciated.'
+   'Are you a developer? A full <a href="docs">API</a> is available.',
+   'Did you find a bug?  <a href="https://github.com/cbulock/JohnVanOrange/issues/new">Bug reports</a> are greatly appreciated.'
   ];
   
   $rand = rand(1, 10);

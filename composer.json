@@ -17,6 +17,7 @@
  },
  "require" : {
   "php" : ">=5.4",
+  "cbulock/simple-router": "dev-master",
   "twig/twig": "1.14.*",
   "twig/extensions": "1.*",
   "davewid/peyote": "0.7.*",
