@@ -1,7 +1,7 @@
 <?php
-namespace JohnVanOrange\jvo;
+namespace JohnVanOrange\jvo\ImageFilter;
 
-class ImageFilter {
+class Base {
   
   protected $query;
   protected $options;
@@ -38,48 +38,46 @@ class ImageFilter {
     $this->approved();
   }
   
-  private function join($table, $on) {
+  protected function join($table, $on) {
     $this->query->join($table);
     $this->query->on(key($on), '=', current($on));
   }
   
-  private function columns() {
+  protected function columns() {
     //TODO: add override to specify columns
     $this->query->columns('uid');
   }
   
-  private function display() {
+  protected function display() {
     // TODO: include an override where any image can be displayed
     $this->query->where('display', '=', 1);
   }
   
-  private function sort() {
-    // TODO: include an override for sort order
-    $this->query->orderBy('RAND()');
+  protected function sort() {
+   if (isset($this->options['sort'])) $this->query->orderBy($this->options['sort']);
   }
   
-  private function limit() {
-    // TODO: include an override to specify a limit
-    $this->query->limit(1);
+  protected function limit() {
+    if (isset($this->options['limit'])) $this->query->limit($this->options['limit']);
   }
   
-  private function format() {
+  protected function format() {
     if (isset($this->options['format'])) $this->query->where('format', '=', $this->options['format']);
   }
   
-  private function animated() {
+  protected function animated() {
     if (isset($this->options['animated'])) $this->query->where('animated', '=', $this->options['animated']);
   }
   
-  private function nsfw() {
+  protected function nsfw() {
     if (isset($this->options['nsfw'])) $this->query->where('nsfw', '=', $this->options['nsfw']);
   }
   
-  private function approved() {
+  protected function approved() {
     if (isset($this->options['approved'])) $this->query->where('approved', '=', $this->options['approved']);
   }
   
-  private function uploader() {
+  protected function uploader() {
     if (isset($this->options['uploader'])) $this->query->where('user_id', '=', $this->options['uploader']);
   }
 }

@@ -18,10 +18,10 @@ class Media extends Base {
   */
  public function add($uid, $file, $type = 'primary') {
   $image = new \Imagick(ROOT_DIR . $file);
+  $hash = $this->hash($image);
   $width = $this->width($image);
   $height = $this->height($image);
   $size = $this->size($image);
-  $hash = $this->hash($image);
   $format = $this->format($image);
 
   $query = new \Peyote\Insert('media');
@@ -45,7 +45,7 @@ class Media extends Base {
  }
  
  private function hash(\Imagick $image) {
-  return md5($image);
+  return substr($image->getImageSignature(), 0, 32);
  }
  
  private function format(\Imagick $image) {
