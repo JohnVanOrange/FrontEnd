@@ -71,7 +71,6 @@ html {
 }
 
 body {
-		font-family: 'Open Sans', sans-serif;
 		color: @text_color;
 		background: @bg_color;
 		.linear_gradient_4(left, @body_grad_edge, 0%, @body_grad_center, 30%, @body_grad_center, 70%, @body_grad_edge, 100%, @bg_color);
@@ -81,6 +80,10 @@ body {
 		a:hover {
 				text-decoration: underline;
 		}
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
 }
 
 img {
@@ -111,6 +114,7 @@ header {
 		width: 100%;
 		height: 30px;
 		position: fixed;
+    z-index: 1;
 		a, a:visited, a:visited:hover, a:hover {
 				color: @text_color;
 		}
@@ -396,15 +400,8 @@ footer {
 }
 
 .thumb_wrap {
-	display: inline-block;
 	height: 164px;
 	width: 244px;
-	a {
-		img {
-			margin: 0 auto;
-			display: block;
-		}
-	}
 }
 
 #like_image.highlight {
