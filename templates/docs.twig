@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<a href='/docs/'><h1>{% trans 'API Docs for' %} {{ class.name }}</h1></a>
+	<a href='/docs/'><h2>{% trans 'API Docs for' %} {{ class.name }}</h2></a>
 	
 	<div id='apidocs'>
 	{% for method in class.method %}

@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h1>{% trans 'Tag Cloud' %}</h1>
+	<h2>{% trans 'Tag Cloud' %}</h2>
 	<div id='tag_cloud'>
 	{% for tag in tags %}
 	 <span class='tag_cloud_name' style='font-size: {{ tag.weight }}px'><a href='/t/{{ tag.basename }}'>{{ tag.name }}</a></span>
