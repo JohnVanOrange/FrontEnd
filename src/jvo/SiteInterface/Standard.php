@@ -31,11 +31,22 @@ class Standard {
    'hostname'		  => parse_url($web_root)['host'],
    'show_social'	=> $this->api('setting/get', ['name' => 'show_social']),
    'icon_set'		  => $this->api('setting/get', ['name' => 'icon_set']),
-   'site_theme'	  => $this->api('setting/get', ['name' => 'theme']),
    'current_url'	=> 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],
    'browser'		  => \Browser\Browser::getBrowser(),
    'locale'		    => \JohnVanOrange\jvo\Locale::get()
   ]);
+  
+  if (date('md') == '0401') {
+   $this->addData([
+    'site_theme'	  => 'afd'
+   ]);
+  }
+  else {
+   $this->addData([
+    'site_theme'	  => $this->api('setting/get', ['name' => 'theme'])
+   ]);
+  }
+  
   $app_link = $this->api('setting/get', ['name' => 'app_link']); if ($app_link) $this->addData(['app_link' => $app_link]);
   $show_brazz = $this->api('setting/get', ['name' => 'show_brazz']); if ($show_brazz) $this->addData(['show_brazz' => $show_brazz]);
   $show_jvon = $this->api('setting/get', ['name' => 'show_jvon']); if ($show_jvon) $this->addData(['show_jvon' => $show_jvon]);
