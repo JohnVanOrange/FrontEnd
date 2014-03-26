@@ -3,10 +3,10 @@
 {% block title_prepend %}{{ title_text }} {% endblock %}
 
 {% block content %}
-	<h1>{{ title_text }}</h1>
-	<div>
+	<h2>{{ title_text }}</h2>
+	<div class='row'>
 	{% for image in images %}
-	 <div class='thumb_wrap'>
+	 <div class='thumb_wrap col-md-1'>
 		<a href="{{ image.page_url }}"><img src="{{ image.media.thumb.url }}"></a>
 	 </div>
 	{% endfor %}

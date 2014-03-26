@@ -27,7 +27,6 @@ html {
   text-shadow: 1px 1px 2px #000;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
   color: #ffffff;
   background: #000000;
   background: linear-gradient(left, rgba(0, 0, 0, 0.15) 0%, rgba(158, 158, 158, 0.15) 30%, rgba(158, 158, 158, 0.15) 70%, rgba(0, 0, 0, 0.15) 100%), #000000;
@@ -44,6 +43,15 @@ body a:hover {
 }
 body a:hover {
   text-decoration: underline;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', sans-serif;
 }
 img {
   border: 0;
@@ -68,6 +76,7 @@ header {
   width: 100%;
   height: 30px;
   position: fixed;
+  z-index: 1;
 }
 header a,
 header a:visited,
@@ -218,6 +227,7 @@ fieldset[disabled] .btn-primary.active {
   background-color: #667C26;
 }
 .tag {
+  display: inline-block;
   position: relative;
   font-weight: bold;
   font-size: 10px;
@@ -247,7 +257,6 @@ fieldset[disabled] .btn-primary.active {
 .tag:hover {
   position: relative;
   font-weight: bold;
-  font-size: 12px;
   color: black;
   background-color: #F0EAD6;
   text-shadow: none;
@@ -265,6 +274,9 @@ fieldset[disabled] .btn-primary.active {
   background-size: 60% 60%;
   background-position: bottom left,  top left, top right, bottom right;
   background-repeat: no-repeat;
+}
+#add_tag {
+  margin: 3px;
 }
 #tags em {
   font-size: 80%;
@@ -286,6 +298,7 @@ fieldset[disabled] .btn-primary.active {
 #social {
   font-size: 1px;
   padding: 5px;
+  max-height: 30px;
 }
 #facebook_like {
   padding-right: 8px;
@@ -359,13 +372,8 @@ fieldset[disabled] .btn-primary.active {
   color: white;
 }
 .thumb_wrap {
-  display: inline-block;
   height: 164px;
   width: 244px;
-}
-.thumb_wrap a img {
-  margin: 0 auto;
-  display: block;
 }
 #like_image.highlight {
   color: #6aca4c;
