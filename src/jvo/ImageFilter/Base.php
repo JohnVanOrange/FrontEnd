@@ -6,6 +6,7 @@ class Base extends \Peyote\Select {
   protected $options;
   
   public function __construct($options = NULL) {
+    
     parent::__construct('images');
     $this->options = $options;
     
@@ -44,7 +45,7 @@ class Base extends \Peyote\Select {
   
   protected function columns_process() {
     //TODO: add override to specify columns
-    $this->columns('uid');
+    $this->columns('images.uid');
   }
   
   protected function display() {

@@ -53,7 +53,7 @@
 						</ul>
 					</li>
 					<li id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon' data-toggle="modal" href="#reportDialog" data-target="#reportDialog"></li>
-					<li id='filter' title='{% trans 'Filter Images' %}' class='icon-filter icon' data-toggle="modal" href="#filterDialog" data-target="#filterDialog"></li>
+					<li id='filter' title='{% trans 'Filter Images' %}' class='icon-filter icon{% if filter %} active{% endif %}' data-toggle="modal" href="#filterDialog" data-target="#filterDialog"></li>
 					<li id='search_image' class='nomobile dropdown'>
 						<a href='#' class='icon-picture icon' data-toggle="dropdown"></a>
 						<ul class="dropdown-menu" role="menu">
