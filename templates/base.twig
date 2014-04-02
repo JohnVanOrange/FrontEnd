@@ -53,7 +53,6 @@
 						</ul>
 					</li>
 					<li id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon' data-toggle="modal" href="#reportDialog" data-target="#reportDialog"></li>
-					<li id='filter' title='{% trans 'Filter Images' %}' class='icon-filter icon{% if filter %} active{% endif %}' data-toggle="modal" href="#filterDialog" data-target="#filterDialog"></li>
 					<li id='search_image' class='nomobile dropdown'>
 						<a href='#' class='icon-picture icon' data-toggle="dropdown"></a>
 						<ul class="dropdown-menu" role="menu">
@@ -65,6 +64,9 @@
 							{% if is_admin %}<li><a id='admin_link' class='icon-cog' href='/admin/image/{{ image.uid }}'>{% trans 'Image Admin' %}</a></li>{% endif %}
 						</ul>
 					</li>
+				{% endif %}
+				{% if image or message %}
+				<li id='filter' title='{% trans 'Filter Images' %}' class='icon-filter icon{% if filter %} active{% endif %}' data-toggle="modal" href="#filterDialog" data-target="#filterDialog"></li>
 				{% endif %}
 				<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='{% trans 'Search tags' %}'><button type='submit' title='{% trans 'Search' %}' class='icon-search btn btn-default btn-xs'></button></form></li>
 				<li id='other_menu' class='dropdown'>

@@ -399,7 +399,7 @@ class Image extends Base {
   if (!is_object($filter)) $filter = json_decode($filter, TRUE);
   $query = new ImageFilter\Random($filter);
   $result = $this->db->fetch($query);
-  if (!$result) throw new \Exception(_('No image results'), 404);
+  if (!$result) throw new \Exception(_('No image results'));
   $image = $this->get($result[0]['uid']);
   $image['response'] = $image['uid']; //backwards compatibility
   return $image;

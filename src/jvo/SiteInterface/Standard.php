@@ -36,6 +36,10 @@ class Standard {
    'locale'		    => \JohnVanOrange\jvo\Locale::get()
   ]);
   
+  if (isset($_COOKIE['filter'])) {
+   $this->addData(['filter'=> TRUE]);
+  }
+  
   if (date('md') == '0401') {
    $this->addData([
     'site_theme'	  => 'afd'
@@ -87,7 +91,7 @@ class Standard {
   echo $this->render();
  }
  
- protected function exceptionHandler($e) {
+ public function exceptionHandler($e) {
   $site_name = $this->api('setting/get', ['name' => 'site_name']);
   $code = $e->getCode();
   switch($code) {

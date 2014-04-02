@@ -13,7 +13,13 @@ class Random extends Base {
 	}
 	
 	//exceptions thrown from this won't be handled now
-	$image = $api->call('image/random', $options);
+	try {
+	 $image = $api->call('image/random', $options);
+	}
+	catch(\Exception $e) {
+	 $interface = new \JohnVanOrange\jvo\SiteInterface\Standard;
+	 $interface->exceptionHandler($e);
+	}
 	
 	header('Location: '. $image['page_url']);
 	

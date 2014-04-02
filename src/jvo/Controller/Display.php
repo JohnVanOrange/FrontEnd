@@ -31,10 +31,6 @@ class Display extends Standard {
    'ad' 	=> $this->api('ads/get')
   ]);
 	
-	if (isset($_COOKIE['filter'])) {
-	 $this->addData(['filter'=> TRUE]);
-	}
-	
   $tips = [
    'Press the spacebar to see another random image.',
    'When logged in, you can save your favorite images.',
