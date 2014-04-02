@@ -65,6 +65,9 @@
 						</ul>
 					</li>
 				{% endif %}
+				{% if image or message %}
+				<li id='filter' title='{% trans 'Filter Images' %}' class='icon-filter icon{% if filter %} active{% endif %}' data-toggle="modal" href="#filterDialog" data-target="#filterDialog"></li>
+				{% endif %}
 				<li class='nomobile'><form action='' id='search'><input id='tag_search' placeholder='{% trans 'Search tags' %}'><button type='submit' title='{% trans 'Search' %}' class='icon-search btn btn-default btn-xs'></button></form></li>
 				<li id='other_menu' class='dropdown'>
 					<a href='#' class='icon-menu icon' data-toggle="dropdown"></a>
@@ -95,6 +98,7 @@
 		{% include 'dialogs/pwreset_request.twig' %}
 		{% include 'dialogs/add_image.twig' %}
 		{% include 'dialogs/keyboard.twig' %}
+		{% include 'dialogs/filter.twig' %}
 		<script type='text/javascript'>
 		 var web_root = '{{ web_root }}';
 		 var site_name = '{{ site_name }}';
@@ -109,6 +113,7 @@
 		<script src='{{ web_root }}bower_components/noty/js/noty/layouts/topLeft.js'></script>
 		<script src='{{ web_root }}bower_components/noty/js/noty/themes/default.js'></script>
 		<script src="{{ web_root }}bower_components/dropzone/downloads/dropzone.min.js"></script>
+		<script src="{{ web_root }}bower_components/jquery-cookie/jquery.cookie.js"></script>
 		<script src="{{ web_root }}js/base.js"></script>
 		<script src="{{ web_root }}js/add.js"></script>
 		

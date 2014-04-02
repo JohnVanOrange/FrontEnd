@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `media` (
 
 CREATE TABLE IF NOT EXISTS `settings` (
   `name` varchar(16) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(64) collate utf8_unicode_ci default NULL,
+  `value` varchar(96) collate utf8_unicode_ci default NULL,
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
