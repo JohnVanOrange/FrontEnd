@@ -21,14 +21,14 @@ class API {
     $method = $result[1];
    
     $valid_classes = [
-     'image' => 'JohnVanOrange\jvo\Image',
-     'user' => 'JohnVanOrange\jvo\User',
-     'tag' => 'JohnVanOrange\jvo\Tag',
-     'report' => 'JohnVanOrange\jvo\Report',
-     'reddit' => 'JohnVanOrange\jvo\Reddit',
-     'media' => 'JohnVanOrange\jvo\Media',
-     'ads' => 'JohnVanOrange\jvo\Ads',
-     'setting' => 'JohnVanOrange\jvo\Setting'
+     'image' => 'JohnVanOrange\core\Image',
+     'user' => 'JohnVanOrange\core\User',
+     'tag' => 'JohnVanOrange\core\Tag',
+     'report' => 'JohnVanOrange\core\Report',
+     'reddit' => 'JohnVanOrange\core\Reddit',
+     'media' => 'JohnVanOrange\core\Media',
+     'ads' => 'JohnVanOrange\core\Ads',
+     'setting' => 'JohnVanOrange\core\Setting'
      ];
     switch ($class) {
      case 'image':

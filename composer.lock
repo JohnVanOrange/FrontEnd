@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f808892c5cb63fbaf19cfbb66a25f1c1",
+    "hash": "5ed09c279798045f1735b8a5101c6fd6",
     "packages": [
         {
             "name": "cbulock/simple-router",
@@ -96,12 +96,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gabrielbull/php-browser.git",
-                "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6"
+                "reference": "1411bd35e3812da2b8a9c8d5e3c1ccd748a635df"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/gabrielbull/php-browser/zipball/1411bd35e3812da2b8a9c8d5e3c1ccd748a635df",
-                "reference": "f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
+                "reference": "1411bd35e3812da2b8a9c8d5e3c1ccd748a635df",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,49 @@
                 "operating system",
                 "os"
             ],
-            "time": "2013-12-03 20:34:42"
+            "time": "2014-03-09 15:00:52"
+        },
+        {
+            "name": "jvo/core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JohnVanOrange/Core.git",
+                "reference": "f5dcea4989dcd9b51e0b503cf6614f1ce3923198"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/f5dcea4989dcd9b51e0b503cf6614f1ce3923198",
+                "reference": "f5dcea4989dcd9b51e0b503cf6614f1ce3923198",
+                "shasum": ""
+            },
+            "require": {
+                "davewid/peyote": "0.7.*",
+                "ext-gettext": "*",
+                "ext-imagick": "*",
+                "gavroche/browser": "dev-master",
+                "php": ">=5.4",
+                "rych/bytesize": "1.0.*@dev",
+                "swiftmailer/swiftmailer": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JohnVanOrange\\core\\": "src/core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Cameron Bulock",
+                    "email": "cameron@bulock.com",
+                    "homepage": "http://cameron.bulock.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Core John VanOrange classes",
+            "homepage": "https://github.com/JohnVanOrange/Core",
+            "time": "2014-04-03 22:43:44"
         },
         {
             "name": "rych/bytesize",
@@ -195,16 +237,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68"
+                "reference": "4f7a8b30aea0e580849a814876cdd8343277efc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/748c01c1144713ac0118396935d10b6ceec91b68",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/4f7a8b30aea0e580849a814876cdd8343277efc2",
+                "reference": "4f7a8b30aea0e580849a814876cdd8343277efc2",
                 "shasum": ""
             },
             "require": {
@@ -242,24 +284,24 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-03-18 09:03:27"
+            "time": "2014-04-03 05:12:31"
         },
         {
             "name": "twig/extensions",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "f91a82ec225e5bb108e01a0f93c9be04f84dcfa0"
+                "reference": "502303198afc1ec0bcc061c6f3a0926f7eb685e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
-                "reference": "f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/502303198afc1ec0bcc061c6f3a0926f7eb685e3",
+                "reference": "502303198afc1ec0bcc061c6f3a0926f7eb685e3",
                 "shasum": ""
             },
             "require": {
-                "twig/twig": "~1.0"
+                "twig/twig": "~1.12"
             },
             "type": "library",
             "extra": {
@@ -279,7 +321,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Common additional features for Twig that do not directly belong in core",
@@ -289,7 +333,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2013-10-18 19:37:15"
+            "time": "2014-03-01 02:53:07"
         },
         {
             "name": "twig/twig",
@@ -347,16 +391,13 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "cbulock/simple-router": 20,
-        "gavroche/browser": 20,
-        "rych/bytesize": 20
+        "jvo/core": 20,
+        "cbulock/simple-router": 20
     },
     "platform": {
-        "php": ">=5.4",
-        "ext-imagick": "*",
-        "ext-gettext": "*"
+        "php": ">=5.4"
     },
     "platform-dev": [
 
