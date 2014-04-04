@@ -16,6 +16,7 @@
   "source" : "https://github.com/cbulock/JohnVanOrange"
  },
  "minimum-stability" : "dev",
+ "prefer-stable" :  true,
  "require" : {
   "php" : ">=5.4",
   "jvo/core": "dev-master@dev",
