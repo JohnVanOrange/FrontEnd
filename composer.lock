@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "85f4d632e238095255fbec61efaad9ac",
+    "hash": "06d510298fa887863e18fd4c79554d7b",
     "packages": [
         {
             "name": "cbulock/simple-router",
@@ -144,16 +144,16 @@
         },
         {
             "name": "jvo/core",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JohnVanOrange/Core.git",
-                "reference": "679dbc623645488696982e34117d4b75908eabb6"
+                "reference": "fdd799395902aa55b47c0e9c19544baf64e9003e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/679dbc623645488696982e34117d4b75908eabb6",
-                "reference": "679dbc623645488696982e34117d4b75908eabb6",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/fdd799395902aa55b47c0e9c19544baf64e9003e",
+                "reference": "fdd799395902aa55b47c0e9c19544baf64e9003e",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 "ext-imagick": "*",
                 "gavroche/browser": "2.2.*",
                 "php": ">=5.4",
-                "rych/bytesize": "1.0.*@dev",
+                "rych/bytesize": "1.0.*",
                 "swiftmailer/swiftmailer": "5.*"
             },
             "type": "library",
@@ -182,21 +182,20 @@
             ],
             "description": "Core John VanOrange classes",
             "homepage": "https://github.com/JohnVanOrange/Core",
-            "time": "2014-04-04 14:37:25"
+            "time": "2014-04-05 13:38:10"
         },
         {
             "name": "rych/bytesize",
-            "version": "dev-master",
-            "target-dir": "Rych/ByteSize",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rchouinard/bytesize.git",
-                "reference": "38d25745980f3e2605ea49e01304f261aa6ddf15"
+                "reference": "297e16ea047461b91e8d7eb90aa46aaa52917824"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rchouinard/bytesize/zipball/38d25745980f3e2605ea49e01304f261aa6ddf15",
-                "reference": "38d25745980f3e2605ea49e01304f261aa6ddf15",
+                "url": "https://api.github.com/repos/rchouinard/bytesize/zipball/297e16ea047461b91e8d7eb90aa46aaa52917824",
+                "reference": "297e16ea047461b91e8d7eb90aa46aaa52917824",
                 "shasum": ""
             },
             "require": {
@@ -207,14 +206,9 @@
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
-                "psr-0": {
-                    "Rych\\ByteSize": ""
+                "psr-4": {
+                    "Rych\\ByteSize\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -233,7 +227,7 @@
             "keywords": [
                 "filesize"
             ],
-            "time": "2013-05-06 21:00:01"
+            "time": "2014-04-04 18:06:18"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -393,7 +387,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jvo/core": 20,
         "cbulock/simple-router": 20
     },
     "platform": {
