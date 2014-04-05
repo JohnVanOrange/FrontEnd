@@ -1,5 +1,5 @@
 {
- "name" : "JohnVanOrange/jvo",
+ "name" : "jvo/jvo",
  "description" : "Random Image Website",
  "homepage" : "http://cbulock.github.com/JohnVanOrange/",
  "authors" : [
@@ -15,21 +15,18 @@
   "wiki" : "https://github.com/cbulock/JohnVanOrange/wiki",
   "source" : "https://github.com/cbulock/JohnVanOrange"
  },
+ "minimum-stability" : "dev",
+ "prefer-stable" :  true,
  "require" : {
   "php" : ">=5.4",
+  "jvo/core": "1.*",
   "cbulock/simple-router": "dev-master",
   "twig/twig": "1.14.*",
-  "twig/extensions": "1.*",
-  "davewid/peyote": "0.7.*",
-  "swiftmailer/swiftmailer": "5.*",
-  "gavroche/browser": "dev-master#f5ca38642256c1a9b90ac41e0587a00b7e1ba5f6",
-  "rych/bytesize": "1.0.*@dev",
-  "ext-imagick" : "*",
-  "ext-gettext" : "*"
+  "twig/extensions": "1.*"
  },
  "autoload" : {
   "psr-4" : {
-    "JohnVanOrange\\" : "src/"
+    "JohnVanOrange\\jvo\\" : "src/jvo/"
   }
  }
 }
