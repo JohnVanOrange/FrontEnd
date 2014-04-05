@@ -19,7 +19,7 @@
  "prefer-stable" :  true,
  "require" : {
   "php" : ">=5.4",
-  "jvo/core": "1.*",
+  "jvo/core": "dev-master",
   "cbulock/simple-router": "dev-master",
   "twig/twig": "1.14.*",
   "twig/extensions": "1.*"

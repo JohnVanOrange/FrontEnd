@@ -10,7 +10,7 @@ class Standard {
  private $api;
  
  public function __construct() {
-  $this->api = new \JohnVanOrange\jvo\API;
+  $this->api = new \JohnVanOrange\core\API;
   
   $loader = new \Twig_Loader_Filesystem('templates');
   $this->twig = new \Twig_Environment($loader);
@@ -33,7 +33,7 @@ class Standard {
    'icon_set'		  => $this->api('setting/get', ['name' => 'icon_set']),
    'current_url'	=> 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],
    'browser'		  => \Browser\Browser::getBrowser(),
-   'locale'		    => \JohnVanOrange\jvo\Locale::get()
+   'locale'		    => \JohnVanOrange\core\Locale::get()
   ]);
   
   if (isset($_COOKIE['filter'])) {

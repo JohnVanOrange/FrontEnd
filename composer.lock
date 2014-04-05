@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "06d510298fa887863e18fd4c79554d7b",
+    "hash": "7f954f87df641341bce9eb12bce2e67a",
     "packages": [
         {
             "name": "cbulock/simple-router",
@@ -144,16 +144,16 @@
         },
         {
             "name": "jvo/core",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JohnVanOrange/Core.git",
-                "reference": "fdd799395902aa55b47c0e9c19544baf64e9003e"
+                "reference": "f298efd2b4a4844244b1be54435bbbcf06c8ef44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/fdd799395902aa55b47c0e9c19544baf64e9003e",
-                "reference": "fdd799395902aa55b47c0e9c19544baf64e9003e",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/f298efd2b4a4844244b1be54435bbbcf06c8ef44",
+                "reference": "f298efd2b4a4844244b1be54435bbbcf06c8ef44",
                 "shasum": ""
             },
             "require": {
@@ -182,7 +182,7 @@
             ],
             "description": "Core John VanOrange classes",
             "homepage": "https://github.com/JohnVanOrange/Core",
-            "time": "2014-04-05 13:38:10"
+            "time": "2014-04-05 15:04:45"
         },
         {
             "name": "rych/bytesize",
@@ -387,6 +387,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "jvo/core": 20,
         "cbulock/simple-router": 20
     },
     "platform": {
