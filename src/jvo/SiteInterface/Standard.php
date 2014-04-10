@@ -118,7 +118,7 @@ class Standard {
     $body .= $_SERVER['REQUEST_URI']."\n\n";    
     $body .= "IP:\n";
     $body .= $_SERVER['REMOTE_ADDR'];
-    $message = new \JohnVanOrange\jvo\Mail();
+    $message = new \JohnVanOrange\core\Mail();
     $message->sendAdminMessage('Error Occured for '. $site_name, $body);
     $this->addData([
      'code'	=>	$code,
