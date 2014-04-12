@@ -114,7 +114,7 @@ header {
 		width: 100%;
 		height: 30px;
 		position: fixed;
-    z-index: 1;
+    z-index: 10;
 		a, a:visited, a:visited:hover, a:hover {
 				color: @text_color;
 		}
@@ -400,8 +400,36 @@ footer {
 }
 
 .thumb_wrap {
-	height: 164px;
-	width: 244px;
+    height: 112px;
+    width: 112px;
+    position: relative;
+    margin: 9px;
+    border: 1px solid rgba(160, 160, 160, 0.7);
+    .border_radius1(3px);
+    a {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        position: absolute;
+        margin: 5px;
+        left: 0px;
+        &:hover {
+            overflow: visible;
+            z-index: 1;
+            position: absolute;
+            left: -1px;
+            top: -1px;
+        }
+    }
+    img {
+        position: relative;
+        left: 50%;
+        margin-left: -80%;
+        width: auto!important;
+        top: 50%;
+        margin-top: -80%;
+    }
 }
 
 #like_image.highlight {
