@@ -1,34 +1,34 @@
 var api = {
- client : function (method, callback, opt) {
-  var url = '/api/' + method;
-  $.ajax({
-   type: 'post',
-   url: url,
-   data: opt,
-   dataType: 'json',
-   success: function(response) {
-    try {
-     if (response.hasOwnProperty('error')) {
-      throw {name: response.error, message: response.message};
-     }
-		 callback(response);
-     process(response);
-    } catch(e) {
-			exception_handler(e);
-		}
-   },
-	 error: function(xhr) {
-		var response = JSON.parse(xhr.responseText);
-		try {
-			if (response.hasOwnProperty('error')) {
-				throw {name: response.error, message: response.message};
+	client : function (method, callback, opt) {
+		var url = '/api/' + method;
+		$.ajax({
+		type: 'post',
+		url: url,
+		data: opt,
+		dataType: 'json',
+		success: function(response) {
+			try {
+				if (response.hasOwnProperty('error')) {
+					throw {name: response.error, message: response.message};
+				}
+				callback(response);
+				process(response);
+			} catch(e) {
+				exception_handler(e);
 			}
-			process(response);
-		} catch(e) {
-			exception_handler(e);
+		},
+		error: function(xhr) {
+			var response = JSON.parse(xhr.responseText);
+			try {
+				if (response.hasOwnProperty('error')) {
+					throw {name: response.error, message: response.message};
+				}
+				process(response);
+			} catch(e) {
+				exception_handler(e);
+			}
 		}
-	 }
-  });
+	});
  },
  call : function (method, callback, opt) {
   return this.client(method, callback, opt);
@@ -123,43 +123,43 @@ $('document').ready(function(){
  var ctrl_down = false;
 
  $(document).keydown(function(event) {
-  if (event.keyCode == 17) ctrl_down = true;
+  if (event.keyCode === 17) ctrl_down = true;
  }).keyup(function(event) {
-  if (event.keyCode == 17) ctrl_down = false;
+  if (event.keyCode === 17) ctrl_down = false;
  });
  
  $('body').keydown(function (event) {
   if (!ctrl_down) {
    switch (event.keyCode) {
-   case 32://Space
-    event.preventDefault();
-    $('.main').click();
-    break;
-   case 37://left arrow
-    window.history.back();
-    break;
-   case 39://right arrow
-    window.history.forward();
-    break;
-   case 82://r
-    $('#report_image').click();
+	case 32://Space
+		event.preventDefault();
+		$('.main').click();
 		break;
-   case 83://s
-    $('#save_image').click();
-    break;
-   case 84://t
-    event.preventDefault();
-    $('#add_tag').click();
-    break;
-	 case 107://+
+	case 37://left arrow
+		window.history.back();
+		break;
+	case 39://right arrow
+		window.history.forward();
+		break;
+	case 82://r
+		$('#report_image').click();
+		break;
+	case 83://s
+		$('#save_image').click();
+		break;
+	case 84://t
+		event.preventDefault();
+		$('#add_tag').click();
+		break;
+    case 107://+
 		$('#like_image').click();
 		break;
-	 case 109://-
+	case 109://-
 		$('#dislike_image').click();
 		break;
-   case 124:
-    window.location.href = 'http://jvo.io/joJpMJ';
-    break;
+	case 124:
+		window.location.href = 'http://jvo.io/joJpMJ';
+		break;
    }
   }
  });
@@ -169,7 +169,7 @@ $('document').ready(function(){
   $('input').on('keydown', function (event) {
    event.stopPropagation();
   });
- }
+ };
  inputKeyboardHandler();
  
  /*Search by tag box*/
@@ -183,7 +183,7 @@ $('document').ready(function(){
 	/*Load report types*/
   $('#report_image').one('click', function() {
     api.call('report/all', function(data) {
-      for (i in data) {
+      for (var i in data) {
         report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
         $('#reportDialog form').append(report);
       }
@@ -203,7 +203,7 @@ $('document').ready(function(){
   event.preventDefault();
   call('user/logout', function(response){
    if (!response.error) window.location.reload();
-  })
+  });
  });
  
  /*Login dialog*/
@@ -259,8 +259,8 @@ $('document').ready(function(){
      'password': $('#createPassword').val(),
      'email': $('#createEmail').val()
     });
-   };
-  }
+   }
+  };
   $('#createEmail').bind('keydown', function (event) {
    if (event.keyCode === 13) {
     event.preventDefault();
@@ -343,7 +343,7 @@ $('document').ready(function(){
 					// Display the error information from the DOMError object
 					noty({text: 'Install failed, error: ' + this.error.name, type: 'error', dismissQueue:true});
 				};
-			};
+			}
 		};
 	});
 	
