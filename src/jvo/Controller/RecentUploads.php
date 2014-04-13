@@ -8,7 +8,7 @@ class RecentUploads extends Standard {
   $this->setTemplate('thumbs');
 	
   $this->addData([
-      'images'	=>	$this->api('image/recent'),
+      'images'	=>	$this->api('image/recent', ['count' => 50]),
       'title_text'	=>	_('Recently Added Images')
   ]);
 	

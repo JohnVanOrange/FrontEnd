@@ -8,7 +8,7 @@ class RecentLikes extends Standard {
   $this->setTemplate('thumbs');
 	
   $this->addData([
-      'images'	=>	$this->api('image/recentLikes'),
+      'images'	=>	$this->api('image/recentLikes', ['count' => 50]),
       'title_text'	=>	_('Recently Liked Images')
   ]);
 	

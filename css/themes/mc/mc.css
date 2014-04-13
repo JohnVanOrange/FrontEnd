@@ -519,3 +519,9 @@ code {
   -webkit-border-radius: 12px 12px 12px 12px;
   border-radius: 12px 12px 12px 12px;
 }
+.nav-pills li a:hover {
+  background-color: #707070;
+}
+.more {
+  font-size: 75%;
+}

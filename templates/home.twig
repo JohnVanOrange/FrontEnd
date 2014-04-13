@@ -19,6 +19,12 @@
    </div>
   {% endfor %}
 </div>
+<div class='row'>
+    <div class="col-md-1 col-md-offset-11">
+        <a href='recent_likes' class='more'>{% trans 'More' %}&#8230;</a>
+    </div>
+</div>
+
 <div class="row">
   <h3 class="col-md-4 col-md-offset-4">{% trans 'Just Added' %}</h3>
 </div>
@@ -28,6 +34,11 @@
       <a href="{{ image.page_url }}"><img src="{{ image.media.thumb.url }}"></a>
    </div>
   {% endfor %}
+</div>
+<div class='row'>
+    <div class="col-md-1 col-md-offset-11">
+        <a href='recent_uploads' class='more'>{% trans 'More' %}&#8230;</a>
+    </div>
 </div>
 
 <div class="row">
