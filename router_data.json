@@ -21,6 +21,7 @@
 		"jvon":							"Basic",
 		"manifest.webapp":	"Webapp",
 		"privacy":					"Basic",
+		"rand":               "Random",
 		"recent_likes":			"RecentLikes",
 		"recent_uploads":		"RecentUploads",
 		"s":								"Saved",
@@ -30,6 +31,6 @@
 		"u":								"User",
 		"uploads":					"Uploads"
 	},
-	"default":		"Random",
+	"default":		"Home",
 	"not_found":	"NotFound"
 }

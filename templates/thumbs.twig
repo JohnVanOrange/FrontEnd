@@ -6,7 +6,7 @@
 	<h2>{{ title_text }}</h2>
 	<div class='row'>
 	{% for image in images %}
-	 <div class='thumb_wrap col-md-1'>
+	 <div class='thumb_wrap col-md-1 col-xs-1'>
 		<a href="{{ image.page_url }}"><img src="{{ image.media.thumb.url }}"></a>
 	 </div>
 	{% endfor %}
