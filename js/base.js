@@ -133,7 +133,7 @@ $('document').ready(function(){
    switch (event.keyCode) {
 	case 32://Space
 		event.preventDefault();
-		$('.main').click();
+		window.location.href = $('#main').attr('href');
 		break;
 	case 37://left arrow
 		window.history.back();
