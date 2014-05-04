@@ -42,8 +42,14 @@
   padding-top: 10px;
 }
 .thumb_wrap {
-  height: 200px!important;
+  margin-bottom: 35px!important;
 }
 .thumb_wrap button {
   margin: 2px;
+}
+.thumb_wrap div {
+  top: 115px;
+  position: relative;
+  width: 110px;
+  left: -15px;
 }
