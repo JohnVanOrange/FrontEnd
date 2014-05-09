@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <h2>{% trans 'Settings Admin' %}</h2>
+    
+    <div id='content' class='settings_admin'>
+    
+        <form role='form' class="form-horizontal">
+        {% for name,value in settings %}
+            <div class='form-group'>
+                <label for='setting_{{name}}' class="col-sm-2 control-label">{{name}}</label>
+                <div class="col-sm-10">
+                    <input id='setting_{{name}}' name='{{name}}' class='form-control' value='{{value}}' type='text'>
+                </div>
+            </div>
+        {% endfor %}
+        </form>
+    
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel='stylesheet' type='text/css' href='{{ web_root }}css/themes/admin/admin.css' />
+{% endblock %}
+
+{% block javascript %}
+    <script src='{{ web_root }}js/admin.js'></script>
+    <script src='{{ web_root }}js/settings.js'></script>
+{% endblock %}
