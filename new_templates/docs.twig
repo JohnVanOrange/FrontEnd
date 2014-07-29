@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<a href='/docs/'><h2>{% trans 'API Docs for' %} {{ class.name }}</h2></a>
+	
+	<div id='apidocs'>
+	{% for method in class.method %}
+	 <div class='method'>
+	 <a class='doc_anchor icon-link' href='#{{ method.name }}'></a><h2 id='{{ method.name }}'>{{ class.name }}/{{ method.name }}</h2>
+	 {{ attribute(method.docblock, 'long-description') | raw }}
+	 <p class='endpoint'>Endpoint: <span class='variable'>{{ web_root }}api/{{ class.name }}/{{ method.name }}</span></p>
+	 <!--<p>{{ method.docblock.description }}</p>-->
+	 
+	 {% if method.params %}
+	 <h3>{% trans 'Parameters' %}</h3>
+	 {% for param in method.params %}
+		<p>
+			<span class='type'>{{ param.type }}</span> <span class='variable'>{{ param.variable }}</span>
+			<span class='desc'>{% if param.default %}{% trans 'Defaults to' %} <span class='variable'>{{ param.default }}</span>. {% endif %}{{ param.description }}</span> 
+		</p>
+	 {% endfor %}
+	 {% endif %}
+	 
+	 </div>
+	{% endfor %}
+	</div>
+	
+	<div id='classes'>
+			<h2>{% trans 'Methods' %}</h2>
+			{% for classname in classes %}
+			 <p><a href='/docs/{{ classname }}'>{{ classname }}</a></p>
+			{% endfor %}
+	</div>
+{% endblock %}

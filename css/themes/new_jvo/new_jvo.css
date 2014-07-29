@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
+header h1,
+#jvo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px #4d688d;
+}
+header h1.mini,
+#jvo.mini {
+  font-size: 24px;
+}
+.first {
+  color: white;
+}
+.second {
+  margin: -0.25em;
+  color: #ff8300;
+}
+.title_o {
+  background-image: url('/img/orange_slice_title.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  color: rgba(0, 0, 0, 0);
+  text-shadow: none;
+}
+html {
+  font-size: 15px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+body {
+  background-color: #4d688d;
+}
+body.preload * {
+  transition: none !important;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+header {
+  position: fixed;
+  width: 100%;
+}
+header h1 {
+  margin: 0 0 0 0.3em;
+  text-align: left;
+  transition: font-size 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+header h1 a:hover {
+  text-decoration: none;
+}
+#content {
+  padding-top: 3em;
+  width: 90%;
+  margin: auto;
+}
+.main {
+  max-width: 100%;
+  height: auto;
+  border-width: 10px;
+  border-color: white;
+  border-style: solid;
+}
+#tags {
+  font-family: 'Architects Daughter', sans-serif;
+  background-color: white;
+  padding: 0.5em;
+  font-size: 150%;
+}
+#tags a {
+  padding: 0 1em;
+  color: black;
+}
+#tags a:hover {
+  border-radius: 15px;
+  text-decoration: none;
+  background-color: rgba(97, 97, 97, 0.7);
+}
+#tags a:before {
+  content: "\2014";
+}

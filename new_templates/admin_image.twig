@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<h2>{% trans 'Image Admin' %}</h2>
+	
+	<div id='content' class='image_admin'>
+	
+		<p><button id='approve' class='btn btn-success'>{% trans 'Approve' %}</button> <button id='nsfw' class='btn btn-warning'>{% trans 'Approve as NSFW' %}</button> <button id='reject' class='btn btn-danger'>{% trans 'Reject' %}</button> <button id='skip' class='btn btn-default'>{% trans 'Skip' %}</button></p>
+		<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
+			 <a id='rand_link' href='/admin/approve?{{ rand }}' rel='nofollow'>
+				<img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.media.primary.url }}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
+			 </a>
+		</section>
+	
+	</div>
+	
+	<div id='image_data'>
+	 <p><a href='{{ image.page_url }}'>{{ image.uid }}</a></p>
+	 {% if image.display == '0' %}<p class='alert'>HIDDEN</p>{% endif %}
+	 {% if image.approved == '0' %}<p class='alert'>NOT APPROVED</p>{% endif %}
+	 {% if image.report %}<p>Reported as: <span class='alert'>{{ image.report.value }}</span></p>{% endif %}
+	 {% if image.nsfw == '1' %}<p>NSFW</p>{% endif %}
+	 {% if image.uploader.username %}<p>Uploaded by <a href='/u/{{ image.uploader.username }}'>{{ image.uploader.username }}</a></p>{% endif %}
+	 {% if image.c_link %}<p><a href='{{ image.c_link }}'>External comments</a></p>{% endif %}
+	 {% if image.tags %}
+	 <p>Tags:
+		{% for tag in image.tags %}<p class='tag'>{{ tag.name }}</p>{% endfor %}
+	 {% endif %}
+	 
+	 <p>Images: {{ stats.images }}</p>
+	 <p><a href='/admin/approve'>Approved:</a> {{ stats.approved }} ({{ stats.approved_percent }}%)</p>
+	 {% if stats.reports %}<p><a href='/admin/reported'>Reported:</a> {{ stats.reports }}</p>{% endif %}
+	</div>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel='stylesheet' type='text/css' href='{{ web_root }}css/themes/admin/admin.css' />
+{% endblock %}
+
+{% block javascript %}
+	<script src='{{ web_root }}js/admin.js'></script>
+{% endblock %}

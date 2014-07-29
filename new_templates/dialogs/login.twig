@@ -1,0 +1,33 @@
+<div class="modal fade" id="loginDialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{% trans 'Login' %}</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="loginUsername" class="col-lg-2 control-label">{% trans 'Username' %}</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="loginUsername" placeholder="{% trans 'Username' %}" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword" class="col-lg-2 control-label">{% trans 'Password' %}</label>
+            <div class="col-lg-10">
+              <input type="password" class="form-control" id="loginPassword" placeholder="{% trans 'Password' %}" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <a data-toggle="modal" href="#createAcctDialog" data-target="#createAcctDialog" data-dismiss="modal" class='create_acct'>{% trans "Don't have an account?" %}</a>
+       | 
+      <a data-toggle="modal" href="#pwresetRequestDialog" data-target="#pwresetRequestDialog" data-dismiss="modal" id='pwresetRequest'>{% trans 'Forgot Password?' %}</a>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-primary" id='loginSubmit'>{% trans 'Login' %}</button>
+      </div>
+    </div>
+  </div>
+</div>

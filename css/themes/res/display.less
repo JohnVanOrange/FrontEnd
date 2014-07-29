@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
+
+.main {
+  max-width: 100%;
+  height: auto;
+  border-width: 10px;
+  border-color: white;
+  border-style: solid;
+}
+
+#tags {
+  font-family: 'Architects Daughter', sans-serif;
+  background-color: white;
+  padding: 0.5em;
+  font-size: 150%;
+  a {
+    padding: 0 1em;
+    color: black;
+    &:hover {
+      border-radius: 15px;
+      text-decoration: none;
+      background-color: rgba(97, 97, 97, 0.7);
+    }
+    &:before {
+      content:"\2014";
+    }
+  }
+}

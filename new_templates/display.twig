@@ -1,0 +1,72 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
+		<a id='main' href='/rand?{{ rand }}' rel='nofollow'>
+			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
+		</a>
+		<div id='tags'>
+		{% if image.tags.0 %}
+			{% for tag  in image.tags %}
+				<a class='tag' href='{{ tag.url }}'>{{ tag.name }}</a>
+			{% endfor %}
+		{% else %}
+			<em>{% trans 'no current tags' %}</em>
+		{% endif %}
+		</div>
+	</section>
+	
+
+	<div class="row">
+		<div class='col-md-4 col-md-offset-4'>
+
+		<button class='icon-tag btn btn-default btn-xs' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">{% trans 'Add Tag' %}</button>
+		</div>
+	</div>
+	
+	{% if show_social == 1%}
+	<div class="row">	
+		<div id='social' class='col-md-4 col-md-offset-4'>
+		<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
+		<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={{ image.page_url|url_encode }}&amp;media={{ image.media.primary.url|url_encode }}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="{% trans 'Pin It' %}" alt='{% trans 'Pin It' %}' /></a></div>
+		<div class="g-plusone" data-size="medium"></div>
+		</div>
+	</div>
+	{% endif %}
+	{% include 'dialogs/add_tag.twig' %}
+	
+	
+	{% if tip %}
+	<div class="row">
+		<div class="alert alert-info col-md-4 col-md-offset-4"><span class="glyphicon glyphicon-info-sign"></span> {{ tip|raw }}</div>
+	</div>
+	{% endif %}
+
+
+{% endblock %}
+
+{% block meta_data %}
+	<link rel='image_src' href='{{ image.media.primary.url }}'>
+	<meta property='og:image' content='{{ image.media.primary.url }}'>
+	<meta name='og:image:width' content='{{ image.media.primary.width }}'>
+	<meta name='og:image:height' content='{{ image.media.primary.height }}'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='{{ image.page_title|e }}'>
+	<meta property='og:description' content=''>
+	<meta property="og:url" content="{{ current_url }}">
+	
+	<meta property="fb:admins" content="503316760">
+	{% if fb_app_id %}<meta property="fb:app_id" content="{{ fb_app_id }}">{% endif %}
+	 
+	<meta name="twitter:card" content="photo">
+	<meta name='twitter:title' content='{{ image.page_title|e }}'>
+	<meta name='twitter:image' content='{{ image.media.primary.url }}'>
+	<meta name='twitter:image:width' content='{{ image.media.primary.width }}'>
+	<meta name='twitter:image:height' content='{{ image.media.primary.height }}'>
+{% endblock %}
+
+{% block javascript %}
+	<script src="{{ web_root }}js/display.js"></script>
+	<script src="{{ web_root }}js/filter.js"></script>
+{% endblock %}
