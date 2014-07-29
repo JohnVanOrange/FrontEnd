@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a12" title="">
-  <file path="Tag.php" hash="04283fa2f7b0259fe620af9538342582" package="Default">
+  <file path="Tag.php" hash="18dd72012844ba6d6fe2b85ffae0b99c" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\core" line="4" package="Default">
       <extends>\JohnVanOrange\core\Base</extends>
       <name>Tag</name>
@@ -201,7 +201,44 @@
           <type/>
         </argument>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\core" line="279" package="Default">
+        <name>report</name>
+        <full_name>report</full_name>
+        <docblock line="267">
+          <description>Report tag</description>
+          <long-description>&lt;p&gt;Allows reporting of problematic tags so they may undergo review.&lt;/p&gt;</long-description>
+          <tag line="267" name="api" description=""/>
+          <tag line="267" name="param" description="The numeric id of an tag." type="string" variable="$tag_id">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="267" name="param" description="Number value representing the reason type which can be found in report/all" type="int" variable="$type">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="267" name="param" description="Session ID that is provided when logged in. This is also set as a cookie." type="string" variable="$sid">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="279">
+          <name>$tag_id</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="279">
+          <name>$type</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="279">
+          <name>$sid</name>
+          <default>NULL</default>
+          <type/>
+        </argument>
+      </method>
     </class>
+    <markers>
+      <todo line="286">need a way to retrieve tag data by tag_id</todo>
+      <todo line="288">this should link to some tag report interface where it can be removed.</todo>
+    </markers>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file Tag.php</error>
       <error line="4" code="50000">No DocBlock was found for \JohnVanOrange\core\Tag</error>
@@ -528,7 +565,7 @@
       <error line="55" code="50010">No DocBlock was found for method send()</error>
     </parse_markers>
   </file>
-  <file path="DB.php" hash="4a82ebb0190c59ceb3188227bec05e4d" package="Default">
+  <file path="DB.php" hash="4716d4c53d7f0b166e266560dbc133f8" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\core" line="6" package="Default">
       <extends>\PDO</extends>
       <name>DB</name>
@@ -538,17 +575,17 @@
         <full_name>__construct</full_name>
         <argument line="10">
           <name>$dsn</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="10">
           <name>$user</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="10">
           <name>$pass</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="10">
@@ -566,7 +603,7 @@
         <full_name>fetch</full_name>
         <argument line="17">
           <name>$query</name>
-          <default/>
+          <default></default>
           <type>\Peyote\Query</type>
         </argument>
       </method>
@@ -575,7 +612,7 @@
         <full_name>exec</full_name>
         <argument line="25">
           <name>$sql</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -595,7 +632,7 @@
       <error line="30" code="50010">No DocBlock was found for method setup()</error>
     </parse_markers>
   </file>
-  <file path="Resource.php" hash="7f4b37d364875f6ccf6247c62aef78ff" package="Default">
+  <file path="Resource.php" hash="86878ed5e0c839860eb6ee4e9f33d3fa" package="Default">
     <class final="false" abstract="false" namespace="JohnVanOrange\core" line="4" package="Default">
       <extends>\JohnVanOrange\core\Base</extends>
       <name>Resource</name>
@@ -609,7 +646,7 @@
         <full_name>add</full_name>
         <argument line="13">
           <name>$type</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="13">
@@ -632,18 +669,23 @@
           <default>FALSE</default>
           <type/>
         </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\core" line="31" package="Default">
-        <name>merge</name>
-        <full_name>merge</full_name>
-        <argument line="31">
-          <name>$to</name>
-          <default/>
+        <argument line="13">
+          <name>$tag_id</name>
+          <default>NULL</default>
           <type/>
         </argument>
-        <argument line="31">
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="JohnVanOrange\core" line="32" package="Default">
+        <name>merge</name>
+        <full_name>merge</full_name>
+        <argument line="32">
+          <name>$to</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="32">
           <name>$from</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -654,7 +696,7 @@
       <error line="6" code="50018">No DocBlock was found for property $user</error>
       <error line="8" code="50010">No DocBlock was found for method __construct()</error>
       <error line="13" code="50010">No DocBlock was found for method add()</error>
-      <error line="31" code="50010">No DocBlock was found for method merge()</error>
+      <error line="32" code="50010">No DocBlock was found for method merge()</error>
     </parse_markers>
   </file>
   <file path="Setting.php" hash="5c0435ac1456317d2c24ef1cb1f051c1" package="Default">
@@ -1647,7 +1689,7 @@
       <namespace name="ImageFilter" full_name="JohnVanOrange\core\ImageFilter"/>
     </namespace>
   </namespace>
-  <marker count="2">todo</marker>
+  <marker count="4">todo</marker>
   <marker count="0">fixme</marker>
   <deprecated count="0"/>
 </project>
