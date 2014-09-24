@@ -11,7 +11,8 @@
 #tags {
   font-family: 'Architects Daughter', sans-serif;
   background-color: white;
-  padding: 0.5em;
+  position: relative;
+  padding: 0.5em 75px;
   font-size: 150%;
   a {
     padding: 0 1em;
@@ -24,5 +25,50 @@
     &:before {
       content:"\2014";
     }
+  }
+}
+
+#img_container {
+  display: inline-block;
+}
+
+#add_tag {
+  position: absolute;
+  right: 5px;
+}
+
+#social {
+  padding: 10px;
+  div {
+    display: inline-block;
+    font-size: 1px;
+  }
+}
+
+.like {
+  color: @text_color;
+  font-size: 2em;
+}
+
+#like_image {
+  float: right;
+  &.highlight {
+    color: rgb(106, 202, 76);
+  }
+}
+
+#dislike_image {
+  float: left;
+  &.highlight {
+    color: rgb(250, 36, 27);
+  }
+}
+
+#save_image {
+  display: inline-block;
+  position: absolute;
+  margin-left: -30px;
+  &.highlight {
+    color: red;
   }
 }

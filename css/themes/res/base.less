@@ -21,7 +21,7 @@ body, h1, h2, h3, h4, h5, h6 {
 header {
     position: fixed;
     width: 100%;
-    
+    z-index: 1;
     h1 {
         margin: 0 0 0 0.3em;
         text-align: left;
@@ -38,4 +38,13 @@ header {
 		margin: auto;
 }
 
+footer {
+    color: @text_color;
+    font-size: 80%;
+    margin-top: 2em;
+    margin-bottom: 5px;
+}
+
 @import 'display';
+@import 'legal';
+@import 'thumbs';

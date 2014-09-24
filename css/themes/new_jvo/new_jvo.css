@@ -1,7 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 @import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
 header h1,
 #jvo {
@@ -53,6 +51,7 @@ h6 {
 header {
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 header h1 {
   margin: 0 0 0 0.3em;
@@ -67,6 +66,12 @@ header h1 a:hover {
   width: 90%;
   margin: auto;
 }
+footer {
+  color: #f3f3f3;
+  font-size: 80%;
+  margin-top: 2em;
+  margin-bottom: 5px;
+}
 .main {
   max-width: 100%;
   height: auto;
@@ -77,7 +82,8 @@ header h1 a:hover {
 #tags {
   font-family: 'Architects Daughter', sans-serif;
   background-color: white;
-  padding: 0.5em;
+  position: relative;
+  padding: 0.5em 75px;
   font-size: 150%;
 }
 #tags a {
@@ -92,3 +98,84 @@ header h1 a:hover {
 #tags a:before {
   content: "\2014";
 }
+#img_container {
+  display: inline-block;
+}
+#add_tag {
+  position: absolute;
+  right: 5px;
+}
+#social {
+  padding: 10px;
+}
+#social div {
+  display: inline-block;
+  font-size: 1px;
+}
+.like {
+  color: #f3f3f3;
+  font-size: 2em;
+}
+#like_image {
+  float: right;
+}
+#like_image.highlight {
+  color: #6aca4c;
+}
+#dislike_image {
+  float: left;
+}
+#dislike_image.highlight {
+  color: #fa241b;
+}
+#save_image {
+  display: inline-block;
+  position: absolute;
+  margin-left: -30px;
+}
+#save_image.highlight {
+  color: red;
+}
+#tos,
+#privacy {
+  color: #f3f3f3;
+  text-align: left;
+  font-size: 90%;
+}
+#tos p,
+#privacy p {
+  margin: 1em;
+}
+.thumb_wrap {
+  height: 112px;
+  width: 112px;
+  position: relative;
+  margin: 9px;
+  border: 1px solid rgba(160, 160, 160, 0.7);
+  border-radius: 3px;
+}
+.thumb_wrap a {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  margin: 5px;
+  left: 0px;
+}
+.thumb_wrap a:hover {
+  overflow: visible;
+  z-index: 1;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+}
+.thumb_wrap img {
+  position: relative;
+  left: 50%;
+  margin-left: -80%;
+  width: auto!important;
+  top: 50%;
+  margin-top: -80%;
+}
+/*# sourceMappingURL=new_jvo.css.map */
