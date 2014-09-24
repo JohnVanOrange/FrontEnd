@@ -31,7 +31,7 @@ $('document').ready(function(){
 		event.preventDefault();
 		var addtag = function () {
 			call('tag/add', function(result){
-				$('#tags').empty();
+				$('#tags a, #tags em').remove();
 				for (i in result.tags) {
 					tag = $('<a>');
 					$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
