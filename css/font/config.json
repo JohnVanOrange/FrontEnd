@@ -25,6 +25,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "d73eceadda1f594cec0536087539afbf",
+      "css": "heart",
+      "code": 59400,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f3dc2d6d8fe9cf9ebff84dc260888cdf",
+      "css": "heart-empty",
+      "code": 59399,
+      "src": "fontawesome"
+    },
+    {
       "uid": "474656633f79ea2f1dad59ff63f6bf07",
       "css": "star-1",
       "code": 59392,
