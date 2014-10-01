@@ -18,17 +18,32 @@ body, h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
 }
 
+a, .btn-link {
+    color: @text_color;
+    &:hover {
+        color: darken(@text_color, 25%);
+    }
+}
+
 header {
-    position: fixed;
     width: 100%;
-    z-index: 1;
     h1 {
+        position: fixed;
         margin: 0 0 0 0.3em;
+        width: 100%;
         text-align: left;
         transition: font-size 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        z-index: 1;
         a:hover{
             text-decoration: none;
         }
+    }
+    div {
+        display: inline-block;
+        float: right;
+        margin-top: 0.3em;
+        position: relative;
+        z-index: 2;
     }
 }
 
@@ -43,6 +58,13 @@ footer {
     font-size: 80%;
     margin-top: 2em;
     margin-bottom: 5px;
+}
+
+.pressed {
+	position: relative;
+	top: 2px;
+	text-shadow: none;
+	transition: all 0.2s;
 }
 
 @import 'display';

@@ -21,6 +21,14 @@
   <body class='container-fluid preload'>
     <header>
 			<h1><a href='/'><span class='first'>John</span> <span class='second'>Van<span class='title_o'>O</span>range</span></a></h1>
+			<div>
+				{% if user.username is defined %}
+				<button id='logout' class='icon-logout btn btn-link'>{% trans 'Sign Out' %}</button>
+				{% else %}
+				<button id='login' class='icon-login btn btn-primary' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">{% trans 'Sign In' %}</button>
+				<button class='create_acct icon-user-add btn btn-link' data-toggle="modal" href="#createAcctDialog" data-target="#createAcctDialog">{% trans 'Create Account' %}</button>
+				{% endif %}
+			</div>
 		</header>
 		<section id='content'>
 		{% block content %}{% endblock %}
