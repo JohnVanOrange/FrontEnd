@@ -25,8 +25,13 @@ a, .btn-link {
     }
 }
 
+.modal-dialog a {
+    color: @dialog_text_color;
+}
+
 header {
     width: 100%;
+    padding-right: 10px;
     h1 {
         position: fixed;
         margin: 0 0 0 0.3em;
@@ -44,6 +49,12 @@ header {
         margin-top: 0.3em;
         position: relative;
         z-index: 2;
+        #user_avatar img {
+            margin-right: 4px;
+            height: 24px;
+            width: 24px;
+            border-radius: 12px;
+        }
     }
 }
 

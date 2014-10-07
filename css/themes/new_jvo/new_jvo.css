@@ -7,6 +7,8 @@ header h1,
   font-weight: 800;
   text-transform: uppercase;
   text-shadow: 0 0 1px #4d688d;
+  font-size: 35px;
+  /* firefox and IE seem to hate this at 36px */
 }
 header h1.mini,
 #jvo.mini {
@@ -20,12 +22,14 @@ header h1.mini,
   color: #ff8300;
 }
 .title_o {
+  display: inline-block;
   background-image: url('/img/orange_slice_title.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
   color: rgba(0, 0, 0, 0);
   text-shadow: none;
+  transition: transform 300ms;
 }
 html {
   font-size: 15px;
@@ -56,8 +60,12 @@ a:hover,
 .btn-link:hover {
   color: #b3b3b3;
 }
+.modal-dialog a {
+  color: #428bca;
+}
 header {
   width: 100%;
+  padding-right: 10px;
 }
 header h1 {
   position: fixed;
@@ -76,6 +84,12 @@ header div {
   margin-top: 0.3em;
   position: relative;
   z-index: 2;
+}
+header div #user_avatar img {
+  margin-right: 4px;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
 }
 #content {
   padding-top: 3em;
