@@ -326,11 +326,20 @@ $('document').ready(function(){
 	
 });
 
+var $body = $(document.body),
+bodyHeight = $body.height(),
+$logo = $('.title_o');
 $(window).on('scroll', function (event) {
+    //header scaling
     var scroll = $(this).scrollTop();
     if (scroll > 100) {
       $('header h1').addClass('mini');
     } else {
       $('header h1').removeClass('mini');
     }
+    //logo circling
+    $logo.css({
+        'transform': 'rotate(' + ($body.scrollTop() / bodyHeight * 360) + 'deg)'
+    });
+    
 });
