@@ -6,7 +6,7 @@ header h1,
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   text-transform: uppercase;
-  text-shadow: 0 0 1px #4d688d;
+  text-shadow: 0 0 1px #494949;
   font-size: 35px;
   /* firefox and IE seem to hate this at 36px */
 }
@@ -38,7 +38,7 @@ html {
   text-align: center;
 }
 body {
-  background-color: #4d688d;
+  background-color: #494949;
 }
 body.preload * {
   transition: none !important;
@@ -108,6 +108,17 @@ footer {
   text-shadow: none;
   transition: all 0.2s;
 }
+#search {
+  display: inline-block;
+}
+#search #tag_search,
+#search .tt-hint {
+  height: 22px;
+  width: 10em;
+  padding-left: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 .main {
   max-width: 100%;
   height: auto;
@@ -153,6 +164,10 @@ footer {
   color: #f3f3f3;
   font-size: 2em;
   cursor: pointer;
+}
+.like:hover {
+  background-color: rgba(97, 97, 97, 0.7);
+  border-radius: 20px;
 }
 #like_image {
   float: right;
