@@ -1,17 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
-header h1,
-#jvo {
+header h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   text-transform: uppercase;
   text-shadow: 0 0 1px #494949;
-  font-size: 35px;
-  /* firefox and IE seem to hate this at 36px */
+  font-size: 24px;
 }
-header h1.mini,
-#jvo.mini {
+@media screen and (min-width: 650px) {
+  header h1 {
+    font-size: 35px;
+    /* firefox and IE seem to hate this at 36px */
+  }
+}
+header h1.mini {
   font-size: 24px;
 }
 .first {
@@ -39,6 +42,7 @@ html {
 }
 body {
   background-color: #494949;
+  color: #f3f3f3;
 }
 body.preload * {
   transition: none !important;
@@ -60,6 +64,9 @@ a:hover,
 .btn-link:hover {
   color: #b3b3b3;
 }
+.modal-dialog {
+  color: #333333;
+}
 .modal-dialog a {
   color: #428bca;
 }
@@ -80,10 +87,16 @@ header h1 a:hover {
 }
 header div {
   display: inline-block;
-  float: right;
-  margin-top: 0.3em;
   position: relative;
   z-index: 2;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+@media screen and (min-width: 500px) {
+  header div {
+    float: right;
+    margin-top: 0.3em;
+  }
 }
 header div #user_avatar img {
   margin-right: 4px;
@@ -92,9 +105,14 @@ header div #user_avatar img {
   border-radius: 12px;
 }
 #content {
-  padding-top: 3em;
   width: 90%;
   margin: auto;
+  padding-top: 5px;
+}
+@media screen and (min-width: 500px) {
+  #content {
+    padding-top: 3em;
+  }
 }
 footer {
   color: #f3f3f3;
@@ -108,17 +126,6 @@ footer {
   text-shadow: none;
   transition: all 0.2s;
 }
-#search {
-  display: inline-block;
-}
-#search #tag_search,
-#search .tt-hint {
-  height: 22px;
-  width: 10em;
-  padding-left: 4px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
 .main {
   max-width: 100%;
   height: auto;
@@ -127,13 +134,14 @@ footer {
   border-style: solid;
 }
 #tags {
-  font-family: 'Architects Daughter', sans-serif;
   background-color: white;
   position: relative;
   padding: 0.5em 75px;
   font-size: 150%;
+  color: #333333;
 }
 #tags a {
+  font-family: 'Architects Daughter', sans-serif;
   padding: 0 1em;
   color: black;
 }
@@ -194,7 +202,7 @@ footer {
   left: -8px;
   bottom: -8px;
   margin-bottom: 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: #333333;
 }
 #tos,
 #privacy {

@@ -9,6 +9,7 @@ html {
 
 body {
     background-color: @bg_color;
+    color: @text_color;
     &.preload * {
         transition: none !important;
     }
@@ -25,8 +26,11 @@ a, .btn-link {
     }
 }
 
-.modal-dialog a {
+.modal-dialog {
     color: @dialog_text_color;
+    a {
+        color: @dialog_link_color;
+    }
 }
 
 header {
@@ -45,10 +49,14 @@ header {
     }
     div {
         display: inline-block;
-        float: right;
-        margin-top: 0.3em;
         position: relative;
         z-index: 2;
+        margin: 0 auto;
+        margin-top: 2em;
+        @media screen and (min-width: 500px) {
+            float: right;
+            margin-top: 0.3em;
+        }
         #user_avatar img {
             margin-right: 4px;
             height: 24px;
@@ -59,9 +67,12 @@ header {
 }
 
 #content {
-    padding-top: 3em;
     width: 90%;
 		margin: auto;
+    padding-top: 5px;
+    @media screen and (min-width: 500px) {
+        padding-top: 3em;
+    }
 }
 
 footer {
@@ -76,17 +87,6 @@ footer {
     top: 2px;
     text-shadow: none;
     transition: all 0.2s;
-}
-
-#search {
-    display: inline-block;
-    #tag_search, .tt-hint {
-        height: 22px;
-        width: 10em;
-        padding-left: 4px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
 }
 
 @import 'display';

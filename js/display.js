@@ -13,7 +13,7 @@ $('document').ready(function(){
 	/*Add tag autosuggest*/
 	$('#addTag').typeahead({
 		remote: '/api/tag/suggest?term=%QUERY',
-		limit: 10
+		limit: 16
 	});
 	$('#addTagDialog .tt-hint').addClass('form-control');
 	

@@ -116,10 +116,11 @@ $('document').ready(function(){
  $.noty.defaults.timeout = 10000;
  
  /*Tag search autosuggest*/
- $('#tag_search').typeahead({
+ $('#searchTag').typeahead({
 	remote: '/api/tag/suggest?term=%QUERY',
-	limit: 10
+	limit: 16
  });
+ $('#searchDialog .tt-hint').addClass('form-control');
  
  /*Keyboard controls*/
  var ctrl_down = false;
@@ -173,14 +174,6 @@ $('document').ready(function(){
   });
  };
  inputKeyboardHandler();
- 
- /*Search by tag box*/
- $('form#search').submit(function (event) {
-  event.preventDefault();  
-  call('tag/get', function(taginfo){
-   window.location.href = taginfo[0].url;
-  }, {'value': $('#tag_search').val(), 'search_by': 'name'});
- });
 
  /*Logout*/
  $('#logout').click(function () {
@@ -301,6 +294,35 @@ $('document').ready(function(){
 	$('.icon').click(function() {
 		$(this).addClass('pressed');
 		setTimeout(function(){$('.icon').removeClass('pressed')},80);
+	});
+
+	/*Search Tag dialog*/
+	$('#search').click(function (event) {
+		event.preventDefault();
+		$('#searchTag').typeahead('setQuery','');
+	});
+	
+	$('#searchDialog').on('shown.bs.modal', function(){
+		$('#searchTag').focus();
+	});
+
+	$('#search').one('click', function(event){
+		event.preventDefault();
+		var search = function () { 
+      call('tag/get', function(taginfo){
+       window.location.href = taginfo[0].url;
+      }, {'value': $('#searchTag').val(), 'search_by': 'name'});
+			$('#searchDialog').modal('hide');
+		};
+		$('#searchTag').bind('keydown', function (event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				search();
+			}
+		});
+		$('#searchSubmit').click(function(){
+			search();
+		});
 	});
 	
 	/*Firefox Open Web App integration*/

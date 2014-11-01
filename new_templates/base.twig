@@ -6,8 +6,8 @@
 		<link rel='shortcut icon' type='image/png' href='{{ web_root }}icons/{{ icon_set }}/16.png' />
     <link href="{{ web_root }}bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="{{ web_root }}bower_components/typeahead.js-bootstrap.css/typeahead.js-bootstrap.css" rel="stylesheet" media="screen">
-		<link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello.css?20130423' />
-    <link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello-codes.css?20130423' />
+		<link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello.css' />
+    <link rel='stylesheet' type='text/css' href='{{ web_root }}css/fontello/fontello-codes.css' />
 		<link rel='stylesheet' type='text/css' href="{{ web_root }}bower_components/dropzone/downloads/css/basic.css" />
 		<link rel='stylesheet' type='text/css' href="{{ web_root }}bower_components/dropzone/downloads/css/dropzone.css" />
 		<link rel="apple-touch-icon" href="{{ web_root }}icons/{{ icon_set }}/57.png" />
@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="{{ web_root }}icons/{{ icon_set }}/114.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="{{ web_root }}icons/{{ icon_set }}/144.png" />
 		{% block stylesheets %}{% endblock %}
-		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/themes/{{ site_theme }}/{{ site_theme }}.css?20140414' />
+		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/themes/{{ site_theme }}/{{ site_theme }}.css' />
 		{% block meta_data %}{% endblock %}
   </head>
   <body class='container-fluid preload'>
@@ -23,12 +23,13 @@
 			<h1><a href='/'><span class='first'>John</span> <span class='second'>Van<span class='title_o'>O</span>range</span></a></h1>
 			<div>
 				{% if user.username is defined %}
-				<a id='user_avatar' class='btn btn-link btn-sm' href='/u/{{ user.username }}'><img src='//www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'>{{ user.username }}</a>
-				<button id='logout' class='icon-logout btn btn-sm'>{% trans 'Sign Out' %}</button>
+					<a id='user_avatar' class='btn btn-link btn-sm' href='/u/{{ user.username }}'><img src='//www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'>{{ user.username }}</a>
+					<button id='logout' class='icon-logout btn btn-sm btn-link'>{% trans 'Sign Out' %}</button>
 				{% else %}
-				<button id='login' class='icon-login btn btn-sm btn-primary' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">{% trans 'Sign In' %}</button>
-				<button class='create_acct icon-user-add btn btn-sm btn-link' data-toggle="modal" href="#createAcctDialog" data-target="#createAcctDialog">{% trans 'Create Account' %}</button>
+					<button id='login' class='icon-login btn btn-sm btn-primary' data-toggle="modal" href="#loginDialog" data-target="#loginDialog">{% trans 'Sign In' %}</button>
+					<button class='create_acct icon-user-add btn btn-sm btn-link' data-toggle="modal" href="#createAcctDialog" data-target="#createAcctDialog">{% trans 'Create Account' %}</button>
 				{% endif %}
+			<button id='search' title='{% trans 'Search' %}' class='icon-search btn btn-link btn-sm' data-toggle="modal" href="#searchDialog" data-target="#searchDialog"></button>
 			</div>
 		</header>
 		<section id='content'>
@@ -46,6 +47,7 @@
 		{% include 'dialogs/add_image.twig' %}
 		{% include 'dialogs/keyboard.twig' %}
 		{% include 'dialogs/filter.twig' %}
+		{% include 'dialogs/search.twig' %}
 		<script type='text/javascript'>
 		 var web_root = '{{ web_root }}';
 		 var site_name = '{{ site_name }}';
@@ -61,7 +63,6 @@
 		<script src='{{ web_root }}bower_components/noty/js/noty/themes/default.js'></script>
 		<script src="{{ web_root }}bower_components/dropzone/downloads/dropzone.min.js"></script>
 		<script src="{{ web_root }}bower_components/jquery-cookie/jquery.cookie.js"></script>
-		<script src="{{ web_root }}js/base.js?20140414"></script>
 		<script src="{{ web_root }}js/new_base.js"></script>
 		<script src="{{ web_root }}js/add.js"></script>
 		
