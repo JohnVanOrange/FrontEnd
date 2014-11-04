@@ -75,5 +75,23 @@ $('document').ready(function(){
 		$('#like_image').removeClass('highlight');
 		call('image/dislike',function(){},{image:$('.main').attr('id')});
 	});
+	
+	/*Load report types*/
+  $('#report_image').one('click', function() {
+    api.call('report/all', function(data) {
+      for (var i in data) {
+        report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
+        $('#reportDialog form').append(report);
+      }
+      $('.report_button').on('click', function(){
+        event.preventDefault();
+        api.call('image/report', function(){}, {
+          image: $('.main').attr('id'),
+          type: $(this).val()
+        });
+        $('#reportDialog').modal('hide');
+      });
+		});
+  });
 
 });
