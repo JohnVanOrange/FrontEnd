@@ -137,6 +137,11 @@ footer {
   border-color: white;
   border-style: solid;
 }
+#main {
+  background-color: white;
+  width: auto;
+  display: block;
+}
 #tags {
   background-color: white;
   position: relative;
