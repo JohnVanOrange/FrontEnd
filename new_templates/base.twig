@@ -35,6 +35,7 @@
 		<section id='content'>
 		{% block content %}{% endblock %}
 		</section>
+		<button class='icon-plus-circled icon action btn btn-success btn-xs' data-toggle="modal" href="#addImageDialog" data-target="#addImageDialog" id='addImage'><span>{% trans 'Add Image' %}</span></button>
 		<footer>
 			&copy;{{ 'now'|date('Y') }} {% if show_jvon %}<a href='/jvon'>{% endif %}John VanOrange Network{% if show_jvon %}</a>{% endif %} | 
 			<a href="/tos">{% trans 'Legal' %}</a> | 
