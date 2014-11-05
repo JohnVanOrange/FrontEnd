@@ -169,6 +169,7 @@ footer {
 #add_tag {
   position: absolute;
   right: 5px;
+  bottom: 15px;
 }
 #social {
   padding: 10px;
