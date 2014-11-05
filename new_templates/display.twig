@@ -3,7 +3,7 @@
 {% block content %}
 	
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
-		<a id='main' href='/rand?{{ rand }}' rel='nofollow'>
+		<a id='main' class='next-image' href='/rand?{{ rand }}' rel='nofollow'>
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 		</a>
 		<div id='tags'>

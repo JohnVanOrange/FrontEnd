@@ -136,7 +136,7 @@ $('document').ready(function(){
    switch (event.keyCode) {
 	case 32://Space
 		event.preventDefault();
-		window.location.href = $('#main').attr('href');
+		window.location.href = $('.next-image').attr('href');
 		break;
 	case 37://left arrow
 		window.history.back();
