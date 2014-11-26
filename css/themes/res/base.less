@@ -94,6 +94,16 @@ footer {
     margin-right: 2em;
 }
 
+.btn-primary {
+    @main_button_border: darken(@main_button_color, 5%);
+    background-color: @main_button_color;
+    border-color: @main_button_border;
+    &:hover {
+        background-color: @main_button_border;
+        border-color: darken(@main_button_border, 5%);
+    }
+}
+
 @import 'display';
 @import 'legal';
 @import 'thumbs';

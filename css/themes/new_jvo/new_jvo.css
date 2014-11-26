@@ -5,7 +5,7 @@ header h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   text-transform: uppercase;
-  text-shadow: 0 0 1px #494949;
+  text-shadow: 0 0 1px #4d688d;
   font-size: 24px;
 }
 @media screen and (min-width: 650px) {
@@ -41,7 +41,7 @@ html {
   text-align: center;
 }
 body {
-  background-color: #494949;
+  background-color: #4d688d;
   color: #f3f3f3;
 }
 body.preload * {
@@ -129,6 +129,14 @@ footer {
 #addImage {
   float: right;
   margin-right: 2em;
+}
+.btn-primary {
+  background-color: #ff8300;
+  border-color: #e67600;
+}
+.btn-primary:hover {
+  background-color: #e67600;
+  border-color: #cc6900;
 }
 .main {
   max-width: 100%;
