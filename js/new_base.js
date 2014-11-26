@@ -136,7 +136,9 @@ $('document').ready(function(){
    switch (event.keyCode) {
 	case 32://Space
 		event.preventDefault();
-		window.location.href = $('.next-image').attr('href');
+    if ($('.next-image').length) {
+      window.location.href = $('.next-image').attr('href');
+    }
 		break;
 	case 37://left arrow
 		window.history.back();
@@ -219,7 +221,6 @@ $('document').ready(function(){
  /*Create Account dialog*/
  $('.create_acct').click(function (event) {
   event.preventDefault();
-  //$('#loginDialog').modal('hide');
   var create = function () {
    if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
     var e = {message: "Passwords don't match"};
