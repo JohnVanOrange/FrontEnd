@@ -117,8 +117,9 @@ header div #user_avatar img {
 footer {
   color: #f3f3f3;
   font-size: 80%;
-  margin-top: 2em;
-  margin-bottom: 5px;
+  padding: 10px;
+  width: 30em;
+  margin: auto;
 }
 .pressed {
   position: relative;
@@ -137,6 +138,30 @@ footer {
 .btn-primary:hover {
   background-color: #e67600;
   border-color: #cc6900;
+}
+.colpage img {
+  border-radius: 6px;
+}
+.colpage ul {
+  text-align: left;
+  margin-left: 20%;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  list-style: none;
+}
+.colpage ul li ul {
+  margin-left: 0;
+  width: 100%;
+  padding: 0;
+  background: 0;
+}
+.colpage ul li ul li {
+  list-style: none;
+  margin-left: 1em;
+}
+.colpage .data {
+  font-family: monospace, serif;
 }
 .main {
   max-width: 100%;
@@ -264,4 +289,25 @@ footer {
   top: 50%;
   margin-top: -80%;
 }
+#info_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: blur(10px) contrast(60%);
+  -ms-filter: blur(10px) contrast(60%);
+  filter: url(/css/gecko-filter.svg#info);
+}
+/* Only do this once info loads on demand on the info page
+.btn-link, .btn-link:hover {
+  background-color: rgba(0,0,0,0.3);
+  height: 3em;
+}
+
+footer {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+}*/
 /*# sourceMappingURL=new_jvo.css.map */
