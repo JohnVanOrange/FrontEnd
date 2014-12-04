@@ -5,7 +5,7 @@ class Display extends Standard {
  
  public function process() {
   
-  $this->setTemplate('display');
+  $this->setTemplate('image');
 	
   $is_brazz = FALSE;
   $request = $this->route->get_page();
