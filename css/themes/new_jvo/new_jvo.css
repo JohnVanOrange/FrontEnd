@@ -171,38 +171,43 @@ footer {
   border-style: solid;
 }
 #main {
-  background-color: white;
   width: auto;
   display: block;
 }
 #tags {
-  background-color: white;
   position: relative;
-  padding: 0.5em 75px;
   font-size: 150%;
   color: #333333;
+  line-height: 45px;
+  display: inline-block;
 }
 #tags a {
-  font-family: 'Architects Daughter', sans-serif;
-  padding: 0 1em;
-  color: black;
+  padding: 0.1em 1em 0.3em;
+  margin: 0 5px;
+  color: #333333;
+  border-radius: 19px;
+  background-color: white;
+  transition: box-shadow 400ms;
 }
 #tags a:hover {
-  border-radius: 15px;
+  box-shadow: 0 0 12px #ff7a00;
   text-decoration: none;
-  background-color: rgba(97, 97, 97, 0.7);
+  transition: box-shadow 500ms;
 }
-#tags a:before {
-  content: "\2014";
+#tags a:active {
+  background-color: #dcdcdc;
+}
+.notag {
+  color: #f3f3f3;
+  padding-right: 1em;
 }
 #img_container {
   display: inline-block;
   max-width: 100%;
 }
-#add_tag {
-  position: absolute;
-  right: 5px;
-  bottom: 15px;
+#img_container #image_footer {
+  background-color: white;
+  height: 2em;
 }
 #social {
   padding: 10px;
@@ -210,6 +215,10 @@ footer {
 #social div {
   display: inline-block;
   font-size: 1px;
+}
+#image_icons {
+  width: 20em;
+  margin: auto;
 }
 .like {
   color: #f3f3f3;
@@ -239,12 +248,9 @@ footer {
   color: red;
 }
 #report_image {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 50%;
-  position: absolute;
-  left: -8px;
-  bottom: -8px;
-  margin-bottom: 0;
+  float: left;
+  margin: -5px;
+  font-size: 80%;
   color: #333333;
 }
 #tos,

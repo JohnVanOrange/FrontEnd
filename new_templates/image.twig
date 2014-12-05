@@ -6,24 +6,31 @@
 		<a id='main' class='next-image' href='/rand?{{ rand }}' rel='nofollow'>
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 		</a>
+		<div id="image_footer">
+			<button id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon btn btn-link' data-toggle="modal" href="#reportDialog" data-target="#reportDialog">{% trans 'Report image to admin' %}</button>
+		</div>
+	</section>
+	
+		
+	<div id="image_icons">
+		<div id='dislike_image' class='like icon icon-thumbs-down{% if image.data.dislike %} highlight{% endif %}' title='{% trans 'Dislike Image' %}'></div>
+		<div id='save_image' class='like icon icon-heart{% if image.saved %} highlight{% endif %}' title='{% trans 'Favorite Image' %}'></div>
+		<div id='like_image' class='like icon icon-thumbs-up{% if image.data.like %} highlight{% endif %}' title='{% trans 'Like Image' %}'></div>
+	</div>
+	
+	<div id="tag_containter">	
 		<div id='tags'>
 			{% if image.tags.0 %}
 				{% for tag  in image.tags %}
 					<a class='tag' href='{{ tag.url }}'>{{ tag.name }}</a>
 				{% endfor %}
 			{% else %}
-				<em>{% trans 'no current tags' %}</em>
+				<em class="notag">{% trans 'no current tags' %}</em>
 			{% endif %}
-			<button class='icon-plus-circled btn btn-default btn-xs' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">{% trans 'Add Tag' %}</button>
-			<button id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon btn btn-link' data-toggle="modal" href="#reportDialog" data-target="#reportDialog">{% trans 'Report image to admin' %}</button>
 		</div>
-		<div id="image_icons">
-			<div id='dislike_image' class='like icon icon-thumbs-down{% if image.data.dislike %} highlight{% endif %}' title='{% trans 'Dislike Image' %}'></div>
-			<div id='save_image' class='like icon icon-heart{% if image.saved %} highlight{% endif %}' title='{% trans 'Favorite Image' %}'></div>
-			<div id='like_image' class='like icon icon-thumbs-up{% if image.data.like %} highlight{% endif %}' title='{% trans 'Like Image' %}'></div>
-		</div>
-	</section>
-	
+		<button class='icon-plus-circled btn btn-primary' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog">{% trans 'Add Tag' %}</button>
+	</div>
+		
 	{% if show_social == 1%}
 	<div id='social'>
 		<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>

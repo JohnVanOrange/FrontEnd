@@ -9,41 +9,46 @@
 }
 
 #main {
-  background-color: white;
   width: auto;
   display: block;
 }
 
 #tags {
-  background-color: white;
   position: relative;
-  padding: 0.5em 75px;
   font-size: 150%;
   color: @dialog_text_color;
+  line-height: 45px;
+  display: inline-block;
   a {
-    font-family: 'Architects Daughter', sans-serif;
-    padding: 0 1em;
-    color: black;
+    padding: 0.1em 1em 0.3em;
+    margin: 0 5px;
+    color: @dark_text_color;
+    border-radius: 19px;
+    background-color: white;
+    transition: box-shadow 400ms;
     &:hover {
-      border-radius: 15px;
+      box-shadow: 0 0 12px @tag_highlight_color;
       text-decoration: none;
-      background-color: rgba(97, 97, 97, 0.7);
+      transition: box-shadow 500ms;
     }
-    &:before {
-      content:"\2014";
+    &:active {
+      background-color: rgb(220, 220, 220);
     }
   }
+}
+
+.notag {
+  color: @text_color;
+  padding-right: 1em;
 }
 
 #img_container {
   display: inline-block;
   max-width: 100%;
-}
-
-#add_tag {
-  position: absolute;
-  right: 5px;
-  bottom: 15px;
+  #image_footer {
+    background-color: white;
+    height: 2em;
+  }
 }
 
 #social {
@@ -52,6 +57,11 @@
     display: inline-block;
     font-size: 1px;
   }
+}
+
+#image_icons {
+  width: 20em;
+  margin: auto;
 }
 
 .like {
@@ -86,11 +96,8 @@
 }
 
 #report_image {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 50%;
-  position: absolute;
-  left: -8px;
-  bottom: -8px;
-  margin-bottom: 0;
-  color: @dialog_text_color;
+  float: left;
+  margin: -5px;
+  font-size: 80%;
+  color: @dark_text_color;
 }
