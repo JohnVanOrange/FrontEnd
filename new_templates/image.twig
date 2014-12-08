@@ -7,7 +7,20 @@
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 		</a>
 		<div id="image_footer">
-			<button id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon btn btn-link' data-toggle="modal" href="#reportDialog" data-target="#reportDialog">{% trans 'Report image to admin' %}</button>
+			<button id='report_image' title='{% trans 'Report Image' %}' class='icon-flag icon btn btn-link' data-toggle="modal" href="#reportDialog" data-target="#reportDialog">{% trans 'Report image' %}</button>
+			<div class="dropdown">
+				<button id="image_tools" type="button" class="icon-cog btn btn-default btn-xs" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="image_tools">
+					{% if image.media.primary.format != 'gif' and show_brazz %}<li><a class='icon-b' href='/brazzify/{{ image.uid }}'>Brazzify</a></li>{% endif %}
+					<li><a id='googlesearch' class='icon-google' href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'>{% trans 'Search using Google' %}</a></li>
+					<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={{ image.media.primary.url }}'>{% trans 'Search using Tineye' %}</a></li>
+					<li><a class='icon-info-circle' href='/info/{{ image.uid }}'>{% trans 'Details' %}</a></li>
+					<li><a id='fullscreen' class='icon-resize-full' href='{{ image.media.primary.url }}'>{% trans 'View Fullscreen' %}</a></li>
+					{% if is_admin %}<li><a id='admin_link' class='icon-cog' href='/admin/image/{{ image.uid }}'>{% trans 'Image Admin' %}</a></li>{% endif %}
+				</ul>
+			</div>
 		</div>
 	</section>
 	
@@ -22,7 +35,7 @@
 		<div id='tags'>
 			{% if image.tags.0 %}
 				{% for tag  in image.tags %}
-					<a class='tag' href='{{ tag.url }}'>{{ tag.name }}</a>
+					<span class='tag_wrap'><a class='tag' href='{{ tag.url }}'>{{ tag.name }}</a></span>
 				{% endfor %}
 			{% else %}
 				<em class="notag">{% trans 'no current tags' %}</em>

@@ -19,6 +19,9 @@
   color: @dialog_text_color;
   line-height: 45px;
   display: inline-block;
+  .tag_wrap {
+    white-space: nowrap;
+  }
   a {
     padding: 0.1em 1em 0.3em;
     margin: 0 5px;
@@ -95,9 +98,33 @@
   }
 }
 
+#image_footer {
+  .dropdown {
+    .dropdown-menu {
+      right: 0;
+      bottom: 0;
+      top: inherit;
+      left: auto;
+      color: @dark_text_color;
+      &>li>a {
+        text-align: left;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+
+
+
 #report_image {
   float: left;
   margin: -5px;
   font-size: 80%;
   color: @dark_text_color;
+}
+
+#image_tools {
+  float: right;
+  margin-right: 8px;
 }
