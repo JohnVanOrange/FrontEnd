@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-@import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
 header h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -75,12 +74,16 @@ header {
   padding-right: 10px;
 }
 header h1 {
-  position: fixed;
   margin: 0 0 0 0.3em;
   width: 100%;
   text-align: left;
   transition: font-size 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 1;
+}
+@media screen and (min-width: 500px) {
+  header h1 {
+    position: fixed;
+  }
 }
 header h1 a:hover {
   text-decoration: none;
@@ -105,13 +108,14 @@ header div #user_avatar img {
   border-radius: 12px;
 }
 #content {
-  width: 90%;
+  width: 96%;
   margin: auto;
   padding-top: 5px;
 }
 @media screen and (min-width: 500px) {
   #content {
     padding-top: 3em;
+    width: 90%;
   }
 }
 footer {
