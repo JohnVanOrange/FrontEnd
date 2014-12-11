@@ -2,33 +2,23 @@
 
 @bg_color: black;
 @text_color: white;
-@sec_text_color: #D60B15;
+@dark_text_color: #333;
+@dialog_link_color: #428bca;
+@dialog_text_color: @dark_text_color;
+@main_button_color: #D60B15;
+@tag_highlight_color: @main_button_color;
 
-@body_grad_edge: rgba(0, 0, 0, 0.15);
-@body_grad_center: rgba(158,158,158,.15);
-
-@button_start: #3d3b3c;
-@button_end: lighten(@button_start, 10%);
-@button_border: #050505;
-@button_hover: #664f0b;
-
-@menu_color: #354468;
-
-header h1, #skin {
-    padding-left: 62px;
-		font-family: 'Poiret One', sans-serif;
+header h1 {
+	font-family: 'Poiret One', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  text-shadow: 0 0 1px @bg_color;
+  @media screen and (min-width: 650px) {
+    font-size: 35px; /* firefox and IE seem to hate this at 36px */
+  }
+  &.mini {
+    font-size: 24px;
+  }
 }
 
-header:before, #skin {
-		background: url('/img/lips_46.png') left no-repeat;
-		height: 38px;
-}
-
-header {
-		background-color: rgba(82, 82, 77, 0.52);
-		&:before {
-				max-width: 48px;
-		}
-}
-
-@import 'base';
+@import 'res/base';

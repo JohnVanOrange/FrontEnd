@@ -21,7 +21,7 @@
   </head>
   <body class='container-fluid preload'>
     <header>
-			<h1><a href='/'><span class='first'>John</span> <span class='second'>Van<span class='title_o'>O</span>range</span></a></h1>
+			<h1><a href='/'>{% include 'components/headers/' ~ site_theme ~ '.twig' %}</a></h1>
 			<div>
 				{% if user.username is defined %}
 					<a id='user_avatar' class='btn btn-link btn-sm' href='/u/{{ user.username }}'><img src='//www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'>{{ user.username }}</a>
