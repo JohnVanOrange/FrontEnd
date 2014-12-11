@@ -1,10 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Boogaloo);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 header h1 {
-  font-family: 'Poiret One', sans-serif;
+  font-family: 'Boogaloo', sans-serif;
   font-size: 24px;
   font-weight: 800;
-  text-shadow: 0 0 1px #000000;
+  text-shadow: 0 0 1px #ed5853;
 }
 @media screen and (min-width: 650px) {
   header h1 {
@@ -22,7 +22,7 @@ html {
   text-align: center;
 }
 body {
-  background-color: #000000;
+  background-color: #ed5853;
   color: #ffffff;
 }
 body.preload * {
@@ -118,14 +118,14 @@ footer {
   margin-right: 2em;
 }
 .btn-primary {
-  background-color: #d60b15;
-  border-color: #be0a13;
-  color: #ffffff;
+  background-color: #dff22e;
+  border-color: #dbf116;
+  color: #333333;
 }
 .btn-primary:hover {
-  background-color: #be0a13;
-  border-color: #a50910;
-  color: #e6e6e6;
+  background-color: #dbf116;
+  border-color: #cbdf0e;
+  color: #1a1a1a;
 }
 .colpage img {
   border-radius: 6px;
@@ -181,7 +181,7 @@ footer {
   transition: box-shadow 400ms;
 }
 #tags a:hover {
-  box-shadow: 0 0 12px #d60b15;
+  box-shadow: 0 0 12px #dff22e;
   text-decoration: none;
   transition: box-shadow 500ms;
 }
@@ -322,4 +322,4 @@ footer {
   background-color: rgba(0,0,0,0.3);
   border-radius: 5px;
 }*/
-/*# sourceMappingURL=skin.css.map */
+/*# sourceMappingURL=pretty.css.map */

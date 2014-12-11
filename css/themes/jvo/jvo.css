@@ -138,10 +138,12 @@ footer {
 .btn-primary {
   background-color: #ff8300;
   border-color: #e67600;
+  color: #f3f3f3;
 }
 .btn-primary:hover {
   background-color: #e67600;
   border-color: #cc6900;
+  color: #dadada;
 }
 .colpage img {
   border-radius: 6px;
