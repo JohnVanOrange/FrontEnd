@@ -12,7 +12,7 @@ class Standard {
  public function __construct() {
   $this->api = new \JohnVanOrange\core\API;
   
-  $loader = new \Twig_Loader_Filesystem('new_templates');
+  $loader = new \Twig_Loader_Filesystem('templates');
   $this->twig = new \Twig_Environment($loader);
   $this->twig->addExtension(new \Twig_Extensions_Extension_I18n());
   
