@@ -1,7 +1,0 @@
-{% extends "base.twig" %}
-
-{% block content %}
-	<a id='rand_image' href='{{ web_root }}?{{ rand }}' rel='nofollow'>
-	 <img class='image' src='{{ web_root }}img/{{ error_image }}' alt='{% trans 'Error' %} {{ number }}' />
-	</a>
-{% endblock %}
