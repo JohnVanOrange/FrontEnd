@@ -118,13 +118,13 @@ footer {
   margin-right: 2em;
 }
 .btn-primary {
-  background-color: #dff22e;
-  border-color: #dbf116;
+  background-color: #e5f268;
+  border-color: #e1f051;
   color: #333333;
 }
 .btn-primary:hover {
-  background-color: #dbf116;
-  border-color: #cbdf0e;
+  background-color: #e1f051;
+  border-color: #ddee39;
   color: #1a1a1a;
 }
 .colpage img {
@@ -181,7 +181,7 @@ footer {
   transition: box-shadow 400ms;
 }
 #tags a:hover {
-  box-shadow: 0 0 12px #dff22e;
+  box-shadow: 0 0 12px #e5f268;
   text-decoration: none;
   transition: box-shadow 500ms;
 }
