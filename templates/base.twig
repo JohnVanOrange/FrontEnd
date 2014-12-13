@@ -17,7 +17,7 @@
 		{% block stylesheets %}{% endblock %}
 		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/themes/{{ site_theme }}/{{ site_theme }}.css?20141208' />
 		{% block meta_data %}{% endblock %}
-		<meta name="theme-color" content="#f49b35">
+		<meta name="theme-color" content="{% include 'components/theme-color/' ~ site_theme ~ '.twig' %}">
   </head>
   <body class='container-fluid preload'>
     <header>
