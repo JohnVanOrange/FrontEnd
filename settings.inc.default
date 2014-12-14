@@ -8,17 +8,3 @@ define('DB_USER','');
 define('DB_PASS','');
 define('SERVER_USER','');
 define('IMGUR_CID','');
-
-$storage = [
- 1 => [
-  'type' => 'local',
-  'path' => 'http://media.example.com'
- ],
- 2 => [
-  'type' => 's3',
-  'endpoint' => 's3.amazonaws.com',
-  'access_key' => '',
-  'secret_key' => '',
-  'bucket' => ''
- ]
-]
