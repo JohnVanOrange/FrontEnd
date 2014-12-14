@@ -1,25 +1,24 @@
 <?php
 define('ROOT_DIR','/home/image/public_html');
-define('WEB_ROOT','http://johnvanorange.com/');
-define('SITE_NAME','John VanOrange');
 define('ADMIN_EMAIL','devnull@example.com');
 define('SITE_EMAIL', 'no_reply@example.com');
-define('BRANCH','stable');
-define('THEME','jvo');
 define('DB_HOST','localhost');
 define('DB_NAME','');
 define('DB_USER','');
 define('DB_PASS','');
 define('SERVER_USER','');
-define('GOOGLE_ANALYTICS','');
 define('IMGUR_CID','');
-define('APP_LINK','');
-define('SHOW_BRAZZ',0);
-define('FB_APP_ID','');
-define('SHOW_SOCIAL',1);
-define('SHOW_JVON',1);
-define('403_IMAGE','403.jpg');
-define('404_IMAGE','404.jpg');
-define('ICON_SET','orange_slice');
-define('AMAZON_AFF','');
-define('DISABLE_UPLOAD', 0);
+
+$storage = [
+ 1 => [
+  'type' => 'local',
+  'path' => 'http://media.example.com'
+ ],
+ 2 => [
+  'type' => 's3',
+  'endpoint' => 's3.amazonaws.com',
+  'access_key' => '',
+  'secret_key' => '',
+  'bucket' => ''
+ ]
+]
