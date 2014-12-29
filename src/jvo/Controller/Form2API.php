@@ -7,7 +7,14 @@ class Form2API extends Standard {
   
   $this->setTemplate('form2api');
 	
-	$method = $_POST['method'];
+	if (isset($_POST['method'])) {
+	 $method = $_POST['method'];
+	}
+	
+	if (!isset($method)) {
+	 header('Location: /');
+	 exit();
+	}
 	
 	$req = array_merge($_REQUEST, $_FILES);
 	
