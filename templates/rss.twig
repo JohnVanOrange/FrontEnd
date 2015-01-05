@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+  <title>{{ site_name }}</title>
+  <link>{{ web_root }}</link>
+  <description>Random image feed for {{ site_name }}</description>
+  <lastBuildDate>{{ "now"|date("r") }}</lastBuildDate>
+  <language>en-us</language>
+  <atom:link href="{{ current_url }}" rel="self" type="application/rss+xml" />
+  
+  {% for image in images %}
+  <item>
+   <title>{{ image.page_title }}</title>
+   <link>{{ image.page_url }}</link>
+   <guid>{{ image.page_url }}</guid>
+   <pubDate>{{ image.added|date("r") }}</pubDate>
+   <enclosure url="{{ image.media.primary.url }}" length="{{ image.media.primary.size }}" type="image/{{ image.media.primary.format }}" />
+  </item>
+  {% endfor %}
+  
+  
+ </channel>
+</rss>
