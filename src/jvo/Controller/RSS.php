@@ -9,17 +9,10 @@ class RSS extends Standard {
   
   $this->setContentType("Content-type: application/rss+xml; charset=UTF-8");
 	
-	$images = [];
-	
-	//should eventually add options for approved/nsfw filters, and maybe a count
-	for ($i = 0; $i < 20; $i++) {
-	 $images[] = $this->api('image/random');
-	}
-  //Also need a way to make sure all entries are unique
-	
+  //should eventually add options for approved/nsfw filters and count
   $this->addData(
   [
-   'images'	=>	$images
+   'images'	=>	$this->api('image/random', [NULL, 'count' => 20])
   ]);
 	
  }
