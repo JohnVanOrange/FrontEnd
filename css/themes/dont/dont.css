@@ -364,4 +364,52 @@ code {
 #classes h2 {
   font-size: 90%;
 }
+.user-stats {
+  margin: 0 auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 280px;
+}
+.user-stats div {
+  display: inline-block;
+  width: 80px;
+  font-size: 4em;
+  line-height: 16px;
+}
+.user-stats div span {
+  font-size: 26px;
+}
+.user-page > div {
+  width: 100%;
+}
+.user-page .links {
+  display: inline-block;
+  width: 50%;
+  padding-right: 4em;
+  vertical-align: top;
+}
+.user-page .image {
+  display: inline-block;
+  width: 180px;
+}
+.user-page ul {
+  text-align: left;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  list-style: none;
+}
+.user-page ul li ul {
+  margin-left: 0;
+  width: 100%;
+  padding: 0;
+  background: 0;
+}
+.user-page ul li ul li {
+  list-style: none;
+  margin-left: 1em;
+}
+.user-page img {
+  border-radius: 6px;
+}
 /*# sourceMappingURL=dont.css.map */
