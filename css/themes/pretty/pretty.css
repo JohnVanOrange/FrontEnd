@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Boogaloo);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=PT+Mono);
 header h1 {
   font-family: 'Boogaloo', sans-serif;
   font-size: 24px;
@@ -322,4 +323,45 @@ footer {
   background-color: rgba(0,0,0,0.3);
   border-radius: 5px;
 }*/
+#apidocs {
+  text-align: left;
+  float: right;
+  width: 89%;
+}
+.method,
+pre {
+  background: rgba(0, 31, 32, 0.8);
+  padding: 0.5em 1em;
+  margin: 1em;
+  border-radius: 20px;
+  border: none;
+}
+.doc_anchor {
+  float: left;
+}
+.endpoint a,
+.variable,
+code {
+  font-family: 'PT Mono', monospace;
+  color: white!important;
+}
+.variable {
+  font-weight: bold;
+}
+.desc {
+  display: block;
+  padding-left: 2em;
+  font-size: 85%;
+}
+#classes {
+  border: 1px dotted white;
+  width: 10%;
+}
+#classes p {
+  text-align: left;
+  padding-left: 10%;
+}
+#classes h2 {
+  font-size: 90%;
+}
 /*# sourceMappingURL=pretty.css.map */
