@@ -4,6 +4,7 @@
 		"admin":						{
 													"Admin":	{
 																			"approve":	"Approve",
+																			"catdog":		"Catdog",
 																			"image":		"Image",
 																			"mass":			"Mass",
 																			"merge":		"Merge",
