@@ -23,9 +23,9 @@
 	</div>
 	<div>
 		<div class="user-stats">
-			<a href='/s/{{ profile.username }}'><div class='icon-heart' title='Favs'><span>{{ profile.favs }}</span></div></a>
+			{% if profile.id == user.id %}<a href='/s/{{ profile.username }}'>{% endif %}<div class='icon-heart' title='Favs'><span>{{ profile.favs }}</span></div>{% if profile.id == user.id %}</a>{% endif %}
 			<div class='icon-thumbs-up' title="Likes"><span>{{ profile.likes }}</span></div>
-			<a href='/uploads/{{ profile.username }}'><div class='icon-upload' title="Uploads"><span>{{ profile.uploads }}</span></div></a>
+			{% if profile.id == user.id %}<a href='/uploads/{{ profile.username }}'>{% endif %}<div class='icon-upload' title="Uploads"><span>{{ profile.uploads }}</span></div>{% if profile.id == user.id %}</a>{% endif %}
 		</div>
 	</div>
 </div>
