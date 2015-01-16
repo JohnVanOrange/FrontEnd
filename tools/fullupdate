@@ -12,5 +12,5 @@ cd ..
 
 git checkout $BRANCH
 git pull
-composer install
-bower install
+#composer install
+#bower install
