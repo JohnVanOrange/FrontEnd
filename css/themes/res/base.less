@@ -110,33 +110,46 @@ footer {
     }
 }
 
-.colpage {
-	img {
-		border-radius: 6px;
-	}
-	ul {
-		text-align: left;
-		margin-left: 20%;
-		padding: 1em;
-		background-color: rgba(0, 0, 0, 0.5);
-		border-radius: 8px;
-		list-style: none;
-		li {
-			ul {
-				margin-left: 0;
-				width: 100%;
-				padding:0;
-				background:0;
-				li {
-					list-style: none;
-					margin-left: 1em;
-				}
-			}
-		}
-	}
+.col-page {
+  &>div {
+    width: 100%;
+  }
+  .links {
+    display: inline-block;
+    min-width: 50%;
+    margin: 1em;
+    vertical-align: top;
+  }
+  .image {
+    display: inline-block;
+    width: 180px;
+  }
 	.data {
 		font-family: monospace, serif;
 	}
+  ul {
+    text-align: left;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    list-style: none;
+    li {
+      ul {
+        margin-left: 0;
+        width: 100%;
+        padding:0;
+        background:0;
+        li {
+          list-style: none;
+          margin-left: 1em;
+        }
+      }
+    }
+  }
+  img {
+		border-radius: 6px;
+		margin-top: 2em;
+  }
 }
 
 @import 'image';

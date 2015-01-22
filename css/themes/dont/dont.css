@@ -128,29 +128,42 @@ footer {
   border-color: #a50910;
   color: #e6e6e6;
 }
-.colpage img {
-  border-radius: 6px;
+.col-page > div {
+  width: 100%;
 }
-.colpage ul {
+.col-page .links {
+  display: inline-block;
+  min-width: 50%;
+  margin: 1em;
+  vertical-align: top;
+}
+.col-page .image {
+  display: inline-block;
+  width: 180px;
+}
+.col-page .data {
+  font-family: monospace, serif;
+}
+.col-page ul {
   text-align: left;
-  margin-left: 20%;
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   list-style: none;
 }
-.colpage ul li ul {
+.col-page ul li ul {
   margin-left: 0;
   width: 100%;
   padding: 0;
   background: 0;
 }
-.colpage ul li ul li {
+.col-page ul li ul li {
   list-style: none;
   margin-left: 1em;
 }
-.colpage .data {
-  font-family: monospace, serif;
+.col-page img {
+  border-radius: 6px;
+  margin-top: 2em;
 }
 .main {
   max-width: 100%;
@@ -313,6 +326,22 @@ footer {
   -ms-filter: blur(10px) contrast(60%);
   filter: url(/css/gecko-filter.svg#info);
 }
+.info-stats {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 190px;
+}
+.info-stats div {
+  display: inline-block;
+  width: 80px;
+  font-size: 4em;
+  line-height: 16px;
+}
+.info-stats div span {
+  font-size: 26px;
+}
 /* Only do this once info loads on demand on the info page
 .btn-link, .btn-link:hover {
   background-color: rgba(0,0,0,0.3);
@@ -378,38 +407,5 @@ code {
 }
 .user-stats div span {
   font-size: 26px;
-}
-.user-page > div {
-  width: 100%;
-}
-.user-page .links {
-  display: inline-block;
-  min-width: 50%;
-  margin: 1em;
-  vertical-align: top;
-}
-.user-page .image {
-  display: inline-block;
-  width: 180px;
-}
-.user-page ul {
-  text-align: left;
-  padding: 1em;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  list-style: none;
-}
-.user-page ul li ul {
-  margin-left: 0;
-  width: 100%;
-  padding: 0;
-  background: 0;
-}
-.user-page ul li ul li {
-  list-style: none;
-  margin-left: 1em;
-}
-.user-page img {
-  border-radius: 6px;
 }
 /*# sourceMappingURL=dont.css.map */
