@@ -109,17 +109,13 @@ class Standard {
     die();
     break;
    default:
-    $body = 'An error occured for site '. $site_name . ".\n\n";
-    $body .= "Error:\n";
-    $body .= $e->getMessage()."\n\n";
-    $body .= "Code:\n";
-    $body .= $code."\n\n";
-    $body .= "Page requested:\n";
-    $body .= $_SERVER['REQUEST_URI']."\n\n";    
-    $body .= "IP:\n";
-    $body .= $_SERVER['REMOTE_ADDR'];
+    $data = [
+     'page'    => $_SERVER['REQUEST_URI'],
+     'code'    => $code,
+     'message' => $e->getMessage()
+    ];
     $message = new \JohnVanOrange\core\Mail();
-    $message->sendAdminMessage('Error Occured for '. $site_name, $body);
+    $message->sendAdminMessage('Error Occurred for '. $site_name, 'error', $data);
     $this->addData([
      'code'	=>	$code,
      'message'	=>	$e->getMessage()
