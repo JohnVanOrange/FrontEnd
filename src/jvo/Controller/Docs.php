@@ -16,7 +16,8 @@ class Docs extends Standard {
 	 'image',
 	 'user',
 	 'report',
-	 'setting'
+	 'setting',
+	 'message'
 	];
 	
 	$this->addData([

@@ -105,7 +105,7 @@ footer {
   color: #ffffff;
   font-size: 80%;
   padding: 10px;
-  width: 30em;
+  width: 40em;
   margin: auto;
 }
 .pressed {
@@ -127,6 +127,9 @@ footer {
   background-color: #be0a13;
   border-color: #a50910;
   color: #e6e6e6;
+}
+#adminMessage {
+  margin-left: 1em;
 }
 .col-page > div {
   width: 100%;

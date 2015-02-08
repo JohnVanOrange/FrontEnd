@@ -169,9 +169,9 @@ $('document').ready(function(){
   }
  });
  
- /*Make sure input boxes don't propagate keypresses to the body*/
+ /*Make sure input/textarea input's don't propagate keypresses to the body*/
  inputKeyboardHandler = function() {
-  $('input').on('keydown', function (event) {
+  $('input, textarea').on('keydown', function (event) {
    event.stopPropagation();
   });
  };
@@ -325,6 +325,26 @@ $('document').ready(function(){
 			search();
 		});
 	});
+	
+ /*Send Admin Message dialog*/
+ $('#adminMessage').click(function (event) {
+  event.preventDefault();
+	console.log('test');
+  var sendAdminMessage = function () {
+   console.log('test2');
+   call('message/admin', function(response){
+    $('#adminMessageDialog').modal('hide');
+   },
+   {
+    'name': $('#messageName').val(),
+		'email': $('#messageEmail').val(),
+		'message': $('#messageText').val()
+   });
+  };
+  $('#adminMessageSubmit').click(function(){
+		sendAdminMessage();	
+	});
+ });
 	
 	/*Firefox Open Web App integration*/
 	$('#firefox_menu').click(function (event) {

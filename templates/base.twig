@@ -41,6 +41,7 @@
 			&copy;{{ 'now'|date('Y') }} {% if show_jvon %}<a href='/jvon'>{% endif %}John VanOrange Network{% if show_jvon %}</a>{% endif %} | 
 			<a href="/tos">{% trans 'Legal' %}</a> | 
 			<a href="/privacy">{% trans 'Privacy' %}</a>
+			<button id='adminMessage' class='icon-mail-alt btn btn-xs btn-primary' data-toggle="modal" href="#adminMessageDialog" data-target="#adminMessageDialog">{% trans 'Contact Site Admin' %}</button>
 		</footer>
 		{% include 'dialogs/report.twig' %}
 		{% include 'dialogs/create_acct.twig' %}
@@ -50,6 +51,7 @@
 		{% include 'dialogs/keyboard.twig' %}
 		{% include 'dialogs/filter.twig' %}
 		{% include 'dialogs/search.twig' %}
+		{% include 'dialogs/admin_message.twig' %}
 		<script type='text/javascript'>
 		 var web_root = '{{ web_root }}';
 		 var site_name = '{{ site_name }}';
