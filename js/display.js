@@ -83,7 +83,7 @@ $('document').ready(function(){
         report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
         $('#reportDialog form').append(report);
       }
-      $('.report_button').on('click', function(){
+      $('.report_button').on('click', function(event){
         event.preventDefault();
         api.call('image/report', function(){}, {
           image: $('.main').attr('id'),

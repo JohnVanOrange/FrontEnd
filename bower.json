@@ -7,7 +7,7 @@
     "noty": "https://github.com/needim/noty.git#~2.0.3",
     "dropzone": "~3.6.2",
     "bootstrap": "~3.0.0",
-    "jquery": "~2.0.3",
+    "jquery": "~2.*",
     "typeahead.js": "~0.9.3",
     "typeahead.js-bootstrap.css": "*",
     "jquery-cookie": "~1.4.0"
@@ -19,6 +19,6 @@
     "tests"
   ],
   "resolutions": {
-    "jquery": "~2.0.3"
+    "jquery": "~2.*"
   }
 }
