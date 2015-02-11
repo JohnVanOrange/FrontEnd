@@ -411,4 +411,7 @@ code {
 .user-stats div span {
   font-size: 26px;
 }
+.nav li a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
 /*# sourceMappingURL=pretty.css.map */
