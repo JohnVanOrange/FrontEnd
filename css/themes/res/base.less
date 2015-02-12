@@ -82,8 +82,6 @@ footer {
     color: @text_color;
     font-size: 80%;
     padding: 10px;
-    width: 40em;
-    margin: auto;
 }
 
 .pressed {
@@ -91,11 +89,6 @@ footer {
     top: 2px;
     text-shadow: none;
     transition: all 0.2s;
-}
-
-#addImage {
-    float: right;
-    margin-right: 2em;
 }
 
 .btn-primary {
@@ -111,7 +104,31 @@ footer {
 }
 
 #adminMessage {
-    margin-left: 1em;
+    margin: 1em;
+}
+
+#addImage {
+  span {
+    @media screen and (max-width: 740px) {
+        display: none;
+    }
+  }
+}
+
+#create_acct {
+  span {
+    @media screen and (max-width: 740px) {
+        display: none;
+    }
+  }
+}
+
+#user_avatar {
+  span {
+    @media screen and (max-width: 540px) {
+        display: none;
+    }
+  }
 }
 
 .col-page {
