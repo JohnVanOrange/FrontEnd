@@ -108,6 +108,10 @@ header div #user_avatar img {
   width: 24px;
   border-radius: 12px;
 }
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
 #content {
   width: 96%;
   margin: auto;
@@ -344,6 +348,12 @@ footer {
   width: auto!important;
   top: 50%;
   margin-top: -80%;
+}
+.thumb_wrap .glyphicon-remove-circle {
+  position: absolute;
+  right: -14px;
+  top: -14px;
+  font-size: 20px;
 }
 #info_bg {
   position: fixed;

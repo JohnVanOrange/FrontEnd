@@ -3,26 +3,26 @@ var preload = function() {
 	call('image/random', function(next_image_data){
 		next_image = new Image();
 		next_image.src = next_image_data.media.primary.url;
-		$('#main').attr('href',next_image_data.page_url); 
+		$('#main').attr('href',next_image_data.page_url);
 	});
 }
 
 $('document').ready(function(){
 	preload();
-	
+
 	/*Add tag autosuggest*/
 	$('#addTag').typeahead({
 		remote: '/api/tag/suggest?term=%QUERY',
 		limit: 16
 	});
 	$('#addTagDialog .tt-hint').addClass('form-control');
-	
+
 	/*Add Tag dialog*/
 	$('#add_tag').click(function (event) {
 		event.preventDefault();
 		$('#addTag').typeahead('setQuery','');
 	});
-	
+
 	$('#addTagDialog').on('shown.bs.modal', function(){
 		$('#addTag').focus();
 	});
@@ -37,7 +37,7 @@ $('document').ready(function(){
 					$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
 					$('#tags').append(tag);
 				}
-			}, 
+			},
 			{
 				'name': $('#addTag').val(),
 				'image' : $('.main').attr('id')
@@ -54,7 +54,7 @@ $('document').ready(function(){
 			addtag();
 		});
 	});
-	
+
 	$('#save_image').click(function () {
 		$('#save_image').toggleClass('highlight');
 		if ($('#save_image').hasClass('highlight')) {
@@ -69,13 +69,13 @@ $('document').ready(function(){
 		$('#dislike_image').removeClass('highlight');
 		call('image/like',function(){},{image:$('.main').attr('id')});
 	});
-	 
+
 	$('#dislike_image').click(function () {
 		$('#dislike_image').addClass('highlight');
 		$('#like_image').removeClass('highlight');
 		call('image/dislike',function(){},{image:$('.main').attr('id')});
 	});
-	
+
 	/*Load report types*/
   $('#report_image').one('click', function() {
     api.call('report/all', function(data) {
@@ -93,5 +93,20 @@ $('document').ready(function(){
       });
 		});
   });
+
+	/*Remove image*/
+	$('#remove_image').one('click', function(event){
+		event.preventDefault();
+		var removeImage = function () {
+			call('image/remove', function(result){},
+			{
+				'image' : $('.main').attr('id')
+			});
+			$('#removeImageDialog').modal('hide');
+		};
+		$('#removeImageConfirm').click(function(){
+			removeImage();
+		});
+	});
 
 });
