@@ -18,7 +18,7 @@
 					<li><a id='tineye' class='icon-search' href='http://tineye.com/search?url={{ image.media.primary.url }}'>{% trans 'Search using Tineye' %}</a></li>
 					<li><a class='icon-info-circle' href='/info/{{ image.uid }}'>{% trans 'Details' %}</a></li>
 					<li><a id='fullscreen' class='icon-resize-full' href='{{ image.media.primary.url }}'>{% trans 'View Fullscreen' %}</a></li>
-					{% if can_remove %}<li><a id='remove_image' class='icon-cog' data-toggle="modal" href="#removeImageDialog" data-target="#removeImageDialog">{% trans 'Remove Image' %}</a></li>{% endif %}
+					{% if can_remove %}<li><a id='remove_image' class='icon-trash' data-toggle="modal" href="#removeImageDialog" data-target="#removeImageDialog">{% trans 'Remove Image' %}</a></li>{% endif %}
 					{% if is_admin %}<li><a id='admin_link' class='icon-cog' href='/admin/image/{{ image.uid }}'>{% trans 'Image Admin' %}</a></li>{% endif %}
 				</ul>
 			</div>

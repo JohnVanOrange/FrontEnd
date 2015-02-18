@@ -23,12 +23,10 @@
 .icon-star-1:before { content: '\e800'; } /* '' */
 .icon-star-empty-1:before { content: '\e801'; } /* '' */
 .icon-picture-1:before { content: '\e802'; } /* '' */
-.icon-floppy:before { content: '\e803'; } /* '' */
-.icon-b:before { content: '\e804'; } /* '' */
-.icon-key:before { content: '\e805'; } /* '' */
-.icon-filter:before { content: '\e806'; } /* '' */
-.icon-heart-empty:before { content: '\e807'; } /* '' */
-.icon-heart:before { content: '\e808'; } /* '' */
+.icon-user-1:before { content: '\e803'; } /* '' */
+.icon-floppy:before { content: '\e804'; } /* '' */
+.icon-b:before { content: '\e805'; } /* '' */
+.icon-trash:before { content: '\e806'; } /* '' */
 .icon-spin4:before { content: '\e834'; } /* '' */
 .icon-firefox:before { content: '\e840'; } /* '' */
 .icon-blank:before { content: '\f0c8'; } /* '' */
