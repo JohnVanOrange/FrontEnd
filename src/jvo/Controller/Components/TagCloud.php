@@ -2,19 +2,19 @@
 namespace JohnVanOrange\jvo\Controller\Components;
 
 class TagCloud {
- 
+
  public function getData() {
-  
-    $api = new \JohnVanOrange\core\API;
-	
+
+    $api = new \JohnVanOrange\PublicAPI\API;
+
   	$maxfont = '60';
 	$minfont = '10';
-	
+
 	$tags = $api->call('tag/top');
-	
+
 	$max = current($tags);
 	$min = end($tags);
-	
+
 	foreach ($tags as $i=>$tag)  {
 	 if ($tag['count'] > $min['count']) {
 		$tags[$i]['diff'] =  ($tag['count'] - $min['count']);
@@ -24,11 +24,10 @@ class TagCloud {
 		$tags[$i]['weight'] = $minfont;
 	 }
 	}
-	
+
 	shuffle($tags);
-    
+
     return $tags;
  }
 
 }
-

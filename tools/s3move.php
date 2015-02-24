@@ -4,7 +4,7 @@ namespace JohnVanOrange\jvo;
 
 require_once('../vendor/autoload.php');
 require_once('../settings.inc');
-$db = new \JohnVanOrange\core\DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+$db = new \JohnVanOrange\PublicAPI\DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 
 if (!$argv[1]) {
  echo "Need to supply a count argument!\n";
