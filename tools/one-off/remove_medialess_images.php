@@ -1,6 +1,6 @@
 <?php
 //04/09/2014
-namespace JohnVanOrange\core;
+namespace JohnVanOrange\API;
 
 require_once('../../vendor/autoload.php');
 require_once('../../settings.inc');

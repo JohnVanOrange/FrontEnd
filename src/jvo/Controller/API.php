@@ -5,7 +5,7 @@ class API extends Base {
 
  public function process() {
 
-	$public = new \JohnVanOrange\PublicAPI\PublicAPI;
+	$public = new \JohnVanOrange\API\PublicAPI;
 
 	$public->setClass($this->route->get_data(1));
 	$public->setMethod($this->route->get_data(2));

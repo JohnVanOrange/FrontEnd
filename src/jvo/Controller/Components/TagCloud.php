@@ -5,7 +5,7 @@ class TagCloud {
 
  public function getData() {
 
-    $api = new \JohnVanOrange\PublicAPI\API;
+    $api = new \JohnVanOrange\API\API;
 
   	$maxfont = '60';
 	$minfont = '10';

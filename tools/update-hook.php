@@ -2,7 +2,7 @@
 require_once(__DIR__.'/../vendor/autoload.php');
 require_once(__DIR__.'/../settings.inc');
 
-$setting = new JohnVanOrange\core\Setting;
+$setting = new JohnVanOrange\API\Setting;
 $branch = $setting->get('branch');
 $site_name = $setting->get('site_name');
 

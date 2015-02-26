@@ -5,7 +5,7 @@ class Random extends Base {
 
  public function process() {
 
-	$api = new \JohnVanOrange\PublicAPI\API;
+	$api = new \JohnVanOrange\API\API;
 
 	$options = [];
 	if (isset($_COOKIE['filter'])) {

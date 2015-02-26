@@ -6,7 +6,7 @@ require_once('../../settings.inc');
 
 require_once('simple_html_dom.php');
 
-class remote extends \JohnVanOrange\core\Base {
+class remote extends \JohnVanOrange\API\Base {
  public function fetch($url) {
   $ch = curl_init();
   $cookie = tempnam ("/tmp", "COOKIE");
@@ -25,9 +25,9 @@ class remote extends \JohnVanOrange\core\Base {
  }
 }
 
-$db = new \JohnVanOrange\core\DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
-$image = new \JohnVanOrange\core\Image;
-$tag = new \JohnVanOrange\core\Tag;
+$db = new \JohnVanOrange\API\DB('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+$image = new \JohnVanOrange\API\Image;
+$tag = new \JohnVanOrange\API\Tag;
 $remote = new remote;
 $query = new \Peyote\Select('images');
 $query->columns('uid')

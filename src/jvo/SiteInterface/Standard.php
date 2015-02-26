@@ -10,7 +10,7 @@ class Standard {
  private $api;
 
  public function __construct() {
-  $this->api = new \JohnVanOrange\PublicAPI\API;
+  $this->api = new \JohnVanOrange\API\API;
 
   $loader = new \Twig_Loader_Filesystem('templates');
   $this->twig = new \Twig_Environment($loader);
@@ -33,7 +33,7 @@ class Standard {
    'icon_set'		  => $this->api('setting/get', ['name' => 'icon_set']),
    'current_url'	=> 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],
    'browser'		  => \Browser\Browser::getBrowser(),
-   'locale'		    => \JohnVanOrange\PublicAPI\Locale::get()
+   'locale'		    => \JohnVanOrange\API\Locale::get()
   ]);
 
   if (isset($_COOKIE['filter'])) {
@@ -114,7 +114,7 @@ class Standard {
      'code'    => $code,
      'message' => $e->getMessage()
     ];
-    $message = new \JohnVanOrange\PublicAPI\Mail();
+    $message = new \JohnVanOrange\API\Mail();
     $message->sendAdminMessage('Error Occurred for '. $site_name, 'error', $data);
     $this->addData([
      'code'	=>	$code,
