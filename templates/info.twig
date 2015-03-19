@@ -21,17 +21,17 @@
 				{% if image.tags.0 %}
 				 <li>
 					<ul>{% trans 'Tags' %}:
-					 {% for tag in image.tags %}<li class='icon-tag'><a href='/t/{{ tag.basename }}'>{{ tag.name }}</a></li>{% endfor %}
+					 {% for tag in image.tags %}<li><span class='fa fa-tag'></span><a href='/t/{{ tag.basename }}'>{{ tag.name }}</a></li>{% endfor %}
 					</ul>
 				 </li>
 				{% endif %}
 				<li>
 				 <ul>{% trans 'External Resources' %}:
-					<li class='icon-picture-1'><a href='http://regex.info/exif.cgi?url={{ image.media.primary.url }}'>{% trans 'Additional image info (EXIF and technical data)' %}</a></li>
-					<li class='icon-google'><a href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'>{% trans 'Reverse Google search' %}</a></li>
-					<li class='icon-search'><a href='http://tineye.com/search?url={{ image.media.primary.url }}'>{% trans 'Reverse Tineye search' %}</a></li>
-					<li class='icon-tools'><a href='http://imgops.com/{{ image.media.primary.url }}'>{% trans 'Image tools' %}</a></li>
-					{% if image.c_link != '' %}<li class='icon-comment'><a href='{{ image.c_link }}'>{% trans 'Comments' %}</a></li>{% endif %}
+					<li><span class='fa fa-picture-o'></span><a href='http://regex.info/exif.cgi?url={{ image.media.primary.url }}'>{% trans 'Additional image info (EXIF and technical data)' %}</a></li>
+					<li><span class='fa fa-google'></span><a href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'>{% trans 'Reverse Google search' %}</a></li>
+					<li><span class='fa fa-search'></span><a href='http://tineye.com/search?url={{ image.media.primary.url }}'>{% trans 'Reverse Tineye search' %}</a></li>
+					<li><span class='fa fa-wrench'></span><a href='http://imgops.com/{{ image.media.primary.url }}'>{% trans 'Image tools' %}</a></li>
+					{% if image.c_link != '' %}<li><span class='fa fa-comment-o'></span><a href='{{ image.c_link }}'>{% trans 'Comments' %}</a></li>{% endif %}
 				 </ul>
 				</li>
 			 </ul>
@@ -42,8 +42,8 @@
   </div>
 	<div>
 		<div class="info-stats">
-			<div class='icon-heart' title='Favs'><span>{{ image.favs }}</span></div>
-			<div class='icon-thumbs-up' title="Likes"><span>{{ image.likes }}</span></div>
+			<div title='Favs'><span class='fa fa-heart'></span><span>{{ image.favs }}</span></div>
+			<div title="Likes"><span class='fa fa-thumbs-up'></span><span>{{ image.likes }}</span></div>
 		</div>
 	</div>
 </div>

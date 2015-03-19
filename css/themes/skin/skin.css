@@ -181,6 +181,9 @@ footer {
   border-radius: 6px;
   margin-top: 2em;
 }
+.fa {
+  padding: 0.3rem;
+}
 .main {
   max-width: 100%;
   height: auto;
@@ -331,7 +334,7 @@ footer {
   top: 50%;
   margin-top: -80%;
 }
-.thumb_wrap .glyphicon-remove-circle {
+.thumb_wrap .fa-times-circle-o {
   position: absolute;
   right: -14px;
   top: -14px;

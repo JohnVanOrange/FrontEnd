@@ -10,9 +10,9 @@
 		<div class='links'>
 			{% if profile.id == user.id %}
 				<ul>
-					<li class='icon-heart'><a href='/s/{{ profile.username }}'>{% trans 'View your favorited images' %}</a></li>
-					<li class='icon-upload'><a href='/uploads/{{ profile.username }}'>{% trans 'View your uploaded images' %}</a></li>
-					<li class='icon-key'><a href='/changepw'>{% trans 'Change your password' %}</a></li>
+					<li><span class='fa fa-heart'></span><a href='/s/{{ profile.username }}'>{% trans 'View your favorited images' %}</a></li>
+					<li><span class='fa fa-upload'></span><a href='/uploads/{{ profile.username }}'>{% trans 'View your uploaded images' %}</a></li>
+					<li><span class='fa fa-key'></span><a href='/changepw'>{% trans 'Change your password' %}</a></li>
 				</ul>
 			{% endif %}
 		</div>
@@ -23,9 +23,9 @@
 	</div>
 	<div>
 		<div class="user-stats">
-			{% if profile.id == user.id %}<a href='/s/{{ profile.username }}'>{% endif %}<div class='icon-heart' title='Favs'><span>{{ profile.favs }}</span></div>{% if profile.id == user.id %}</a>{% endif %}
-			<div class='icon-thumbs-up' title="Likes"><span>{{ profile.likes }}</span></div>
-			{% if profile.id == user.id %}<a href='/uploads/{{ profile.username }}'>{% endif %}<div class='icon-upload' title="Uploads"><span>{{ profile.uploads }}</span></div>{% if profile.id == user.id %}</a>{% endif %}
+			{% if profile.id == user.id %}<a href='/s/{{ profile.username }}'>{% endif %}<div title='Favs'><span class='fa fa-heart'></span><span>{{ profile.favs }}</span></div>{% if profile.id == user.id %}</a>{% endif %}
+			<div title="Likes"><span class='fa fa-thumbs-up'></span><span>{{ profile.likes }}</span></div>
+			{% if profile.id == user.id %}<a href='/uploads/{{ profile.username }}'>{% endif %}<div title="Uploads"><span class='fa fa-upload'></span><span>{{ profile.uploads }}</span></div>{% if profile.id == user.id %}</a>{% endif %}
 		</div>
 	</div>
 </div>
