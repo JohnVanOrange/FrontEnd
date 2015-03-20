@@ -2,9 +2,9 @@
 
 {% block content %}
 	<h2>{% trans 'Image Admin' %}</h2>
-	
+
 	<div id='content' class='image_admin'>
-	
+
 		<p><button id='cat' class='btn btn-success'>{% trans 'Cat' %}</button>
        <button id='skip' class='btn btn-default'>{% trans 'Skip' %}</button>
        <button id='dog' class='btn btn-success'>{% trans 'Dog' %}</button>
@@ -14,9 +14,9 @@
 				<img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.media.primary.url }}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 			 </a>
 		</section>
-	
+
 	</div>
-	
+
 	<div id='image_data'>
 	 <p><a href='{{ image.page_url }}'>{{ image.uid }}</a></p>
 	 {% if image.display == '0' %}<p class='alert'>HIDDEN</p>{% endif %}
@@ -29,7 +29,7 @@
 	 <p>Tags:
 		{% for tag in image.tags %}<p class='tag'>{{ tag.name }}</p>{% endfor %}
 	 {% endif %}
-	 
+
 	 <p>Images: {{ stats.images }}</p>
 	 <p><a href='/admin/approve'>Approved:</a> {{ stats.approved }} ({{ stats.approved_percent }}%)</p>
 	 {% if stats.reports %}<p><a href='/admin/reported'>Reported:</a> {{ stats.reports }}</p>{% endif %}
@@ -37,7 +37,7 @@
 {% endblock %}
 
 {% block stylesheets %}
-	<link rel='stylesheet' type='text/css' href='{{ web_root }}css/themes/admin/admin.css' />
+	<link rel='stylesheet' type='text/css' href='{{ web_root }}css/{{ site_theme }}/admin.css' />
 {% endblock %}
 
 {% block javascript %}

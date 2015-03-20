@@ -2,9 +2,9 @@
 
 {% block content %}
     <h2>{% trans 'Settings Admin' %}</h2>
-    
+
     <div id='content' class='settings_admin'>
-    
+
         <form role='form' class="form-horizontal">
         {% for name,value in settings %}
             <div class='form-group'>
@@ -15,12 +15,12 @@
             </div>
         {% endfor %}
         </form>
-    
+
     </div>
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel='stylesheet' type='text/css' href='{{ web_root }}css/themes/admin/admin.css' />
+    <link rel='stylesheet' type='text/css' href='{{ web_root }}css/{{ site_theme }}/admin.css' />
 {% endblock %}
 
 {% block javascript %}

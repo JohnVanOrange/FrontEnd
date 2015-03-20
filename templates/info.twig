@@ -1,5 +1,9 @@
 {% extends "base.twig" %}
 
+{% block stylesheets %}
+ <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/info.css' />
+{% endblock %}
+
 {% block content %}
 <img src='{{ image.media.primary.url }}' alt='Background image' id='info_bg' />
 <h2>{% trans 'Image Details' %}</h2>

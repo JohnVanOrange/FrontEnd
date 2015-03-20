@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="{{ web_root }}icons/{{ icon_set }}/114.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="{{ web_root }}icons/{{ icon_set }}/144.png" />
 		{% block stylesheets %}{% endblock %}
-		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/themes/{{ site_theme }}/{{ site_theme }}.css?20141208' />
+		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/main.css' />
 		{% block meta_data %}{% endblock %}
 		<meta name="theme-color" content="{% include 'components/theme-color/' ~ site_theme ~ '.twig' %}">
   </head>
