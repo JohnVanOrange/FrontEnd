@@ -1,5 +1,9 @@
 {% extends "base.twig" %}
 
+{% block stylesheets %}
+ <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/docs.css' />
+{% endblock %}
+
 {% block content %}
 	<a href='/docs/'><h2>{% trans 'API Docs for' %} {{ class.name }}</h2></a>
 

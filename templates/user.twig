@@ -1,5 +1,9 @@
 {% extends "base.twig" %}
 
+{% block stylesheets %}
+ <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/user.css' />
+{% endblock %}
+
 {% block title_prepend %}{{ title_text }} {% endblock %}
 
 {% block content %}
