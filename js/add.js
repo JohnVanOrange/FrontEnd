@@ -8,9 +8,9 @@ $('document').ready(function(){
 				if (response.hasOwnProperty('error')) {
 					throw {name: response.error, message: response.message};
 				}
-				process(response);
-			} catch(e) {
-				exception_handler(e);
+				JVO.api.result_process( response );
+			} catch( e ) {
+				JVO.exception( e );
 			}
 		}
 	});

@@ -1,105 +1,7 @@
-var api = {
-	client : function (method, callback, opt) {
-		var url = '/api/' + method;
-		$.ajax({
-		type: 'post',
-		url: url,
-		data: opt,
-		dataType: 'json',
-		success: function(response) {
-			try {
-				if (response.hasOwnProperty('error')) {
-					throw {name: response.error, message: response.message};
-				}
-				callback(response);
-				process(response);
-			} catch(e) {
-				exception_handler(e);
-			}
-		},
-		error: function(xhr) {
-			var response = JSON.parse(xhr.responseText);
-			try {
-				if (response.hasOwnProperty('error')) {
-					throw {name: response.error, message: response.message};
-				}
-				process(response);
-			} catch(e) {
-				exception_handler(e);
-			}
-		}
-	});
- },
- call : function (method, callback, opt) {
-  return this.client(method, callback, opt);
- }
-};
-
-function exception_handler(e) {
- noty({text: e.message, type: 'error', dismissQueue:true});
- switch (e.name) {
- case 1020: //Must be logged in to save image
- case 1021: //Must be logged in to unsave image
- case 1022://Must be logged in to like images
- case 1023://Must be logged in to dislike images
-  $('.like').removeClass('highlight');
-  $('#save_image').removeClass('highlight');
-  $('#login').click();
-  break;
- }
-}
-
-function call(method, callback, opt) {
- "use strict";
- try {
-  api.call(method, callback, opt);
- } catch (e) {
-  exception_handler(e);
- }
- return null;
-}
-
-function process(result) {
- "use strict";
- try {
-  if (result.message) {
-   var message = result.message;
-   if (result.thumb) {
-    message = message + '<br><img src="' + result.thumb + '">';
-   }
-   if (result.url) {
-    message = '<a href="' + result.url + '">' + message + '</a>';
-   }
-   noty({text: message, dismissQueue: true});
-  }
-  return result;
- } catch (e) {
-  exception_handler(e);
- }
- return null;
-}
-
-function jvo(method, opt) {
- var id = Math.floor((Math.random()*1000)+1);
- var start = +new Date();
- call(method,
-  function(response){
-   end = +new Date();
-   time = end - start;
-   console.log({
-    id: id,
-    response: response,
-	time : time+'ms'
-   });
-  },
-  opt);
-  return id;
-}
-
 $('document').ready(function(){
-  
+
  $("body").removeClass("preload");
-	
+
  /*Ubuntu integration*/
  try {
   window.Unity = external.getUnityObject(1.0);
@@ -109,19 +11,19 @@ $('document').ready(function(){
    onInit: null
   });
  } catch(err) {}
- 
+
  /*Options for Notifications*/
  $.noty.defaults.layout = 'topLeft';
  $.noty.defaults.type = 'information';
  $.noty.defaults.timeout = 10000;
- 
+
  /*Tag search autosuggest*/
  $('#searchTag').typeahead({
 	remote: '/api/tag/suggest?term=%QUERY',
 	limit: 16
  });
  $('#searchDialog .tt-hint').addClass('form-control');
- 
+
  /*Keyboard controls*/
  var ctrl_down = false;
 
@@ -130,7 +32,7 @@ $('document').ready(function(){
  }).keyup(function(event) {
   if (event.keyCode === 17) ctrl_down = false;
  });
- 
+
  $('body').keydown(function (event) {
   if (!ctrl_down) {
    switch (event.keyCode) {
@@ -168,7 +70,7 @@ $('document').ready(function(){
    }
   }
  });
- 
+
  /*Make sure input/textarea input's don't propagate keypresses to the body*/
  inputKeyboardHandler = function() {
   $('input, textarea').on('keydown', function (event) {
@@ -180,16 +82,16 @@ $('document').ready(function(){
  /*Logout*/
  $('#logout').click(function () {
   event.preventDefault();
-  call('user/logout', function(response){
+  JVO.call('user/logout', function(response){
    if (!response.error) window.location.reload();
   });
  });
- 
+
  /*Login dialog*/
  $('#login').click(function (event) {
   event.preventDefault();
   var login = function () {
-   call('user/login', function(response){
+   JVO.call('user/login', function(response){
     if (response.sid) {
      $('#loginDialog').modal('hide');
      window.location.reload();
@@ -214,20 +116,20 @@ $('document').ready(function(){
    }
   });
   $('#loginSubmit').click(function(){
-		login();	
+		login();
 	});
  });
- 
+
  /*Create Account dialog*/
  $('.create_acct').click(function (event) {
   event.preventDefault();
   var create = function () {
    if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
     var e = {message: "Passwords don't match"};
-    exception_handler(e);
+    JVO.exception( e );
    } else {
-    call('user/add',function(response){
-     if (!response.error) {  
+    JVO.call('user/add',function(response){
+     if (!response.error) {
       $('#accountDialog').modal('hide');
       window.location.reload();
      }
@@ -246,15 +148,15 @@ $('document').ready(function(){
    }
   });
 	$('#createSubmit').click(function(){
-		create();	
+		create();
 	});
  });
- 
+
  /*Add from URL dialog*/
  $('#addImage').click(function (event) {
   event.preventDefault();
   upload = function() {
-   call('image/addFromURL', function(){}, {
+   JVO.call('image/addFromURL', function(){}, {
     'url': $('#addImageURL').val()
    });
    $('#addImageDialog').modal('hide');
@@ -266,15 +168,15 @@ $('document').ready(function(){
    }
   });
 	$('#addImageSubmit').click(function(){
-		upload();	
+		upload();
 	});
  });
- 
+
   /*Password Reset Request dialog*/
  $('#pwresetRequest').click(function (event) {
   event.preventDefault();
   var pwresetreq = function () {
-   call('user/requestPwReset', function(response){
+   JVO.call('user/requestPwReset', function(response){
     $('#pwresetRequestDialog').modal('hide');
    },
    {
@@ -288,10 +190,10 @@ $('document').ready(function(){
    }
   });
   $('#pwresetRequestSubmit').click(function(){
-		pwresetreq();	
+		pwresetreq();
 	});
  });
-	
+
 	$('.icon').click(function() {
 		$(this).addClass('pressed');
 		setTimeout(function(){$('.icon').removeClass('pressed')},80);
@@ -302,15 +204,15 @@ $('document').ready(function(){
 		event.preventDefault();
 		$('#searchTag').typeahead('setQuery','');
 	});
-	
+
 	$('#searchDialog').on('shown.bs.modal', function(){
 		$('#searchTag').focus();
 	});
 
 	$('#search').one('click', function(event){
 		event.preventDefault();
-		var search = function () { 
-      call('tag/get', function(taginfo){
+		var search = function () {
+      JVO.call('tag/get', function(taginfo){
        window.location.href = taginfo[0].url;
       }, {'value': $('#searchTag').val(), 'search_by': 'name'});
 			$('#searchDialog').modal('hide');
@@ -325,14 +227,12 @@ $('document').ready(function(){
 			search();
 		});
 	});
-	
+
  /*Send Admin Message dialog*/
  $('#adminMessage').click(function (event) {
   event.preventDefault();
-	console.log('test');
   var sendAdminMessage = function () {
-   console.log('test2');
-   call('message/admin', function(response){
+   JVO.call('message/admin', function(response){
     $('#adminMessageDialog').modal('hide');
    },
    {
@@ -342,14 +242,13 @@ $('document').ready(function(){
    });
   };
   $('#adminMessageSubmit').click(function(){
-		sendAdminMessage();	
+		sendAdminMessage();
 	});
  });
-	
+
 	/*Firefox Open Web App integration*/
 	$('#firefox_menu').click(function (event) {
 		event.preventDefault();
-		console.log('this is happening');
 		var apps = window.navigator.mozApps.getInstalled();
 		apps.onsuccess = function() {
 			if (!apps.result.length) {
@@ -366,7 +265,7 @@ $('document').ready(function(){
 			}
 		};
 	});
-	
+
 });
 
 var $body = $(document.body),
@@ -384,5 +283,5 @@ $(window).on('scroll', function (event) {
     $logo.css({
         'transform': 'rotate(' + ($body.scrollTop() / bodyHeight * 360) + 'deg)'
     });
-    
+
 });
