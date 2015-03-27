@@ -101,6 +101,9 @@ footer {
     background-color: @main_button_color;
     border-color: @main_button_border;
     color: @main_button_text_color;
+    &:focus {
+      &:extend(.btn-primary);
+    }
     &:hover {
         background-color: @main_button_border;
         border-color: darken(@main_button_border, 5%);

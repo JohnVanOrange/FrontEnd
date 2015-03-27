@@ -1,6 +1,7 @@
 var JVO = JVO || {};
 
 JVO.exception = function( e ) {
+	console.warn( e.message );
 	noty({ text: e.message, type: 'error', dismissQueue:true });
 	switch ( e.name ) {
 		case 1020: //Must be logged in to save image

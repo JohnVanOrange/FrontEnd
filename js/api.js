@@ -64,12 +64,12 @@ JVO.api = {
 	debug : function( method, opt ) {
 		var id = Math.floor( (Math.random()*1000)+1 );
 		var start = +new Date();
-		call(
+		JVO.api.call(
 			method,
 			function( response ){
 				var end = +new Date();
 				var time = end - start;
-				console.log({
+				console.dir({
 					id: id,
 					response: response,
 					time : time+'ms'
