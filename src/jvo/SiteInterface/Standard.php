@@ -40,16 +40,10 @@ class Standard {
    $this->addData(['filter'=> TRUE]);
   }
 
-  if (date('md') == '0401') {
-   $this->addData([
-    'site_theme'	  => 'afd'
-   ]);
-  }
-  else {
-   $this->addData([
+
+  $this->addData([
     'site_theme'	  => $this->api('setting/get', ['name' => 'theme'])
-   ]);
-  }
+  ]);
 
   $app_link = $this->api('setting/get', ['name' => 'app_link']); if ($app_link) $this->addData(['app_link' => $app_link]);
   $show_brazz = $this->api('setting/get', ['name' => 'show_brazz']); if ($show_brazz) $this->addData(['show_brazz' => $show_brazz]);
