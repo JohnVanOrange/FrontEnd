@@ -11,12 +11,20 @@ if (!$argv[1]) {
  exit;
 }
 
+if ($argv[2]) {
+  $storage_id = $argv[2];
+}
+
 $count = $argv[1];
 $counter = 0;
 
 $query = new \Peyote\Select('storage');
-$query->where('type', '=', 's3')
-      ->limit(1);
+if ($storage_id) {
+  $query->where('id', '=', $storage_id);
+} else {
+  $query->where('type', '=', 's3')
+        ->limit(1);
+}
 $s3data = $db->fetch($query)[0];
 
 $s3 = new \S3($s3data['access_key'], $s3data['secret_key'], false, $s3data['endpoint']);

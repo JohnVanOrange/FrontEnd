@@ -148,12 +148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JohnVanOrange/Core.git",
-                "reference": "1cc8055098b73364238c1bb9d891c40bc5db540b"
+                "reference": "1c6336448313d68ea315f6abf003ac1d267d7013"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/1cc8055098b73364238c1bb9d891c40bc5db540b",
-                "reference": "1cc8055098b73364238c1bb9d891c40bc5db540b",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/1c6336448313d68ea315f6abf003ac1d267d7013",
+                "reference": "1c6336448313d68ea315f6abf003ac1d267d7013",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +187,7 @@
             ],
             "description": "Core John VanOrange classes",
             "homepage": "https://github.com/JohnVanOrange/Core",
-            "time": "2015-02-25 17:59:30"
+            "time": "2015-04-01 18:37:48"
         },
         {
             "name": "rych/bytesize",
@@ -236,16 +236,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.3.1",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a"
+                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
-                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/31454f258f10329ae7c48763eb898a75c39e0a9f",
+                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +257,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.3-dev"
+                    "dev-master": "5.4-dev"
                 }
             },
             "autoload": {
@@ -284,7 +284,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-12-05 14:17:14"
+            "time": "2015-03-14 06:06:39"
         },
         {
             "name": "tpyo/amazon-s3-php-class",
@@ -292,12 +292,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tpyo/amazon-s3-php-class.git",
-                "reference": "aea048e9cc5fa3e74a9726fcf3ab5ec03583645c"
+                "reference": "f363dd4c89af8da1b6fe3aab92b8e2fc52e57c63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tpyo/amazon-s3-php-class/zipball/aea048e9cc5fa3e74a9726fcf3ab5ec03583645c",
-                "reference": "aea048e9cc5fa3e74a9726fcf3ab5ec03583645c",
+                "url": "https://api.github.com/repos/tpyo/amazon-s3-php-class/zipball/f363dd4c89af8da1b6fe3aab92b8e2fc52e57c63",
+                "reference": "f363dd4c89af8da1b6fe3aab92b8e2fc52e57c63",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
             ],
             "description": "A standalone Amazon S3 (REST) client for PHP 5.2.x using CURL that does not require PEAR.",
             "homepage": "https://github.com/tpyo/amazon-s3-php-class",
-            "time": "2015-01-22 16:39:58"
+            "time": "2015-03-17 21:42:34"
         },
         {
             "name": "twig/extensions",
