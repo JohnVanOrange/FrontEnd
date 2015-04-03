@@ -1,7 +1,7 @@
 var add_image = function() {
 	var rand = Math.floor((Math.random()*10000)+1);
-	call('image/unapproved', function(data){
-		content = '<div class="thumb_wrap col-md-1" id="' + data.uid + '">' + 
+	JVO.call('image/unapproved', function(data){
+		content = '<div class="thumb_wrap col-md-1" id="' + data.uid + '">' +
 							 '<a href="/' + data.uid + '"><img src="' + data.media.thumb.url + '"></a>' +
 							 '<div>' +
 							  '<button class="btn btn-success btn-xs approve icon-thumbs-up" value="' + data.uid + '"></button>' +
@@ -27,7 +27,7 @@ var add_image = function() {
 }
 
 var approve = function(uid, nsfw){
-	call('image/approve', function(){
+	JVO.call('image/approve', function(){
 		$('#' + uid).fadeOut();
 		add_image();
 	}, {image: uid, nsfw: nsfw});
@@ -40,7 +40,7 @@ var skip = function(uid) {
 
 var reject = function(uid) {
 	if (confirm('Remove Image?')) {
-		call('image/remove', function(){
+		JVO.call('image/remove', function(){
 			$('#' + uid).fadeOut();
 			add_image();
 		}, {image: uid});
@@ -51,6 +51,6 @@ $(document).ready(function () {
  for (var i = 1; i <= 24; i++) {
 	add_image();
  }
- 
- 
+
+
 });
