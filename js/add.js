@@ -1,5 +1,5 @@
 Dropzone.autoDiscover = false;
-$('document').ready(function(){
+$(function() {
 	$("#drop").dropzone({
 		paramName: "image",
 		url: '/api/image/add',
