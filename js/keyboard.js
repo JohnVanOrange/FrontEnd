@@ -1,4 +1,9 @@
 $(function() {
+
+	$('input, textarea').on('keydown', function (event) {
+		event.stopPropagation();
+	});
+
 	var ctrl_down = false;
 
 	$(document).keydown(function(event) {
