@@ -31,7 +31,7 @@
 
 
 	<div id="image_icons">
-		<div id='dislike_image' class='like icon fa fa-thumbs-down{% if image.data.dislike %} highlight{% endif %}' title='{% trans 'Dislike Image' %}'></div>
+		<div id='dislike_image' class='like icon fa fa-flip-horizontal fa-thumbs-down{% if image.data.dislike %} highlight{% endif %}' title='{% trans 'Dislike Image' %}'></div>
 		<div id='save_image' class='like icon fa fa-heart{% if image.saved %} highlight{% endif %}' title='{% trans 'Favorite Image' %}'></div>
 		<div id='like_image' class='like icon fa fa-thumbs-up{% if image.data.like %} highlight{% endif %}' title='{% trans 'Like Image' %}'></div>
 	</div>
@@ -63,7 +63,7 @@
 
 	{% if tip %}
 	<div class="row">
-		<div class="alert alert-info col-md-4 col-md-offset-4"><span class="fa fa-info-circle"></span> {{ tip|raw }}</div>
+		<div class="alert alert-info col-md-4 col-md-offset-4"><span class="fa fa-info-circle fa-2x"></span> {{ tip|raw }}</div>
 	</div>
 	{% endif %}
 
