@@ -49,7 +49,6 @@
 			$.noty.defaults.layout = 'topLeft';
 			$.noty.defaults.type = 'information';
 			$.noty.defaults.timeout = 10000;
-			console.log('test');
 		},
 
 		logo_rotate: function() {
@@ -91,9 +90,7 @@
 			logout: function() {
 				$('#logout').click(function () {
 					event.preventDefault();
-					JVO.call('user/logout', function(response){
-						if (!response.error) window.location.reload();
-					});
+					JVO.call('user/logout').done(window.location.reload());
 				});
 			}
 

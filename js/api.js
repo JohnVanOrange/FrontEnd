@@ -1,71 +1,41 @@
 var JVO = JVO || {};
 
 JVO.api = {
-	//use promises
-	//http://www.bitstorm.org/weblog/2012-1/Deferred_and_promise_in_jQuery.html
 
-	client : function ( method, callback, opt ) {
+	client : function ( method, opt ) {
+		'use strict';
+
+		var deferred = $.Deferred();
 		var url = '/api/' + method;
 		$.ajax({
-		type: 'post',
-		url: url,
-		data: opt,
-		dataType: 'json',
-		success: function( response ) {
-			try {
+			type: 'post',
+			url: url,
+			data: opt,
+			dataType: 'json',
+
+			success: function( response ) {
 				if (response.hasOwnProperty('error')) {
-					throw {name: response.error, message: response.message};
+					deferred.reject( {name: response.error, message: response.message} );
 				}
-				callback( response );
-				JVO.api.result_process( response );
-			} catch(e) {
-				JVO.exception( e );
-			}
-		},
+				else {
+					deferred.resolve( response );
+				}
+			},
 
-		error : function( xhr ) {
-			var response = JSON.parse(xhr.responseText);
-			try {
-				if (response.hasOwnProperty('error')) {
-					throw {name: response.error, message: response.message};
-				}
-				JVO.api.result_process( response );
-			} catch( e ) {
-				JVO.exception( e );
+			error : function( xhr, status, error ) {
+				deferred.reject( error );
 			}
-		}
-	});
-	},
 
-	call : function ( method, callback, opt ) {
-		return this.client(method, callback, opt);
-	},
+		});
 
-	result_process : function( result ) {
-		"use strict";
-		try {
-			if ( result.message ) {
-				var message = result.message;
-				if ( result.thumb ) {
-					message = message + '<br><img src="' + result.thumb + '">';
-				}
-				if ( result.url ) {
-					message = '<a href="' + result.url + '">' + message + '</a>';
-				}
-				noty({text: message, dismissQueue: true});
-			}
-			return result;
-		} catch ( e ) {
-			JVO.exception( e );
-		}
-		return null;
+		return deferred.promise();
+
 	},
 
 	debug : function( method, opt ) {
 		var id = Math.floor( (Math.random()*1000)+1 );
 		var start = +new Date();
-		JVO.api.call(
-			method,
+		JVO.api.client(method, opt).always(
 			function( response ){
 				var end = +new Date();
 				var time = end - start;
@@ -74,8 +44,7 @@ JVO.api = {
 					response: response,
 					time : time+'ms'
 				});
-			},
-			opt
+			}
 		);
 		return id;
 	}

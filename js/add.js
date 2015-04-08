@@ -8,7 +8,8 @@ $(function() {
 				if (response.hasOwnProperty('error')) {
 					throw {name: response.error, message: response.message};
 				}
-				JVO.api.result_process( response );
+				var message = response.message + '<br><img src="' + response.thumb + '">';
+				noty({text: message, dismissQueue: true});
 			} catch( e ) {
 				JVO.exception( e );
 			}

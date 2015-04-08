@@ -1,7 +1,7 @@
 var JVO = JVO || {};
 
 JVO.exception = function( e ) {
-	console.warn( e.message );
+	console.error( e.message );
 	noty({ text: e.message, type: 'error', dismissQueue:true });
 	switch ( e.name ) {
 		case 1020: //Must be logged in to save image
@@ -12,12 +12,29 @@ JVO.exception = function( e ) {
 	}
 }
 
-JVO.call = function( method, callback, opt ) {
+JVO.call = function( method, opt ) {
 	"use strict";
-	try {
-		JVO.api.call( method, callback, opt );
-	} catch (e) {
-		JVO.exception_handler( e );
-	}
-	return null;
+
+	var deferred = $.Deferred();
+
+	JVO.api.client( method, opt )
+		.done( function( response ) {
+			if ( response.message ) {
+				var message = response.message;
+				if ( response.thumb ) {
+					message = message + '<br><img src="' + response.thumb + '">';
+				}
+				if ( response.url ) {
+					message = '<a href="' + response.url + '">' + message + '</a>';
+				}
+				noty({text: message, dismissQueue: true});
+			}
+			deferred.resolve( response );
+		} )
+		.fail( function( error ) {
+			JVO.exception( error );
+			deferred.reject( error );
+		});
+
+	return deferred.promise();
 }

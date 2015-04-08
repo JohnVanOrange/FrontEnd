@@ -4,17 +4,13 @@ $(function () {
 	$('#login').click(function (event) {
 		event.preventDefault();
 		var login = function () {
-			JVO.call('user/login', function(response){
-			if (response.sid) {
-				$('#loginDialog').modal('hide');
-				window.location.reload();
-			}
-			},
-			{
-			'username': $('#loginUsername').val(),
-			'password': $('#loginPassword').val()
-			});
-
+			JVO.call('user/login', {'username': $('#loginUsername').val(),'password': $('#loginPassword').val()})
+				.done( function( response ){
+					if ( response.sid ) {
+						$('#loginDialog').modal('hide');
+						window.location.reload();
+					}
+				});
 		};
 		$('#loginPassword').bind('keydown', function (event) {
 			if (event.keyCode === 13) {
@@ -41,17 +37,11 @@ $(function () {
 				var e = {message: "Passwords don't match"};
 				JVO.exception( e );
 			} else {
-			JVO.call('user/add',function(response){
-				if (!response.error) {
+			JVO.call('user/add', {'username': $('#createUsername').val(), 'password': $('#createPassword').val(), 'email': $('#createEmail').val()})
+				.done(function( response ){
 					$('#accountDialog').modal('hide');
 					window.location.reload();
-				}
-			},
-			{
-				'username': $('#createUsername').val(),
-				'password': $('#createPassword').val(),
-				'email': $('#createEmail').val()
-			});
+				});
 			}
 		};
 		$('#createEmail').bind('keydown', function (event) {
@@ -69,9 +59,7 @@ $(function () {
 	$('#addImage').click(function (event) {
 		event.preventDefault();
 		upload = function() {
-			JVO.call('image/addFromURL', function(){}, {
-				'url': $('#addImageURL').val()
-			});
+			JVO.call('image/addFromURL', {'url': $('#addImageURL').val()});
 			$('#addImageDialog').modal('hide');
 		};
 		$('#addImageURL').bind('keydown', function (event) {
@@ -89,12 +77,10 @@ $(function () {
 	$('#pwresetRequest').click(function (event) {
 		event.preventDefault();
 		var pwresetreq = function () {
-			JVO.call('user/requestPwReset', function(response){
-				$('#pwresetRequestDialog').modal('hide');
-			},
-			{
-				'username': $('#pwresetRequestUsername').val()
-			});
+			JVO.call('user/requestPwReset', {'username': $('#pwresetRequestUsername').val()})
+				.done(function(response){
+					$('#pwresetRequestDialog').modal('hide');
+				});
 		};
 		$('#pwresetRequestUsername').bind('keydown', function (event) {
 			if (event.keyCode === 13) {
@@ -118,9 +104,10 @@ $(function () {
 	$('#search').one('click', function(event){
 		event.preventDefault();
 		var search = function () {
-			JVO.call('tag/get', function(taginfo){
-				window.location.href = taginfo[0].url;
-			}, {'value': $('#searchTag').val(), 'search_by': 'name'});
+			JVO.call('tag/get', {'value': $('#searchTag').val(), 'search_by': 'name'})
+				.done(function( taginfo ){
+					window.location.href = taginfo[0].url;
+				});
 			$('#searchDialog').modal('hide');
 		};
 		$('#searchTag').bind('keydown', function (event) {
@@ -138,14 +125,10 @@ $(function () {
 	$('#adminMessage').click(function (event) {
 		event.preventDefault();
 		var sendAdminMessage = function () {
-			JVO.call('message/admin', function(response){
-				$('#adminMessageDialog').modal('hide');
-			},
-			{
-				'name': $('#messageName').val(),
-				'email': $('#messageEmail').val(),
-				'message': $('#messageText').val()
-			});
+			JVO.call('message/admin', {'name': $('#messageName').val(), 'email': $('#messageEmail').val(), 'message': $('#messageText').val()})
+				.done(function(response){
+					$('#adminMessageDialog').modal('hide');
+				});
 		};
 		$('#adminMessageSubmit').click(function(){
 			sendAdminMessage();

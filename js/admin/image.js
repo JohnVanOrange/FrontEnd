@@ -1,15 +1,18 @@
 $(function() {
 
 	$('#approve').click(function() {
-		JVO.call('image/approve',function(){$('.image').click();},{image: $('.image').attr('id')});
+		JVO.call('image/approve', {image: $('.image').attr('id')})
+			.done(function(){$('.image').click()});
 	});
 
 	$('#nsfw').click(function() {
-		JVO.call('image/approve',function(){$('.image').click();},{image: $('.image').attr('id'),nsfw: true});
+		JVO.call('image/approve', {image: $('.image').attr('id'),nsfw: true})
+			.done(function(){$('.image').click()});
 	});
 
 	$('#reject').click(function() {
-		JVO.call('image/remove',function(){$('.image').click();},{image: $('.image').attr('id')});
+		JVO.call('image/remove', {image: $('.image').attr('id')})
+			.done(function(){$('.image').click()});
 	});
 
 	$('#skip').click(function() {
