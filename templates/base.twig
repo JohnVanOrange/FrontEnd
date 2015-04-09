@@ -22,15 +22,15 @@
     <header>
 			<h1><a href='/'>{% include 'components/headers/' ~ site_theme ~ '.twig' %}</a></h1>
 			<div>
-        <button class='icon action btn btn-success btn-sm' data-toggle="modal" href="#addImageDialog" data-target="#addImageDialog" id='addImage'><span class='fa fa-plus-circle'></span>{% trans 'Add Image' %}</button>
+        <button class='icon action btn btn-success btn-sm' href="#addImageDialog" data-dialog="add_image" id='addImage'><span class='fa fa-plus-circle'></span>{% trans 'Add Image' %}</button>
 				{% if user.username is defined %}
 					<a id='user_avatar' class='btn btn-link btn-sm' href='/u/{{ user.username }}'><img src='//www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'><span>{{ user.username }}</span></a>
 					<button id='logout' class='btn btn-sm btn-link'><span class='fa fa-sign-out'></span>{% trans 'Sign Out' %}</button>
 				{% else %}
-					<button id='login' class='btn btn-sm btn-primary' data-toggle="modal" href="#loginDialog" data-target="#loginDialog"><span class='fa fa-sign-in'></span>{% trans 'Sign In' %}</button>
-					<button id='create_acct' class='create_acct btn btn-sm btn-link' data-toggle="modal" href="#createAcctDialog" data-target="#createAcctDialog"><span class='fa fa-user-plus'></span>{% trans 'Create Account' %}</button>
+					<button id='login' class='btn btn-sm btn-primary' href="#loginDialog" data-dialog="login"><span class='fa fa-sign-in'></span>{% trans 'Sign In' %}</button>
+					<button id='create_acct' class='create_acct btn btn-sm btn-link' href="#createAcctDialog" data-dialog="create_acct"><span class='fa fa-user-plus'></span>{% trans 'Create Account' %}</button>
 				{% endif %}
-			<button id='search' title='{% trans 'Search' %}' class='fa fa-search btn btn-link btn-sm' data-toggle="modal" href="#searchDialog" data-target="#searchDialog"></button>
+			<button id='search' title='{% trans 'Search' %}' class='fa fa-search btn btn-link btn-sm' href="#searchDialog" data-dialog="search"></button>
 			</div>
 		</header>
 		<section id='content'>
@@ -40,7 +40,7 @@
 			&copy;{{ 'now'|date('Y') }} {% if show_jvon %}<a href='/jvon'>{% endif %}John VanOrange Network{% if show_jvon %}</a>{% endif %} |
 			<a href="/tos">{% trans 'Legal' %}</a> |
 			<a href="/privacy">{% trans 'Privacy' %}</a>
-			<button id='adminMessage' class='btn btn-xs btn-primary' data-toggle="modal" href="#adminMessageDialog" data-target="#adminMessageDialog"><span class='fa fa-envelope'></span>{% trans 'Contact Site Admin' %}</button>
+			<button id='adminMessage' class='btn btn-xs btn-primary' href="#adminMessageDialog" data-dialog="admin_message"><span class='fa fa-envelope'></span>{% trans 'Contact Site Admin' %}</button>
 		</footer>
 		{% include 'dialogs/report.twig' %}
 		{% include 'dialogs/create_acct.twig' %}

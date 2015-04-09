@@ -10,23 +10,23 @@
           <div class="form-group">
             <label for="loginUsername" class="col-lg-2 control-label">{% trans 'Username' %}</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="loginUsername" placeholder="{% trans 'Username' %}" required>
+              <input type="text" class="form-control submit" id="loginUsername" placeholder="{% trans 'Username' %}" required>
             </div>
           </div>
           <div class="form-group">
             <label for="loginPassword" class="col-lg-2 control-label">{% trans 'Password' %}</label>
             <div class="col-lg-10">
-              <input type="password" class="form-control" id="loginPassword" placeholder="{% trans 'Password' %}" required>
+              <input type="password" class="form-control submit" id="loginPassword" placeholder="{% trans 'Password' %}" required>
             </div>
           </div>
         </form>
       </div>
-      <a data-toggle="modal" href="#createAcctDialog" data-target="#createAcctDialog" data-dismiss="modal" class='create_acct'>{% trans "Don't have an account?" %}</a>
-       | 
-      <a data-toggle="modal" href="#pwresetRequestDialog" data-target="#pwresetRequestDialog" data-dismiss="modal" id='pwresetRequest'>{% trans 'Forgot Password?' %}</a>
+      <a href="#createAcctDialog" data-dialog="create_acct" class='create_acct'>{% trans "Don't have an account?" %}</a>
+       |
+      <a href="#pwresetRequestDialog" data-dialog="pwreset_request" id='pwresetRequest'>{% trans 'Forgot Password?' %}</a>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
-        <button type="button" class="btn btn-primary" id='loginSubmit'>{% trans 'Login' %}</button>
+        <button type="button" class="btn btn-primary submit">{% trans 'Login' %}</button>
       </div>
     </div>
   </div>

@@ -11,46 +11,18 @@ var preload = function() {
 $('document').ready(function(){
 	preload();
 
-	/*Add tag autosuggest*/
+	/*Add tag dialog specific stuff*/
 	$('#addTag').typeahead({
 		remote: '/api/tag/suggest?term=%QUERY',
 		limit: 16
 	});
 	$('#addTagDialog .tt-hint').addClass('form-control');
-
-	/*Add Tag dialog*/
 	$('#add_tag').click(function (event) {
 		event.preventDefault();
 		$('#addTag').typeahead('setQuery','');
 	});
-
 	$('#addTagDialog').on('shown.bs.modal', function(){
 		$('#addTag').focus();
-	});
-
-	$('#add_tag').one('click', function(event){
-		event.preventDefault();
-		var addtag = function () {
-			JVO.call('tag/add', {'name': $('#addTag').val(), 'image' : $('.main').attr('id')})
-				.done(function( result ){
-					$('#tags a, #tags em').remove();
-					for (i in result.tags) {
-						tag = $('<a>');
-						$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
-						$('#tags').append(tag);
-					}
-				});
-			$('#addTagDialog').modal('hide');
-		};
-		$('#addTag').bind('keydown', function (event) {
-			if (event.keyCode === 13) {
-				event.preventDefault();
-				addtag();
-			}
-		});
-		$('#addTagSubmit').click(function(){
-			addtag();
-		});
 	});
 
 	$('#save_image').click(function () {
@@ -74,7 +46,9 @@ $('document').ready(function(){
 		JVO.call('image/dislike', {image:$('.main').attr('id')});
 	});
 
-	/*Load report types*/
+	/*Load report types
+		This generated different than the other dialogs.
+		Will need some 'onload' handler for dialogs*/
   $('#report_image').one('click', function() {
     JVO.call('report/all').done(function( data ) {
       for (var i in data) {
@@ -91,19 +65,5 @@ $('document').ready(function(){
       });
 		});
   });
-
-	/*Remove image*/
-	$('#remove_image').one('click', function(event){
-		event.preventDefault();
-		var removeImage = function () {
-			JVO.call('image/remove', {
-				'image' : $('.main').attr('id')
-			});
-			$('#removeImageDialog').modal('hide');
-		};
-		$('#removeImageConfirm').click(function(){
-			removeImage();
-		});
-	});
 
 });

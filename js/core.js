@@ -38,3 +38,21 @@ JVO.call = function( method, opt ) {
 
 	return deferred.promise();
 }
+
+JVO.dialog = function( name, e ) {
+	"use strict";
+
+	$('.modal.in').modal('hide');
+
+	$(e).modal('show');
+
+	$(e + ' input.submit').bind('keydown', function (event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			JVO.dialogHandlers[name]();
+		}
+	});
+	$(e + ' button.submit').click(function( event ){
+		JVO.dialogHandlers[name]();
+	});
+}

@@ -22,7 +22,7 @@
 					<li><a id='tineye' href='http://tineye.com/search?url={{ image.media.primary.url }}'><span class='fa fa-search'></span>{% trans 'Search using Tineye' %}</a></li>
 					<li><a href='/info/{{ image.uid }}'><span class='fa fa-info-circle'></span>{% trans 'Details' %}</a></li>
 					<li><a id='fullscreen' href='{{ image.media.primary.url }}'><span class='fa fa-arrows-alt'></span>{% trans 'View Fullscreen' %}</a></li>
-					{% if can_remove %}<li><a id='remove_image' data-toggle="modal" href="#removeImageDialog" data-target="#removeImageDialog"><span class='fa fa-trash'></span>{% trans 'Remove Image' %}</a></li>{% endif %}
+					{% if can_remove %}<li><a id='remove_image' href="#removeImageDialog" data-dialog="remove_image"><span class='fa fa-trash'></span>{% trans 'Remove Image' %}</a></li>{% endif %}
 					{% if is_admin %}<li><a id='admin_link' href='/admin/image/{{ image.uid }}'><span class='fa fa-cog'></span>{% trans 'Image Admin' %}</a></li>{% endif %}
 				</ul>
 			</div>
@@ -46,7 +46,7 @@
 				<em class="notag">{% trans 'no current tags' %}</em>
 			{% endif %}
 		</div>
-		<button class='btn btn-primary' id='add_tag' data-toggle="modal" href="#addTagDialog" data-target="#addTagDialog"><span class='fa fa-plus-circle'></span>{% trans 'Add Tag' %}</button>
+		<button class='btn btn-primary' id='add_tag' href="#addTagDialog" data-dialog="add_tag"><span class='fa fa-plus-circle'></span>{% trans 'Add Tag' %}</button>
 	</div>
 
 	{% if show_social == 1%}
