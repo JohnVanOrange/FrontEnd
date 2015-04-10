@@ -11,6 +11,7 @@
 			UI.logo_rotate();
 			UI.icon_visuals();
 			UI.event_handlers_init();
+			JVO.notifications.load();
 		},
 
 		ubuntu: function() {
@@ -90,7 +91,10 @@
 			logout: function() {
 				$('#logout').click(function () {
 					event.preventDefault();
-					JVO.call('user/logout').done(window.location.reload());
+					JVO.call('user/logout').done(function( response ) {
+						JVO.notifications.store( response.notification_message );
+						window.location.reload();
+					});
 				});
 			}
 

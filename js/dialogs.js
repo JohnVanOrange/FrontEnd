@@ -12,6 +12,7 @@ JVO.dialogHandlers = {
 			.done( function( response ){
 				if ( response.sid ) {
 					$('#loginDialog').modal('hide');
+					JVO.notifications.store( response.notification_message );
 					window.location.reload();
 				}
 			});
@@ -32,6 +33,7 @@ JVO.dialogHandlers = {
 					})
 				.done(function( response ){
 					$('#accountDialog').modal('hide');
+					JVO.notifications.store( response.notification_message );
 					window.location.reload();
 				});
 			}

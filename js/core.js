@@ -28,6 +28,7 @@ JVO.call = function( method, opt ) {
 					message = '<a href="' + response.url + '">' + message + '</a>';
 				}
 				noty({text: message, dismissQueue: true});
+				response.notification_message = message;
 			}
 			deferred.resolve( response );
 		} )
@@ -60,7 +61,7 @@ JVO.dialog = function( name, e ) {
 	load();
 
 	$(e).on('shown.bs.modal', function(){
-		
+
 		$(e + ' input.submit').bind('keydown', function (event) {
 			if (event.keyCode === 13) {
 				event.preventDefault();
@@ -75,5 +76,17 @@ JVO.dialog = function( name, e ) {
 
 	});
 
+}
 
+JVO.notifications = {
+	store: function( notification ) {
+		localStorage.setItem('storedNotification', notification );
+	},
+	load: function() {
+		var storedNotification = localStorage.getItem('storedNotification');
+		if ( storedNotification ) {
+			noty({text: storedNotification, dismissQueue: true});
+			localStorage.removeItem('storedNotification');
+		};
+	}
 }
