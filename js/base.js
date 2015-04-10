@@ -47,6 +47,7 @@
 		},
 
 		notyinit: function() {
+			$.noty.defaults.theme = 'relax';
 			$.noty.defaults.layout = 'topLeft';
 			$.noty.defaults.type = 'information';
 			$.noty.defaults.timeout = 10000;
