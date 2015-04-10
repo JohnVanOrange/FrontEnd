@@ -42,17 +42,38 @@ JVO.call = function( method, opt ) {
 JVO.dialog = function( name, e ) {
 	"use strict";
 
+	var load = function(){};
+	var submit = function(){};
+
+	if (typeof JVO.dialogHandlers[name].load == 'function') {
+		load = JVO.dialogHandlers[name].load;
+	}
+
+	if (typeof JVO.dialogHandlers[name].submit == 'function') {
+		submit = JVO.dialogHandlers[name].submit;
+	}
+
 	$('.modal.in').modal('hide');
 
 	$(e).modal('show');
 
-	$(e + ' input.submit').bind('keydown', function (event) {
-		if (event.keyCode === 13) {
-			event.preventDefault();
-			JVO.dialogHandlers[name]();
-		}
+	load();
+
+	$(e).on('shown.bs.modal', function(){
+		
+		$(e + ' input.submit').bind('keydown', function (event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				submit();
+			}
+		});
+		$(e + ' button.submit').click(function( event ){
+			submit();
+		});
+
+		$(e + ' .focus').focus();
+
 	});
-	$(e + ' button.submit').click(function( event ){
-		JVO.dialogHandlers[name]();
-	});
+
+
 }

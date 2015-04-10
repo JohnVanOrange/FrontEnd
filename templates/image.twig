@@ -11,7 +11,7 @@
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 		</a>
 		<div id="image_footer">
-			<button id='report_image' title='{% trans 'Report Image' %}' class='icon btn btn-link' data-toggle="modal" href="#reportDialog" data-target="#reportDialog"><span class='fa fa-flag'></span>{% trans 'Report image' %}</button>
+			<button id='report_image' title='{% trans 'Report Image' %}' class='icon btn btn-link' href="#reportDialog" data-dialog="report"><span class='fa fa-flag'></span>{% trans 'Report image' %}</button>
 			<div class="dropdown">
 				<button id="image_tools" type="button" class="btn btn-default btn-xs" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
 					<span class='fa fa-cog'></span>
