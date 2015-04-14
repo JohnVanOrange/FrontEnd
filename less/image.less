@@ -126,8 +126,18 @@
   margin-right: 8px;
 }
 
+@alert_color: #31708f;
 .alert {
   .fa.fa-info-circle {
     vertical-align: middle;
+  }
+  a {
+    color: @alert_color;
+    border-bottom: 1px dotted @alert_color;
+    &:hover {
+      color: lighten(@alert_color, 20%);
+      text-decoration: none;
+      border-color: lighten(@alert_color, 20%);
+    }
   }
 }

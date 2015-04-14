@@ -34,10 +34,10 @@ class Display extends Standard {
   $tips = [
    'Press the spacebar to see another random image.',
    'When logged in, you can save your favorite images.',
-   'You can add images saved to your computer, or from other websites.',
+   'You can <a href="#addImageDialog" data-dialog="add_image">add images</a> saved to your computer, or from other websites.',
    'Click a tag name to view similar images.',
-   'Click on <span class="icon-flag icon"></span> to report any images that shouldn\'t be on this site.',
-   'Want more info about an image? More <a href="/info/' . $image['uid'] . '">details</a> are available under the <span class="icon-picture icon"></span> menu.',
+   'Click on <span class="fa fa-flag"></span> to report any images that shouldn\'t be on this site.',
+   'Want more info about an image? More <a href="/info/' . $image['uid'] . '">details</a> are available under the <span class="fa fa-cog"></span> menu.',
    'Want to track your uploaded images? Log in first before uploading.',
    'Are you a developer? A full <a href="docs">API</a> is available.',
    'Did you find a bug?  <a href="https://github.com/JohnVanOrange/FrontEnd/issues/new">Bug reports</a> are greatly appreciated.'
