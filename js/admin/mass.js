@@ -1,3 +1,5 @@
+/* global JVO */
+
 var skip = function(uid) {
 	$('#' + uid).fadeOut();
 	add_image();

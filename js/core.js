@@ -1,3 +1,5 @@
+/* global noty */
+
 var JVO = JVO || {};
 
 JVO.exception = function( e ) {

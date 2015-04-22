@@ -1,3 +1,5 @@
+/* global JVO */
+
 $(document).ready(function () {
 	$('form').submit(function(event){
 		if ($('#password').val() !== $('#passwordConfirm').val()) {

@@ -1,6 +1,8 @@
+/* global noty */
+
 $('document').ready(function(){
   $.cookie.json = true;
-  
+
 	/*filter dialog*/
 	$('#filter').one('click', function(event){
 		event.preventDefault();
@@ -23,7 +25,7 @@ $('document').ready(function(){
 			});
 			$.cookie('filter', filter, {expires: 365});
 			noty({text: 'Filters saved', dismissQueue: true});
-			$('#filter').addClass('active')
+			$('#filter').addClass('active');
 			$('#filterDialog').modal('hide');
 			preload();
 		};
@@ -33,7 +35,7 @@ $('document').ready(function(){
 			$('#filter').removeClass('active');
 			$('#filterDialog').modal('hide');
 			preload();
-		}
+		};
 		$('#filterSubmit').click(function(){
 			saveFilter();
 		});
@@ -41,7 +43,7 @@ $('document').ready(function(){
 			clearFilter();
 		});
 	});
-	
+
 	$('#filterDialog input[type="checkbox"]').change(function(){
 		if ($(this).is(':checked')) {
 			$(this).parent().parent().parent().find('.form-control').attr('disabled', false);

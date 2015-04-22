@@ -14,13 +14,13 @@ var puts = function(err, stdout, stderr) {
 	else {
 		sys.puts('Image created');
 	}
-}	
+};
 
 var images = fs.readdirSync(master);
 var sizes = fs.readFileSync(sizes, 'utf8').split("\n").filter(Number);
 
 for(var i in images) {
-	set = images[i].split('.')[0];
+	var set = images[i].split('.')[0];
 	fs.mkdir(set);
 	for(var s in sizes) {
 		exec('convert ' + master + images[i] + ' -resize ' + sizes[s] + 'x' + sizes[s] + ' ' + set + '/' + sizes[s] + '.png', puts);
