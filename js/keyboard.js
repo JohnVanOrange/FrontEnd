@@ -7,9 +7,9 @@ $(function() {
 	var ctrl_down = false;
 
 	$(document).keydown(function(event) {
-		if (event.keyCode === 17) ctrl_down = true;
+		if (event.keyCode === 17) { ctrl_down = true; }
 	}).keyup(function(event) {
-		if (event.keyCode === 17) ctrl_down = false;
+		if (event.keyCode === 17) { ctrl_down = false; }
 	});
 
 	$('body').keydown(function (event) {

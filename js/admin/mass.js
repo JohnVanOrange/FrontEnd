@@ -1,3 +1,18 @@
+var skip = function(uid) {
+	$('#' + uid).fadeOut();
+	add_image();
+};
+
+var reject = function(uid) {
+	if (confirm('Remove Image?')) {
+		JVO.call('image/remove', {image: uid})
+			.done(function(){
+				$('#' + uid).fadeOut();
+				add_image();
+			});
+	}
+};
+
 var add_image = function() {
 	var rand = Math.floor((Math.random()*10000)+1);
 	JVO.call('image/unapproved', {rand: rand})
@@ -25,7 +40,7 @@ var add_image = function() {
 				reject(data.uid);
 			});
 		});
-}
+};
 
 var approve = function(uid, nsfw){
 	JVO.call('image/approve', {image: uid, nsfw: nsfw})
@@ -33,22 +48,7 @@ var approve = function(uid, nsfw){
 			$('#' + uid).fadeOut();
 			add_image();
 		});
-}
-
-var skip = function(uid) {
-	$('#' + uid).fadeOut();
-	add_image();
-}
-
-var reject = function(uid) {
-	if (confirm('Remove Image?')) {
-		JVO.call('image/remove', {image: uid})
-			.done(function(){
-				$('#' + uid).fadeOut();
-				add_image();
-			});
-	}
-}
+};
 
 $(document).ready(function () {
  for (var i = 1; i <= 24; i++) {

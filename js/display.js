@@ -1,3 +1,5 @@
+/* global JVO */
+
 /*Next image preload*/
 var preload = function() {
 	JVO.call('image/random')
@@ -6,7 +8,7 @@ var preload = function() {
 			next_image.src = next_image_data.media.primary.url;
 			$('#main').attr('href',next_image_data.page_url);
 		});
-}
+};
 
 $(function () {
 	preload();

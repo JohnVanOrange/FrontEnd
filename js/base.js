@@ -1,3 +1,5 @@
+/* global JVO */
+
 (function() {
 	'use strict';
 
@@ -75,7 +77,9 @@
 		icon_visuals: function() {
 			$('.icon').click(function() {
 				$(this).addClass('pressed');
-				setTimeout(function(){$('.icon').removeClass('pressed')},80);
+				setTimeout(function(){
+					$('.icon').removeClass('pressed');
+				}, 80);
 			});
 		},
 
@@ -106,7 +110,7 @@
 			UI.event_handlers.logout();
 		}
 
-	}
+	};
 
 	$(function () {
 

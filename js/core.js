@@ -10,7 +10,7 @@ JVO.exception = function( e ) {
 			$( '#login' ).click();
 		break;
 	}
-}
+};
 
 JVO.call = function( method, opt ) {
 	"use strict";
@@ -38,7 +38,7 @@ JVO.call = function( method, opt ) {
 		});
 
 	return deferred.promise();
-}
+};
 
 JVO.dialog = function( name, e ) {
 	"use strict";
@@ -46,11 +46,11 @@ JVO.dialog = function( name, e ) {
 	var load = function(){};
 	var submit = function(){};
 
-	if (typeof JVO.dialogHandlers[name].load == 'function') {
+	if (typeof JVO.dialogHandlers[name].load === 'function') {
 		load = JVO.dialogHandlers[name].load;
 	}
 
-	if (typeof JVO.dialogHandlers[name].submit == 'function') {
+	if (typeof JVO.dialogHandlers[name].submit === 'function') {
 		submit = JVO.dialogHandlers[name].submit;
 	}
 
@@ -68,7 +68,7 @@ JVO.dialog = function( name, e ) {
 				submit();
 			}
 		});
-		$(e + ' button.submit').click(function( event ){
+		$(e + ' button.submit').click(function(){
 			submit();
 		});
 
@@ -76,7 +76,7 @@ JVO.dialog = function( name, e ) {
 
 	});
 
-}
+};
 
 JVO.notifications = {
 	store: function( notification ) {
@@ -87,6 +87,6 @@ JVO.notifications = {
 		if ( storedNotification ) {
 			noty({text: storedNotification, dismissQueue: true});
 			localStorage.removeItem('storedNotification');
-		};
+		}
 	}
-}
+};

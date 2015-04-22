@@ -56,7 +56,7 @@ JVO.dialogHandlers = {
 				{
 					'username': $('#pwresetRequestUsername').val()
 				})
-			.done(function( response ){
+			.done(function(){
 				$('#pwresetRequestDialog').modal('hide');
 			});
 		}
@@ -70,7 +70,7 @@ JVO.dialogHandlers = {
 					'email': $('#messageEmail').val(),
 					'message': $('#messageText').val()
 				})
-			.done(function(response){
+			.done(function(){
 				$('#adminMessageDialog').modal('hide');
 			});
 		}
@@ -110,8 +110,8 @@ JVO.dialogHandlers = {
 				})
 			.done(function( result ){
 				$('#tags a, #tags em').remove();
-				for (i in result.tags) {
-					tag = $('<a>');
+				for (var i in result.tags) {
+					var tag = $('<a>');
 					$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
 					$('#tags').append(tag);
 				}
@@ -149,7 +149,7 @@ JVO.dialogHandlers = {
 		}
 	}
 
-}
+};
 
 
 $(function () {
