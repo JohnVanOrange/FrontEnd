@@ -2,28 +2,27 @@
 namespace JohnVanOrange\jvo\Controller;
 
 class Form2API extends Standard {
- 
- public function process() {
-  
-  $this->setTemplate('form2api');
-	
-	if (isset($_POST['method'])) {
-	 $method = $_POST['method'];
+
+	public function process() {
+
+		$this->setTemplate('form2api');
+
+		$data = new \JohnVanOrange\Core\BrowserData;
+		$method = $data->post('method');
+
+		if (!$method) {
+			header('Location: /');
+			exit();
+		}
+
+		$req = array_merge($_REQUEST, $_FILES);
+
+		$result = $this->api($method, $req);
+
+		$this->addData([
+			'result'	=>	$result
+		]);
+
 	}
-	
-	if (!isset($method)) {
-	 header('Location: /');
-	 exit();
-	}
-	
-	$req = array_merge($_REQUEST, $_FILES);
-	
-	$result = $this->api($method, $req);
-	
-	$this->addData([
-		'result'	=>	$result
-	]);
-	
- }
- 
+
 }

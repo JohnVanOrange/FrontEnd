@@ -6,11 +6,10 @@ class Random extends Base {
  public function process() {
 
 	$api = new \JohnVanOrange\API\API;
+	$data = new \JohnVanOrange\Core\BrowserData;
 
 	$options = [];
-	if (isset($_COOKIE['filter'])) {
-	 $options['filter'] = $_COOKIE['filter'];
-	}
+	$options['filter'] = $data->cookie('filter');
 
 	//exceptions thrown from this won't be handled now
 	try {

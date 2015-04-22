@@ -6,17 +6,21 @@ class ChangePW extends Standard {
  public function process() {
   
   $this->setTemplate('changepw');
+
+  $data = new \JohnVanOrange\Core\BrowserData;
   
   $this->addData(['type' => 'sid']);
-  if (isset($_COOKIE['sid'])) $this->addData(['auth' => $_COOKIE['sid']]);
+  $sid = $data->cookie('sid');
+  if ($sid) $this->addData(['auth' => $sid]);
 
-  if (isset($_GET['resetkey'])) {
-   $this->addData([
-    'auth'	=>	$_GET['resetkey'],
-	'type'	=>	'pwreset'
-   ]);
-  }
-  
+		$resetkey = $data->get('resetkey');
+		if ($resetkey) {
+			$this->addData([
+				'auth'	=>	$resetkey,
+				'type'	=>	'pwreset'
+			]);
+		}
+
  }
  
 }

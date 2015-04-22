@@ -8,9 +8,11 @@ class Standard {
  protected $data = [];
  private $content_type;
  private $api;
+ private $browserdata;
 
  public function __construct() {
   $this->api = new \JohnVanOrange\API\API;
+  $this->browserdata = new \JohnVanOrange\Core\BrowserData;
 
   $loader = new \Twig_Loader_Filesystem('templates');
   $this->twig = new \Twig_Environment($loader);
@@ -31,12 +33,12 @@ class Standard {
    'hostname'		  => parse_url($web_root)['host'],
    'show_social'	=> $this->api('setting/get', ['name' => 'show_social']),
    'icon_set'		  => $this->api('setting/get', ['name' => 'icon_set']),
-   'current_url'	=> 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],
+   'current_url'	=> 'http://'.$this->browserdata->server("SERVER_NAME").$this->browserdata->server("REQUEST_URI"),
    'browser'		  => \Browser\Browser::getBrowser(),
    'locale'		    => \JohnVanOrange\API\Locale::get()
   ]);
 
-  if (isset($_COOKIE['filter'])) {
+  if ($this->browserdata->cookie('filter')) {
    $this->addData(['filter'=> TRUE]);
   }
 
@@ -104,7 +106,7 @@ class Standard {
     break;
    default:
     $data = [
-     'page'    => $_SERVER['REQUEST_URI'],
+     'page'    => $this->browserdata->server('REQUEST_URI'),
      'code'    => $code,
      'message' => $e->getMessage()
     ];
