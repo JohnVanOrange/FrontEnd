@@ -1,17 +1,21 @@
+/* global $ */
 /* global noty */
 
 $('document').ready(function(){
+	'use strict';
   $.cookie.json = true;
 
 	/*filter dialog*/
 	$('#filter').one('click', function(event){
 		event.preventDefault();
 		//load current settings
-		current = $.cookie('filter');
+		var current = $.cookie('filter');
 		for (var i in current) {
-			var setting = $('#' + i);
-			setting.val(current[i]);
-			setting.parent().parent().find('input[type="checkbox"]').click();
+			if (current.hasOwnProperty(i)) {
+				var setting = $('#' + i);
+				setting.val(current[i]);
+				setting.parent().parent().find('input[type="checkbox"]').click();
+			}
 		}
 		var saveFilter = function () {
 			var filter = {};

@@ -1,3 +1,4 @@
+/* global $ */
 /* global JVO */
 /* global noty */
 
@@ -7,7 +8,7 @@
 	var UI = {
 
 		init: function() {
-			$("body").removeClass("preload");
+			$('body').removeClass('preload');
 			UI.ubuntu();
 			UI.firefox();
 			UI.notyinit();
@@ -22,7 +23,7 @@
 				window.Unity = external.getUnityObject(1.0);
 				Unity.init({
 					name: site_name,
-					iconUrl: web_root + "icons/" + icon_set + "/128.png",
+					iconUrl: web_root + 'icons/' + icon_set + '/128.png',
 					onInit: null
 				});
 			} catch(err) {}
@@ -36,8 +37,6 @@
 					if (!apps.result.length) {
 						var request = window.navigator.mozApps.install( web_root + 'manifest.webapp');
 						request.onsuccess = function () {
-							// Save the App object that is returned
-							var appRecord = this.result;
 							noty({text: 'Web App Installed', dismissQueue: true});
 						};
 						request.onerror = function () {
@@ -60,7 +59,7 @@
 			var $body = $(document.body),
 			bodyHeight = $body.height(),
 			$logo = $('.title_o');
-			$(window).on('scroll', function (event) {
+			$(window).on('scroll', function () {
 				//header scaling
 				var scroll = $(this).scrollTop();
 				if (scroll > 100) {

@@ -1,3 +1,7 @@
+/* global $ */
+
+'use strict';
+
 var JVO = JVO || {};
 
 JVO.dialogHandlers = {
@@ -22,7 +26,7 @@ JVO.dialogHandlers = {
 	create_acct: {
 		submit: function() {
 			if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
-				var e = {message: "Passwords don't match"};
+				var e = {message: 'Passwords don\'t match'};
 				JVO.exception( e );
 			} else {
 				JVO.call('user/add',
@@ -111,9 +115,11 @@ JVO.dialogHandlers = {
 			.done(function( result ){
 				$('#tags a, #tags em').remove();
 				for (var i in result.tags) {
-					var tag = $('<a>');
-					$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
-					$('#tags').append(tag);
+					if (result.tags.hasOwnProperty(i)) {
+						var tag = $('<a>');
+						$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
+						$('#tags').append(tag);
+					}
 				}
 			});
 			$('#addTagDialog').modal('hide');
@@ -134,8 +140,10 @@ JVO.dialogHandlers = {
 			JVO.call('report/all')
 			.done(function( data ) {
 				for (var i in data) {
-					var report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
-					$('#reportDialog form').append(report);
+					if (data.hasOwnProperty(i)) {
+						var report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
+						$('#reportDialog form').append(report);
+					}
 				}
 				$('.report_button').on('click', function(event){
 					event.preventDefault();
@@ -154,7 +162,7 @@ JVO.dialogHandlers = {
 
 $(function () {
 
-	$( "button[data-dialog], a[data-dialog]" ).click(function( event ) {
+	$( 'button[data-dialog], a[data-dialog]' ).click(function( event ) {
 		event.preventDefault();
 		var e = $(this).attr('href');
 		var name = $(this).attr('data-dialog');

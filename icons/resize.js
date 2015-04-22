@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 var master = 'master/';
 var sizes = 'sizes';
 
@@ -17,12 +19,16 @@ var puts = function(err, stdout, stderr) {
 };
 
 var images = fs.readdirSync(master);
-var sizes = fs.readFileSync(sizes, 'utf8').split("\n").filter(Number);
+var sizes = fs.readFileSync(sizes, 'utf8').split('\n').filter(Number);
 
 for(var i in images) {
-	var set = images[i].split('.')[0];
-	fs.mkdir(set);
-	for(var s in sizes) {
-		exec('convert ' + master + images[i] + ' -resize ' + sizes[s] + 'x' + sizes[s] + ' ' + set + '/' + sizes[s] + '.png', puts);
+	if (images.hasOwnProperty(i)) {
+		var set = images[i].split('.')[0];
+		fs.mkdir(set);
+		for(var s in sizes) {
+			if (sizes.hasOwnProperty(s)) {
+				exec('convert ' + master + images[i] + ' -resize ' + sizes[s] + 'x' + sizes[s] + ' ' + set + '/' + sizes[s] + '.png', puts);
+			}
+		}
 	}
 }
