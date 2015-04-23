@@ -2,8 +2,8 @@
 	"browser" : true,
 	"jquery"  : true,
 
-	"predef"	: [ // Custom globals.
-		"JVO",
-		"noty"
-	]
+	"globals"	: {
+		"JVO"  : true,
+		"noty" : false
+	}
 }
