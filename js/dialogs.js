@@ -1,6 +1,4 @@
-/* global $ */
-
-'use strict';
+'use strict()';
 
 var JVO = JVO || {};
 

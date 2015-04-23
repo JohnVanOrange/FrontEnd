@@ -1,5 +1,3 @@
-/* global JVO */
-
 $(function() {
 
 	//image thumb previews

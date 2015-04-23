@@ -1,7 +1,3 @@
-/* global $ */
-/* global JVO */
-/* global noty */
-
 (function() {
 	'use strict';
 

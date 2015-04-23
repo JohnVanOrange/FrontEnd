@@ -1,5 +1,3 @@
-/* global JVO */
-
 $(function() {
 
 	$('#approve').click(function() {

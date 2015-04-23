@@ -1,5 +1,3 @@
-/* global JVO */
-
 /*Next image preload*/
 var preload = function() {
 	JVO.call('image/random')

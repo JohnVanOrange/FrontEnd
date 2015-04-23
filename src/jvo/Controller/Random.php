@@ -6,7 +6,7 @@ class Random extends Base {
  public function process() {
 
 	$api = new \JohnVanOrange\API\API;
-	$data = new \JohnVanOrange\Core\BrowserData;
+	$data = new \JohnVanOrange\jvo\BrowserData;
 
 	$options = [];
 	$options['filter'] = $data->cookie('filter');

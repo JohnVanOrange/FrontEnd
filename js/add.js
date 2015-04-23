@@ -1,6 +1,4 @@
-/* global JVO */
 /* global Dropzone */
-/* global noty */
 
 Dropzone.autoDiscover = false;
 $(function() {

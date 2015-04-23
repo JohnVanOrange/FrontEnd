@@ -1,5 +1,3 @@
-/* global JVO */
-
 $(function() {
 
 	$('#cat').click(function() {

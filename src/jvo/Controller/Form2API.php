@@ -7,7 +7,7 @@ class Form2API extends Standard {
 
 		$this->setTemplate('form2api');
 
-		$data = new \JohnVanOrange\Core\BrowserData;
+		$data = new \JohnVanOrange\jvo\BrowserData;
 		$method = $data->post('method');
 
 		if (!$method) {

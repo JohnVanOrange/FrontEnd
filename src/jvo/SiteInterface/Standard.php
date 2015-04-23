@@ -12,7 +12,7 @@ class Standard {
 
  public function __construct() {
   $this->api = new \JohnVanOrange\API\API;
-  $this->browserdata = new \JohnVanOrange\Core\BrowserData;
+  $this->browserdata = new \JohnVanOrange\jvo\BrowserData;
 
   $loader = new \Twig_Loader_Filesystem('templates');
   $this->twig = new \Twig_Environment($loader);

@@ -1,6 +1,3 @@
-/* global $ */
-/* global noty */
-
 $('document').ready(function(){
 	'use strict';
   $.cookie.json = true;

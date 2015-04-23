@@ -1,7 +1,3 @@
-/* global $ */
-/* global JVO */
-/* jshint browser:true */
-
 var add_image = function() {};
 
 var skip = function(uid) {
