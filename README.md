@@ -1,4 +1,6 @@
-This is the codebase for the image viewing site at http://johnvanorange.com
+[![Code Climate](https://codeclimate.com/github/JohnVanOrange/FrontEnd/badges/gpa.svg)](https://codeclimate.com/github/JohnVanOrange/FrontEnd)
+
+This is the front end for the image viewing site at http://johnvanorange.com
 
 There are three software requirements to setup the repo:
  * Composer - http://getcomposer.org/
@@ -13,7 +15,3 @@ To setup this repo, do the following:
  * Run "bower install" to install Javascript dependencies
  * In the tools directory run "php dbimport.php ../sql/tables.sql" to setup the database
  * /media/ and /media/thumbs/ must be writable by apache.
-
-**Automated Testing Status**
-
-[![Build Status](https://travis-ci.org/cbulock/JohnVanOrange.png?branch=master)](https://travis-ci.org/cbulock/JohnVanOrange)
