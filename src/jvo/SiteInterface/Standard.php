@@ -14,9 +14,7 @@ class Standard {
   $this->api = new \JohnVanOrange\API\API;
   $this->browserdata = new \JohnVanOrange\jvo\BrowserData;
 
-  $loader = new \Twig_Loader_Filesystem('templates');
-  $this->twig = new \Twig_Environment($loader);
-  $this->twig->addExtension(new \Twig_Extensions_Extension_I18n());
+  $this->twig_init();
 
   $this->setContentType("Content-type: text/html; charset=UTF-8");
 
@@ -38,21 +36,19 @@ class Standard {
    'locale'		    => \JohnVanOrange\API\Locale::get()
   ]);
 
-  if ($this->browserdata->cookie('filter')) {
-   $this->addData(['filter'=> TRUE]);
-  }
-
-
-  $this->addData([
-    'site_theme'	  => $this->api('setting/get', ['name' => 'theme'])
-  ]);
-
+  $filter = $this->browserdata->cookie('filter'); if ($filter) $this->addData(['filter' => TRUE]);
+  $site_theme = $this->api('setting/get', ['name' => 'theme']); if ($site_theme) $this->addData(['site_theme' => $site_theme]);
   $app_link = $this->api('setting/get', ['name' => 'app_link']); if ($app_link) $this->addData(['app_link' => $app_link]);
   $show_brazz = $this->api('setting/get', ['name' => 'show_brazz']); if ($show_brazz) $this->addData(['show_brazz' => $show_brazz]);
   $show_jvon = $this->api('setting/get', ['name' => 'show_jvon']); if ($show_jvon) $this->addData(['show_jvon' => $show_jvon]);
   $fb_app_id = $this->api('setting/get', ['name' => 'fb_app_id']); if ($fb_app_id) $this->addData(['fb_app_id' => $fb_app_id]);
-  $amazon_aff = $this->api('setting/get', ['name' => 'amazon_aff']); if ($amazon_aff) $this->addData(['amazon_aff' => $amazon_aff]);
   if ($this->api('user/isAdmin')) $this->addData(['is_admin' => TRUE]);
+ }
+
+ private function twig_init() {
+  $loader = new \Twig_Loader_Filesystem('templates');
+  $this->twig = new \Twig_Environment($loader);
+  $this->twig->addExtension(new \Twig_Extensions_Extension_I18n());
  }
 
  public function api($method, $params=[]) {
