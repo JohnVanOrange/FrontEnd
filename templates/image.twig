@@ -11,9 +11,9 @@
 			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 		</a>
 		<div id="image_footer">
-			<button id='report_image' title='{% trans 'Report Image' %}' class='icon btn btn-link' href="#reportDialog" data-dialog="report"><span class='fa fa-flag'></span>{% trans 'Report image' %}</button>
+			<button id='report_image' title='{% trans 'Report Image' %}' class='icon link' href="#reportDialog" data-dialog="report"><span class='fa fa-flag'></span>{% trans 'Report image' %}</button>
 			<div class="dropdown">
-				<button id="image_tools" type="button" class="btn btn-default btn-xs" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<button id="image_tools" type="button" class="x-small" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
 					<span class='fa fa-cog'></span>
 					<span class="caret"></span>
 				</button>
@@ -46,7 +46,7 @@
 				<em class="notag">{% trans 'no current tags' %}</em>
 			{% endif %}
 		</div>
-		<button class='btn btn-primary' id='add_tag' href="#addTagDialog" data-dialog="add_tag"><span class='fa fa-plus-circle'></span>{% trans 'Add Tag' %}</button>
+		<button class='primary' id='add_tag' href="#addTagDialog" data-dialog="add_tag"><span class='fa fa-plus-circle'></span>{% trans 'Add Tag' %}</button>
 	</div>
 
 	{% if show_social == 1%}

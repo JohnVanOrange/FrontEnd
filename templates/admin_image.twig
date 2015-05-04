@@ -5,7 +5,7 @@
 
 	<div id='content' class='image_admin'>
 
-		<p><button id='approve' class='btn btn-success'>{% trans 'Approve' %}</button> <button id='nsfw' class='btn btn-warning'>{% trans 'Approve as NSFW' %}</button> <button id='reject' class='btn btn-danger'>{% trans 'Reject' %}</button> <button id='skip' class='btn btn-default'>{% trans 'Skip' %}</button></p>
+		<p><button id='approve' class='success'>{% trans 'Approve' %}</button> <button id='nsfw' class='warn'>{% trans 'Approve as NSFW' %}</button> <button id='reject' class='fail'>{% trans 'Reject' %}</button> <button id='skip'>{% trans 'Skip' %}</button></p>
 		<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
 			 <a id='rand_link' href='/admin/approve?{{ rand }}' rel='nofollow'>
 				<img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.media.primary.url }}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
