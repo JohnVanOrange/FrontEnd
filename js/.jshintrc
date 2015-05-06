@@ -4,6 +4,7 @@
 
 	"globals"	: {
 		"JVO"  : true,
-		"noty" : false
+		"noty" : false,
+		"_"    : false
 	}
 }
