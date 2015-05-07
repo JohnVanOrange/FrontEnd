@@ -18,7 +18,9 @@ $(function () {
 var addImages = function( containter, images) {
 	'use strict';
 	_.each(images, function( image ) {
-		containter.append( _.template($('#thumbnail').html())( {image: image} ) );
+		if ( !_.isUndefined(image.media.thumb.url) ) {
+			containter.append( _.template($('#thumbnail').html())( {image: image} ) );
+		}
 	});
 };
 
