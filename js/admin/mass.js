@@ -40,7 +40,7 @@ add_image = function() {
 										'<button class="btn btn-danger btn-xs reject icon-thumbs-down" value="' + data.uid + '"></button>' +
 										'</div>' +
 										'</div>';
-			$('#content').append(content);
+			$('main').append(content);
 			$('#' + data.uid + ' .approve').click(function() {
 				approve(data.uid, 0);
 			});

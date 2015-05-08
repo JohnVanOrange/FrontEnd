@@ -1,60 +1,44 @@
 {% extends "base.twig" %}
 
 {% block stylesheets %}
- <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/home.css' />
- <link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/thumbs.css' />
+	<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/home.css' />
+	<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/thumbs.css' />
 {% endblock %}
 
 {% block content %}
 
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <p>{% trans 'To get started, click the button!' %}</p>
-    <a href='/rand?{{ rand }}' class="button primary large next-image">{% trans 'View Random Image' %}</a>
-  </div>
+<div>
+	<h3>What's Hot</h3>
+	<div id='recent-likes'></div>
+	<a href='recent_likes' class='more'>More&#8230;</a>
 </div>
 
-<div class="row">
-  <h3 class="col-md-4 col-md-offset-4">{% trans "What's Hot" %}</h3>
-</div>
-<div class="row" id='recent-likes'>
-</div>
-<div class='row'>
-    <div class="col-md-1 col-md-offset-11">
-        <a href='recent_likes' class='more'>{% trans 'More' %}&#8230;</a>
-    </div>
+<div id='get-started'>
+	<p>To get started, click the button!</p>
+	<a href='/rand?{{ rand }}' class="button primary large next-image">View Random Image</a>
 </div>
 
-<div class="row">
-  <h3 class="col-md-4 col-md-offset-4">{% trans 'Just Added' %}</h3>
-</div>
-<div class="row" id='recent-uploads'>
-</div>
-<div class='row'>
-    <div class="col-md-1 col-md-offset-11">
-        <a href='recent_uploads' class='more'>{% trans 'More' %}&#8230;</a>
-    </div>
+<div class='recent-uploads'>
+	<h3>Just Added</h3>
+	<div id='recent-uploads'></div>
+	<a href='recent_uploads' class='more'>More&#8230;</a>
 </div>
 
 {#{% include "components/tag_cloud.twig" %}#}
 
-<div class="row">
-  <h5 class="col-md-4 col-md-offset-4">{% trans 'Additional Links' %}</h5>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <ul class="nav nav-pills nav-justified">
-      <li><a href="tags"><span class='fa fa-cloud'></span>{% trans 'Tag Cloud' %}</a></li>
-      <li><a href="docs"><span class='fa fa-file-text-o'></span>{% trans 'API Docs' %}</a></li>
-      <li><a href='https://github.com/JohnVanOrange/FrontEnd/issues/new'><span class='fa fa-github'></span>{% trans 'Suggestions/Bugs' %}</a></li>
-    </ul>
-  </div>
+<div class='additional-links'>
+	<h5>{% trans 'Additional Links' %}</h5>
+	<ul class="nav nav-pills nav-justified">
+		<li><a href="tags"><span class='fa fa-cloud'></span>{% trans 'Tag Cloud' %}</a></li>
+		<li><a href="docs"><span class='fa fa-file-text-o'></span>{% trans 'API Docs' %}</a></li>
+		<li><a href='https://github.com/JohnVanOrange/FrontEnd/issues/new'><span class='fa fa-github'></span>{% trans 'Suggestions/Bugs' %}</a></li>
+	</ul>
 </div>
 
 <script type="text/template" id="thumbnail">
-  <div class='thumb_wrap col-md-1 col-xs-1'>
-    <a href="<%= image.page_url %>"><img src="<%= image.media.thumb.url %>" height='<%= image.media.thumb.height %>' width='<%= image.media.thumb.width %>'></a>
-   </div>
+	<div class='thumb_wrap'>
+		<a href="<%= image.page_url %>"><img src="<%= image.media.thumb.url %>" height='<%= image.media.thumb.height %>' width='<%= image.media.thumb.width %>'></a>
+	</div>
 </script>
 
 {% endblock %}

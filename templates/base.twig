@@ -33,9 +33,9 @@
 			<button id='search' title='{% trans 'Search' %}' class='link small' href="#searchDialog" data-dialog="search"><span class='fa fa-search'></span></button>
 			</div>
 		</header>
-		<section id='content'>
+		<main>
 		{% block content %}{% endblock %}
-		</section>
+		</main>
 		<footer>
 			&copy;{{ 'now'|date('Y') }} {% if show_jvon %}<a href='/jvon'>{% endif %}John VanOrange Network{% if show_jvon %}</a>{% endif %} |
 			<a href="/tos">{% trans 'Legal' %}</a> |
