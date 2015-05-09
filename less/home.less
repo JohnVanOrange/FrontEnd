@@ -1,8 +1,19 @@
-main > div {
-	width: 30%;
-	min-width: 130px;
-	display: inline-block;
-	vertical-align: top;
+main {
+	display: flex;
+	flex-wrap: wrap;
+	@media screen and (max-width: 500px) {
+		flex-direction: column;
+	}
+	&> div {
+		align-self: center;
+		width: 30%;
+		min-width: 130px;
+		div {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
 }
 
 .nav {
@@ -24,6 +35,8 @@ main > div {
 	width: 100%;
 }
 
-#get-started {
-	margin-top: 5rem;
+.get-started {
+	@media screen and (max-width: 500px) {
+		order: -1;
+	}
 }
