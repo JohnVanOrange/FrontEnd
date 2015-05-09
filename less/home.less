@@ -1,3 +1,21 @@
+main {
+	display: flex;
+	flex-wrap: wrap;
+	@media screen and (max-width: 500px) {
+		flex-direction: column;
+	}
+	&> div {
+		align-self: center;
+		width: 30%;
+		min-width: 130px;
+		div {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+}
+
 .nav {
   li {
     a {
@@ -6,4 +24,19 @@
       }
     }
   }
+}
+
+.more {
+	display: inline-block;
+	width: 100%;
+}
+
+.additional-links {
+	width: 100%;
+}
+
+.get-started {
+	@media screen and (max-width: 500px) {
+		order: -1;
+	}
 }

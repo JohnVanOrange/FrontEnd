@@ -13,7 +13,7 @@
 	{{ image.uploader.id }}
 	 <div class='thumb_wrap col-md-1 col-xs-1'>
 		<!--don't have uploader data available since thumbnails use image/get_slim -->
-		{% if image.uploader.id == user.id %}<span class="fa fa-times-circle-o" aria-hidden="true"></span>{% endif %}
+		{% if image.uploader.id == user.id %}<!--<span class="fa fa-times-circle-o" aria-hidden="true"></span>-->{% endif %}
 		<a href="{{ image.page_url }}"><img src="{{ image.media.thumb.url }}" height='{{ image.media.thumb.height }}' width='{{ image.media.thumb.width }}'></a>
 	 </div>
 	{% endfor %}
