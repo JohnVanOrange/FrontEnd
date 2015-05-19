@@ -139,7 +139,7 @@ JVO.dialogHandlers = {
 			.done(function( data ) {
 				for (var i in data) {
 					if (data.hasOwnProperty(i)) {
-						var report = $('<div class="form-group"><button class="btn report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
+						var report = $('<div class="form-group"><button class="report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
 						$('#reportDialog form').append(report);
 					}
 				}
