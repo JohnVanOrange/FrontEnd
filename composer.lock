@@ -11,16 +11,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cbulock/SimpleRouter.git",
-                "reference": "02881bb685f89adfc58e3eb46e99caa06b35d818"
+                "reference": "e54321053b9c2e450dd6c9ba78268096fbd3de22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cbulock/SimpleRouter/zipball/02881bb685f89adfc58e3eb46e99caa06b35d818",
-                "reference": "02881bb685f89adfc58e3eb46e99caa06b35d818",
+                "url": "https://api.github.com/repos/cbulock/SimpleRouter/zipball/e54321053b9c2e450dd6c9ba78268096fbd3de22",
+                "reference": "e54321053b9c2e450dd6c9ba78268096fbd3de22",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "0.6.*"
             },
             "type": "library",
             "autoload": {
@@ -39,7 +44,7 @@
             ],
             "description": "Very basic router",
             "homepage": "http://github.com/cbulock/SimpleRouter/",
-            "time": "2014-03-18 17:40:59"
+            "time": "2015-05-12 19:05:34"
         },
         {
             "name": "davewid/peyote",
@@ -148,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JohnVanOrange/Core.git",
-                "reference": "c3c5504ec0bb329b7a54c23e546f3800deb7238e"
+                "reference": "d0acce7620c05b7b3f81e3c748cf30d469570c54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/c3c5504ec0bb329b7a54c23e546f3800deb7238e",
-                "reference": "c3c5504ec0bb329b7a54c23e546f3800deb7238e",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/d0acce7620c05b7b3f81e3c748cf30d469570c54",
+                "reference": "d0acce7620c05b7b3f81e3c748cf30d469570c54",
                 "shasum": ""
             },
             "require": {
@@ -190,7 +195,7 @@
             ],
             "description": "Core John VanOrange classes",
             "homepage": "https://github.com/JohnVanOrange/Core",
-            "time": "2015-05-06 16:09:36"
+            "time": "2015-05-19 14:22:48"
         },
         {
             "name": "rych/bytesize",

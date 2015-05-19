@@ -1,12 +1,14 @@
 var JVO = JVO || {};
 
 JVO.exception = function( e ) {
+	"use strict";
 	console.error( e.message );
 	noty({ text: e.message, type: 'error', dismissQueue:true });
 	switch ( e.name ) {
 		case 1020: //Must be logged in to save image
 		case 1021: //Must be logged in to unsave image
 			$( '#save_image' ).removeClass( 'highlight' );
+		case 1032: //Must be logged in to add tag to image
 			$( '#login' ).click();
 		break;
 	}
