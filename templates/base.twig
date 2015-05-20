@@ -42,15 +42,7 @@
 			<a href="/privacy">{% trans 'Privacy' %}</a>
 			<button id='adminMessage' class='primary x-small' href="#adminMessageDialog" data-dialog="admin_message"><span class='fa fa-envelope'></span>{% trans 'Contact Site Admin' %}</button>
 		</footer>
-		{% include 'dialogs/report.twig' %}
-		{% include 'dialogs/create_acct.twig' %}
-		{% include 'dialogs/login.twig' %}
-		{% include 'dialogs/pwreset_request.twig' %}
-		{% include 'dialogs/add_image.twig' %}
-		{% include 'dialogs/keyboard.twig' %}
-		{% include 'dialogs/filter.twig' %}
-		{% include 'dialogs/search.twig' %}
-		{% include 'dialogs/admin_message.twig' %}
+
 		<script type='text/javascript'>
 		 var web_root = '{{ web_root }}';
 		 var site_name = '{{ site_name }}';
@@ -71,7 +63,6 @@
     <script src="{{ web_root }}js/api.js"></script>
 		<script src="{{ web_root }}js/base.js"></script>
     <script src="{{ web_root }}js/dialogs.js"></script>
-		<script src="{{ web_root }}js/add.js"></script>
     <script src="{{ web_root }}js/keyboard.js"></script>
 
 		<script async src="//assets.pinterest.com/js/pinit.js"></script>
@@ -107,5 +98,7 @@
 
 		</script>
 		{% block javascript %}{% endblock %}
-  </body>
+
+		{% include 'dialogs/base.twig' %}
+	</body>
 </html>

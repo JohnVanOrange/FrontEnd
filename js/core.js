@@ -47,35 +47,51 @@ JVO.dialog = function( name, e ) {
 
 	var load = function(){};
 	var submit = function(){};
+	var handler = JVO.dialogHandlers[name];
 
-	if (typeof JVO.dialogHandlers[name].load === 'function') {
-		load = JVO.dialogHandlers[name].load;
+	if (typeof handler.load === 'function') {
+		load = handler.load;
 	}
 
-	if (typeof JVO.dialogHandlers[name].submit === 'function') {
-		submit = JVO.dialogHandlers[name].submit;
+	if (typeof handler.submit === 'function') {
+		submit = handler.submit;
 	}
 
 	$('.modal.in').modal('hide');
 
-	$(e).modal('show');
+	var data = {
+		title: handler.title
+	}
+	
+	//build dialog box
+	var $modal = $( _.template( $('#dialogBase').html() )( {data: data}) );
+	var $modal_content = $( _.template( $(e).html() )() );
+	$modal.find('.modal-body').append($modal_content);
+	$modal.attr('data-dialog-name', e);
+	if (handler.size) $modal.find('.modal-dialog').addClass('modal-' + handler.size);
+	if (handler.submitButton) {
+		var submitButton = _.template( $('#dialogSubmitButton').html() )({ text: handler.submitButton });
+		$modal.find('.modal-footer').append( submitButton );
+	}
 
-	load();
+	$modal.modal('show');
 
-	$(e).on('shown.bs.modal', function(){
-
-		$(e + ' input.submit').bind('keydown', function (event) {
+	$modal.on('shown.bs.modal', function(){
+		load();
+		$('.modal input.submit').bind('keydown', function (event) {
 			if (event.keyCode === 13) {
 				event.preventDefault();
 				submit();
 			}
 		});
-		$(e + ' button.submit').click(function(){
+		$('.modal button.submit').click(function(){
 			submit();
 		});
+		$('.modal .focus').focus();
+	});
 
-		$(e + ' .focus').focus();
-
+	$modal.on('hidden.bs.modal', function(){
+		$( '.modal[data-dialog-name=' + e + ']' ).remove();
 	});
 
 };

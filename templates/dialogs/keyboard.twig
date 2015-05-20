@@ -1,59 +1,46 @@
-<div class="modal fade" id="keyboardDialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">{% trans 'Keyboard Shortcuts' %}</h4>
-      </div>
-      <div class="modal-body">
-				<table>
-					<thead>
-						<tr>
-						 <th>{% trans 'Key' %}</th>
-						 <th>{% trans 'action' %}</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-						 <td><span class='key'>{% trans 'space' %}</span></td>
-						 <td>{% trans 'Load random image' %}</td>
-						</tr>
-						<tr>
-						 <td><span class='key'>&larr;</span></td>
-						 <td>{% trans 'Go back in browser history' %}</td>
-						</tr>
-						<tr>
-						 <td><span class='key'>&rarr;</span></td>
-						 <td>{% trans 'Go forward in browser history' %}</td>
-						</tr>
-						<tr>
-						 <td><span class='key'>t</span></td>
-						 <td>{% trans 'Add tag' %}</td>
-						</tr>
-						<tr>
-						 <td><span class='key'>r</span></td>
-						 <td>{% trans 'Report image' %}</td>
-						</tr>
-						{% if user %}
-						<tr>
-						 <td><span class='key'>s</span></td>
-						 <td>{% trans 'Save image' %}</td>
-						</tr>
-						<tr>
-						 <td><span class='key'>+</span></td>
-						 <td>{% trans 'Like image' %}</td>
-						</tr>
-						<tr>
-						 <td><span class='key'>-</span></td>
-						 <td>{% trans 'Dislike image' %}</td>
-						</tr>
-						{% endif %}
-					</tbody>
-				</table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" data-dismiss="modal">{% trans 'Close' %}</button>
-      </div>
-    </div>
-  </div>
-</div>
+<script type="text/template" id="keyboardDialog">
+	<table>
+		<thead>
+			<tr>
+				<th>{% trans 'Key' %}</th>
+				<th>{% trans 'action' %}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span class='key'>{% trans 'space' %}</span></td>
+				<td>{% trans 'Load random image' %}</td>
+			</tr>
+			<tr>
+				<td><span class='key'>&larr;</span></td>
+				<td>{% trans 'Go back in browser history' %}</td>
+			</tr>
+			<tr>
+				<td><span class='key'>&rarr;</span></td>
+				<td>{% trans 'Go forward in browser history' %}</td>
+			</tr>
+			<tr>
+				<td><span class='key'>t</span></td>
+				<td>{% trans 'Add tag' %}</td>
+			</tr>
+			<tr>
+				<td><span class='key'>r</span></td>
+				<td>{% trans 'Report image' %}</td>
+			</tr>
+			{% if user %}
+			<tr>
+				<td><span class='key'>s</span></td>
+				<td>{% trans 'Save image' %}</td>
+			</tr>
+			<tr>
+				<td><span class='key'>+</span></td>
+				<td>{% trans 'Like image' %}</td>
+			</tr>
+			<tr>
+				<td><span class='key'>-</span></td>
+				<td>{% trans 'Dislike image' %}</td>
+			</tr>
+			{% endif %}
+		</tbody>
+	</table>
+</script>

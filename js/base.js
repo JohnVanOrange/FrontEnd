@@ -81,14 +81,6 @@
 
 		event_handlers: {
 
-			tag_search: function() {
-				$('#searchTag').typeahead({
-					remote: '/api/tag/suggest?term=%QUERY',
-					limit: 16
-				});
-				$('#searchDialog .tt-hint').addClass('form-control');
-			},
-
 			logout: function() {
 				$('#logout').click(function () {
 					event.preventDefault();
@@ -102,7 +94,6 @@
 		},
 
 		event_handlers_init: function() {
-			UI.event_handlers.tag_search();
 			UI.event_handlers.logout();
 		}
 

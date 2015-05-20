@@ -1,3 +1,5 @@
+/* global Dropzone */
+
 'use strict()';
 
 var JVO = JVO || {};
@@ -5,6 +7,8 @@ var JVO = JVO || {};
 JVO.dialogHandlers = {
 
 	login: {
+		title: 'Login',
+		submitButton: 'Login',
 		submit: function() {
 			JVO.call('user/login',
 				{
@@ -13,7 +17,7 @@ JVO.dialogHandlers = {
 				})
 			.done( function( response ){
 				if ( response.sid ) {
-					$('#loginDialog').modal('hide');
+					$( '.modal' ).modal('hide');
 					JVO.notifications.store( response.notification_message );
 					window.location.reload();
 				}
@@ -22,6 +26,8 @@ JVO.dialogHandlers = {
 	},
 
 	create_acct: {
+		title: 'Create Account',
+		submitButton: 'Create',
 		submit: function() {
 			if ($('#createPassword').val() !== $('#createPasswordConfirm').val()) {
 				var e = {message: 'Passwords don\'t match'};
@@ -34,7 +40,7 @@ JVO.dialogHandlers = {
 						'email': $('#createEmail').val()
 					})
 				.done(function( response ){
-					$('#accountDialog').modal('hide');
+					$( '.modal' ).modal('hide');
 					JVO.notifications.store( response.notification_message );
 					window.location.reload();
 				});
@@ -43,28 +49,51 @@ JVO.dialogHandlers = {
 	},
 
 	add_image: {
+		title: 'Add Image',
+		load: function() {
+			Dropzone.autoDiscover = false;
+			$("#drop").dropzone({
+				paramName: "image",
+				url: '/api/image/add',
+				success: function(file, response) {
+					try {
+						if (response.hasOwnProperty('error')) {
+							throw {name: response.error, message: response.message};
+						}
+						var message = response.message + '<br><img src="' + response.thumb + '">';
+						noty({text: message, dismissQueue: true});
+					} catch( e ) {
+						JVO.exception( e );
+					}
+				}
+			});
+		},
 		submit: function() {
 			JVO.call('image/addFromURL',
 				{
 					'url': $('#addImageURL').val()
 				});
-			$('#addImageDialog').modal('hide');
+			$( '.modal' ).modal('hide');
 		}
 	},
 
 	pwreset_request: {
+		title: 'Forgot Password',
+		submitButton: 'Submit',
 		submit: function() {
 			JVO.call('user/requestPwReset',
 				{
 					'username': $('#pwresetRequestUsername').val()
 				})
 			.done(function(){
-				$('#pwresetRequestDialog').modal('hide');
+				$( '.modal' ).modal('hide');
 			});
 		}
 	},
 
 	admin_message: {
+		title: 'Send Message to Admin',
+		submitButton: 'Send Message',
 		submit: function() {
 			JVO.call('message/admin',
 				{
@@ -73,13 +102,20 @@ JVO.dialogHandlers = {
 					'message': $('#messageText').val()
 				})
 			.done(function(){
-				$('#adminMessageDialog').modal('hide');
+				$( '.modal' ).modal('hide');
 			});
 		}
 	},
 
 	search: {
+		title: 'Search Tags',
+		submitButton: 'Search',
 		load: function() {
+			$('#searchTag').typeahead({
+				remote: '/api/tag/suggest?term=%QUERY',
+				limit: 16
+			});
+			$('.modal .tt-hint').addClass('form-control');
 			$('#searchTag').typeahead('setQuery','');
 		},
 		submit: function() {
@@ -91,18 +127,20 @@ JVO.dialogHandlers = {
 			.done(function( taginfo ){
 				window.location.href = taginfo[0].url;
 			});
-			$('#searchDialog').modal('hide');
+			$( '.modal' ).modal('hide');
 		}
 	},
 
 	add_tag: {
+		title: 'Add Tag',
+		submitButton: 'Add',
 		load: function() {
 			$('#addTag').typeahead({
 				remote: '/api/tag/suggest?term=%QUERY',
 				limit: 16
 			});
+			$('.modal .tt-hint').addClass('form-control');
 			$('#addTag').typeahead('setQuery','');
-			$('#addTagDialog .tt-hint').addClass('form-control');
 		},
 		submit: function() {
 			JVO.call('tag/add',
@@ -120,39 +158,52 @@ JVO.dialogHandlers = {
 					}
 				}
 			});
-			$('#addTagDialog').modal('hide');
+			$( '.modal' ).modal('hide');
 		}
 	},
 
 	remove_image: {
+		title: 'Remove Image',
+		submitButton: 'OK',
+		size: 'sm',
 		submit: function() {
 			JVO.call('image/remove', {
 				'image' : $('.main').attr('id')
 			});
-			$('#removeImageDialog').modal('hide');
+			$( '.modal' ).modal('hide');
 		}
 	},
 
 	report: {
+		title: 'Report Image',
 		load: function() {
 			JVO.call('report/all')
 			.done(function( data ) {
+				var $report = $('<div></div>');
 				for (var i in data) {
 					if (data.hasOwnProperty(i)) {
-						var report = $('<div class="form-group"><button class="report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
-						$('#reportDialog form').append(report);
+						$report.append('<div class="form-group"><button class="report_button" value="' + data[i].id + '">' + data[i].value + '</button></div>');
 					}
 				}
+				$( '.modal form' ).append($report);
 				$('.report_button').on('click', function(event){
 					event.preventDefault();
 					JVO.call('image/report', {
 						image: $('.main').attr('id'),
 						type: $(this).val()
 					});
-					$('#reportDialog').modal('hide');
+					$( '.modal' ).modal('hide');
 				});
 			});
 		}
+	},
+	
+	keyboard: {
+		title: 'Keyboard Shortcuts'
+	},
+	
+	filter: {
+		title: 'Filter Images'
 	}
 
 };
@@ -160,7 +211,7 @@ JVO.dialogHandlers = {
 
 $(function () {
 
-	$( 'button[data-dialog], a[data-dialog]' ).click(function( event ) {
+	$( 'body' ).on( 'click', 'button[data-dialog], a[data-dialog]', function( event ) {
 		event.preventDefault();
 		var e = $(this).attr('href');
 		var name = $(this).attr('data-dialog');

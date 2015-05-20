@@ -1,0 +1,33 @@
+<script type="text/template" id="dialogBase">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><%= data.title %></h4>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/template" id="dialogSubmitButton">
+	<button type="button" class="primary submit"><%= text %></button>
+</script>
+
+{% include 'dialogs/report.twig' %}
+{% include 'dialogs/create_acct.twig' %}
+{% include 'dialogs/login.twig' %}
+{% include 'dialogs/pwreset_request.twig' %}
+{% include 'dialogs/add_image.twig' %}
+{% include 'dialogs/keyboard.twig' %}
+{% include 'dialogs/search.twig' %}
+{% include 'dialogs/admin_message.twig' %}
+
+{% include 'dialogs/add_tag.twig' %}
+{% include 'dialogs/remove_image.twig' %}

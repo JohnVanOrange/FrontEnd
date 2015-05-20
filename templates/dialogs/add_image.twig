@@ -1,26 +1,13 @@
-<div class="modal fade" id="addImageDialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">{% trans 'Add Image' %}</h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="addImageURL" class="col-lg-2 control-label">{% trans 'Image URL' %}</label>
-            <div class="col-lg-10">
-              <input type="url" class="form-control submit" id="addImageURL" placeholder='http://example.com/image.png'>
-            </div>
-          </div>
-          <button type="button" class="primary submit">{% trans 'Add' %}</button>
-        </form>
-        <p>- OR -</p>
-        <div id='drop' style='background-color: white; margin-top: 15px' class='dropzone'></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" data-dismiss="modal">{% trans 'Close' %}</button>
-      </div>
-    </div>
-  </div>
-</div>
+<script type="text/template" id="addImageDialog">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="addImageURL" class="col-lg-2 control-label">{% trans 'Image URL' %}</label>
+			<div class="col-lg-10">
+				<input type="url" class="form-control submit" id="addImageURL" placeholder='http://example.com/image.png'>
+			</div>
+		</div>
+		<button type="button" class="primary submit">{% trans 'Add' %}</button>
+	</form>
+	<p>- OR -</p>
+	<div id='drop' style='background-color: white; margin-top: 15px' class='dropzone'></div>
+</script>

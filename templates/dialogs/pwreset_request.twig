@@ -1,25 +1,11 @@
-<div class="modal fade" id="pwresetRequestDialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">{% trans 'Forgot Password' %}</h4>
-      </div>
-      <div class="modal-body">
-        <p>{% trans 'Enter your username and an email will be sent with a link to reset the password on your account.' %}</p>
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="pwresetRequestUsername" class="col-lg-2 control-label">{% trans 'Username' %}</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control submit" id="pwresetRequestUsername" placeholder="{% trans 'Username' %}" required>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" data-dismiss="modal">{% trans 'Close' %}</button>
-        <button type="button" class="primary submit">{% trans 'Submit' %}</button>
-      </div>
-    </div>
-  </div>
-</div>
+<script type="text/template" id="pwresetRequestDialog">
+	<p>{% trans 'Enter your username and an email will be sent with a link to reset the password on your account.' %}</p>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="pwresetRequestUsername" class="col-lg-2 control-label">{% trans 'Username' %}</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control submit" id="pwresetRequestUsername" placeholder="{% trans 'Username' %}" required>
+			</div>
+		</div>
+	</form>
+</script>

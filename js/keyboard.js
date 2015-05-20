@@ -1,6 +1,6 @@
 $(function() {
 
-	$('input, textarea').on('keydown', function (event) {
+	$('body').on('keydown', 'input, textarea', function (event) {
 		event.stopPropagation();
 	});
 
