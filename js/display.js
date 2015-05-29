@@ -11,6 +11,8 @@ var preload = function() {
 $(function () {
 	preload();
 
+	$('#tag_container').append(_.template($('#tagList').html())( {tags: tags} ));
+
 	$('#save_image').click(function () {
 		$('#save_image').toggleClass('highlight');
 		if ($('#save_image').hasClass('highlight')) {

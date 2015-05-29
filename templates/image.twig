@@ -36,18 +36,10 @@
 		<div id='like_image' class='like icon fa fa-thumbs-up{% if image.data.like %} highlight{% endif %}' title='{% trans 'Like Image' %}'></div>
 	</div>
 
-	<div id="tag_containter">
-		<div id='tags'>
-			{% if image.tags.0 %}
-				{% for tag  in image.tags %}
-					<span class='tag_wrap'><a class='tag' href='{{ tag.url }}'>{{ tag.name }}</a></span>
-				{% endfor %}
-			{% else %}
-				<em class="notag">{% trans 'no current tags' %}</em>
-			{% endif %}
-		</div>
+	<section>
+		<div id='tag_container'></div>
 		<button class='primary' id='add_tag' href="#addTagDialog" data-dialog="add_tag"><span class='fa fa-plus-circle'></span>{% trans 'Add Tag' %}</button>
-	</div>
+	</section>
 
 	{% if show_social == 1%}
 	<div id='social'>
@@ -64,6 +56,23 @@
 	</div>
 	{% endif %}
 
+	<script>
+		{% if image.tags.0 %}
+			var tags = {{ image.tags|json_encode|raw }};
+		{% else %}
+			var tags = {};
+		{% endif %}
+	</script>
+
+	<script type="text/template" id="tagList">
+		<% if ( !_.isUndefined(tags.length) ) { %>
+			<% _.each(tags, function( tag ) { %>
+				<span class='tag_wrap'><a class='tag' href='<%= tag.url %>'><%= tag.name %></a></span>
+			<% }) %>
+		<% } else { %>
+			<em class="notag">No current tags</em>
+		<% } %>
+	</script>
 
 {% endblock %}
 
@@ -89,5 +98,4 @@
 
 {% block javascript %}
 	<script src="{{ web_root }}js/display.js"></script>
-	<script src="{{ web_root }}js/filter.js"></script>
 {% endblock %}

@@ -149,14 +149,8 @@ JVO.dialogHandlers = {
 					'image' : $('.main').attr('id')
 				})
 			.done(function( result ){
-				$('#tags a, #tags em').remove();
-				for (var i in result.tags) {
-					if (result.tags.hasOwnProperty(i)) {
-						var tag = $('<a>');
-						$(tag).attr('href', result.tags[i].url).addClass('tag').html(result.tags[i].name);
-						$('#tags').append(tag);
-					}
-				}
+				$('#tag_container a, #tag_container em').remove();
+				$('#tag_container').append( _.template($('#tagList').html())( {tags: result.tags} ) )
 			});
 			$( '.modal' ).modal('hide');
 		}
