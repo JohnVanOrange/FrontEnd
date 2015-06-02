@@ -21,6 +21,7 @@
   <body class='container-fluid preload'>
     <header>
 			<h1><a href='/'>{% include 'components/headers/' ~ site_theme ~ '.twig' %}</a></h1>
+			<button id='menu' class='fa fa-bars'></button>
 			<div>
         <button class='icon action small' href="#addImageDialog" data-dialog="add_image" id='addImage'><span class='fa fa-plus-circle'></span>{% trans 'Add Image' %}</button>
 				{% if user.username is defined %}
@@ -30,7 +31,7 @@
 					<button id='login' class='primary small' href="#loginDialog" data-dialog="login"><span class='fa fa-sign-in'></span>{% trans 'Sign In' %}</button>
 					<button id='create_acct' class='create_acct small link' href="#createAcctDialog" data-dialog="create_acct"><span class='fa fa-user-plus'></span>{% trans 'Create Account' %}</button>
 				{% endif %}
-			<button id='search' title='{% trans 'Search' %}' class='link small' href="#searchDialog" data-dialog="search"><span class='fa fa-search'></span></button>
+			<button id='search' title='{% trans 'Search' %}' class='link small' href="#searchDialog" data-dialog="search"><span class='fa fa-search'></span><span class='search-text'>Search</span></button>
 			</div>
 		</header>
 		<main>

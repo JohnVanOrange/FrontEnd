@@ -89,12 +89,19 @@
 						window.location.reload();
 					});
 				});
+			},
+
+			menu: function() {
+				$('#menu').click(function () {
+					$('header > div').toggle();
+				});
 			}
 
 		},
 
 		event_handlers_init: function() {
 			UI.event_handlers.logout();
+			UI.event_handlers.menu();
 		}
 
 	};
