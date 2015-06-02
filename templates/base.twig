@@ -3,20 +3,16 @@
   <head>
     <title>{% block title_prepend %}{% endblock %}{{ site_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel='shortcut icon' type='image/png' href='{{ web_root }}icons/{{ icon_set }}/16.png' />
     <link href="{{ web_root }}bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="{{ web_root }}bower_components/typeahead.js-bootstrap.css/typeahead.js-bootstrap.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel='stylesheet' type='text/css' href="{{ web_root }}bower_components/dropzone/downloads/css/basic.css" />
 		<link rel='stylesheet' type='text/css' href="{{ web_root }}bower_components/dropzone/downloads/css/dropzone.css" />
-		<link rel="apple-touch-icon" href="{{ web_root }}icons/{{ icon_set }}/57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ web_root }}icons/{{ icon_set }}/72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ web_root }}icons/{{ icon_set }}/114.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ web_root }}icons/{{ icon_set }}/144.png" />
 		{% block stylesheets %}{% endblock %}
 		<link rel='stylesheet' type='text/css' media='screen' href='{{ web_root }}css/{{ site_theme }}/main.css' />
 		{% block meta_data %}{% endblock %}
 		<meta name="theme-color" content="{% include 'components/theme-color/' ~ site_theme ~ '.twig' %}">
+		{% include 'components/header_icons.twig' %}
   </head>
   <body class='container-fluid preload'>
     <header>
