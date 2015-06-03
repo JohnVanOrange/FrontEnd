@@ -12,4 +12,4 @@ check_run() {
  
 check_run composer.lock "composer install"
 check_run bower.json "bower install"
-check_run .less "../build/themes.js ../less/"
+check_run .less "build/themes.js less"
