@@ -9,6 +9,7 @@ class Standard {
  private $content_type;
  private $api;
  private $browserdata;
+ private $renderFlag = FALSE;
 
  public function __construct() {
   $this->api = new \JohnVanOrange\API\API;
@@ -74,9 +75,12 @@ class Standard {
  }
 
  public function render() {
-  header($this->content_type);
-  $template = $this->twig->loadTemplate($this->template . '.twig');
-  return $template->render($this->data);
+  if (!$this->renderFlag) {
+    $this->renderFlag = TRUE;
+    header($this->content_type);
+    $template = $this->twig->loadTemplate($this->template . '.twig');
+    return $template->render($this->data);
+  }
  }
 
  public function output() {
@@ -98,7 +102,7 @@ class Standard {
     ]);
     $this->template('error');
     $this->output();
-    die();
+    //die();
     break;
    default:
     $data = [
@@ -114,7 +118,7 @@ class Standard {
     ]);
     $this->template('exception');
     $this->output();
-    die();
+    //die();
     break;
   }
  }
