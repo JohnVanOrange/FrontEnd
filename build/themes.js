@@ -32,7 +32,7 @@ var find_less_files = function( less_dir ) {
 var themes = require( less_dir + '/themes.json' ).themes;
 var less_files = find_less_files( less_dir );
 
-var render = function(less_filename, css_filename, sourcemap_filename) {
+var render = function(less_filename, css_filename, sourcemap_filename, theme) {
 	//process the less
 	var sourceMapBasepath = path.dirname( less_filename );
 	var sourceMapURL = path.basename( sourcemap_filename );
@@ -44,7 +44,7 @@ var render = function(less_filename, css_filename, sourcemap_filename) {
 		},
 		compress: true,
 		globalVars: {
-			theme: themes[t]
+			theme: theme
 		},
 	}, function( err, output ) {
 		if (err) {
@@ -70,7 +70,7 @@ for ( var t in themes ) {
 				var less_filename = less_dir + "/" + less_files[f] + ".less";
 				var css_filename = css_theme_dir + "/" + less_files[f] + ".css";
 				var sourcemap_filename = css_filename + ".map";
-				render(less_filename, css_filename, sourcemap_filename);
+				render(less_filename, css_filename, sourcemap_filename, themes[t]);
 			}
 		}
 	}
