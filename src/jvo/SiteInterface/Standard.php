@@ -102,7 +102,6 @@ class Standard {
     ]);
     $this->template('error');
     $this->output();
-    //die();
     break;
    default:
     $data = [
@@ -118,7 +117,6 @@ class Standard {
     ]);
     $this->template('exception');
     $this->output();
-    //die();
     break;
   }
  }

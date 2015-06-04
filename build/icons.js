@@ -7,7 +7,7 @@ var path = require('path');
 var sys = require('util');
 var exec = require('child_process').exec;
 
-var args = process.argv
+var args = process.argv;
 
 var dir = process.cwd();
 if (args.length > 2) {

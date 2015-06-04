@@ -150,7 +150,7 @@ JVO.dialogHandlers = {
 				})
 			.done(function( result ){
 				$('#tag_container a, #tag_container em').remove();
-				$('#tag_container').append( _.template($('#tagList').html())( {tags: result.tags} ) )
+				$('#tag_container').append( _.template($('#tagList').html())( {tags: result.tags} ) );
 			});
 			$( '.modal' ).modal('hide');
 		}

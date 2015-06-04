@@ -8,6 +8,7 @@ JVO.exception = function( e ) {
 		case 1020: //Must be logged in to save image
 		case 1021: //Must be logged in to unsave image
 			$( '#save_image' ).removeClass( 'highlight' );
+			/*falls through*/
 		case 1032: //Must be logged in to add tag to image
 			$( '#login' ).click();
 		break;
@@ -61,7 +62,7 @@ JVO.dialog = function( name, e ) {
 
 	var data = {
 		title: handler.title
-	}
+	};
 	
 	//build dialog box
 	var $modal = $( _.template( $('#dialogBase').html() )( {data: data}) );
