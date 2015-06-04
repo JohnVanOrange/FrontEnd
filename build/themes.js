@@ -27,10 +27,36 @@ var find_less_files = function( less_dir ) {
 		}
 	}
 	return lessfiles;
-}
+};
 
 var themes = require( less_dir + '/themes.json' ).themes;
 var less_files = find_less_files( less_dir );
+
+var render = function(less_filename, css_filename, sourcemap_filename) {
+	//process the less
+	var sourceMapBasepath = path.dirname( less_filename );
+	var sourceMapURL = path.basename( sourcemap_filename );
+	less.render( fs.readFileSync( less_filename, "utf8" ), {
+		filename: path.resolve( less_filename ),
+		sourceMap: {
+			sourceMapBasepath: sourceMapBasepath,
+			sourceMapURL: sourceMapURL
+		},
+		compress: true,
+		globalVars: {
+			theme: themes[t]
+		},
+	}, function( err, output ) {
+		if (err) {
+			console.log( "ERR: " + err.message );
+		} else {
+			//write out the files
+			fs.writeFileSync( css_filename, output.css);
+			fs.writeFileSync( sourcemap_filename, output.map);
+			console.log( css_filename + " generated.");
+		}
+	});
+};
 
 for ( var t in themes ) {
 	if (themes.hasOwnProperty(t)) {
@@ -39,36 +65,13 @@ for ( var t in themes ) {
 			fs.mkdirSync(css_theme_dir);
 		}
 		for ( var f in less_files ) {
-			//read in each less file
-			var less_filename = less_dir + "/" + less_files[f] + ".less";
-			var css_filename = css_theme_dir + "/" + less_files[f] + ".css";
-			var sourcemap_filename = css_filename + ".map";
-			var render = function(less_filename, css_filename, sourcemap_filename) {
-				//process the less
-				var sourceMapBasepath = path.dirname( less_filename );
-				var sourceMapURL = path.basename( sourcemap_filename );
-				less.render( fs.readFileSync( less_filename, "utf8" ), {
-					filename: path.resolve( less_filename ),
-					sourceMap: {
-						sourceMapBasepath: sourceMapBasepath,
-						sourceMapURL: sourceMapURL
-					},
-					compress: true,
-					globalVars: {
-						theme: themes[t]
-					},
-				}, function( err, output ) {
-					if (err) {
-						console.log( "ERR: " + err.message );
-					} else {
-						//write out the files
-						fs.writeFileSync( css_filename, output.css);
-						fs.writeFileSync( sourcemap_filename, output.map);
-						console.log( css_filename + " generated.");
-					}
-				});
-			};
-			render(less_filename, css_filename, sourcemap_filename);
+			if (less_files.hasOwnProperty(f)) {
+				//read in each less file
+				var less_filename = less_dir + "/" + less_files[f] + ".less";
+				var css_filename = css_theme_dir + "/" + less_files[f] + ".css";
+				var sourcemap_filename = css_filename + ".map";
+				render(less_filename, css_filename, sourcemap_filename);
+			}
 		}
 	}
 }
