@@ -8,7 +8,6 @@ class NotFound extends Standard {
   $this->setTemplate('error');
 	
   header("HTTP/1.0 404");
-  $_SERVER['REDIRECT_STATUS'] = 404;
   $this->addData([
    'number'	=>	404,
    'error_image'	=>	$this->api('setting/get', ['name' => '404_image']),

@@ -94,7 +94,6 @@ class Standard {
    case 403:
    case 404:
     header("HTTP/1.0 ".$code);
-    $_SERVER['REDIRECT_STATUS'] = $code;
     $this->addData([
      'number'	=>	$code,
      'error_image'	=>	$this->api('setting/get', ['name' => $code . '_image']),
