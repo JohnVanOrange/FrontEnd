@@ -208,7 +208,7 @@ $(function () {
 		event.preventDefault();
 		var e = $(this).attr('href');
 		var name = $(this).attr('data-dialog');
-		JVO.dialog( name, e );
+		JVO.dialog.render( name, e );
 	});
 
 });
