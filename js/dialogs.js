@@ -4,6 +4,11 @@
 
 var JVO = JVO || {};
 
+var typeaheadDefaults = {
+	remote: '/api/tag/suggest?term=%QUERY',
+	limit: 16
+};
+
 JVO.dialogHandlers = {
 
 	login: {
@@ -111,10 +116,7 @@ JVO.dialogHandlers = {
 		title: 'Search Tags',
 		submitButton: 'Search',
 		load: function() {
-			$('#searchTag').typeahead({
-				remote: '/api/tag/suggest?term=%QUERY',
-				limit: 16
-			});
+			$('#searchTag').typeahead( typeaheadDefaults );
 			$('.modal .tt-hint').addClass('form-control');
 			$('#searchTag').typeahead('setQuery','');
 		},
@@ -135,10 +137,7 @@ JVO.dialogHandlers = {
 		title: 'Add Tag',
 		submitButton: 'Add',
 		load: function() {
-			$('#addTag').typeahead({
-				remote: '/api/tag/suggest?term=%QUERY',
-				limit: 16
-			});
+			$('#addTag').typeahead( typeaheadDefaults );
 			$('.modal .tt-hint').addClass('form-control');
 			$('#addTag').typeahead('setQuery','');
 		},
