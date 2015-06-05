@@ -110,7 +110,7 @@ JVO.dialog = {
 		});
 	}
 
-}
+};
 
 JVO.notifications = {
 	store: function( notification ) {
