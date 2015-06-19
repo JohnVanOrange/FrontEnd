@@ -1,8 +1,8 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<p>{% trans 'An unexpected error occured.' %}  {% trans 'Error code' %}: {{ code }}</p>
-	<p class='alert alert-danger'>{% trans 'Error' %}: {{ message }}</p>
+	<p>An unexpected error occured.  Error code: {{ code }}</p>
+	<p class='alert alert-danger'>Error: {{ message }}</p>
 {% endblock %}
 
 {% block javascript %}

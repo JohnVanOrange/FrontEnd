@@ -11,7 +11,7 @@ class Uploads extends Standard {
 	
 	$this->addData([
 		'images'	=>	$this->api('user/uploaded', ['username'=>$username]),
-		'title_text'	=>	_('Uploaded Images')
+		'title_text'	=>	'Uploaded Images'
 	]);
 	
  }

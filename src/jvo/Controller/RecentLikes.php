@@ -9,7 +9,7 @@ class RecentLikes extends Standard {
 	
   $this->addData([
       'images'	=>	$this->api('image/recentLikes', ['count' => 50]),
-      'title_text'	=>	_('Recently Liked Images')
+      'title_text'	=>	'Recently Liked Images'
   ]);
 	
  }

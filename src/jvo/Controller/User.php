@@ -11,7 +11,7 @@ class User extends Standard {
 	
 	$this->addData([
 		'profile'	=>	$this->api('user/get', ['value'=>$username, 'search_by'=>'username']),
-		'title_text'	=>	_('Profile for') . ' ' . $username
+		'title_text'	=>	'Profile for' . ' ' . $username
 	]);
 	
  }

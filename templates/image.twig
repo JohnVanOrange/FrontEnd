@@ -8,22 +8,22 @@
 
 	<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
 		<a id='main' class='next-image' href='/rand?{{ rand }}' rel='nofollow'>
-			<img id="{{ image.uid }}" class="main" alt='{% trans 'Main Image' %}' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
+			<img id="{{ image.uid }}" class="main" alt='Main Image' src='{%if image.brazzify_url %}{{ image.brazzify_url }}{% else %}{{ image.media.primary.url }}{% endif %}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 		</a>
 		<div id="image_footer">
-			<button id='report_image' title='{% trans 'Report Image' %}' class='icon link' href="#reportDialog" data-dialog="report"><span class='fa fa-flag'></span>{% trans 'Report image' %}</button>
+			<button id='report_image' title='Report Image' class='icon link' href="#reportDialog" data-dialog="report"><span class='fa fa-flag'></span>Report image</button>
 			<div class="dropdown">
 				<button id="image_tools" type="button" class="x-small" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
 					<span class='fa fa-cog'></span>
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="image_tools">
-					<li><a id='googlesearch' href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'><span class='fa fa-google'></span>{% trans 'Search using Google' %}</a></li>
-					<li><a id='tineye' href='http://tineye.com/search?url={{ image.media.primary.url }}'><span class='fa fa-search'></span>{% trans 'Search using Tineye' %}</a></li>
-					<li><a href='/info/{{ image.uid }}'><span class='fa fa-info-circle'></span>{% trans 'Details' %}</a></li>
-					<li><a id='fullscreen' href='{{ image.media.primary.url }}'><span class='fa fa-arrows-alt'></span>{% trans 'View Fullscreen' %}</a></li>
-					{% if can_remove %}<li><a id='remove_image' href="#removeImageDialog" data-dialog="remove_image"><span class='fa fa-trash'></span>{% trans 'Remove Image' %}</a></li>{% endif %}
-					{% if is_admin %}<li><a id='admin_link' href='/admin/image/{{ image.uid }}'><span class='fa fa-cog'></span>{% trans 'Image Admin' %}</a></li>{% endif %}
+					<li><a id='googlesearch' href='http://www.google.com/searchbyimage?image_url={{ image.media.primary.url }}'><span class='fa fa-google'></span>Search using Google</a></li>
+					<li><a id='tineye' href='http://tineye.com/search?url={{ image.media.primary.url }}'><span class='fa fa-search'></span>Search using Tineye</a></li>
+					<li><a href='/info/{{ image.uid }}'><span class='fa fa-info-circle'></span>Details</a></li>
+					<li><a id='fullscreen' href='{{ image.media.primary.url }}'><span class='fa fa-arrows-alt'></span>View Fullscreen</a></li>
+					{% if can_remove %}<li><a id='remove_image' href="#removeImageDialog" data-dialog="remove_image"><span class='fa fa-trash'></span>Remove Image</a></li>{% endif %}
+					{% if is_admin %}<li><a id='admin_link' href='/admin/image/{{ image.uid }}'><span class='fa fa-cog'></span>Image Admin</a></li>{% endif %}
 				</ul>
 			</div>
 		</div>
@@ -31,20 +31,20 @@
 
 
 	<div id="image_icons">
-		<div id='dislike_image' class='like icon fa fa-flip-horizontal fa-thumbs-down{% if image.data.dislike %} highlight{% endif %}' title='{% trans 'Dislike Image' %}'></div>
-		<div id='save_image' class='like icon fa fa-heart{% if image.saved %} highlight{% endif %}' title='{% trans 'Favorite Image' %}'></div>
-		<div id='like_image' class='like icon fa fa-thumbs-up{% if image.data.like %} highlight{% endif %}' title='{% trans 'Like Image' %}'></div>
+		<div id='dislike_image' class='like icon fa fa-flip-horizontal fa-thumbs-down{% if image.data.dislike %} highlight{% endif %}' title='Dislike Image'></div>
+		<div id='save_image' class='like icon fa fa-heart{% if image.saved %} highlight{% endif %}' title='Favorite Image'></div>
+		<div id='like_image' class='like icon fa fa-thumbs-up{% if image.data.like %} highlight{% endif %}' title='{Like Image'></div>
 	</div>
 
 	<section>
 		<div id='tag_container'></div>
-		<button class='primary' id='add_tag' href="#addTagDialog" data-dialog="add_tag"><span class='fa fa-plus-circle'></span>{% trans 'Add Tag' %}</button>
+		<button class='primary' id='add_tag' href="#addTagDialog" data-dialog="add_tag"><span class='fa fa-plus-circle'></span>Add Tag</button>
 	</section>
 
 	{% if show_social == 1%}
 	<div id='social'>
 		<div id='facebook_like' class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false" data-colorscheme="dark"></div>
-		<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={{ image.page_url|url_encode }}&amp;media={{ image.media.primary.url|url_encode }}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="{% trans 'Pin It' %}" alt='{% trans 'Pin It' %}' /></a></div>
+		<div id='pintrest'><a href="http://pinterest.com/pin/create/button/?url={{ image.page_url|url_encode }}&amp;media={{ image.media.primary.url|url_encode }}" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="Pin It" alt='Pin It' /></a></div>
 		<div class="g-plusone" data-size="medium"></div>
 	</div>
 	{% endif %}

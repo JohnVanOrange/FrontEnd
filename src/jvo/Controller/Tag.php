@@ -13,7 +13,7 @@ class Tag extends Standard {
 	
 	$this->addData([
 		'images'	=>	$this->api('tag/all', ['tag'=>$tag_name]),
-		'title_text'	=>	_('Images tagged') . ' ' . $page_tag[0]['name']
+		'title_text'	=>	'Images tagged' . ' ' . $page_tag[0]['name']
 	]);
 	
  }

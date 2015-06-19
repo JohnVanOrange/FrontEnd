@@ -1,14 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>{% trans 'Image Admin' %}</h2>
+	<h2>Image Admin</h2>
 
 	<div id='content' class='image_admin'>
 
-		<p><button id='approve' class='success'>{% trans 'Approve' %}</button> <button id='nsfw' class='warn'>{% trans 'Approve as NSFW' %}</button> <button id='reject' class='fail'>{% trans 'Reject' %}</button> <button id='skip'>{% trans 'Skip' %}</button></p>
+		<p><button id='approve' class='success'>Approve</button> <button id='nsfw' class='warn'>Approve as NSFW</button> <button id='reject' class='fail'>Reject</button> <button id='skip'>Skip</button></p>
 		<section id='img_container' itemscope itemtype="http://schema.org/ImageObject">
 			 <a id='rand_link' href='/admin/approve?{{ rand }}' rel='nofollow'>
-				<img id="{{ image.uid }}" class="image" alt='{% trans 'Main Image' %}' src='{{ image.media.primary.url }}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
+				<img id="{{ image.uid }}" class="image" alt='Main Image' src='{{ image.media.primary.url }}' height='{{ image.media.primary.height }}' width='{{ image.media.primary.width }}' itemprop='contentUrl' />
 			 </a>
 		</section>
 

@@ -7,22 +7,22 @@
 {% block title_prepend %}{{ title_text }} {% endblock %}
 
 {% block content %}
-<h2>{% trans 'Profile for' %} {{ profile.username }}</h2>
+<h2>Profile for {{ profile.username }}</h2>
 
 <div class='col-page container'>
 	<div>
 		<div class='links'>
 			{% if profile.id == user.id %}
 				<ul>
-					<li><span class='fa fa-heart'></span><a href='/s/{{ profile.username }}'>{% trans 'View your favorited images' %}</a></li>
-					<li><span class='fa fa-upload'></span><a href='/uploads/{{ profile.username }}'>{% trans 'View your uploaded images' %}</a></li>
-					<li><span class='fa fa-key'></span><a href='/changepw'>{% trans 'Change your password' %}</a></li>
+					<li><span class='fa fa-heart'></span><a href='/s/{{ profile.username }}'>View your favorited images</a></li>
+					<li><span class='fa fa-upload'></span><a href='/uploads/{{ profile.username }}'>View your uploaded images</a></li>
+					<li><span class='fa fa-key'></span><a href='/changepw'>Change your password</a></li>
 				</ul>
 			{% endif %}
 		</div>
 		<div class="image">
 			<img src='http://www.gravatar.com/avatar/{{ profile.email_hash }}?s=180&d=retro&r=pg' alt='Profile image for {{ profile.username }}'>
-			{% if profile.id == user.id %}<p><a href='http://gravatar.com'>{% trans 'Update Profile Image with Gravatar' %}</a></p>{% endif %}
+			{% if profile.id == user.id %}<p><a href='http://gravatar.com'>Update Profile Image with Gravatar</a></p>{% endif %}
 		</div>
 	</div>
 	<div>

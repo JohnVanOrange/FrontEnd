@@ -19,15 +19,15 @@
 			<h1><a href='/'>{% include 'components/headers/' ~ site_theme ~ '.twig' %}</a></h1>
 			<button id='menu' class='fa fa-bars'></button>
 			<div>
-        <button class='icon action small' href="#addImageDialog" data-dialog="add_image" id='addImage'><span class='fa fa-plus-circle'></span>{% trans 'Add Image' %}</button>
+        <button class='icon action small' href="#addImageDialog" data-dialog="add_image" id='addImage'><span class='fa fa-plus-circle'></span>Add Image</button>
 				{% if user.username is defined %}
-					<a id='user_avatar' class='button link small' href='/u/{{ user.username }}'><img src='//www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='{% trans 'User avatar' %}' height='24' width='24'><span>{{ user.username }}</span></a>
-					<button id='logout' class='link small'><span class='fa fa-sign-out'></span>{% trans 'Sign Out' %}</button>
+					<a id='user_avatar' class='button link small' href='/u/{{ user.username }}'><img src='//www.gravatar.com/avatar/{{ user.email_hash }}?s=48&amp;d=retro&amp;r=pg' alt='User avatar' height='24' width='24'><span>{{ user.username }}</span></a>
+					<button id='logout' class='link small'><span class='fa fa-sign-out'></span>Sign Out</button>
 				{% else %}
-					<button id='login' class='primary small' href="#loginDialog" data-dialog="login"><span class='fa fa-sign-in'></span>{% trans 'Sign In' %}</button>
-					<button id='create_acct' class='create_acct small link' href="#createAcctDialog" data-dialog="create_acct"><span class='fa fa-user-plus'></span>{% trans 'Create Account' %}</button>
+					<button id='login' class='primary small' href="#loginDialog" data-dialog="login"><span class='fa fa-sign-in'></span>Sign In</button>
+					<button id='create_acct' class='create_acct small link' href="#createAcctDialog" data-dialog="create_acct"><span class='fa fa-user-plus'></span>Create Account</button>
 				{% endif %}
-			<button id='search' title='{% trans 'Search' %}' class='link small' href="#searchDialog" data-dialog="search"><span class='fa fa-search'></span><span class='search-text'>Search</span></button>
+			<button id='search' title='Search' class='link small' href="#searchDialog" data-dialog="search"><span class='fa fa-search'></span><span class='search-text'>Search</span></button>
 			</div>
 		</header>
 		<main>
@@ -35,9 +35,9 @@
 		</main>
 		<footer>
 			&copy;{{ 'now'|date('Y') }} {% if show_jvon %}<a href='/jvon'>{% endif %}John VanOrange Network{% if show_jvon %}</a>{% endif %} |
-			<a href="/tos">{% trans 'Legal' %}</a> |
-			<a href="/privacy">{% trans 'Privacy' %}</a>
-			<button id='adminMessage' class='primary x-small' href="#adminMessageDialog" data-dialog="admin_message"><span class='fa fa-envelope'></span>{% trans 'Contact Site Admin' %}</button>
+			<a href="/tos">Legal</a> |
+			<a href="/privacy">Privacy</a>
+			<button id='adminMessage' class='primary x-small' href="#adminMessageDialog" data-dialog="admin_message"><span class='fa fa-envelope'></span>Contact Site Admin</button>
 		</footer>
 
 		<script type='text/javascript'>

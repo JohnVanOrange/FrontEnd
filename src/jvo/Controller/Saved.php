@@ -11,7 +11,7 @@ class Saved extends Standard {
 	
 	$this->addData([
 		'images'	=>	$this->api('user/saved', ['username'=>$username]),
-		'title_text'	=>	_('Favorited Images')
+		'title_text'	=>	'Favorited Images'
 	]);
 	
  }

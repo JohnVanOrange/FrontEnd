@@ -9,7 +9,7 @@ class RecentUploads extends Standard {
 	
   $this->addData([
       'images'	=>	$this->api('image/recent', ['count' => 50]),
-      'title_text'	=>	_('Recently Added Images')
+      'title_text'	=>	'Recently Added Images'
   ]);
 	
  }

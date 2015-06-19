@@ -33,8 +33,7 @@ class Standard {
    'show_social'	=> $this->api('setting/get', ['name' => 'show_social']),
    'icon_set'		  => $this->api('setting/get', ['name' => 'icon_set']),
    'current_url'	=> 'http://'.$this->browserdata->server("SERVER_NAME").$this->browserdata->server("REQUEST_URI"),
-   'browser'		  => \Browser\Browser::getBrowser(),
-   'locale'		    => \JohnVanOrange\API\Locale::get()
+   'browser'		  => \Browser\Browser::getBrowser()
   ]);
 
   $filter = $this->browserdata->cookie('filter'); if ($filter) $this->addData(['filter' => TRUE]);
@@ -49,7 +48,6 @@ class Standard {
  private function twig_init() {
   $loader = new \Twig_Loader_Filesystem('templates');
   $this->twig = new \Twig_Environment($loader);
-  $this->twig->addExtension(new \Twig_Extensions_Extension_I18n());
  }
 
  public function api($method, $params=[]) {
