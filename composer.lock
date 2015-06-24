@@ -153,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JohnVanOrange/Core.git",
-                "reference": "88bc21a0ec1751abe536f0caa190db2dc00f331a"
+                "reference": "3bd2589b84796954b89092f8a7d34bb92c19398a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/88bc21a0ec1751abe536f0caa190db2dc00f331a",
-                "reference": "88bc21a0ec1751abe536f0caa190db2dc00f331a",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/3bd2589b84796954b89092f8a7d34bb92c19398a",
+                "reference": "3bd2589b84796954b89092f8a7d34bb92c19398a",
                 "shasum": ""
             },
             "require": {
@@ -195,7 +195,7 @@
             ],
             "description": "Core John VanOrange classes",
             "homepage": "https://github.com/JohnVanOrange/Core",
-            "time": "2015-06-24 12:51:08"
+            "time": "2015-06-24 14:41:33"
         },
         {
             "name": "rych/bytesize",
