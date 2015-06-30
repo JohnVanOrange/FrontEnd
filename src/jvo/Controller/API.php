@@ -11,7 +11,10 @@ class API extends Base {
 	$public->setMethod($this->route->get_data(2));
 	$public->setRequest(array_merge($_REQUEST, $_FILES));
 
-	$public->output();
+	header ('Content-type: application/json; charset=UTF-8');
+	header ('Access-Control-Allow-Origin: *');
+
+	echo $public->output();
 
  }
 
