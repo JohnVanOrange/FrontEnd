@@ -18,7 +18,7 @@
  "minimum-stability" : "dev",
  "prefer-stable" :  true,
  "require" : {
-  "php" : ">=5.4",
+  "php" : ">=5.5",
   "jvo/core": "dev-master",
   "cbulock/simple-router": "dev-master",
   "twig/twig": "1.14.*",
