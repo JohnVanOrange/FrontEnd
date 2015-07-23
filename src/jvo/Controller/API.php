@@ -14,6 +14,10 @@ class API extends Base {
 	header ('Content-type: application/json; charset=UTF-8');
 	header ('Access-Control-Allow-Origin: *');
 
+	$expire_length = 60 * 60 * 4; //4 hours
+	if ($this->route->get_data(2) == 'random')  $expire_length = 0; //don't cache calls to random
+	header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + $expire_length ));
+
 	echo $public->output();
 
  }
