@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7f954f87df641341bce9eb12bce2e67a",
+    "hash": "5e37140c06f33853c728df03cec23281",
     "packages": [
         {
             "name": "cbulock/simple-router",
@@ -153,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JohnVanOrange/Core.git",
-                "reference": "f871fd536f06d1575898b445b568bc8d46dd8aa8"
+                "reference": "f689810161e35e70d23cbc1f6eb147b9636a6d7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/f871fd536f06d1575898b445b568bc8d46dd8aa8",
-                "reference": "f871fd536f06d1575898b445b568bc8d46dd8aa8",
+                "url": "https://api.github.com/repos/JohnVanOrange/Core/zipball/f689810161e35e70d23cbc1f6eb147b9636a6d7a",
+                "reference": "f689810161e35e70d23cbc1f6eb147b9636a6d7a",
                 "shasum": ""
             },
             "require": {
@@ -166,7 +166,7 @@
                 "ext-gettext": "*",
                 "ext-imagick": "*",
                 "gavroche/browser": "2.2.*",
-                "php": ">=5.4",
+                "php": ">=5.5",
                 "rych/bytesize": "1.0.*",
                 "swiftmailer/swiftmailer": "5.*",
                 "tpyo/amazon-s3-php-class": "dev-master",
@@ -195,7 +195,7 @@
             ],
             "description": "Core John VanOrange classes",
             "homepage": "https://github.com/JohnVanOrange/Core",
-            "time": "2015-06-29 22:05:24"
+            "time": "2015-09-01 20:58:42"
         },
         {
             "name": "rych/bytesize",
@@ -434,21 +434,15 @@
             "time": "2013-10-30 08:20:53"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "jvo/core": 20,
         "cbulock/simple-router": 20
     },
     "platform": {
-        "php": ">=5.4"
+        "php": ">=5.5"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
