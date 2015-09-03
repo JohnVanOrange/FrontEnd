@@ -4,3 +4,4 @@ settings.inc
 *.project
 .idea
 *.DS_Store
+*.apdisk

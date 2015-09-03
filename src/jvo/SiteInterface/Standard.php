@@ -51,6 +51,8 @@ class Standard {
  }
 
  public function api($method, $params=[]) {
+  $params['session'] = $this->browserdata->cookie('session');
+  $params['sid'] = $this->browserdata->cookie('sid');
   try {
    $result = $this->api->call($method, $params);
   }
