@@ -55,11 +55,11 @@ class Standard {
   $params['sid'] = $this->browserdata->cookie('sid');
   try {
    $result = $this->api->call($method, $params);
+   return $result;
   }
   catch(\Exception $e) {
    $this->exceptionHandler($e);
   }
-  return $result;
  }
 
  public function setContentType($content_type) {
@@ -88,12 +88,15 @@ class Standard {
  }
 
  public function exceptionHandler($e) {
+  if (method_exists($e, 'getHttpStatus')) {
+    $status = $e->getHttpStatus();
+    header("HTTP/1.0 " . $status);
+  }
   $site_name = $this->api('setting/get', ['name' => 'site_name']);
   $code = $e->getCode();
   switch($code) {
    case 403:
    case 404:
-    header("HTTP/1.0 ".$code);
     $this->addData([
      'number'	=>	$code,
      'error_image'	=>	$this->api('setting/get', ['name' => $code . '_image']),

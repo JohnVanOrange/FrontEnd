@@ -23,7 +23,13 @@ JVO.api = {
 			},
 
 			error : function( xhr, status, error ) {
-				deferred.reject( error );
+				var response = xhr.responseJSON;
+				if (response.hasOwnProperty('error')) {
+					deferred.reject( {name: response.error, message: response.message} );
+				}
+				else {
+					deferred.reject( error );
+				}
 			}
 
 		});
