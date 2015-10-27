@@ -1,6 +1,6 @@
-RewriteEngine On
-RewriteCond %{HTTPS} on
-RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#RewriteEngine On
+#RewriteCond %{HTTPS} on
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 #Easter Egg
 Redirect 302 /F4guiQs http://www.youtube.com/watch?v=kfVsfOSbJY0
