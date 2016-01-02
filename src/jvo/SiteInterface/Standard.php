@@ -78,6 +78,7 @@ class Standard {
   if (!$this->renderFlag) {
     $this->renderFlag = TRUE;
     header($this->content_type);
+    header('Strict-Transport-Security: max-age=31536000');
     $template = $this->twig->loadTemplate($this->template . '.twig');
     return $template->render($this->data);
   }
