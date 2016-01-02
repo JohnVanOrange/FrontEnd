@@ -79,6 +79,7 @@ class Standard {
     $this->renderFlag = TRUE;
     header($this->content_type);
     header('Strict-Transport-Security: max-age=31536000');
+    header('X-Frame-Options: SAMEORIGIN');
     $template = $this->twig->loadTemplate($this->template . '.twig');
     return $template->render($this->data);
   }
