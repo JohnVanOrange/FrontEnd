@@ -80,6 +80,7 @@ class Standard {
     header($this->content_type);
     header('Strict-Transport-Security: max-age=31536000');
     header('X-Frame-Options: SAMEORIGIN');
+    header('X-Xss-Protection 1; mode=block');
     $template = $this->twig->loadTemplate($this->template . '.twig');
     return $template->render($this->data);
   }
