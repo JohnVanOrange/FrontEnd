@@ -114,6 +114,7 @@ class Standard {
     ],
     "img-src" => [
       "'self'",
+      "https://jvo.io",
       "https://*.storage.googleapis.com",
       "https://*.objects.liquidweb.services",
       "https://www.gravatar.com",
