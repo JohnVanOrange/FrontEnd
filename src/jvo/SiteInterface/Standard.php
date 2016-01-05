@@ -82,6 +82,7 @@ class Standard {
     header('X-Frame-Options: SAMEORIGIN');
     header('X-Xss-Protection: 1; mode=block');
     header('X-Content-Type-Options: nosniff');
+    header('Content-Security-Policy: ' . $this->build_csp());
     $template = $this->twig->loadTemplate($this->template . '.twig');
     return $template->render($this->data);
   }
@@ -89,6 +90,59 @@ class Standard {
 
  public function output() {
   echo $this->render();
+ }
+
+ private function build_csp() {
+  $config = [
+    "default-src" => [
+      "'self'"
+    ],
+    "script-src" => [
+      "'self'",
+      "'unsafe-inline'",
+      "'unsafe-eval'", //this is pinterest's fault
+      "https://*.pinterest.com",
+      "https://connect.facebook.net",
+      "https://apis.google.com",
+      "https://stats.g.doubleclick.net"
+    ],
+    "style-src" => [
+      "'self'",
+      "'unsafe-inline'",//this is also pintrest's fault
+      "https://maxcdn.bootstrapcdn.com",
+      "https://fonts.googleapis.com"
+    ],
+    "img-src" => [
+      "'self'",
+      "https://*.storage.googleapis.com",
+      "https://*.objects.liquidweb.services",
+      "https://www.gravatar.com",
+      "https://stats.g.doubleclick.net",
+      "https://assets.pinterest.com",
+      "https://s-passets.pinimg.com"
+    ],
+    "font-src" => [
+      "'self'",
+      "https://maxcdn.bootstrapcdn.com",
+      "https://fonts.gstatic.com",
+      "https://brick.a.ssl.fastly.net"
+    ],
+    "frame-src" => [
+      "https://*.facebook.com",
+      "https://*.google.com"
+    ]
+  ];
+
+  $result = '';
+  foreach ($config as $title => $values) {
+    $result .= $title;
+    foreach ($values as $value) {
+      $result .= ' ' . $value;
+    }
+    $result .= ';';
+  }
+
+  return $result;
  }
 
  public function exceptionHandler($e) {
