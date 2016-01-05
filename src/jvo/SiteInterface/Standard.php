@@ -118,6 +118,7 @@ class Standard {
       "https://*.storage.googleapis.com",
       "https://*.objects.liquidweb.services",
       "https://www.gravatar.com",
+      "https://www.facebook.com",
       "https://stats.g.doubleclick.net",
       "https://assets.pinterest.com",
       "https://s-passets.pinimg.com"
