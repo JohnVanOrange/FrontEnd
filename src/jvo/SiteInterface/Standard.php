@@ -99,6 +99,7 @@ class Standard {
     ],
     "script-src" => [
       "'self'",
+      "https://jvo.io",
       "'unsafe-inline'",
       "'unsafe-eval'", //this is pinterest's fault
       "https://*.pinterest.com",
@@ -108,6 +109,7 @@ class Standard {
     ],
     "style-src" => [
       "'self'",
+      "https://jvo.io",
       "'unsafe-inline'",//this is also pintrest's fault
       "https://maxcdn.bootstrapcdn.com",
       "https://fonts.googleapis.com"
@@ -130,7 +132,7 @@ class Standard {
       "https://fonts.gstatic.com",
       "https://brick.a.ssl.fastly.net"
     ],
-    "frame-src" => [
+    "child-src" => [
       "https://*.facebook.com",
       "https://*.google.com"
     ]
